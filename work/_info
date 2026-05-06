@@ -9,6 +9,16 @@ R0
 R1
 R0
 R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
 !s11f vlog 2024.1 2024.02, Feb  1 2024
 13
 !s112 1.1
@@ -20,10 +30,10 @@ dC:/Users/Admin/Documents/GitHub/SRAM_RV32I-main
 T_opt
 !s11d riscv_tb_pkg C:/Users/Admin/Documents/GitHub/RAM/work 1 riscv_if 1 C:/Users/Admin/Documents/GitHub/RAM/work 
 !s11d uvm_pkg C:/questasim64_2024.1/uvm-1.1d 1 riscv_if 1 C:/Users/Admin/Documents/GitHub/RAM/work 
-!s110 1778035332
-VNM1U69^1U7<2ZoFgITg;K0
+!s110 1778038790
+VMb3GDVSn?ZUIgKC4=jA^C0
 04 6 4 work tb_top fast 0
-=1-e884a5770f74-69faaa82-3df-2264
+=1-e884a5770f74-69fab805-147-9c0
 R1
 !s12f OEM100
 !s12b OEM100
@@ -34,7 +44,7 @@ n@_opt
 OL;O;2024.1;79
 vadder
 Z3 2EF_SRAM_1024x32.tt_180V_25C.v|EF_SRAM_1024x32.v|adder.v|alu.v|alu_decoder.v|control_unit.v|csr_alu.v|csr_file.v|data_memory.v|decode_cycle.v|execute_cycle.v|extend.v|fetch_cycle.v|hazard_unit.v|instruction_memory.v|l1_cache.v|l1_dcache.v|main_decoder.v|memory_cycle.v|mux.v|pc.v|pipeline.v|register_file.v|sram_arbiter.v|tb_ex.v|tb_full.v|tb_id.v|tb_if.v|tb_mem.v|tb_top.v|tb_wb.v|top_module.v|writeback_cycle.v|riscv_agent_env_test.sv|riscv_coverage.sv|riscv_driver.sv|riscv_if.sv|riscv_monitor.sv|riscv_scoreboard.sv|riscv_seq_item.sv|riscv_sequences.sv|riscv_tb_pkg.sv|riscv_tests.sv|tb_top.sv
-Z4 !s110 1778035326
+Z4 !s110 1778038784
 !i10b 1
 !s100 ^EQQP6a;PTRoD`UH?jXN:2
 IKU_=4zai;FWF1Z]kdAi7k0
@@ -44,14 +54,14 @@ Z6 w1776831144
 Fadder.v
 Z7 8EF_SRAM_1024x32.v
 Z8 FEF_SRAM_1024x32.v
-!i122 134
+!i122 307
 Z9 L0 1 7
 Z10 VDg1SIo80bB@j0V0VzS_@n1
 Z11 OL;L;2024.1;79
 r1
 !s85 0
 31
-Z12 !s108 1778035326.000000
+Z12 !s108 1778038784.000000
 Z13 !s107 C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|tb_top.sv|riscv_tests.sv|riscv_tb_pkg.sv|riscv_sequences.sv|riscv_seq_item.sv|riscv_scoreboard.sv|riscv_monitor.sv|riscv_if.sv|riscv_driver.sv|riscv_coverage.sv|riscv_agent_env_test.sv|writeback_cycle.v|top_module.v|tb_wb.v|tb_top.v|tb_mem.v|tb_if.v|tb_id.v|tb_full.v|tb_ex.v|sram_arbiter.v|register_file.v|pipeline.v|pc.v|mux.v|memory_cycle.v|main_decoder.v|l1_dcache.v|l1_cache.v|instruction_memory.v|hazard_unit.v|fetch_cycle.v|extend.v|execute_cycle.v|decode_cycle.v|data_memory.v|csr_file.v|csr_alu.v|control_unit.v|alu_decoder.v|alu.v|adder.v|EF_SRAM_1024x32.v|EF_SRAM_1024x32.tt_180V_25C.v|
 Z14 !s90 -reportprogress|300|EF_SRAM_1024x32.tt_180V_25C.v|EF_SRAM_1024x32.v|adder.v|alu.v|alu_decoder.v|control_unit.v|csr_alu.v|csr_file.v|data_memory.v|decode_cycle.v|execute_cycle.v|extend.v|fetch_cycle.v|hazard_unit.v|instruction_memory.v|l1_cache.v|l1_dcache.v|main_decoder.v|memory_cycle.v|mux.v|pc.v|pipeline.v|register_file.v|sram_arbiter.v|tb_ex.v|tb_full.v|tb_id.v|tb_if.v|tb_mem.v|tb_top.v|tb_wb.v|top_module.v|writeback_cycle.v|riscv_agent_env_test.sv|riscv_coverage.sv|riscv_driver.sv|riscv_if.sv|riscv_monitor.sv|riscv_scoreboard.sv|riscv_seq_item.sv|riscv_sequences.sv|riscv_tb_pkg.sv|riscv_tests.sv|tb_top.sv|
 !i113 0
@@ -69,7 +79,7 @@ R6
 Falu.v
 R7
 R8
-!i122 134
+!i122 307
 L0 1 58
 R10
 R11
@@ -94,7 +104,7 @@ R6
 Falu_decoder.v
 R7
 R8
-!i122 134
+!i122 307
 L0 1 51
 R10
 R11
@@ -119,7 +129,7 @@ R6
 Fcontrol_unit.v
 R7
 R8
-!i122 134
+!i122 307
 L0 1 57
 R10
 R11
@@ -144,7 +154,7 @@ R6
 Fcsr_alu.v
 R7
 R8
-!i122 134
+!i122 307
 L0 1 19
 R10
 R11
@@ -169,7 +179,7 @@ R6
 Fcsr_file.v
 R7
 R8
-!i122 134
+!i122 307
 L0 1 70
 R10
 R11
@@ -194,7 +204,7 @@ R6
 Fdata_memory.v
 R7
 R8
-!i122 134
+!i122 307
 L0 1 75
 R10
 R11
@@ -219,7 +229,7 @@ R6
 Fdecode_cycle.v
 R7
 R8
-!i122 134
+!i122 307
 L0 1 83
 R10
 R11
@@ -242,7 +252,7 @@ R5
 R6
 R7
 R8
-!i122 134
+!i122 307
 L0 35 95
 R10
 R11
@@ -266,7 +276,7 @@ R5
 R6
 Z16 8EF_SRAM_1024x32.tt_180V_25C.v
 Z17 FEF_SRAM_1024x32.tt_180V_25C.v
-!i122 134
+!i122 307
 L0 32 1089
 R10
 R11
@@ -290,7 +300,7 @@ R5
 R6
 R16
 R17
-!i122 134
+!i122 307
 L0 1123 400
 R10
 R11
@@ -316,7 +326,7 @@ R6
 Fexecute_cycle.v
 R7
 R8
-!i122 134
+!i122 307
 L0 1 85
 R10
 R11
@@ -341,7 +351,7 @@ R6
 Fextend.v
 R7
 R8
-!i122 134
+!i122 307
 L0 1 40
 R10
 R11
@@ -366,7 +376,7 @@ R6
 Ffetch_cycle.v
 R7
 R8
-!i122 134
+!i122 307
 L0 1 62
 R10
 R11
@@ -391,7 +401,7 @@ w1777865387
 Fhazard_unit.v
 R7
 R8
-!i122 134
+!i122 307
 L0 1 82
 R10
 R11
@@ -416,7 +426,7 @@ R6
 Finstruction_memory.v
 R7
 R8
-!i122 134
+!i122 307
 L0 1 41
 R10
 R11
@@ -441,7 +451,7 @@ R6
 Fl1_dcache.v
 R7
 R8
-!i122 134
+!i122 307
 L0 1 135
 R10
 R11
@@ -466,7 +476,7 @@ R6
 Fl1_cache.v
 R7
 R8
-!i122 134
+!i122 307
 L0 1 72
 R10
 R11
@@ -491,7 +501,7 @@ R6
 Fmain_decoder.v
 R7
 R8
-!i122 134
+!i122 307
 L0 1 80
 R10
 R11
@@ -516,7 +526,7 @@ w1777866241
 Fmemory_cycle.v
 R7
 R8
-!i122 134
+!i122 307
 L0 1 55
 R10
 R11
@@ -541,7 +551,7 @@ Z18 8mux.v
 Z19 Fmux.v
 R7
 R8
-!i122 134
+!i122 307
 R9
 R10
 R11
@@ -566,7 +576,7 @@ R18
 R19
 R7
 R8
-!i122 134
+!i122 307
 L0 9 13
 R10
 R11
@@ -591,7 +601,7 @@ R18
 R19
 R7
 R8
-!i122 134
+!i122 307
 L0 24 18
 R10
 R11
@@ -616,7 +626,7 @@ R6
 Fpc.v
 R7
 R8
-!i122 134
+!i122 307
 L0 1 27
 R10
 R11
@@ -641,7 +651,7 @@ Z20 8pipeline.v
 Z21 Fpipeline.v
 R7
 R8
-!i122 134
+!i122 307
 L0 2 39
 R10
 R11
@@ -666,7 +676,7 @@ R20
 R21
 R7
 R8
-!i122 134
+!i122 307
 L0 43 123
 R10
 R11
@@ -691,7 +701,7 @@ R20
 R21
 R7
 R8
-!i122 134
+!i122 307
 L0 168 89
 R10
 R11
@@ -716,7 +726,7 @@ R20
 R21
 R7
 R8
-!i122 134
+!i122 307
 L0 260 79
 R10
 R11
@@ -739,7 +749,7 @@ R5
 R6
 Z22 8register_file.v
 Z23 Fregister_file.v
-!i122 134
+!i122 307
 L0 3 43
 R10
 R11
@@ -758,16 +768,16 @@ Z24 !s115 riscv_if
 Z25 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
 Z26 DXx6 mtiUvm 7 uvm_pkg 0 22 MiVhEBb9cnBN5^J=<XBKI2
 R4
-VkmT:[fR3MP[eggHMcB0nL3
+V2@2o0dH1QzdP[l3=ASC6X1
 r1
 !s85 0
 !i10b 1
-!s100 2dDa=B?mC9@UZ]C15T8>O0
-IkmT:[fR3MP[eggHMcB0nL3
+!s100 8;]OCLP=F32i6Dc]DO]GM0
+I2@2o0dH1QzdP[l3=ASC6X1
 !i103 1
 S1
 R5
-Z27 w1778035321
+Z27 w1778038780
 8riscv_agent_env_test.sv
 Z28 Friscv_agent_env_test.sv
 Z29 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh
@@ -789,7 +799,7 @@ Z44 Friscv_driver.sv
 Z45 Friscv_monitor.sv
 Z46 Friscv_scoreboard.sv
 Z47 Friscv_coverage.sv
-!i122 134
+!i122 307
 Z48 L0 8 0
 R11
 31
@@ -803,7 +813,7 @@ Xriscv_coverage_sv_unit
 R3
 R25
 R26
-R4
+Z49 !s110 1778038785
 VN_lD6IE?DD`o4J=[BcalM1
 r1
 !s85 0
@@ -813,7 +823,7 @@ IN_lD6IE?DD`o4J=[BcalM1
 !i103 1
 S1
 R5
-w1776932642
+w1778037272
 8riscv_coverage.sv
 R47
 R29
@@ -829,7 +839,7 @@ R38
 R39
 R40
 R43
-!i122 134
+!i122 307
 L0 16 0
 R11
 31
@@ -844,7 +854,7 @@ R3
 R24
 R25
 R26
-R4
+R49
 V[Y`mT1ffF;mG5e[ZVAB130
 r1
 !s85 0
@@ -870,7 +880,7 @@ R38
 R39
 R40
 R43
-!i122 134
+!i122 307
 L0 7 0
 R11
 31
@@ -885,7 +895,7 @@ R3
 R25
 R26
 DXx4 work 16 riscv_if_sv_unit 0 22 A1jcFLhS4P38X6dQD]H]`2
-R4
+R49
 R10
 r1
 !s85 0
@@ -895,10 +905,10 @@ Ife[EzUAlLjGJWSGi;J[Q23
 !s105 riscv_if_sv_unit
 S1
 R5
-Z49 w1778035217
-Z50 8riscv_if.sv
-Z51 Friscv_if.sv
-!i122 134
+Z50 w1778035217
+Z51 8riscv_if.sv
+Z52 Friscv_if.sv
+!i122 307
 L0 11 0
 R11
 31
@@ -912,7 +922,7 @@ Xriscv_if_sv_unit
 R3
 R25
 R26
-R4
+R49
 VA1jcFLhS4P38X6dQD]H]`2
 r1
 !s85 0
@@ -922,9 +932,9 @@ IA1jcFLhS4P38X6dQD]H]`2
 !i103 1
 S1
 R5
-R49
 R50
 R51
+R52
 R29
 R30
 R31
@@ -937,7 +947,7 @@ R37
 R38
 R39
 R40
-!i122 134
+!i122 307
 L0 10 0
 R11
 31
@@ -952,7 +962,7 @@ R3
 R24
 R25
 R26
-R4
+R49
 VZf4Je?WP92nZ_Z?75Dbni3
 r1
 !s85 0
@@ -962,7 +972,7 @@ IZf4Je?WP92nZ_Z?75Dbni3
 !i103 1
 S1
 R5
-R27
+w1778035321
 8riscv_monitor.sv
 R45
 R29
@@ -978,7 +988,7 @@ R38
 R39
 R40
 R43
-!i122 134
+!i122 307
 L0 6 0
 R11
 31
@@ -1000,7 +1010,7 @@ w1777866363
 Ftop_module.v
 R41
 R42
-!i122 134
+!i122 307
 L0 1 425
 R10
 R11
@@ -1018,17 +1028,17 @@ R3
 R24
 R25
 R26
-R4
-V8S92>?H`UgJEbLeg_XnFV3
+R49
+V7a6<:NeL1h=:HR6GjLRf12
 r1
 !s85 0
 !i10b 1
-!s100 ?F2G7G[[W6H]3=ID6`Z;f1
-I8S92>?H`UgJEbLeg_XnFV3
+!s100 LHa9Go<9=J;`^3z72^E0V3
+I7a6<:NeL1h=:HR6GjLRf12
 !i103 1
 S1
 R5
-w1777860348
+R27
 8riscv_scoreboard.sv
 R46
 R29
@@ -1044,8 +1054,8 @@ R38
 R39
 R40
 R43
-!i122 134
-Z52 L0 19 0
+!i122 307
+Z53 L0 19 0
 R11
 31
 R12
@@ -1058,7 +1068,7 @@ Xriscv_seq_item_sv_unit
 R3
 R25
 R26
-R4
+R49
 VLF@4GYgCzmHQR>6CW;44O2
 r1
 !s85 0
@@ -1068,7 +1078,7 @@ ILF@4GYgCzmHQR>6CW;44O2
 !i103 1
 S1
 R5
-Z53 w1776931241
+w1776931241
 8riscv_seq_item.sv
 R43
 R29
@@ -1083,7 +1093,7 @@ R37
 R38
 R39
 R40
-!i122 134
+!i122 307
 L0 9 0
 R11
 31
@@ -1097,17 +1107,17 @@ Xriscv_sequences_sv_unit
 R3
 R25
 R26
-R4
-Va6NbUHIJ`F^WSzWoO?hcM2
+R49
+VA93SC=:i@:MH@YJVQD2SG3
 r1
 !s85 0
 !i10b 1
-!s100 0VJ^F7KDdGomb4YzUBh:@1
-Ia6NbUHIJ`F^WSzWoO?hcM2
+!s100 fCh:An8^MDb>F5VC=5ERi3
+IA93SC=:i@:MH@YJVQD2SG3
 !i103 1
 S1
 R5
-R53
+w1778036943
 8riscv_sequences.sv
 Z54 Friscv_sequences.sv
 R29
@@ -1123,8 +1133,8 @@ R38
 R39
 R40
 R43
-!i122 134
-R52
+!i122 307
+R53
 R11
 31
 R12
@@ -1139,15 +1149,15 @@ R3
 R24
 R25
 R26
-Z55 !s110 1778035327
+R49
 !i10b 1
-!s100 hzdE_aA2MMl;jdQY;?[Ul1
-IkC@P>YgUCSWWBa7H52GN?1
+!s100 Pk>2N^c:H@_>b>cnAEcQd2
+ID278AjWZnNZ`J9L1^CmUF0
 S1
 R5
 R27
 Friscv_tb_pkg.sv
-Z56 Ftb_top.sv
+Z55 Ftb_top.sv
 R29
 R30
 R31
@@ -1167,10 +1177,10 @@ R46
 R47
 R28
 R54
-Z57 Friscv_tests.sv
-!i122 134
+Z56 Friscv_tests.sv
+!i122 307
 R48
-VkC@P>YgUCSWWBa7H52GN?1
+VD278AjWZnNZ`J9L1^CmUF0
 R11
 r1
 !s85 0
@@ -1186,19 +1196,19 @@ R3
 R24
 R25
 R26
-R55
-V5OP`N8Wgio<lJ_Gl9eJz42
+R49
+V:5HIk[@Q1:[;<]?KUPB<:2
 r1
 !s85 0
 !i10b 1
-!s100 O?di9DjIkhj3jB=hZhHEb2
-I5OP`N8Wgio<lJ_Gl9eJz42
+!s100 _:fSUoM2<R[Aa03ZjfRbF1
+I:5HIk[@Q1:[;<]?KUPB<:2
 !i103 1
 S1
 R5
 R27
 8riscv_tests.sv
-R57
+R56
 R29
 R30
 R31
@@ -1218,7 +1228,7 @@ R45
 R46
 R47
 R54
-!i122 134
+!i122 307
 L0 21 0
 R11
 31
@@ -1240,7 +1250,7 @@ w1777865221
 Fsram_arbiter.v
 R22
 R23
-!i122 134
+!i122 307
 L0 1 81
 R10
 R11
@@ -1263,7 +1273,7 @@ R5
 R6
 8tb_id.v
 Ftb_id.v
-!i122 134
+!i122 307
 L0 3 80
 R10
 R11
@@ -1286,7 +1296,7 @@ R5
 R6
 8tb_ex.v
 Ftb_ex.v
-!i122 134
+!i122 307
 L0 3 87
 R10
 R11
@@ -1309,7 +1319,7 @@ R5
 R6
 8tb_if.v
 Ftb_if.v
-!i122 134
+!i122 307
 L0 3 63
 R10
 R11
@@ -1332,7 +1342,7 @@ R5
 R6
 8tb_mem.v
 Ftb_mem.v
-!i122 134
+!i122 307
 L0 3 56
 R10
 R11
@@ -1355,7 +1365,7 @@ R5
 R6
 8tb_top.v
 Ftb_top.v
-!i122 134
+!i122 307
 L0 3 68
 R10
 R11
@@ -1378,7 +1388,7 @@ R5
 w1777866004
 8tb_full.v
 Ftb_full.v
-!i122 134
+!i122 307
 L0 3 173
 R10
 R11
@@ -1395,8 +1405,8 @@ vtb_top
 R3
 R25
 R26
-DXx4 work 12 riscv_tb_pkg 0 22 kC@P>YgUCSWWBa7H52GN?1
-R55
+DXx4 work 12 riscv_tb_pkg 0 22 D278AjWZnNZ`J9L1^CmUF0
+R49
 !i10b 1
 !s100 VW2L1XL6]9jmhK[0hOYNc3
 I3ISDo1k6B7MXIVce9U?In3
@@ -1404,9 +1414,9 @@ S1
 R5
 w1778035243
 8tb_top.sv
-R56
+R55
 R29
-!i122 134
+!i122 307
 L0 16 206
 R10
 R11
@@ -1429,7 +1439,7 @@ R5
 R6
 R41
 R42
-!i122 134
+!i122 307
 L0 3 53
 R10
 R11
@@ -1454,7 +1464,7 @@ R6
 Fwriteback_cycle.v
 R41
 R42
-!i122 134
+!i122 307
 L0 1 20
 R10
 R11

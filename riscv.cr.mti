@@ -1,13 +1,4 @@
-C:/Users/Admin/Documents/GitHub/RAM/riscv_scoreboard.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_scoreboard.sv
-QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
-** Note: (vlog-2286) C:/Users/Admin/Documents/GitHub/RAM/riscv_scoreboard.sv(18): Using implicit +incdir+C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
--- Compiling package riscv_scoreboard_sv_unit
--- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
-
-Top level modules:
-	--none--
-
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/pipeline.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/pipeline.v
+C:/Users/Admin/Documents/GitHub/RAM/pipeline.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/pipeline.v
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 -- Compiling module pipeline_1_2
 -- Compiling module pipeline_2_3
@@ -23,7 +14,6 @@ Top level modules:
 } {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_agent_env_test.sv {2 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_agent_env_test.sv
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 ** Note: (vlog-2286) C:/Users/Admin/Documents/GitHub/RAM/riscv_agent_env_test.sv(7): Using implicit +incdir+C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
-** Warning: C:/Users/Admin/Documents/GitHub/RAM/riscv_agent_env_test.sv(8): (vlog-13233) Design unit "riscv_agent_env_test_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
 -- Compiling package riscv_agent_env_test_sv_unit
 -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
 ** Warning: riscv_monitor.sv(87): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
@@ -59,6 +49,17 @@ QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 
 Top level modules:
 	EF_SRAM_1024x32
+
+} {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_monitor.sv {2 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_monitor.sv
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+** Note: (vlog-2286) C:/Users/Admin/Documents/GitHub/RAM/riscv_monitor.sv(5): Using implicit +incdir+C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+-- Compiling package riscv_monitor_sv_unit
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+** Warning: C:/Users/Admin/Documents/GitHub/RAM/riscv_monitor.sv(87): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
+** Warning: C:/Users/Admin/Documents/GitHub/RAM/riscv_monitor.sv(88): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
+
+Top level modules:
+	--none--
 
 } {} {}} C:/Users/Admin/Documents/GitHub/RAM/instruction_memory.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/instruction_memory.v
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
@@ -99,22 +100,30 @@ QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 Top level modules:
 	main_decoder
 
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/tb_top.sv {2 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/tb_top.sv
+} {} {}} C:/Users/Admin/Documents/GitHub/RAM/tb_top.sv {0 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/tb_top.sv
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 -- Compiling package riscv_tb_pkg
 -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
 ** Note: (vlog-2286) riscv_tb_pkg.sv(10): Using implicit +incdir+C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
-** Warning: ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/tb_top.sv(15)
-** at riscv_monitor.sv(87): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
-** Warning: ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/tb_top.sv(15)
-** at riscv_monitor.sv(88): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
+** Error: (vlog-13069) ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/tb_top.sv(15)
+** while parsing file included at riscv_tb_pkg.sv(19)
+** at riscv_sequences.sv(314): near ";": syntax error, unexpected ';', expecting '('.
+** Error: ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/tb_top.sv(15)
+** while parsing file included at riscv_tb_pkg.sv(19)
+** at riscv_sequences.sv(323): (vlog-2730) Undefined variable: 'extra_seq'.
+** Error: ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/tb_top.sv(15)
+** while parsing file included at riscv_tb_pkg.sv(19)
+** at riscv_sequences.sv(323): (vlog-2164) Class or package 'riscv_extra_coverage_seq' not found.
+** Error: ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/tb_top.sv(15)
+** while parsing file included at riscv_tb_pkg.sv(19)
+** at riscv_sequences.sv(323): (vlog-2730) Undefined variable: 'riscv_extra_coverage_seq'.
+** Error: (vlog-13069) ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/tb_top.sv(15)
+** while parsing file included at riscv_tb_pkg.sv(19)
+** at riscv_sequences.sv(323): near "::": syntax error, unexpected ::, expecting ';'.
 -- Compiling module tb_top
 -- Importing package riscv_tb_pkg
 
-Top level modules:
-	tb_top
-
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/decode_cycle.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/decode_cycle.v
+} {6.0 7.0 9.0 10.0 12.0 13.0 15.0 16.0 18.0 19.0} {}} C:/Users/Admin/Documents/GitHub/RAM/decode_cycle.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/decode_cycle.v
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 -- Compiling module decode_cycle
 
@@ -142,19 +151,30 @@ QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 Top level modules:
 	register_file
 
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_tests.sv {2 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_tests.sv
+} {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_tests.sv {0 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_tests.sv
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 ** Note: (vlog-2286) C:/Users/Admin/Documents/GitHub/RAM/riscv_tests.sv(20): Using implicit +incdir+C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
-** Warning: C:/Users/Admin/Documents/GitHub/RAM/riscv_tests.sv(21): (vlog-13233) Design unit "riscv_tests_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
--- Compiling package riscv_tests_sv_unit
--- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
-** Warning: riscv_monitor.sv(87): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
-** Warning: riscv_monitor.sv(88): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
+** Error: (vlog-13069) ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/riscv_tests.sv(23)
+** at riscv_sequences.sv(314): near ";": syntax error, unexpected ';', expecting '('.
+** Error: ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/riscv_tests.sv(23)
+** at riscv_sequences.sv(323): (vlog-2730) Undefined variable: 'extra_seq'.
+** Error: ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/riscv_tests.sv(23)
+** at riscv_sequences.sv(323): (vlog-2164) Class or package 'riscv_extra_coverage_seq' not found.
+** Error: ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/riscv_tests.sv(23)
+** at riscv_sequences.sv(323): (vlog-2730) Undefined variable: 'riscv_extra_coverage_seq'.
+** Error: (vlog-13069) ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/riscv_tests.sv(23)
+** at riscv_sequences.sv(323): near "::": syntax error, unexpected ::, expecting ';'.
 
-Top level modules:
-	--none--
+} {4.0 5.0 6.0 7.0 8.0 9.0 10.0 11.0 12.0 13.0} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_sequences.sv {0 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_sequences.sv
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+** Note: (vlog-2286) C:/Users/Admin/Documents/GitHub/RAM/riscv_sequences.sv(18): Using implicit +incdir+C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+** Error: (vlog-13069) C:/Users/Admin/Documents/GitHub/RAM/riscv_sequences.sv(314): near ";": syntax error, unexpected ';', expecting '('.
+** Error: C:/Users/Admin/Documents/GitHub/RAM/riscv_sequences.sv(323): (vlog-2730) Undefined variable: 'extra_seq'.
+** Error: C:/Users/Admin/Documents/GitHub/RAM/riscv_sequences.sv(323): (vlog-2164) Class or package 'riscv_extra_coverage_seq' not found.
+** Error: C:/Users/Admin/Documents/GitHub/RAM/riscv_sequences.sv(323): (vlog-2730) Undefined variable: 'riscv_extra_coverage_seq'.
+** Error: (vlog-13069) C:/Users/Admin/Documents/GitHub/RAM/riscv_sequences.sv(323): near "::": syntax error, unexpected ::, expecting ';'.
 
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/EF_SRAM_1024x32.tt_180V_25C.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/EF_SRAM_1024x32.tt_180V_25C.v
+} {4.0 9.0} {}} C:/Users/Admin/Documents/GitHub/RAM/EF_SRAM_1024x32.tt_180V_25C.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/EF_SRAM_1024x32.tt_180V_25C.v
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 -- Compiling module EF_SRAM_1024x32_macro
 -- Compiling module EF_SRAM_1024x32_memory_mode
@@ -162,28 +182,10 @@ QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 Top level modules:
 	EF_SRAM_1024x32_macro
 
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_coverage.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_coverage.sv
-QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
-** Note: (vlog-2286) C:/Users/Admin/Documents/GitHub/RAM/riscv_coverage.sv(15): Using implicit +incdir+C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
--- Compiling package riscv_coverage_sv_unit
--- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
-
-Top level modules:
-	--none--
-
 } {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_driver.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_driver.sv
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 ** Note: (vlog-2286) C:/Users/Admin/Documents/GitHub/RAM/riscv_driver.sv(6): Using implicit +incdir+C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
 -- Compiling package riscv_driver_sv_unit
--- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
-
-Top level modules:
-	--none--
-
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_sequences.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_sequences.sv
-QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
-** Note: (vlog-2286) C:/Users/Admin/Documents/GitHub/RAM/riscv_sequences.sv(18): Using implicit +incdir+C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
--- Compiling package riscv_sequences_sv_unit
 -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
 
 Top level modules:
@@ -209,6 +211,16 @@ QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 
 Top level modules:
 	alu_decoder
+
+} {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_if.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_if.sv
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+** Note: (vlog-2286) C:/Users/Admin/Documents/GitHub/RAM/riscv_if.sv(7): Using implicit +incdir+C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+-- Compiling package riscv_if_sv_unit
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Compiling interface riscv_if
+
+Top level modules:
+	--none--
 
 } {} {}} C:/Users/Admin/Documents/GitHub/RAM/extend.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/extend.v
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
@@ -240,18 +252,23 @@ QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 Top level modules:
 	--none--
 
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_tb_pkg.sv {2 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_tb_pkg.sv
+} {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_tb_pkg.sv {0 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_tb_pkg.sv
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 -- Compiling package riscv_tb_pkg
 -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
 ** Note: (vlog-2286) C:/Users/Admin/Documents/GitHub/RAM/riscv_tb_pkg.sv(10): Using implicit +incdir+C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
-** Warning: riscv_monitor.sv(87): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
-** Warning: riscv_monitor.sv(88): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
+** Error: (vlog-13069) ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/riscv_tb_pkg.sv(19)
+** at riscv_sequences.sv(314): near ";": syntax error, unexpected ';', expecting '('.
+** Error: ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/riscv_tb_pkg.sv(19)
+** at riscv_sequences.sv(323): (vlog-2730) Undefined variable: 'extra_seq'.
+** Error: ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/riscv_tb_pkg.sv(19)
+** at riscv_sequences.sv(323): (vlog-2164) Class or package 'riscv_extra_coverage_seq' not found.
+** Error: ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/riscv_tb_pkg.sv(19)
+** at riscv_sequences.sv(323): (vlog-2730) Undefined variable: 'riscv_extra_coverage_seq'.
+** Error: (vlog-13069) ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/riscv_tb_pkg.sv(19)
+** at riscv_sequences.sv(323): near "::": syntax error, unexpected ::, expecting ';'.
 
-Top level modules:
-	--none--
-
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/tb_full.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/tb_full.v
+} {6.0 7.0 8.0 9.0 10.0 11.0 12.0 13.0 14.0 15.0} {}} C:/Users/Admin/Documents/GitHub/RAM/tb_full.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/tb_full.v
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 -- Compiling module tb_riscv_pipeline_mega
 

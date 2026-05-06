@@ -101,6 +101,8 @@ class riscv_env extends uvm_env;
 
         // Also feed reg-writes to coverage (for register usage)
         agent.ap_regwrite.connect(coverage.analysis_export);
+        agent.ap_memaccess.connect(coverage.analysis_export);
+        agent.ap_branch.connect(coverage.analysis_export);
     endfunction
 
 endclass : riscv_env

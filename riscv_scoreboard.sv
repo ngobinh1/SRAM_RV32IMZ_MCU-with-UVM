@@ -158,10 +158,22 @@ class riscv_scoreboard extends uvm_scoreboard;
                 // Can't predict (e.g. load from memory not modelled)
                 // Just update ref model and move on
                 ref_regfile[item.rd] = item.result;
-                `uvm_info("SCOREBOARD",
-                    $sformatf("SKIP CHECK: %0s rd=x%0d result=0x%08h (memory-dependent)",
-                              item.instr_type.name(), item.rd, item.result),
-                    UVM_HIGH)
+                if (item.instr_type inside {
+                    riscv_seq_item::INSTR_CSRRW,
+                    riscv_seq_item::INSTR_CSRRS,
+                    riscv_seq_item::INSTR_CSRRC}) 
+                begin
+                    `uvm_info("SCOREBOARD_EXTRA",
+                        $sformatf("SYSTEM COMMAND: %0s rd=x%0d result = 0x%08h",
+                                  item.instr_type.name(), item.rd, item.result),
+                        UVM_NONE) // UVM_NONE ép hiển thị lên Transcript
+                end 
+                else begin
+                    `uvm_info("SCOREBOARD",
+                        $sformatf("SKIP CHECK: %0s rd=x%0d result=0x%08h (memory-dependent)",
+                                  item.instr_type.name(), item.rd, item.result),
+                        UVM_HIGH)
+                end
                 checks_pass++; // Conservative: count as pass
                 continue;
             end

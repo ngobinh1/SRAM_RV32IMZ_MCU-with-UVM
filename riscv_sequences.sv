@@ -292,6 +292,24 @@ class riscv_csr_test_seq extends riscv_base_seq;
 
 endclass : riscv_csr_test_seq
 
+class riscv_extra_coverage_seq extends riscv_base_seq;
+    `uvm_object_utils(riscv_extra_coverage_seq)
+    function new(string name = "riscv_extra_coverage_seq");
+        super.new(name);
+    endfunction
+    task body();
+        riscv_load_program_seq load_seq;
+        riscv_run_seq          run_seq;
+        `uvm_info("EXTRA_COV", "Starting Extra Coverage test", UVM_MEDIUM)
+        load_seq = riscv_load_program_seq::type_id::create("load_seq");
+        load_seq.hex_file = "extra_coverage.hex";
+        load_seq.start(m_sequencer);
+        run_seq = riscv_run_seq::type_id::create("run_seq");
+        run_seq.run_cycles = 200;
+        run_seq.start(m_sequencer);
+    endtask
+endclass : riscv_extra_coverage_seq
+
 
 // ============================================================
 // 9. Full Test Sequence
@@ -306,25 +324,28 @@ class riscv_full_test_seq extends riscv_base_seq;
     endfunction
 
     task body();
-        riscv_alu_test_seq    alu_seq;
-        riscv_mem_test_seq    mem_seq;
-        riscv_branch_test_seq brnch_seq;
-        riscv_hazard_test_seq haz_seq;
-        riscv_csr_test_seq    csr_seq;
+        riscv_alu_test_seq       alu_seq;
+        riscv_mem_test_seq       mem_seq;
+        riscv_branch_test_seq    brnch_seq;
+        riscv_hazard_test_seq    haz_seq;
+        riscv_csr_test_seq       csr_seq;
+        riscv_extra_coverage_seq extra_seq;
 
         `uvm_info("FULL_TEST", "=== Starting full regression ===", UVM_NONE)
 
-        alu_seq   = riscv_alu_test_seq::type_id::create("alu_seq");
-        mem_seq   = riscv_mem_test_seq::type_id::create("mem_seq");
-        brnch_seq = riscv_branch_test_seq::type_id::create("brnch_seq");
-        haz_seq   = riscv_hazard_test_seq::type_id::create("haz_seq");
-        csr_seq   = riscv_csr_test_seq::type_id::create("csr_seq");
+        alu_seq       = riscv_alu_test_seq::type_id::create("alu_seq");
+        mem_seq       = riscv_mem_test_seq::type_id::create("mem_seq");
+        brnch_seq     = riscv_branch_test_seq::type_id::create("brnch_seq");
+        haz_seq       = riscv_hazard_test_seq::type_id::create("haz_seq");
+        csr_seq       = riscv_csr_test_seq::type_id::create("csr_seq");
+        extra_seq     = riscv_extra_coverage_seq::type_id::create("extra_seq");
 
         alu_seq.start(m_sequencer);
         mem_seq.start(m_sequencer);
         brnch_seq.start(m_sequencer);
         haz_seq.start(m_sequencer);
         csr_seq.start(m_sequencer);
+        extra_seq.start(m_sequencer);
 
         `uvm_info("FULL_TEST", "=== Full regression complete ===", UVM_NONE)
     endtask
@@ -350,7 +371,8 @@ class riscv_random_seq extends riscv_base_seq;
         "branch_test.hex",
         "hazard_test.hex",
         "csr_test.hex",
-        "full_test.hex"
+        "full_test.hex",
+        "extra_coverage.hex"
     };
 
     constraint c_iters  { iterations inside {[1:5]}; }
