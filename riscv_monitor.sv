@@ -139,11 +139,18 @@ class riscv_monitor extends uvm_monitor;
                 item.stall_seen = vif.monitor_cb.dcache_stall;
                 item.timestamp  = $time;
 
+                case (item.funct3)
+                    3'b000: item.instr_type = riscv_seq_item::INSTR_SB;
+                    3'b001: item.instr_type = riscv_seq_item::INSTR_SH;
+                    3'b010: item.instr_type = riscv_seq_item::INSTR_SW;
+                    default: item.instr_type = riscv_seq_item::INSTR_NOP;
+                endcase
+
                 mem_write_count++;
                 `uvm_info("MONITOR", item.convert2string(), UVM_HIGH)
                 ap_memaccess.write(item);
             end
-            else if (!vif.monitor_cb.dcache_stall && vif.monitor_cb.result_src_m === 3'b001) begin // 001 là code của Load
+            else if (!vif.monitor_cb.dcache_stall && vif.monitor_cb.result_src_m === 3'b001) begin 
                 item = riscv_seq_item::type_id::create("memrd_item");
                 item.trans_type = riscv_seq_item::TRANS_MEM_READ;
                 item.pc         = vif.monitor_cb.pc_m;
@@ -152,6 +159,16 @@ class riscv_monitor extends uvm_monitor;
                 item.funct3     = vif.monitor_cb.funct3_m;
                 item.stall_seen = vif.monitor_cb.dcache_stall;
                 item.timestamp  = $time;
+
+                case (item.funct3)
+                    3'b000: item.instr_type = riscv_seq_item::INSTR_LB;
+                    3'b001: item.instr_type = riscv_seq_item::INSTR_LH;
+                    3'b010: item.instr_type = riscv_seq_item::INSTR_LW;
+                    3'b100: item.instr_type = riscv_seq_item::INSTR_LBU;
+                    3'b101: item.instr_type = riscv_seq_item::INSTR_LHU;
+                    default: item.instr_type = riscv_seq_item::INSTR_NOP;
+                endcase
+
                 mem_read_count++;
                 `uvm_info("MONITOR", item.convert2string(), UVM_HIGH)
                 ap_memaccess.write(item);
@@ -164,23 +181,50 @@ class riscv_monitor extends uvm_monitor;
     // ========================================================
     task automatic monitor_branches();
         riscv_seq_item item;
+        logic [31:0] instr_e_reg;
+        logic        is_branch_e_reg;
+        logic        is_jump_e_reg;
+
+        is_branch_e_reg = 1'b0;
+        is_jump_e_reg   = 1'b0;
+        instr_e_reg     = 32'h0;
+
         forever begin
             @(vif.monitor_cb);
-            if (vif.monitor_cb.rst !== 1'b1) continue;
+            if (vif.monitor_cb.rst !== 1'b1) begin
+                is_branch_e_reg = 1'b0;
+                is_jump_e_reg   = 1'b0;
+                continue;
+            end
 
             // CHỈ CHẶN D-CACHE STALL để không bỏ lỡ Branch
-            if (!vif.monitor_cb.dcache_stall && vif.monitor_cb.pc_src_e === 1'b1) begin
+            if (!vif.monitor_cb.dcache_stall && (is_branch_e_reg || is_jump_e_reg)) begin
                 item = riscv_seq_item::type_id::create("branch_item");
                 item.trans_type    = riscv_seq_item::TRANS_BRANCH_TAKEN;
                 item.pc            = vif.monitor_cb.pc_e;         
                 item.branch_taken  = vif.monitor_cb.pc_src_e;
                 item.branch_target = vif.monitor_cb.pc_target_e;  
                 item.stall_seen    = vif.monitor_cb.dcache_stall;
+                item.decode_instr(instr_e_reg);
                 item.timestamp     = $time;
 
                 branch_taken_count++;
                 `uvm_info("MONITOR", item.convert2string(), UVM_MEDIUM)
                 ap_branch.write(item);
+            end
+
+            if (!vif.monitor_cb.dcache_stall) begin
+                // Nếu tầng Decode bị stall (do load-use), flush, hoặc tín hiệu rác 
+                // -> Tầng E sẽ nhận một bong bóng (bubble), không phải branch
+                if (vif.monitor_cb.stall_f || vif.monitor_cb.flush_d || $isunknown(vif.monitor_cb.instr_d)) begin
+                    is_branch_e_reg = 1'b0;
+                    is_jump_e_reg   = 1'b0;
+                end else begin
+                    // Nếu hợp lệ, đẩy thông tin lệnh từ D sang E để chu kỳ sau xử lý
+                    instr_e_reg     = vif.monitor_cb.instr_d;
+                    is_branch_e_reg = vif.monitor_cb.branch_d;
+                    is_jump_e_reg   = vif.monitor_cb.jump_d;
+                end
             end
         end
     endtask

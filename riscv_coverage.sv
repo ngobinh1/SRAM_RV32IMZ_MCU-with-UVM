@@ -103,7 +103,7 @@ class riscv_coverage extends uvm_subscriber #(riscv_seq_item);
     covergroup cg_mem_access;
         // Load widths
         cp_load_type: coverpoint trans.instr_type
-            iff (trans.trans_type == riscv_seq_item::TRANS_REG_WRITE &&
+            iff (trans.trans_type == riscv_seq_item::TRANS_MEM_READ &&
                  (trans.instr_type inside {
                      riscv_seq_item::INSTR_LW,
                      riscv_seq_item::INSTR_LH, riscv_seq_item::INSTR_LHU,
@@ -162,7 +162,10 @@ class riscv_coverage extends uvm_subscriber #(riscv_seq_item);
             bins not_taken = {1'b0};
         }
         // Must see each branch type both taken AND not-taken
-        cx_branch_taken: cross cp_branch_type, cp_taken;
+        cx_branch_taken: cross cp_branch_type, cp_taken {
+            ignore_bins jal_not_taken  = binsof(cp_branch_type.jal)  && binsof(cp_taken.not_taken);
+            ignore_bins jalr_not_taken = binsof(cp_branch_type.jalr) && binsof(cp_taken.not_taken);
+        }
     endgroup
 
     // ============================================================
@@ -270,8 +273,13 @@ class riscv_coverage extends uvm_subscriber #(riscv_seq_item);
         cg_pipeline_flow.sample();
         cg_regfile.sample();
 
-        if (t.trans_type == riscv_seq_item::TRANS_MEM_WRITE ||
-            t.trans_type == riscv_seq_item::TRANS_MEM_READ)
+        if (trans.trans_type == riscv_seq_item::TRANS_MEM_WRITE ||
+            trans.trans_type == riscv_seq_item::TRANS_MEM_READ  ||
+            (trans.trans_type == riscv_seq_item::TRANS_REG_WRITE &&
+            trans.instr_type inside {
+                     riscv_seq_item::INSTR_LW,
+                     riscv_seq_item::INSTR_LH, riscv_seq_item::INSTR_LHU,
+                     riscv_seq_item::INSTR_LB, riscv_seq_item::INSTR_LBU}))
             cg_mem_access.sample();
 
         if (t.trans_type == riscv_seq_item::TRANS_BRANCH_TAKEN)
