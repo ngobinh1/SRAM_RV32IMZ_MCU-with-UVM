@@ -324,6 +324,12 @@ class riscv_full_test_seq extends riscv_base_seq;
     endfunction
 
     task body();
+        // ----------------------------------------------------
+        // KHAI BÁO BIẾN (Tất cả phải ở đây)
+        // ----------------------------------------------------
+        riscv_load_program_seq   full_load_seq; // Đổi tên cho khớp
+        riscv_run_seq            run_seq;       // Đưa lên đầu
+        
         riscv_alu_test_seq       alu_seq;
         riscv_mem_test_seq       mem_seq;
         riscv_branch_test_seq    brnch_seq;
@@ -339,6 +345,14 @@ class riscv_full_test_seq extends riscv_base_seq;
         haz_seq       = riscv_hazard_test_seq::type_id::create("haz_seq");
         csr_seq       = riscv_csr_test_seq::type_id::create("csr_seq");
         extra_seq     = riscv_extra_coverage_seq::type_id::create("extra_seq");
+        full_load_seq = riscv_load_program_seq::type_id::create("full_load_seq");
+        run_seq       = riscv_run_seq::type_id::create("run_seq");
+
+        full_load_seq.hex_file = "full_test.hex";
+        full_load_seq.start(m_sequencer);
+
+        run_seq.run_cycles = 1500;
+        run_seq.start(m_sequencer);
 
         alu_seq.start(m_sequencer);
         mem_seq.start(m_sequencer);

@@ -94,7 +94,9 @@ class riscv_coverage extends uvm_subscriber #(riscv_seq_item);
             bins other      = default;
         }
         // Cross: stall condition with instruction type
-        cx_stall_instr: cross cp_stall, cp_instr_at_stall;
+    cx_stall_instr: cross cp_stall, cp_instr_at_stall {
+    ignore_bins no_stall_cross = binsof(cp_stall.no_stall);
+}
     endgroup
 
     // ============================================================

@@ -1,18 +1,109 @@
-restart
-# ** Note: (vsim-8009) Loading existing optimized design _opt
-# Loading work.riscv_if(fast)
-# Loading mtiUvm.uvm_pkg(fast)
-# Loading work.riscv_if_sv_unit(fast)
-# Loading work.riscv_tb_pkg(fast)
-# Loading mtiUvm.questa_uvm_pkg(fast)
-# Loading work.tb_top(fast)
-# Loading work.EF_SRAM_1024x32_macro(fast)
-# Loading C:/questasim64_2024.1/uvm-1.1d\win64\uvm_dpi.dll
+# Reading pref.tcl
+# //  Questa Sim-64
+# //  Version 2024.1 win64 Feb  1 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading project riscv
+vlog *.v *.sv
+# QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 08:37:04 on May 10,2026
+# vlog -reportprogress 300 EF_SRAM_1024x32.tt_180V_25C.v EF_SRAM_1024x32.v adder.v alu.v alu_decoder.v control_unit.v csr_alu.v csr_file.v data_memory.v decode_cycle.v execute_cycle.v extend.v fetch_cycle.v hazard_unit.v instruction_memory.v l1_cache.v l1_dcache.v main_decoder.v memory_cycle.v mux.v pc.v pipeline.v register_file.v sram_arbiter.v tb_ex.v tb_full.v tb_id.v tb_if.v tb_mem.v tb_top.v tb_wb.v top_module.v writeback_cycle.v riscv_agent_env_test.sv riscv_coverage.sv riscv_driver.sv riscv_if.sv riscv_monitor.sv riscv_scoreboard.sv riscv_seq_item.sv riscv_sequences.sv riscv_tb_pkg.sv riscv_tests.sv tb_top.sv 
+# -- Compiling module EF_SRAM_1024x32_macro
+# -- Compiling module EF_SRAM_1024x32_memory_mode
+# -- Compiling module EF_SRAM_1024x32
+# -- Compiling module adder
+# -- Compiling module alu
+# -- Compiling module alu_decoder
+# -- Compiling module control_unit
+# -- Compiling module csr_alu
+# -- Compiling module csr_file
+# -- Compiling module data_memory
+# -- Compiling module decode_cycle
+# -- Compiling module execute_cycle
+# -- Compiling module extend
+# -- Compiling module fetch_cycle
+# -- Compiling module hazard_unit
+# -- Compiling module instruction_memory
+# -- Compiling module l1_icache
+# -- Compiling module l1_dcache
+# -- Compiling module main_decoder
+# -- Compiling module memory_cycle
+# -- Compiling module mux
+# -- Compiling module mux_3_1
+# -- Compiling module mux_4to1
+# -- Compiling module pc
+# -- Compiling module pipeline_1_2
+# -- Compiling module pipeline_2_3
+# -- Compiling module pipeline_3_4
+# -- Compiling module pipeline_4_5
+# -- Compiling module register_file
+# -- Compiling module sram_arbiter
+# -- Compiling module tb_execute_cycle
+# -- Compiling module tb_riscv_pipeline_mega
+# -- Compiling module tb_decode_cycle
+# -- Compiling module tb_fetch_cycle
+# -- Compiling module tb_memory_cycle
+# -- Compiling module tb_riscv_pipeline_full
+# -- Compiling module tb_writeback_cycle
+# -- Compiling module riscv_pipeline_top
+# -- Compiling module writeback_cycle
+# ** Note: (vlog-2286) riscv_agent_env_test.sv(7): Using implicit +incdir+C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Compiling package riscv_agent_env_test_sv_unit
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# ** Warning: riscv_monitor.sv(87): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
+# ** Warning: riscv_monitor.sv(88): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
+# -- Compiling package riscv_coverage_sv_unit
+# -- Compiling package riscv_driver_sv_unit
+# -- Compiling package riscv_if_sv_unit
+# -- Compiling interface riscv_if
+# -- Compiling package riscv_monitor_sv_unit
+# ** Warning: riscv_monitor.sv(87): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
+# ** Warning: riscv_monitor.sv(88): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
+# -- Compiling package riscv_scoreboard_sv_unit
+# -- Compiling package riscv_seq_item_sv_unit
+# -- Compiling package riscv_sequences_sv_unit
+# -- Compiling package riscv_tb_pkg
+# ** Warning: riscv_monitor.sv(87): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
+# ** Warning: riscv_monitor.sv(88): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
+# -- Compiling package riscv_tests_sv_unit
+# ** Warning: riscv_monitor.sv(87): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
+# ** Warning: riscv_monitor.sv(88): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
+# -- Compiling package riscv_tb_pkg
+# ** Warning: ** while parsing file included at tb_top.sv(15)
+# ** at riscv_tb_pkg.sv(8): (vlog-2275) Existing package 'riscv_tb_pkg' at line 8 will be overwritten.
+# ** Warning: ** while parsing file included at tb_top.sv(15)
+# ** at riscv_monitor.sv(87): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
+# ** Warning: ** while parsing file included at tb_top.sv(15)
+# ** at riscv_monitor.sv(88): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
+# -- Compiling module tb_top
+# -- Importing package riscv_tb_pkg
+# 
+# Top level modules:
+# 	data_memory
+# 	instruction_memory
+# 	tb_execute_cycle
+# 	tb_riscv_pipeline_mega
+# 	tb_decode_cycle
+# 	tb_fetch_cycle
+# 	tb_memory_cycle
+# 	tb_riscv_pipeline_full
+# 	tb_writeback_cycle
+# 	tb_top
+# End time: 08:37:05 on May 10,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 11
 vsim -c -do "run -all" tb_top +UVM_TESTNAME=riscv_full_test
-# End time: 15:43:04 on May 09,2026, Elapsed time: 0:02:14
-# Errors: 0, Warnings: 1
 # vsim -c -do "run -all" tb_top "+UVM_TESTNAME=riscv_full_test" 
-# Start time: 15:43:04 on May 09,2026
+# Start time: 08:37:05 on May 10,2026
 # ** Note: (vsim-8009) Loading existing optimized design _opt
 # Loading sv_std.std
 # Loading work.riscv_if(fast)
@@ -49,173 +140,163 @@ vsim -c -do "run -all" tb_top +UVM_TESTNAME=riscv_full_test
 # UVM_INFO @ 0: reporter [RNTST] Running test riscv_full_test...
 # UVM_INFO riscv_agent_env_test.sv(154) @ 0: uvm_test_top [BASE_TEST] Build complete. hex=full_test.hex timeout=50000 cycles
 # UVM_INFO riscv_scoreboard.sv(125) @ 0: uvm_test_top.env.scoreboard [SCOREBOARD] Reference model initialised (all regs = 0)
-# UVM_INFO riscv_sequences.sv(334) @ 0: uvm_test_top.env.agent.sequencer@@seq [FULL_TEST] === Starting full regression ===
-# UVM_INFO riscv_sequences.sv(154) @ 0: uvm_test_top.env.agent.sequencer@@alu_seq [ALU_TEST] Starting ALU test sequence
-# UVM_INFO riscv_sequences.sv(106) @ 0: uvm_test_top.env.agent.sequencer@@load_seq [LOAD_SEQ] Loading: alu_test.hex
+# UVM_INFO riscv_sequences.sv(340) @ 0: uvm_test_top.env.agent.sequencer@@seq [FULL_TEST] === Starting full regression ===
+# UVM_INFO riscv_sequences.sv(106) @ 0: uvm_test_top.env.agent.sequencer@@full_load_seq [LOAD_SEQ] Loading: full_test.hex
 # ===INFO=== (efsram) : Writing X to whole memory:pwroff_mode=0 mem_x=0 undefined_mode=1 in instance tb_top.dut.sram_macro.EF_SRAM_1024x32_inst at                 1000
 # ===NOTE=== (efsram) : Undefined state in EF_SRAM_00128x032_008_18: vpwra= 1 vpwrp=1 TM=0 SM=0 WLOFF=0 in instance tb_top.dut.sram_macro.EF_SRAM_1024x32_inst at time=                1000
 # UVM_INFO riscv_driver.sv(98) @ 5000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 0
 # UVM_INFO riscv_scoreboard.sv(125) @ 6000: uvm_test_top.env.scoreboard [SCOREBOARD] Reference model initialised (all regs = 0)
 # UVM_INFO riscv_scoreboard.sv(307) @ 6000: uvm_test_top.env.scoreboard [SCOREBOARD] Hardware reset detected. Cleared Reference Model.
 # UVM_INFO riscv_driver.sv(98) @ 115000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 0
-# UVM_INFO riscv_driver.sv(123) @ 245000: uvm_test_top.env.agent.driver [DRIVER] Loading program via VIF: alu_test.hex
+# UVM_INFO riscv_driver.sv(123) @ 245000: uvm_test_top.env.agent.driver [DRIVER] Loading program via VIF: full_test.hex
+# [VIF] Memory cleared.
+# [VIF] Program loaded into memory from full_test.hex
+# UVM_INFO riscv_driver.sv(98) @ 315000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 1
+# UVM_INFO riscv_sequences.sv(130) @ 465000: uvm_test_top.env.agent.sequencer@@run_seq [RUN_SEQ] Running for 1500 cycles
+# UVM_INFO riscv_monitor.sv(212) @ 1415000: uvm_test_top.env.agent.monitor [MONITOR] [1415000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000084 target=0x0000008c taken=1
+# UVM_INFO riscv_monitor.sv(212) @ 1475000: uvm_test_top.env.agent.monitor [MONITOR] [1475000] TRANS=TRANS_BRANCH_TAKEN PC=0x0000008c target=0x00000094 taken=1
+# UVM_INFO riscv_monitor.sv(212) @ 1535000: uvm_test_top.env.agent.monitor [MONITOR] [1535000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000094 target=0x0000009c taken=1
+# UVM_INFO riscv_monitor.sv(212) @ 1595000: uvm_test_top.env.agent.monitor [MONITOR] [1595000] TRANS=TRANS_BRANCH_TAKEN PC=0x0000009c target=0x000000a4 taken=1
+# UVM_INFO riscv_monitor.sv(212) @ 1655000: uvm_test_top.env.agent.monitor [MONITOR] [1655000] TRANS=TRANS_BRANCH_TAKEN PC=0x000000a4 target=0x000000ac taken=1
+# UVM_INFO riscv_monitor.sv(212) @ 1715000: uvm_test_top.env.agent.monitor [MONITOR] [1715000] TRANS=TRANS_BRANCH_TAKEN PC=0x000000ac target=0x000000b4 taken=1
+# UVM_INFO riscv_monitor.sv(212) @ 1775000: uvm_test_top.env.agent.monitor [MONITOR] [1775000] TRANS=TRANS_BRANCH_TAKEN PC=0x000000b4 target=0x000000c0 taken=1
+# UVM_INFO riscv_monitor.sv(212) @ 1925000: uvm_test_top.env.agent.monitor [MONITOR] [1925000] TRANS=TRANS_BRANCH_TAKEN PC=0x000000c8 target=0x000000cc taken=1
+# UVM_INFO riscv_monitor.sv(212) @ 2045000: uvm_test_top.env.agent.monitor [MONITOR] [2045000] TRANS=TRANS_BRANCH_TAKEN PC=0x000000d8 target=0x000000d8 taken=1
+# UVM_INFO riscv_sequences.sv(154) @ 15465000: uvm_test_top.env.agent.sequencer@@alu_seq [ALU_TEST] Starting ALU test sequence
+# UVM_INFO riscv_sequences.sv(106) @ 15465000: uvm_test_top.env.agent.sequencer@@load_seq [LOAD_SEQ] Loading: alu_test.hex
+# UVM_INFO riscv_driver.sv(98) @ 15475000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 0
+# UVM_INFO riscv_scoreboard.sv(125) @ 15476000: uvm_test_top.env.scoreboard [SCOREBOARD] Reference model initialised (all regs = 0)
+# UVM_INFO riscv_scoreboard.sv(307) @ 15476000: uvm_test_top.env.scoreboard [SCOREBOARD] Hardware reset detected. Cleared Reference Model.
+# UVM_INFO riscv_driver.sv(123) @ 15605000: uvm_test_top.env.agent.driver [DRIVER] Loading program via VIF: alu_test.hex
 # [VIF] Memory cleared.
 # [VIF] Program loaded into memory from alu_test.hex
-# UVM_INFO riscv_driver.sv(98) @ 315000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 1
-# UVM_INFO riscv_sequences.sv(130) @ 465000: uvm_test_top.env.agent.sequencer@@run_seq [RUN_SEQ] Running for 500 cycles
-# UVM_INFO riscv_monitor.sv(212) @ 1675000: uvm_test_top.env.agent.monitor [MONITOR] [1675000] TRANS=TRANS_BRANCH_TAKEN PC=0x000000ac target=0x000000ac taken=1
-# UVM_INFO riscv_sequences.sv(164) @ 5465000: uvm_test_top.env.agent.sequencer@@alu_seq [ALU_TEST] ALU test sequence complete
-# UVM_INFO riscv_sequences.sv(185) @ 5465000: uvm_test_top.env.agent.sequencer@@mem_seq [MEM_TEST] Starting memory access test
-# UVM_INFO riscv_sequences.sv(106) @ 5465000: uvm_test_top.env.agent.sequencer@@load_seq [LOAD_SEQ] Loading: mem_test.hex
-# UVM_INFO riscv_driver.sv(98) @ 5475000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 0
-# UVM_INFO riscv_scoreboard.sv(125) @ 5476000: uvm_test_top.env.scoreboard [SCOREBOARD] Reference model initialised (all regs = 0)
-# UVM_INFO riscv_scoreboard.sv(307) @ 5476000: uvm_test_top.env.scoreboard [SCOREBOARD] Hardware reset detected. Cleared Reference Model.
-# UVM_INFO riscv_driver.sv(123) @ 5605000: uvm_test_top.env.agent.driver [DRIVER] Loading program via VIF: mem_test.hex
+# UVM_INFO riscv_driver.sv(98) @ 15675000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 1
+# UVM_INFO riscv_sequences.sv(130) @ 15825000: uvm_test_top.env.agent.sequencer@@run_seq [RUN_SEQ] Running for 500 cycles
+# UVM_INFO riscv_monitor.sv(212) @ 17185000: uvm_test_top.env.agent.monitor [MONITOR] [17185000] TRANS=TRANS_BRANCH_TAKEN PC=0x000000c0 target=0x000000c0 taken=1
+# UVM_INFO riscv_sequences.sv(164) @ 20825000: uvm_test_top.env.agent.sequencer@@alu_seq [ALU_TEST] ALU test sequence complete
+# UVM_INFO riscv_sequences.sv(185) @ 20825000: uvm_test_top.env.agent.sequencer@@mem_seq [MEM_TEST] Starting memory access test
+# UVM_INFO riscv_sequences.sv(106) @ 20825000: uvm_test_top.env.agent.sequencer@@load_seq [LOAD_SEQ] Loading: mem_test.hex
+# UVM_INFO riscv_driver.sv(98) @ 20835000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 0
+# UVM_INFO riscv_scoreboard.sv(125) @ 20836000: uvm_test_top.env.scoreboard [SCOREBOARD] Reference model initialised (all regs = 0)
+# UVM_INFO riscv_scoreboard.sv(307) @ 20836000: uvm_test_top.env.scoreboard [SCOREBOARD] Hardware reset detected. Cleared Reference Model.
+# UVM_INFO riscv_driver.sv(123) @ 20965000: uvm_test_top.env.agent.driver [DRIVER] Loading program via VIF: mem_test.hex
 # [VIF] Memory cleared.
 # [VIF] Program loaded into memory from mem_test.hex
-# UVM_INFO riscv_driver.sv(98) @ 5675000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 1
-# UVM_INFO riscv_sequences.sv(130) @ 5825000: uvm_test_top.env.agent.sequencer@@run_seq [RUN_SEQ] Running for 800 cycles
-# UVM_INFO riscv_monitor.sv(212) @ 7695000: uvm_test_top.env.agent.monitor [MONITOR] [7695000] TRANS=TRANS_BRANCH_TAKEN PC=0x000000dc target=0x000000dc taken=1
-# UVM_INFO riscv_sequences.sv(195) @ 13825000: uvm_test_top.env.agent.sequencer@@mem_seq [MEM_TEST] Memory test complete
-# UVM_INFO riscv_sequences.sv(217) @ 13825000: uvm_test_top.env.agent.sequencer@@brnch_seq [BRANCH_TEST] Starting branch/jump test
-# UVM_INFO riscv_sequences.sv(106) @ 13825000: uvm_test_top.env.agent.sequencer@@load_seq [LOAD_SEQ] Loading: branch_test.hex
-# UVM_INFO riscv_driver.sv(98) @ 13835000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 0
-# UVM_INFO riscv_scoreboard.sv(125) @ 13836000: uvm_test_top.env.scoreboard [SCOREBOARD] Reference model initialised (all regs = 0)
-# UVM_INFO riscv_scoreboard.sv(307) @ 13836000: uvm_test_top.env.scoreboard [SCOREBOARD] Hardware reset detected. Cleared Reference Model.
-# UVM_INFO riscv_driver.sv(123) @ 13965000: uvm_test_top.env.agent.driver [DRIVER] Loading program via VIF: branch_test.hex
+# UVM_INFO riscv_driver.sv(98) @ 21035000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 1
+# UVM_INFO riscv_sequences.sv(130) @ 21185000: uvm_test_top.env.agent.sequencer@@run_seq [RUN_SEQ] Running for 800 cycles
+# UVM_INFO riscv_monitor.sv(212) @ 23175000: uvm_test_top.env.agent.monitor [MONITOR] [23175000] TRANS=TRANS_BRANCH_TAKEN PC=0x000000e4 target=0x000000e4 taken=1
+# UVM_INFO riscv_sequences.sv(195) @ 29185000: uvm_test_top.env.agent.sequencer@@mem_seq [MEM_TEST] Memory test complete
+# UVM_INFO riscv_sequences.sv(217) @ 29185000: uvm_test_top.env.agent.sequencer@@brnch_seq [BRANCH_TEST] Starting branch/jump test
+# UVM_INFO riscv_sequences.sv(106) @ 29185000: uvm_test_top.env.agent.sequencer@@load_seq [LOAD_SEQ] Loading: branch_test.hex
+# UVM_INFO riscv_driver.sv(98) @ 29195000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 0
+# UVM_INFO riscv_scoreboard.sv(125) @ 29196000: uvm_test_top.env.scoreboard [SCOREBOARD] Reference model initialised (all regs = 0)
+# UVM_INFO riscv_scoreboard.sv(307) @ 29196000: uvm_test_top.env.scoreboard [SCOREBOARD] Hardware reset detected. Cleared Reference Model.
+# UVM_INFO riscv_driver.sv(123) @ 29325000: uvm_test_top.env.agent.driver [DRIVER] Loading program via VIF: branch_test.hex
 # [VIF] Memory cleared.
 # [VIF] Program loaded into memory from branch_test.hex
-# UVM_INFO riscv_driver.sv(98) @ 14035000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 1
-# UVM_INFO riscv_sequences.sv(130) @ 14185000: uvm_test_top.env.agent.sequencer@@run_seq [RUN_SEQ] Running for 600 cycles
-# UVM_INFO riscv_monitor.sv(212) @ 14225000: uvm_test_top.env.agent.monitor [MONITOR] [14225000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000010 target=0x00000018 taken=0
-# UVM_INFO riscv_monitor.sv(212) @ 14315000: uvm_test_top.env.agent.monitor [MONITOR] [14315000] TRANS=TRANS_BRANCH_TAKEN PC=0x0000001c target=0x00000024 taken=0
-# UVM_INFO riscv_monitor.sv(212) @ 14375000: uvm_test_top.env.agent.monitor [MONITOR] [14375000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000024 target=0x0000002c taken=1
-# UVM_INFO riscv_monitor.sv(212) @ 14465000: uvm_test_top.env.agent.monitor [MONITOR] [14465000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000030 target=0x00000038 taken=1
-# UVM_INFO riscv_monitor.sv(212) @ 14525000: uvm_test_top.env.agent.monitor [MONITOR] [14525000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000038 target=0x00000040 taken=1
-# UVM_INFO riscv_monitor.sv(212) @ 14615000: uvm_test_top.env.agent.monitor [MONITOR] [14615000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000044 target=0x0000004c taken=0
-# UVM_INFO riscv_monitor.sv(212) @ 14675000: uvm_test_top.env.agent.monitor [MONITOR] [14675000] TRANS=TRANS_BRANCH_TAKEN PC=0x0000004c target=0x00000054 taken=1
-# UVM_INFO riscv_monitor.sv(212) @ 14765000: uvm_test_top.env.agent.monitor [MONITOR] [14765000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000058 target=0x00000060 taken=1
-# UVM_INFO riscv_monitor.sv(212) @ 14855000: uvm_test_top.env.agent.monitor [MONITOR] [14855000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000064 target=0x0000006c taken=0
-# UVM_INFO riscv_monitor.sv(212) @ 14915000: uvm_test_top.env.agent.monitor [MONITOR] [14915000] TRANS=TRANS_BRANCH_TAKEN PC=0x0000006c target=0x00000074 taken=1
-# UVM_INFO riscv_monitor.sv(212) @ 15005000: uvm_test_top.env.agent.monitor [MONITOR] [15005000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000078 target=0x00000080 taken=1
-# UVM_INFO riscv_monitor.sv(212) @ 15215000: uvm_test_top.env.agent.monitor [MONITOR] [15215000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000094 target=0x0000009c taken=0
-# UVM_INFO riscv_monitor.sv(212) @ 15245000: uvm_test_top.env.agent.monitor [MONITOR] [15245000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000098 target=0x000000a0 taken=1
-# UVM_INFO riscv_monitor.sv(212) @ 15305000: uvm_test_top.env.agent.monitor [MONITOR] [15305000] TRANS=TRANS_BRANCH_TAKEN PC=0x000000a0 target=0x000000a8 taken=1
-# UVM_INFO riscv_monitor.sv(212) @ 15365000: uvm_test_top.env.agent.monitor [MONITOR] [15365000] TRANS=TRANS_BRANCH_TAKEN PC=0x000000a8 target=0x000000a8 taken=1
-# UVM_INFO riscv_sequences.sv(227) @ 20185000: uvm_test_top.env.agent.sequencer@@brnch_seq [BRANCH_TEST] Branch test complete
-# UVM_INFO riscv_sequences.sv(249) @ 20185000: uvm_test_top.env.agent.sequencer@@haz_seq [HAZARD_TEST] Starting load-use hazard test
-# UVM_INFO riscv_sequences.sv(106) @ 20185000: uvm_test_top.env.agent.sequencer@@load_seq [LOAD_SEQ] Loading: hazard_test.hex
-# UVM_INFO riscv_driver.sv(98) @ 20195000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 0
-# UVM_INFO riscv_scoreboard.sv(125) @ 20196000: uvm_test_top.env.scoreboard [SCOREBOARD] Reference model initialised (all regs = 0)
-# UVM_INFO riscv_scoreboard.sv(307) @ 20196000: uvm_test_top.env.scoreboard [SCOREBOARD] Hardware reset detected. Cleared Reference Model.
-# UVM_INFO riscv_driver.sv(123) @ 20325000: uvm_test_top.env.agent.driver [DRIVER] Loading program via VIF: hazard_test.hex
+# UVM_INFO riscv_driver.sv(98) @ 29395000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 1
+# UVM_INFO riscv_sequences.sv(130) @ 29545000: uvm_test_top.env.agent.sequencer@@run_seq [RUN_SEQ] Running for 600 cycles
+# UVM_INFO riscv_monitor.sv(212) @ 29585000: uvm_test_top.env.agent.monitor [MONITOR] [29585000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000010 target=0x00000018 taken=0
+# UVM_INFO riscv_monitor.sv(212) @ 29675000: uvm_test_top.env.agent.monitor [MONITOR] [29675000] TRANS=TRANS_BRANCH_TAKEN PC=0x0000001c target=0x00000024 taken=0
+# UVM_INFO riscv_monitor.sv(212) @ 29735000: uvm_test_top.env.agent.monitor [MONITOR] [29735000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000024 target=0x0000002c taken=1
+# UVM_INFO riscv_monitor.sv(212) @ 29825000: uvm_test_top.env.agent.monitor [MONITOR] [29825000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000030 target=0x00000038 taken=1
+# UVM_INFO riscv_monitor.sv(212) @ 29885000: uvm_test_top.env.agent.monitor [MONITOR] [29885000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000038 target=0x00000040 taken=1
+# UVM_INFO riscv_monitor.sv(212) @ 29975000: uvm_test_top.env.agent.monitor [MONITOR] [29975000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000044 target=0x0000004c taken=0
+# UVM_INFO riscv_monitor.sv(212) @ 30035000: uvm_test_top.env.agent.monitor [MONITOR] [30035000] TRANS=TRANS_BRANCH_TAKEN PC=0x0000004c target=0x00000054 taken=1
+# UVM_INFO riscv_monitor.sv(212) @ 30125000: uvm_test_top.env.agent.monitor [MONITOR] [30125000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000058 target=0x00000060 taken=1
+# UVM_INFO riscv_monitor.sv(212) @ 30215000: uvm_test_top.env.agent.monitor [MONITOR] [30215000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000064 target=0x0000006c taken=0
+# UVM_INFO riscv_monitor.sv(212) @ 30275000: uvm_test_top.env.agent.monitor [MONITOR] [30275000] TRANS=TRANS_BRANCH_TAKEN PC=0x0000006c target=0x00000074 taken=1
+# UVM_INFO riscv_monitor.sv(212) @ 30365000: uvm_test_top.env.agent.monitor [MONITOR] [30365000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000078 target=0x00000080 taken=1
+# UVM_INFO riscv_monitor.sv(212) @ 30575000: uvm_test_top.env.agent.monitor [MONITOR] [30575000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000094 target=0x0000009c taken=0
+# UVM_INFO riscv_monitor.sv(212) @ 30605000: uvm_test_top.env.agent.monitor [MONITOR] [30605000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000098 target=0x000000a0 taken=1
+# UVM_INFO riscv_monitor.sv(212) @ 30665000: uvm_test_top.env.agent.monitor [MONITOR] [30665000] TRANS=TRANS_BRANCH_TAKEN PC=0x000000a0 target=0x000000a8 taken=1
+# UVM_INFO riscv_monitor.sv(212) @ 30785000: uvm_test_top.env.agent.monitor [MONITOR] [30785000] TRANS=TRANS_BRANCH_TAKEN PC=0x000000b0 target=0x000000b8 taken=0
+# UVM_INFO riscv_monitor.sv(212) @ 30815000: uvm_test_top.env.agent.monitor [MONITOR] [30815000] TRANS=TRANS_BRANCH_TAKEN PC=0x000000b4 target=0x000000bc taken=0
+# UVM_INFO riscv_monitor.sv(212) @ 30905000: uvm_test_top.env.agent.monitor [MONITOR] [30905000] TRANS=TRANS_BRANCH_TAKEN PC=0x000000c0 target=0x000000c8 taken=1
+# UVM_INFO riscv_monitor.sv(212) @ 31025000: uvm_test_top.env.agent.monitor [MONITOR] [31025000] TRANS=TRANS_BRANCH_TAKEN PC=0x000000d0 target=0x000000d8 taken=0
+# UVM_INFO riscv_monitor.sv(212) @ 31145000: uvm_test_top.env.agent.monitor [MONITOR] [31145000] TRANS=TRANS_BRANCH_TAKEN PC=0x000000e0 target=0x000000e8 taken=1
+# UVM_INFO riscv_monitor.sv(212) @ 31265000: uvm_test_top.env.agent.monitor [MONITOR] [31265000] TRANS=TRANS_BRANCH_TAKEN PC=0x000000f0 target=0x000000f8 taken=0
+# UVM_INFO riscv_monitor.sv(212) @ 31385000: uvm_test_top.env.agent.monitor [MONITOR] [31385000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000100 target=0x00000108 taken=1
+# UVM_INFO riscv_monitor.sv(212) @ 31505000: uvm_test_top.env.agent.monitor [MONITOR] [31505000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000110 target=0x00000118 taken=0
+# UVM_INFO riscv_monitor.sv(212) @ 31625000: uvm_test_top.env.agent.monitor [MONITOR] [31625000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000120 target=0x00000128 taken=1
+# UVM_INFO riscv_monitor.sv(212) @ 31745000: uvm_test_top.env.agent.monitor [MONITOR] [31745000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000130 target=0x00000138 taken=0
+# UVM_INFO riscv_monitor.sv(212) @ 31865000: uvm_test_top.env.agent.monitor [MONITOR] [31865000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000140 target=0x00000148 taken=1
+# UVM_INFO riscv_monitor.sv(212) @ 31985000: uvm_test_top.env.agent.monitor [MONITOR] [31985000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000150 target=0x00000158 taken=0
+# UVM_INFO riscv_monitor.sv(212) @ 32105000: uvm_test_top.env.agent.monitor [MONITOR] [32105000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000160 target=0x00000168 taken=1
+# UVM_INFO riscv_monitor.sv(212) @ 32225000: uvm_test_top.env.agent.monitor [MONITOR] [32225000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000170 target=0x00000178 taken=0
+# UVM_INFO riscv_monitor.sv(212) @ 32285000: uvm_test_top.env.agent.monitor [MONITOR] [32285000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000178 target=0x00000178 taken=1
+# UVM_INFO riscv_sequences.sv(227) @ 35545000: uvm_test_top.env.agent.sequencer@@brnch_seq [BRANCH_TEST] Branch test complete
+# UVM_INFO riscv_sequences.sv(249) @ 35545000: uvm_test_top.env.agent.sequencer@@haz_seq [HAZARD_TEST] Starting load-use hazard test
+# UVM_INFO riscv_sequences.sv(106) @ 35545000: uvm_test_top.env.agent.sequencer@@load_seq [LOAD_SEQ] Loading: hazard_test.hex
+# UVM_INFO riscv_driver.sv(98) @ 35555000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 0
+# UVM_INFO riscv_scoreboard.sv(125) @ 35556000: uvm_test_top.env.scoreboard [SCOREBOARD] Reference model initialised (all regs = 0)
+# UVM_INFO riscv_scoreboard.sv(307) @ 35556000: uvm_test_top.env.scoreboard [SCOREBOARD] Hardware reset detected. Cleared Reference Model.
+# UVM_INFO riscv_driver.sv(123) @ 35685000: uvm_test_top.env.agent.driver [DRIVER] Loading program via VIF: hazard_test.hex
 # [VIF] Memory cleared.
 # [VIF] Program loaded into memory from hazard_test.hex
-# UVM_INFO riscv_driver.sv(98) @ 20395000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 1
-# UVM_INFO riscv_sequences.sv(130) @ 20545000: uvm_test_top.env.agent.sequencer@@run_seq [RUN_SEQ] Running for 400 cycles
-# UVM_INFO riscv_monitor.sv(212) @ 20945000: uvm_test_top.env.agent.monitor [MONITOR] [20945000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000038 target=0x00000040 taken=1
-# UVM_INFO riscv_monitor.sv(212) @ 21365000: uvm_test_top.env.agent.monitor [MONITOR] [21365000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000070 target=0x00000070 taken=1
-# UVM_INFO riscv_sequences.sv(259) @ 24545000: uvm_test_top.env.agent.sequencer@@haz_seq [HAZARD_TEST] Hazard test complete
-# UVM_INFO riscv_sequences.sv(280) @ 24545000: uvm_test_top.env.agent.sequencer@@csr_seq [CSR_TEST] Starting CSR/ecall test
-# UVM_INFO riscv_sequences.sv(106) @ 24545000: uvm_test_top.env.agent.sequencer@@load_seq [LOAD_SEQ] Loading: csr_test.hex
-# UVM_INFO riscv_driver.sv(98) @ 24555000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 0
-# UVM_INFO riscv_scoreboard.sv(125) @ 24556000: uvm_test_top.env.scoreboard [SCOREBOARD] Reference model initialised (all regs = 0)
-# UVM_INFO riscv_scoreboard.sv(307) @ 24556000: uvm_test_top.env.scoreboard [SCOREBOARD] Hardware reset detected. Cleared Reference Model.
-# UVM_INFO riscv_driver.sv(123) @ 24685000: uvm_test_top.env.agent.driver [DRIVER] Loading program via VIF: csr_test.hex
+# UVM_INFO riscv_driver.sv(98) @ 35755000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 1
+# UVM_INFO riscv_sequences.sv(130) @ 35905000: uvm_test_top.env.agent.sequencer@@run_seq [RUN_SEQ] Running for 400 cycles
+# UVM_INFO riscv_monitor.sv(212) @ 36305000: uvm_test_top.env.agent.monitor [MONITOR] [36305000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000038 target=0x00000040 taken=1
+# UVM_WARNING riscv_scoreboard.sv(264) @ 36795000: uvm_test_top.env.scoreboard [SCOREBOARD] READ from uninitialised addr=0x01000000 rdata=0x000000b7
+# UVM_INFO riscv_monitor.sv(212) @ 36805000: uvm_test_top.env.agent.monitor [MONITOR] [36805000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000078 target=0x00000080 taken=0
+# UVM_INFO riscv_monitor.sv(212) @ 36865000: uvm_test_top.env.agent.monitor [MONITOR] [36865000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000080 target=0x00000080 taken=1
+# UVM_INFO riscv_sequences.sv(259) @ 39905000: uvm_test_top.env.agent.sequencer@@haz_seq [HAZARD_TEST] Hazard test complete
+# UVM_INFO riscv_sequences.sv(280) @ 39905000: uvm_test_top.env.agent.sequencer@@csr_seq [CSR_TEST] Starting CSR/ecall test
+# UVM_INFO riscv_sequences.sv(106) @ 39905000: uvm_test_top.env.agent.sequencer@@load_seq [LOAD_SEQ] Loading: csr_test.hex
+# UVM_INFO riscv_driver.sv(98) @ 39915000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 0
+# UVM_INFO riscv_scoreboard.sv(125) @ 39916000: uvm_test_top.env.scoreboard [SCOREBOARD] Reference model initialised (all regs = 0)
+# UVM_INFO riscv_scoreboard.sv(307) @ 39916000: uvm_test_top.env.scoreboard [SCOREBOARD] Hardware reset detected. Cleared Reference Model.
+# UVM_INFO riscv_driver.sv(123) @ 40045000: uvm_test_top.env.agent.driver [DRIVER] Loading program via VIF: csr_test.hex
 # [VIF] Memory cleared.
 # [VIF] Program loaded into memory from csr_test.hex
-# UVM_INFO riscv_driver.sv(98) @ 24755000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 1
-# UVM_INFO riscv_sequences.sv(130) @ 24905000: uvm_test_top.env.agent.sequencer@@run_seq [RUN_SEQ] Running for 300 cycles
-# UVM_INFO riscv_sequences.sv(290) @ 27905000: uvm_test_top.env.agent.sequencer@@csr_seq [CSR_TEST] CSR test complete
-# UVM_INFO riscv_sequences.sv(303) @ 27905000: uvm_test_top.env.agent.sequencer@@extra_seq [EXTRA_COV] Starting Extra Coverage test
-# UVM_INFO riscv_sequences.sv(106) @ 27905000: uvm_test_top.env.agent.sequencer@@load_seq [LOAD_SEQ] Loading: extra_coverage.hex
-# UVM_INFO riscv_driver.sv(98) @ 27915000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 0
-# UVM_INFO riscv_scoreboard.sv(125) @ 27916000: uvm_test_top.env.scoreboard [SCOREBOARD] Reference model initialised (all regs = 0)
-# UVM_INFO riscv_scoreboard.sv(307) @ 27916000: uvm_test_top.env.scoreboard [SCOREBOARD] Hardware reset detected. Cleared Reference Model.
-# UVM_INFO riscv_driver.sv(123) @ 28045000: uvm_test_top.env.agent.driver [DRIVER] Loading program via VIF: extra_coverage.hex
+# UVM_INFO riscv_driver.sv(98) @ 40115000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 1
+# UVM_INFO riscv_sequences.sv(130) @ 40265000: uvm_test_top.env.agent.sequencer@@run_seq [RUN_SEQ] Running for 300 cycles
+# UVM_INFO riscv_sequences.sv(290) @ 43265000: uvm_test_top.env.agent.sequencer@@csr_seq [CSR_TEST] CSR test complete
+# UVM_INFO riscv_sequences.sv(303) @ 43265000: uvm_test_top.env.agent.sequencer@@extra_seq [EXTRA_COV] Starting Extra Coverage test
+# UVM_INFO riscv_sequences.sv(106) @ 43265000: uvm_test_top.env.agent.sequencer@@load_seq [LOAD_SEQ] Loading: extra_coverage.hex
+# UVM_INFO riscv_driver.sv(98) @ 43275000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 0
+# UVM_INFO riscv_scoreboard.sv(125) @ 43276000: uvm_test_top.env.scoreboard [SCOREBOARD] Reference model initialised (all regs = 0)
+# UVM_INFO riscv_scoreboard.sv(307) @ 43276000: uvm_test_top.env.scoreboard [SCOREBOARD] Hardware reset detected. Cleared Reference Model.
+# UVM_INFO riscv_driver.sv(123) @ 43405000: uvm_test_top.env.agent.driver [DRIVER] Loading program via VIF: extra_coverage.hex
 # [VIF] Memory cleared.
 # [VIF] Program loaded into memory from extra_coverage.hex
-# UVM_INFO riscv_driver.sv(98) @ 28115000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 1
-# UVM_INFO riscv_sequences.sv(130) @ 28265000: uvm_test_top.env.agent.sequencer@@run_seq [RUN_SEQ] Running for 200 cycles
-# UVM_WARNING riscv_scoreboard.sv(264) @ 29185000: uvm_test_top.env.scoreboard [SCOREBOARD] READ from uninitialised addr=0x01000000 rdata=0x000000b3
-# UVM_INFO riscv_monitor.sv(212) @ 29195000: uvm_test_top.env.agent.monitor [MONITOR] [29195000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000084 target=0x00000088 taken=1
-# UVM_INFO riscv_monitor.sv(212) @ 29255000: uvm_test_top.env.agent.monitor [MONITOR] [29255000] TRANS=TRANS_BRANCH_TAKEN PC=0x0000008c target=0x00000090 taken=0
-# UVM_WARNING riscv_scoreboard.sv(264) @ 29295000: uvm_test_top.env.scoreboard [SCOREBOARD] READ from uninitialised addr=0x01000000 rdata=0x000000b3
-# UVM_INFO riscv_monitor.sv(212) @ 29315000: uvm_test_top.env.agent.monitor [MONITOR] [29315000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000094 target=0x00000098 taken=1
-# UVM_INFO riscv_monitor.sv(212) @ 29375000: uvm_test_top.env.agent.monitor [MONITOR] [29375000] TRANS=TRANS_BRANCH_TAKEN PC=0x0000009c target=0x000000a0 taken=0
-# UVM_WARNING riscv_scoreboard.sv(264) @ 29415000: uvm_test_top.env.scoreboard [SCOREBOARD] READ from uninitialised addr=0x01000000 rdata=0x000000b3
-# UVM_INFO riscv_monitor.sv(212) @ 29435000: uvm_test_top.env.agent.monitor [MONITOR] [29435000] TRANS=TRANS_BRANCH_TAKEN PC=0x000000a4 target=0x000000a8 taken=1
-# UVM_WARNING riscv_scoreboard.sv(264) @ 29535000: uvm_test_top.env.scoreboard [SCOREBOARD] READ from uninitialised addr=0x01000000 rdata=0xffffffb3
-# UVM_WARNING riscv_scoreboard.sv(264) @ 29595000: uvm_test_top.env.scoreboard [SCOREBOARD] READ from uninitialised addr=0x01000000 rdata=0x000000b3
-# UVM_WARNING riscv_scoreboard.sv(264) @ 29655000: uvm_test_top.env.scoreboard [SCOREBOARD] READ from uninitialised addr=0x01000000 rdata=0x000000b3
-# UVM_INFO riscv_sequences.sv(350) @ 30265000: uvm_test_top.env.agent.sequencer@@seq [FULL_TEST] === Full regression complete ===
-# UVM_WARNING riscv_scoreboard.sv(264) @ 30885000: uvm_test_top.env.scoreboard [SCOREBOARD] READ from uninitialised addr=0x01000000 rdata=0x000000b3
-# UVM_INFO riscv_monitor.sv(212) @ 30905000: uvm_test_top.env.agent.monitor [MONITOR] [30905000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000084 target=0x00000088 taken=1
-# UVM_INFO riscv_monitor.sv(212) @ 30965000: uvm_test_top.env.agent.monitor [MONITOR] [30965000] TRANS=TRANS_BRANCH_TAKEN PC=0x0000008c target=0x00000090 taken=0
-# UVM_WARNING riscv_scoreboard.sv(264) @ 31005000: uvm_test_top.env.scoreboard [SCOREBOARD] READ from uninitialised addr=0x01000000 rdata=0x000000b3
-# UVM_INFO riscv_monitor.sv(212) @ 31025000: uvm_test_top.env.agent.monitor [MONITOR] [31025000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000094 target=0x00000098 taken=1
-# UVM_INFO riscv_monitor.sv(212) @ 31085000: uvm_test_top.env.agent.monitor [MONITOR] [31085000] TRANS=TRANS_BRANCH_TAKEN PC=0x0000009c target=0x000000a0 taken=0
-# UVM_WARNING riscv_scoreboard.sv(264) @ 31125000: uvm_test_top.env.scoreboard [SCOREBOARD] READ from uninitialised addr=0x01000000 rdata=0x000000b3
-# UVM_INFO riscv_monitor.sv(212) @ 31145000: uvm_test_top.env.agent.monitor [MONITOR] [31145000] TRANS=TRANS_BRANCH_TAKEN PC=0x000000a4 target=0x000000a8 taken=1
-# UVM_WARNING riscv_scoreboard.sv(264) @ 31245000: uvm_test_top.env.scoreboard [SCOREBOARD] READ from uninitialised addr=0x01000000 rdata=0xffffffb3
-# UVM_WARNING riscv_scoreboard.sv(264) @ 31305000: uvm_test_top.env.scoreboard [SCOREBOARD] READ from uninitialised addr=0x01000000 rdata=0x000000b3
-# UVM_WARNING riscv_scoreboard.sv(264) @ 31365000: uvm_test_top.env.scoreboard [SCOREBOARD] READ from uninitialised addr=0x01000000 rdata=0x000000b3
-# UVM_WARNING riscv_scoreboard.sv(264) @ 32595000: uvm_test_top.env.scoreboard [SCOREBOARD] READ from uninitialised addr=0x01000000 rdata=0x000000b3
-# UVM_INFO riscv_monitor.sv(212) @ 32615000: uvm_test_top.env.agent.monitor [MONITOR] [32615000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000084 target=0x00000088 taken=1
-# UVM_INFO riscv_monitor.sv(212) @ 32675000: uvm_test_top.env.agent.monitor [MONITOR] [32675000] TRANS=TRANS_BRANCH_TAKEN PC=0x0000008c target=0x00000090 taken=0
-# UVM_WARNING riscv_scoreboard.sv(264) @ 32715000: uvm_test_top.env.scoreboard [SCOREBOARD] READ from uninitialised addr=0x01000000 rdata=0x000000b3
-# UVM_INFO riscv_monitor.sv(212) @ 32735000: uvm_test_top.env.agent.monitor [MONITOR] [32735000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000094 target=0x00000098 taken=1
-# UVM_INFO riscv_monitor.sv(212) @ 32795000: uvm_test_top.env.agent.monitor [MONITOR] [32795000] TRANS=TRANS_BRANCH_TAKEN PC=0x0000009c target=0x000000a0 taken=0
-# UVM_WARNING riscv_scoreboard.sv(264) @ 32835000: uvm_test_top.env.scoreboard [SCOREBOARD] READ from uninitialised addr=0x01000000 rdata=0x000000b3
-# UVM_INFO riscv_monitor.sv(212) @ 32855000: uvm_test_top.env.agent.monitor [MONITOR] [32855000] TRANS=TRANS_BRANCH_TAKEN PC=0x000000a4 target=0x000000a8 taken=1
-# UVM_WARNING riscv_scoreboard.sv(264) @ 32955000: uvm_test_top.env.scoreboard [SCOREBOARD] READ from uninitialised addr=0x01000000 rdata=0xffffffb3
-# UVM_WARNING riscv_scoreboard.sv(264) @ 33015000: uvm_test_top.env.scoreboard [SCOREBOARD] READ from uninitialised addr=0x01000000 rdata=0x000000b3
-# UVM_WARNING riscv_scoreboard.sv(264) @ 33075000: uvm_test_top.env.scoreboard [SCOREBOARD] READ from uninitialised addr=0x01000000 rdata=0x000000b3
-# UVM_WARNING riscv_scoreboard.sv(264) @ 34305000: uvm_test_top.env.scoreboard [SCOREBOARD] READ from uninitialised addr=0x01000000 rdata=0x000000b3
-# UVM_INFO riscv_monitor.sv(212) @ 34325000: uvm_test_top.env.agent.monitor [MONITOR] [34325000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000084 target=0x00000088 taken=1
-# UVM_INFO riscv_monitor.sv(212) @ 34385000: uvm_test_top.env.agent.monitor [MONITOR] [34385000] TRANS=TRANS_BRANCH_TAKEN PC=0x0000008c target=0x00000090 taken=0
-# UVM_WARNING riscv_scoreboard.sv(264) @ 34425000: uvm_test_top.env.scoreboard [SCOREBOARD] READ from uninitialised addr=0x01000000 rdata=0x000000b3
-# UVM_INFO riscv_monitor.sv(212) @ 34445000: uvm_test_top.env.agent.monitor [MONITOR] [34445000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000094 target=0x00000098 taken=1
-# UVM_INFO riscv_monitor.sv(212) @ 34505000: uvm_test_top.env.agent.monitor [MONITOR] [34505000] TRANS=TRANS_BRANCH_TAKEN PC=0x0000009c target=0x000000a0 taken=0
-# UVM_WARNING riscv_scoreboard.sv(264) @ 34545000: uvm_test_top.env.scoreboard [SCOREBOARD] READ from uninitialised addr=0x01000000 rdata=0x000000b3
-# UVM_INFO riscv_monitor.sv(212) @ 34565000: uvm_test_top.env.agent.monitor [MONITOR] [34565000] TRANS=TRANS_BRANCH_TAKEN PC=0x000000a4 target=0x000000a8 taken=1
-# UVM_WARNING riscv_scoreboard.sv(264) @ 34665000: uvm_test_top.env.scoreboard [SCOREBOARD] READ from uninitialised addr=0x01000000 rdata=0xffffffb3
-# UVM_WARNING riscv_scoreboard.sv(264) @ 34725000: uvm_test_top.env.scoreboard [SCOREBOARD] READ from uninitialised addr=0x01000000 rdata=0x000000b3
-# UVM_WARNING riscv_scoreboard.sv(264) @ 34785000: uvm_test_top.env.scoreboard [SCOREBOARD] READ from uninitialised addr=0x01000000 rdata=0x000000b3
-# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 35265000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
-# UVM_INFO riscv_monitor.sv(273) @ 35265000: uvm_test_top.env.agent.monitor [MONITOR] 
+# UVM_INFO riscv_driver.sv(98) @ 43475000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 1
+# UVM_INFO riscv_sequences.sv(130) @ 43625000: uvm_test_top.env.agent.sequencer@@run_seq [RUN_SEQ] Running for 200 cycles
+# UVM_INFO riscv_sequences.sv(364) @ 45625000: uvm_test_top.env.agent.sequencer@@seq [FULL_TEST] === Full regression complete ===
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 50625000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO riscv_monitor.sv(273) @ 50625000: uvm_test_top.env.agent.monitor [MONITOR] 
 # === Monitor Statistics ===
-#   Instruction commits : 437
-#   Stall cycles        : 2090
-#   Branches taken      : 39
-#   Memory writes       : 30
-#   Memory reads        : 45
-# UVM_INFO riscv_coverage.sv(310) @ 35265000: uvm_test_top.env.coverage [COVERAGE] 
+#   Instruction commits : 393
+#   Stall cycles        : 2791
+#   Branches taken      : 43
+#   Memory writes       : 35
+#   Memory reads        : 27
+# UVM_INFO riscv_coverage.sv(310) @ 50625000: uvm_test_top.env.coverage [COVERAGE] 
 # === Functional Coverage Summary ===
-#   Instruction Type : 97.6%
+#   Instruction Type : 100.0%
 #   Hazard Detection : 83.3%
 #   Memory Access    : 100.0%
-#   Branch/Jump      : 86.3%
+#   Branch/Jump      : 100.0%
 #   Pipeline Flow    : 100.0%
-#   Register File    : 92.5%
+#   Register File    : 100.0%
 #   CSR Instructions : 100.0%
-# UVM_INFO riscv_scoreboard.sv(416) @ 35265000: uvm_test_top.env.scoreboard [SCOREBOARD] 
+# UVM_INFO riscv_scoreboard.sv(416) @ 50625000: uvm_test_top.env.scoreboard [SCOREBOARD] 
 # ========================================
 # *** SIMULATION PASSED ***
 # ========================================
-#   Total instructions  : 437
-#   Checks PASSED       : 538
+#   Total instructions  : 393
+#   Checks PASSED       : 484
 #   Checks FAILED       : 0
-#   Branch checks       : 39
+#   Branch checks       : 43
 #   x0 write violations : 0
 # ========================================
-# UVM_INFO riscv_agent_env_test.sv(205) @ 35265000: uvm_test_top [BASE_TEST] TEST PASSED
+# UVM_INFO riscv_agent_env_test.sv(205) @ 50625000: uvm_test_top [BASE_TEST] TEST PASSED
 # 
 # --- UVM Report Summary ---
 # 
 # ** Report counts by severity
-# UVM_INFO :  105
-# UVM_WARNING :   24
+# UVM_INFO :  116
+# UVM_WARNING :    1
 # UVM_ERROR :    0
 # UVM_FATAL :    0
 # ** Report counts by id
@@ -224,18 +305,18 @@ vsim -c -do "run -all" tb_top +UVM_TESTNAME=riscv_full_test
 # [BRANCH_TEST]     2
 # [COVERAGE]     1
 # [CSR_TEST]     2
-# [DRIVER]    19
+# [DRIVER]    22
 # [EXTRA_COV]     1
 # [FULL_TEST]     2
 # [HAZARD_TEST]     2
-# [LOAD_SEQ]     6
+# [LOAD_SEQ]     7
 # [MEM_TEST]     2
-# [MONITOR]    40
+# [MONITOR]    44
 # [Questa UVM]     2
 # [RNTST]     1
-# [RUN_SEQ]     6
-# [SCOREBOARD]    38
+# [RUN_SEQ]     7
+# [SCOREBOARD]    17
 # [TEST_DONE]     1
 # ** Note: $finish    : C:/questasim64_2024.1/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 35265 ns  Iteration: 57  Instance: /tb_top
+#    Time: 50625 ns  Iteration: 55  Instance: /tb_top
 # Break in Task uvm_pkg/uvm_root::run_test at C:/questasim64_2024.1/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430

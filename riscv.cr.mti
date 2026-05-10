@@ -1,6 +1,7 @@
-C:/Users/Admin/Documents/GitHub/RAM/riscv_scoreboard.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_scoreboard.sv
+C:/Users/Admin/Documents/GitHub/RAM/riscv_scoreboard.sv {2 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_scoreboard.sv
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 ** Note: (vlog-2286) C:/Users/Admin/Documents/GitHub/RAM/riscv_scoreboard.sv(18): Using implicit +incdir+C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+** Warning: C:/Users/Admin/Documents/GitHub/RAM/riscv_scoreboard.sv(19): (vlog-13233) Design unit "riscv_scoreboard_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
 -- Compiling package riscv_scoreboard_sv_unit
 -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
 
@@ -72,6 +73,24 @@ QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 Top level modules:
 	--none--
 
+} {} {}} C:/Users/Admin/Documents/GitHub/RAM/data_memory.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/data_memory.v
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+-- Compiling module data_memory
+
+Top level modules:
+	data_memory
+
+} {} {}} C:/Users/Admin/Documents/GitHub/RAM/mux.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/mux.v
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+-- Compiling module mux
+-- Compiling module mux_3_1
+-- Compiling module mux_4to1
+
+Top level modules:
+	mux
+	mux_3_1
+	mux_4to1
+
 } {} {}} C:/Users/Admin/Documents/GitHub/RAM/main_decoder.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/main_decoder.v
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 -- Compiling module main_decoder
@@ -93,40 +112,21 @@ QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 Top level modules:
 	alu
 
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/data_memory.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/data_memory.v
-QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
--- Compiling module data_memory
-
-Top level modules:
-	data_memory
-
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/mux.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/mux.v
-QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
--- Compiling module mux
--- Compiling module mux_3_1
--- Compiling module mux_4to1
-
-Top level modules:
-	mux
-	mux_3_1
-	mux_4to1
-
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/tb_top.sv {2 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/tb_top.sv
+} {} {}} C:/Users/Admin/Documents/GitHub/RAM/tb_top.sv {0 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/tb_top.sv
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 -- Compiling package riscv_tb_pkg
 -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
 ** Note: (vlog-2286) riscv_tb_pkg.sv(10): Using implicit +incdir+C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
-** Warning: ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/tb_top.sv(15)
-** at riscv_monitor.sv(87): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
-** Warning: ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/tb_top.sv(15)
-** at riscv_monitor.sv(88): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
+** Error: ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/tb_top.sv(15)
+** while parsing file included at riscv_tb_pkg.sv(19)
+** at riscv_sequences.sv(343): (vlog-2730) Undefined variable: 'full_load_seq'.
+** Error: ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/tb_top.sv(15)
+** while parsing file included at riscv_tb_pkg.sv(19)
+** at riscv_sequences.sv(348): Illegal declaration after the statement near line '345'.  Declarations must precede statements.  Look for stray semicolons.
 -- Compiling module tb_top
 -- Importing package riscv_tb_pkg
 
-Top level modules:
-	tb_top
-
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/decode_cycle.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/decode_cycle.v
+} {6.0 7.0 9.0 10.0} {}} C:/Users/Admin/Documents/GitHub/RAM/decode_cycle.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/decode_cycle.v
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 -- Compiling module decode_cycle
 
@@ -154,28 +154,15 @@ QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 Top level modules:
 	register_file
 
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_tests.sv {2 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_tests.sv
+} {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_tests.sv {0 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_tests.sv
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 ** Note: (vlog-2286) C:/Users/Admin/Documents/GitHub/RAM/riscv_tests.sv(20): Using implicit +incdir+C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
-** Warning: C:/Users/Admin/Documents/GitHub/RAM/riscv_tests.sv(21): (vlog-13233) Design unit "riscv_tests_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
--- Compiling package riscv_tests_sv_unit
--- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
-** Warning: riscv_monitor.sv(87): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
-** Warning: riscv_monitor.sv(88): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
+** Error: ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/riscv_tests.sv(23)
+** at riscv_sequences.sv(343): (vlog-2730) Undefined variable: 'full_load_seq'.
+** Error: ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/riscv_tests.sv(23)
+** at riscv_sequences.sv(348): Illegal declaration after the statement near line '345'.  Declarations must precede statements.  Look for stray semicolons.
 
-Top level modules:
-	--none--
-
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_sequences.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_sequences.sv
-QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
-** Note: (vlog-2286) C:/Users/Admin/Documents/GitHub/RAM/riscv_sequences.sv(18): Using implicit +incdir+C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
--- Compiling package riscv_sequences_sv_unit
--- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
-
-Top level modules:
-	--none--
-
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/EF_SRAM_1024x32.tt_180V_25C.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/EF_SRAM_1024x32.tt_180V_25C.v
+} {4.0 5.0 6.0 7.0} {}} C:/Users/Admin/Documents/GitHub/RAM/EF_SRAM_1024x32.tt_180V_25C.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/EF_SRAM_1024x32.tt_180V_25C.v
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 -- Compiling module EF_SRAM_1024x32_macro
 -- Compiling module EF_SRAM_1024x32_memory_mode
@@ -183,16 +170,23 @@ QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 Top level modules:
 	EF_SRAM_1024x32_macro
 
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_driver.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_driver.sv
+} {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_driver.sv {2 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_driver.sv
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 ** Note: (vlog-2286) C:/Users/Admin/Documents/GitHub/RAM/riscv_driver.sv(6): Using implicit +incdir+C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+** Warning: C:/Users/Admin/Documents/GitHub/RAM/riscv_driver.sv(7): (vlog-13233) Design unit "riscv_driver_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
 -- Compiling package riscv_driver_sv_unit
 -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
 
 Top level modules:
 	--none--
 
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/tb_wb.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/tb_wb.v
+} {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_sequences.sv {0 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_sequences.sv
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+** Note: (vlog-2286) C:/Users/Admin/Documents/GitHub/RAM/riscv_sequences.sv(18): Using implicit +incdir+C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+** Error: C:/Users/Admin/Documents/GitHub/RAM/riscv_sequences.sv(343): (vlog-2730) Undefined variable: 'full_load_seq'.
+** Error: C:/Users/Admin/Documents/GitHub/RAM/riscv_sequences.sv(348): Illegal declaration after the statement near line '345'.  Declarations must precede statements.  Look for stray semicolons.
+
+} {4.0 6.0} {}} C:/Users/Admin/Documents/GitHub/RAM/tb_wb.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/tb_wb.v
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 -- Compiling module tb_writeback_cycle
 
@@ -213,9 +207,10 @@ QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 Top level modules:
 	alu_decoder
 
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_if.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_if.sv
+} {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_if.sv {2 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_if.sv
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 ** Note: (vlog-2286) C:/Users/Admin/Documents/GitHub/RAM/riscv_if.sv(7): Using implicit +incdir+C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+** Warning: C:/Users/Admin/Documents/GitHub/RAM/riscv_if.sv(10): (vlog-13233) Design unit "riscv_if_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
 -- Compiling package riscv_if_sv_unit
 -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
 -- Compiling interface riscv_if
@@ -244,27 +239,27 @@ QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 Top level modules:
 	l1_icache
 
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_seq_item.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_seq_item.sv
+} {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_seq_item.sv {2 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_seq_item.sv
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 ** Note: (vlog-2286) C:/Users/Admin/Documents/GitHub/RAM/riscv_seq_item.sv(8): Using implicit +incdir+C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+** Warning: C:/Users/Admin/Documents/GitHub/RAM/riscv_seq_item.sv(9): (vlog-13233) Design unit "riscv_seq_item_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
 -- Compiling package riscv_seq_item_sv_unit
 -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
 
 Top level modules:
 	--none--
 
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_tb_pkg.sv {2 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_tb_pkg.sv
+} {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_tb_pkg.sv {0 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_tb_pkg.sv
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 -- Compiling package riscv_tb_pkg
 -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
 ** Note: (vlog-2286) C:/Users/Admin/Documents/GitHub/RAM/riscv_tb_pkg.sv(10): Using implicit +incdir+C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
-** Warning: riscv_monitor.sv(87): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
-** Warning: riscv_monitor.sv(88): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
+** Error: ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/riscv_tb_pkg.sv(19)
+** at riscv_sequences.sv(343): (vlog-2730) Undefined variable: 'full_load_seq'.
+** Error: ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/riscv_tb_pkg.sv(19)
+** at riscv_sequences.sv(348): Illegal declaration after the statement near line '345'.  Declarations must precede statements.  Look for stray semicolons.
 
-Top level modules:
-	--none--
-
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/tb_full.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/tb_full.v
+} {6.0 7.0 8.0 9.0} {}} C:/Users/Admin/Documents/GitHub/RAM/tb_full.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/tb_full.v
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 -- Compiling module tb_riscv_pipeline_mega
 

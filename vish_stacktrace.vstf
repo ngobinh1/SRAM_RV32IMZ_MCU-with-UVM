@@ -152,3 +152,54 @@ Exception c0000005 has occurred at address 5779638f. Traceback:
 StackWalk failed 0
 # End of Stack Trace
 
+# Current time Sat May  9 19:26:48 2026
+# Program = vish
+# Id = "2024.1"
+# Version = "2024.02"
+# Date = "Feb  1 2024"
+# Platform = win64
+
+Exception c0000005 has occurred at address 7021638f. Traceback:
+# 0    0x7021638f: 'Tcl_GetString + 0x1f'
+# 1    0x701f5b84: 'TclListObjSetElement + 0x464'
+# 2    0x701f4a57: 'Tcl_ListObjReplace + 0x87'
+# 3    0x140180d58: '<unknown (@0x140180d58)>'
+# 4    0x14017fe58: '<unknown (@0x14017fe58)>'
+# 5    0x1401788a6: '<unknown (@0x1401788a6)>'
+# 6    0x70148bfc: 'TclNRRunCallbacks + 0x5c'
+# 7    0x7ffd8a8ff384: 'Itcl_EvalMemberCode + 0x384'
+# 8    0x7ffd8a90035d: 'Itcl_ExecMethod + 0x20d'
+# 9    0x7ffd8a9071b5: 'Itcl_EvalArgs + 0x1a5'
+# 10   0x7ffd8a902baa: 'Itcl_HandleInstance + 0x29a'
+# 11   0x70148bfc: 'TclNRRunCallbacks + 0x5c'
+# 12   0x7014a501: 'Tcl_EvalEx + 0xb01'
+# 13   0x70149a28: 'Tcl_EvalEx + 0x28'
+# 14   0x6ff84aba: 'Tk_BindEvent + 0x91a'
+# 15   0x6ffbc4d1: 'TkBindEventProc + 0x291'
+# 16   0x6ffccd84: 'Tk_HandleEvent + 0x2f4'
+# 17   0x6ffcba4a: 'TkDeleteThreadExitHandler + 0x31a'
+# 18   0x7020098c: 'Tcl_ServiceEvent + 0xec'
+# 19   0x70200e04: 'Tcl_DoOneEvent + 0x184'
+# 20   0x1401a4337: 'mti_RPC + 0x8e7'
+# 21   0x1401cdb74: 'Mtirpc_Init + 0x228b4'
+# 22   0x140403e60: 'Ucdb_Init + 0x35a50'
+# 23   0x140402977: 'Ucdb_Init + 0x34567'
+# 24   0x14013b45a: '<unknown (@0x14013b45a)>'
+# 25   0x1401454cb: '<unknown (@0x1401454cb)>'
+# 26   0x70148bfc: 'TclNRRunCallbacks + 0x5c'
+# 27   0x1401808fb: '<unknown (@0x1401808fb)>'
+# 28   0x14017f2e9: '<unknown (@0x14017f2e9)>'
+# 29   0x140177cde: '<unknown (@0x140177cde)>'
+# 30   0x140177afa: '<unknown (@0x140177afa)>'
+# 31   0x7023a5ff: 'TclServiceIdle + 0x6f'
+# 32   0x70200e13: 'Tcl_DoOneEvent + 0x193'
+# 33   0x6ffcb655: 'Tk_MainLoop + 0x25'
+# 34   0x7000d972: 'Tk_MainEx + 0x932'
+# 35   0x1401cfcf2: 'Mtirpc_Init + 0x24a32'
+# 36   0x1401d2f01: 'Mtirpc_Init + 0x27c41'
+# 37   0x14098e7b0: 'Tclsqlite3_Init + 0x1e210'
+# 38   0x7ffd974b7374: 'BaseThreadInitThunk + 0x14'
+# 39   0x7ffd98bdcc91: 'RtlUserThreadStart + 0x21'
+StackWalk failed 0
+# End of Stack Trace
+
