@@ -59,6 +59,10 @@ R0
 R1
 R0
 R1
+R0
+R1
+R0
+R1
 !s11f vlog 2024.1 2024.02, Feb  1 2024
 13
 !s112 1.1
@@ -70,10 +74,10 @@ dC:/Users/Admin/Documents/GitHub/SRAM_RV32I-main
 T_opt
 !s11d riscv_tb_pkg C:/Users/Admin/Documents/GitHub/RAM/work 1 riscv_if 1 C:/Users/Admin/Documents/GitHub/RAM/work 
 !s11d uvm_pkg C:/questasim64_2024.1/uvm-1.1d 1 riscv_if 1 C:/Users/Admin/Documents/GitHub/RAM/work 
-!s110 1778382983
-VVELKiTZ;]9H@6Xa?il6EO1
+!s110 1778552117
+V>:3Q9cfe@;o9ILYPCF[l=0
 04 6 4 work tb_top fast 0
-=1-e884a5770f74-69fff886-2c4-dc8
+=1-e884a5770f74-6a028d34-27d-17a8
 R1
 !s12f OEM100
 !s12b OEM100
@@ -84,7 +88,7 @@ n@_opt
 OL;O;2024.1;79
 vadder
 Z3 2EF_SRAM_1024x32.tt_180V_25C.v|EF_SRAM_1024x32.v|adder.v|alu.v|alu_decoder.v|control_unit.v|csr_alu.v|csr_file.v|data_memory.v|decode_cycle.v|execute_cycle.v|extend.v|fetch_cycle.v|hazard_unit.v|instruction_memory.v|l1_cache.v|l1_dcache.v|main_decoder.v|memory_cycle.v|mux.v|pc.v|pipeline.v|register_file.v|sram_arbiter.v|tb_ex.v|tb_full.v|tb_id.v|tb_if.v|tb_mem.v|tb_top.v|tb_wb.v|top_module.v|writeback_cycle.v|riscv_agent_env_test.sv|riscv_coverage.sv|riscv_driver.sv|riscv_if.sv|riscv_monitor.sv|riscv_scoreboard.sv|riscv_seq_item.sv|riscv_sequences.sv|riscv_tb_pkg.sv|riscv_tests.sv|tb_top.sv
-Z4 !s110 1778382978
+Z4 !s110 1778552083
 !i10b 1
 !s100 ^EQQP6a;PTRoD`UH?jXN:2
 IKU_=4zai;FWF1Z]kdAi7k0
@@ -94,7 +98,7 @@ Z6 w1776831144
 Fadder.v
 Z7 8EF_SRAM_1024x32.v
 Z8 FEF_SRAM_1024x32.v
-!i122 630
+!i122 632
 Z9 L0 1 7
 Z10 VDg1SIo80bB@j0V0VzS_@n1
 Z11 OL;L;2024.1;79
@@ -116,7 +120,7 @@ R6
 Falu.v
 R7
 R8
-!i122 630
+!i122 632
 L0 1 58
 R10
 R11
@@ -138,7 +142,7 @@ R6
 Falu_decoder.v
 R7
 R8
-!i122 630
+!i122 632
 L0 1 51
 R10
 R11
@@ -160,7 +164,7 @@ R6
 Fcontrol_unit.v
 R7
 R8
-!i122 630
+!i122 632
 L0 1 57
 R10
 R11
@@ -182,7 +186,7 @@ R6
 Fcsr_alu.v
 R7
 R8
-!i122 630
+!i122 632
 L0 1 19
 R10
 R11
@@ -204,7 +208,7 @@ R6
 Fcsr_file.v
 R7
 R8
-!i122 630
+!i122 632
 L0 1 70
 R10
 R11
@@ -226,7 +230,7 @@ R6
 Fdata_memory.v
 R7
 R8
-!i122 630
+!i122 632
 L0 1 75
 R10
 R11
@@ -248,7 +252,7 @@ R6
 Fdecode_cycle.v
 R7
 R8
-!i122 630
+!i122 632
 L0 1 83
 R10
 R11
@@ -268,7 +272,7 @@ R5
 R6
 R7
 R8
-!i122 630
+!i122 632
 L0 35 95
 R10
 R11
@@ -289,7 +293,7 @@ R5
 R6
 Z13 8EF_SRAM_1024x32.tt_180V_25C.v
 Z14 FEF_SRAM_1024x32.tt_180V_25C.v
-!i122 630
+!i122 632
 L0 32 1089
 R10
 R11
@@ -310,7 +314,7 @@ R5
 R6
 R13
 R14
-!i122 630
+!i122 632
 L0 1123 400
 R10
 R11
@@ -333,7 +337,7 @@ R6
 Fexecute_cycle.v
 R7
 R8
-!i122 630
+!i122 632
 L0 1 85
 R10
 R11
@@ -355,7 +359,7 @@ R6
 Fextend.v
 R7
 R8
-!i122 630
+!i122 632
 L0 1 40
 R10
 R11
@@ -377,7 +381,7 @@ R6
 Ffetch_cycle.v
 R7
 R8
-!i122 630
+!i122 632
 L0 1 62
 R10
 R11
@@ -399,7 +403,7 @@ w1777865387
 Fhazard_unit.v
 R7
 R8
-!i122 630
+!i122 632
 L0 1 82
 R10
 R11
@@ -421,7 +425,7 @@ R6
 Finstruction_memory.v
 R7
 R8
-!i122 630
+!i122 632
 L0 1 41
 R10
 R11
@@ -443,7 +447,7 @@ R6
 Fl1_dcache.v
 R7
 R8
-!i122 630
+!i122 632
 L0 1 135
 R10
 R11
@@ -465,7 +469,7 @@ R6
 Fl1_cache.v
 R7
 R8
-!i122 630
+!i122 632
 L0 1 72
 R10
 R11
@@ -487,7 +491,7 @@ R6
 Fmain_decoder.v
 R7
 R8
-!i122 630
+!i122 632
 L0 1 80
 R10
 R11
@@ -509,7 +513,7 @@ w1777866241
 Fmemory_cycle.v
 R7
 R8
-!i122 630
+!i122 632
 L0 1 55
 R10
 R11
@@ -531,7 +535,7 @@ Z15 8mux.v
 Z16 Fmux.v
 R7
 R8
-!i122 630
+!i122 632
 R9
 R10
 R11
@@ -553,7 +557,7 @@ R15
 R16
 R7
 R8
-!i122 630
+!i122 632
 L0 9 13
 R10
 R11
@@ -575,7 +579,7 @@ R15
 R16
 R7
 R8
-!i122 630
+!i122 632
 L0 24 18
 R10
 R11
@@ -597,7 +601,7 @@ R6
 Fpc.v
 R7
 R8
-!i122 630
+!i122 632
 L0 1 27
 R10
 R11
@@ -619,7 +623,7 @@ Z17 8pipeline.v
 Z18 Fpipeline.v
 R7
 R8
-!i122 630
+!i122 632
 L0 2 39
 R10
 R11
@@ -641,7 +645,7 @@ R17
 R18
 R7
 R8
-!i122 630
+!i122 632
 L0 43 123
 R10
 R11
@@ -663,7 +667,7 @@ R17
 R18
 R7
 R8
-!i122 630
+!i122 632
 L0 168 89
 R10
 R11
@@ -685,7 +689,7 @@ R17
 R18
 R7
 R8
-!i122 630
+!i122 632
 L0 260 79
 R10
 R11
@@ -705,7 +709,7 @@ R5
 R6
 Z19 8register_file.v
 Z20 Fregister_file.v
-!i122 630
+!i122 632
 L0 3 43
 R10
 R11
@@ -750,5 +754,4 @@ Z39 Ftb_wb.v
 Z40 Friscv_seq_item.sv
 Z41 Friscv_driver.sv
 Z42 Friscv_monitor.sv
-Z43 Friscv_scoreboard.sv
-Z
+Z43 Friscv_sc

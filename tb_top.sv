@@ -92,6 +92,39 @@ module tb_top;
     assign riscv_if_inst.trap_vec   = dut.trap_vec;
     assign riscv_if_inst.epc        = dut.epc;
 
+    wire [31:0] reg_x0  = dut.decode_stage.register_file.register_array[0];
+    wire [31:0] reg_x1  = dut.decode_stage.register_file.register_array[1];
+    wire [31:0] reg_x2  = dut.decode_stage.register_file.register_array[2];
+    wire [31:0] reg_x3  = dut.decode_stage.register_file.register_array[3];
+    wire [31:0] reg_x4  = dut.decode_stage.register_file.register_array[4];
+    wire [31:0] reg_x5  = dut.decode_stage.register_file.register_array[5];
+    wire [31:0] reg_x6  = dut.decode_stage.register_file.register_array[6];
+    wire [31:0] reg_x7  = dut.decode_stage.register_file.register_array[7];
+    wire [31:0] reg_x8  = dut.decode_stage.register_file.register_array[8];
+    wire [31:0] reg_x9  = dut.decode_stage.register_file.register_array[9];
+    wire [31:0] reg_x10 = dut.decode_stage.register_file.register_array[10];
+    wire [31:0] reg_x11 = dut.decode_stage.register_file.register_array[11];
+    wire [31:0] reg_x12 = dut.decode_stage.register_file.register_array[12];
+    wire [31:0] reg_x13 = dut.decode_stage.register_file.register_array[13];
+    wire [31:0] reg_x14 = dut.decode_stage.register_file.register_array[14];
+    wire [31:0] reg_x15 = dut.decode_stage.register_file.register_array[15];
+    wire [31:0] reg_x16 = dut.decode_stage.register_file.register_array[16];
+    wire [31:0] reg_x17 = dut.decode_stage.register_file.register_array[17];
+    wire [31:0] reg_x18 = dut.decode_stage.register_file.register_array[18];
+    wire [31:0] reg_x19 = dut.decode_stage.register_file.register_array[19];
+    wire [31:0] reg_x20 = dut.decode_stage.register_file.register_array[20];
+    wire [31:0] reg_x21 = dut.decode_stage.register_file.register_array[21];
+    wire [31:0] reg_x22 = dut.decode_stage.register_file.register_array[22];
+    wire [31:0] reg_x23 = dut.decode_stage.register_file.register_array[23];
+    wire [31:0] reg_x24 = dut.decode_stage.register_file.register_array[24];
+    wire [31:0] reg_x25 = dut.decode_stage.register_file.register_array[25];
+    wire [31:0] reg_x26 = dut.decode_stage.register_file.register_array[26];
+    wire [31:0] reg_x27 = dut.decode_stage.register_file.register_array[27];
+    wire [31:0] reg_x28 = dut.decode_stage.register_file.register_array[28];
+    wire [31:0] reg_x29 = dut.decode_stage.register_file.register_array[29];
+    wire [31:0] reg_x30 = dut.decode_stage.register_file.register_array[30];
+    wire [31:0] reg_x31 = dut.decode_stage.register_file.register_array[31];
+
     // --------------------------------------------------------
     // UVM config_db: push virtual interface to all components
     // --------------------------------------------------------
@@ -142,6 +175,8 @@ module tb_top;
     initial begin
         // Dump waveforms for post-simulation analysis (Optional)
         $wlfdumpvars(0, tb_top);
+        $dumpfile("dump_uvm.vcd");
+        $dumpvars(0, tb_top);
     end
 
 endmodule : tb_top
