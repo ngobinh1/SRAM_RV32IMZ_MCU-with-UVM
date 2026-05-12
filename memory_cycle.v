@@ -5,16 +5,16 @@ module memory_cycle (
     input wire [2:0] funct3_m,
     input wire [31:0] read_data_m_in,
     output [31:0] read_data_m,
-    output [31:0] write_data_m_out // [QUAN TRỌNG] Cổng mới thêm để xuất dữ liệu đã căn lề cho D-Cache
+    output [31:0] write_data_m_out 
 );
 
-    // Tính toán số bit cần dịch dựa trên 2 bit cuối của địa chỉ
+    // Calculate the number of bits to shift based on the last two bits of the address.
     // byte_offset = 0, 1, 2, 3 -> shift_amt = 0, 8, 16, 24
     wire [1:0] byte_offset = alu_result_m[1:0];
     wire [4:0] shift_amt = {byte_offset, 3'b000}; 
 
     // =========================================================================
-    // 1. DATA ALIGNMENT CHO LỆNH STORE (sb, sh, sw)
+    // 1. DATA ALIGNMENT for STORE (sb, sh, sw)
     // =========================================================================
     reg [31:0] aligned_write_data;
     
@@ -29,7 +29,7 @@ module memory_cycle (
     assign write_data_m_out = aligned_write_data;
 
     // =========================================================================
-    // 2. DATA EXTENSION CHO LỆNH LOAD (lb, lh, lw, lbu, lhu)
+    // 2. DATA EXTENSION for LOAD (lb, lh, lw, lbu, lhu)
     // =========================================================================
     reg [31:0] processed_read_data;
     wire [31:0] shifted_read_data = read_data_m_in >> shift_amt;
@@ -40,7 +40,7 @@ module memory_cycle (
                 processed_read_data = {{24{shifted_read_data[7]}}, shifted_read_data[7:0]};
             3'b001: // lh (Load Halfword - Sign extend)
                 processed_read_data = {{16{shifted_read_data[15]}}, shifted_read_data[15:0]};
-            3'b010: // lw (Load Word - Không cần dịch)
+            3'b010: // lw (Load Word no extension)
                 processed_read_data = read_data_m_in;
             3'b100: // lbu (Load Byte Unsigned - Zero extend)
                 processed_read_data = {24'b0, shifted_read_data[7:0]};

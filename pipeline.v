@@ -39,7 +39,7 @@ module pipeline_1_2 (
 
 endmodule 
 
-//pipeline cho decode và execute
+//pipeline for decode and execute
 module pipeline_2_3 (
     input wire clk, rst, clr, en,
     input wire reg_write_d, mem_write_d, alu_src_d, jump_d, branch_d, jalr_d, 
@@ -164,7 +164,7 @@ module pipeline_2_3 (
     assign csr_rd_e = csr_rd_reg;
 endmodule
 
-//pipeline cho execute và memory
+//pipeline for execute and memory
 module pipeline_3_4 (
     input wire clk, rst, en,
     input wire reg_write_e, mem_write_e,
@@ -256,7 +256,7 @@ module pipeline_3_4 (
 endmodule 
 
 
-//pipeline cho memory và writeback
+//pipeline for memory and writeback
 module pipeline_4_5 (
     input wire clk, rst, en,
     input wire reg_write_m, 

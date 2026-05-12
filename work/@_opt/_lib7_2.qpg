@@ -1,0 +1,822 @@
+m255
+K4
+z2
+Z0 !s12c _opt
+Z1 !s99 nomlopt
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+Z2 !s12c _opt1
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R0
+R1
+!s11f vlog 2024.1 2024.02, Feb  1 2024
+R2
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z3 dC:/Users/Admin/Documents/GitHub/SRAM_RV32I-main
+T_opt
+!s11d riscv_tb_pkg C:/Users/Admin/Documents/GitHub/RAM/work 1 riscv_if 1 C:/Users/Admin/Documents/GitHub/RAM/work 
+!s11d uvm_pkg C:/questasim64_2024.1/uvm-1.1d 1 riscv_if 1 C:/Users/Admin/Documents/GitHub/RAM/work 
+!s110 1778577278
+V]UC?Po9:lVd8HPDVJeVPC3
+04 6 4 work tb_top fast 0
+=1-e884a5770f74-6a02ef7d-37e-26c0
+R1
+Z4 !s12f OEM100
+Z5 !s12b OEM100
+Z6 !s124 OEM100
+Z7 o-quiet -auto_acc_if_foreign -work work +acc
+Z8 tCvgOpt 0
+n@_opt
+Z9 OL;O;2024.1;79
+T_opt1
+!s110 1778574150
+VOL1M3;_OTzae52P8FgZd13
+04 22 4 work tb_riscv_pipeline_mega fast 0
+=1-e884a5770f74-6a02e346-2cc-4e4
+R1
+R4
+R5
+R6
+R7
+R8
+n@_opt1
+R9
+R3
+vadder
+Z10 2EF_SRAM_1024x32.tt_180V_25C.v|EF_SRAM_1024x32.v|adder.v|alu.v|alu_decoder.v|axi_interconnect.v|axi_sram_wrapper.v|control_unit.v|csr_alu.v|csr_file.v|data_memory.v|decode_cycle.v|execute_cycle.v|extend.v|fetch_cycle.v|hazard_unit.v|l1_dcache.v|l1_icache.v|main_decoder.v|memory_cycle.v|mux.v|pc.v|pipeline.v|register_file.v|tb_full.v|top_module.v|writeback_cycle.v|riscv_agent_env_test.sv|riscv_coverage.sv|riscv_driver.sv|riscv_if.sv|riscv_monitor.sv|riscv_scoreboard.sv|riscv_seq_item.sv|riscv_sequences.sv|riscv_tb_pkg.sv|riscv_tests.sv|tb_top.sv
+Z11 !s110 1778577264
+!i10b 1
+!s100 ^EQQP6a;PTRoD`UH?jXN:2
+IKU_=4zai;FWF1Z]kdAi7k0
+Z12 dC:/Users/Admin/Documents/GitHub/RAM
+Z13 w1776831144
+8adder.v
+Fadder.v
+Z14 8EF_SRAM_1024x32.v
+Z15 FEF_SRAM_1024x32.v
+!i122 53
+Z16 L0 1 7
+Z17 VDg1SIo80bB@j0V0VzS_@n1
+Z18 OL;L;2024.1;79
+r1
+!s85 0
+31
+!i113 0
+Z19 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R8
+valu
+R10
+R11
+!i10b 1
+!s100 kL:VYN<9EDTHUE=Sf6^VR3
+Ia6]7a9miCM]fFeFzjQBjV2
+R12
+R13
+8alu.v
+Falu.v
+R14
+R15
+!i122 53
+L0 1 58
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+valu_decoder
+R10
+R11
+!i10b 1
+!s100 RC;L18?zCMjUJf9=hbLb50
+I<XWT]]V:c24:m9WYDhn5G1
+R12
+R13
+8alu_decoder.v
+Falu_decoder.v
+R14
+R15
+!i122 53
+L0 1 51
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+vaxi_interconnect
+R10
+R11
+!i10b 1
+!s100 REHK=K9b>9MzbHC6lnfdU3
+If[]W^fPcg5CkozZT^f26C3
+R12
+w1778576480
+8axi_interconnect.v
+Faxi_interconnect.v
+R14
+R15
+!i122 53
+L0 1 56
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+vaxi_sram_wrapper
+R10
+R11
+!i10b 1
+!s100 J_<RE9WgAMhP5K[mFT^ZO0
+IUd5B3QH0LT7:W=1ll<RmU1
+R12
+w1778576687
+8axi_sram_wrapper.v
+Faxi_sram_wrapper.v
+R14
+R15
+!i122 53
+L0 1 91
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+vcontrol_unit
+R10
+R11
+!i10b 1
+!s100 9fTEbmg0`zdZF0>L4GaU^0
+IokHS[<HE?geaE[EHk@Pdf1
+R12
+R13
+8control_unit.v
+Fcontrol_unit.v
+R14
+R15
+!i122 53
+L0 1 57
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+vcsr_alu
+R10
+R11
+!i10b 1
+!s100 C@FDGa`R_MOJSeDOKWNYV2
+IolAAfLVKznVNNhJ4g]8DG3
+R12
+R13
+8csr_alu.v
+Fcsr_alu.v
+R14
+R15
+!i122 53
+L0 1 19
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+vcsr_file
+R10
+R11
+!i10b 1
+!s100 FT=MAL]>_YHBckR3>>C`23
+ILDSCL54kmQMoDkCLI[:aV0
+R12
+R13
+8csr_file.v
+Fcsr_file.v
+R14
+R15
+!i122 53
+L0 1 70
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+vdata_memory
+R10
+R11
+!i10b 1
+!s100 VbPG8dAWGY78]L1jC?Ydd3
+I`89?nXK7A6P;Pcj3h_NGe1
+R12
+R13
+8data_memory.v
+Fdata_memory.v
+R14
+R15
+!i122 53
+L0 1 75
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+vdecode_cycle
+R10
+R11
+!i10b 1
+!s100 aEDZ=obm6T>YnMn^Ybee=2
+IeLTDfL2_hg><8B_VKfZO@3
+R12
+R13
+8decode_cycle.v
+Fdecode_cycle.v
+R14
+R15
+!i122 53
+L0 1 83
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+vEF_SRAM_1024x32
+R10
+R11
+!i10b 1
+!s100 BoSGX2C0V_W4CalSZL36O1
+Ic>fn^cffokKQ^Ak:7;5Ln0
+R12
+R13
+R14
+R15
+!i122 53
+L0 35 95
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+n@e@f_@s@r@a@m_1024x32
+vEF_SRAM_1024x32_macro
+R10
+R11
+!i10b 1
+!s100 l<K3iZYY;FIWi[n]?cg@01
+I6RQ46[Mld]6RXQ_EX53jE0
+R12
+R13
+Z20 8EF_SRAM_1024x32.tt_180V_25C.v
+Z21 FEF_SRAM_1024x32.tt_180V_25C.v
+!i122 53
+L0 32 1089
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+n@e@f_@s@r@a@m_1024x32_macro
+vEF_SRAM_1024x32_memory_mode
+R10
+R11
+!i10b 1
+!s100 =B?PQ_k[94f9aGNJjKOL20
+I]:^9<0nm5C[A8]lQYI9O:0
+R12
+R13
+R20
+R21
+!i122 53
+L0 1123 400
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+n@e@f_@s@r@a@m_1024x32_memory_mode
+vexecute_cycle
+R10
+R11
+!i10b 1
+!s100 cbo_dIoN;OY`Y0meHFKUQ1
+IINf:@U35:9H[6IQ]16?hH1
+R12
+R13
+8execute_cycle.v
+Fexecute_cycle.v
+R14
+R15
+!i122 53
+Z22 L0 1 85
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+vextend
+R10
+R11
+!i10b 1
+!s100 zz?=d]M0TbMFXXiEfCgKk3
+IT;In^0OzZ_bdnUUK;ilBV0
+R12
+R13
+8extend.v
+Fextend.v
+R14
+R15
+!i122 53
+L0 1 40
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+vfetch_cycle
+R10
+R11
+!i10b 1
+!s100 =J?OPghjoo1f5o9>doJjF2
+Ilbi:ibS`PjfWkX64GKLm`0
+R12
+R13
+8fetch_cycle.v
+Ffetch_cycle.v
+R14
+R15
+!i122 53
+L0 1 62
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+vhazard_unit
+R10
+R11
+!i10b 1
+!s100 =BXmnkOmFCdaO_E97ImSY0
+IiLG0N<4GHah3DgGOD:RUZ1
+R12
+w1777865387
+8hazard_unit.v
+Fhazard_unit.v
+R14
+R15
+!i122 53
+L0 1 82
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+vinstruction_memory
+2EF_SRAM_1024x32.tt_180V_25C.v|EF_SRAM_1024x32.v|adder.v|alu.v|alu_decoder.v|axi_interconnect.v|axi_sram_wrapper.v|control_unit.v|csr_alu.v|csr_file.v|data_memory.v|decode_cycle.v|execute_cycle.v|extend.v|fetch_cycle.v|hazard_unit.v|instruction_memory.v|l1_dcache.v|l1_icache.v|main_decoder.v|memory_cycle.v|mux.v|pc.v|pipeline.v|register_file.v|top_module.v|writeback_cycle.v|riscv_agent_env_test.sv|riscv_coverage.sv|riscv_driver.sv|riscv_if.sv|riscv_monitor.sv|riscv_scoreboard.sv|riscv_seq_item.sv|riscv_sequences.sv|riscv_tb_pkg.sv|riscv_tests.sv|tb_top.sv
+!s110 1778572665
+!i10b 1
+!s100 `IQ5Wdi@79Z_XIIACaMji2
+I3ZnBh5?[KQSE9T0]5<GBF0
+R12
+R13
+8instruction_memory.v
+Finstruction_memory.v
+R14
+R15
+!i122 0
+L0 1 41
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+vl1_dcache
+R10
+R11
+!i10b 1
+!s100 <B;X`hf9;7NW7YIDYnjUj3
+I?f:?1O7G=Q_5:O8`cznW60
+R12
+w1778577164
+8l1_dcache.v
+Fl1_dcache.v
+R14
+R15
+!i122 53
+L0 1 156
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+vl1_icache
+R10
+R11
+!i10b 1
+!s100 gN[@V35<RNVh>__dC>d640
+I;iGY`X`IkCBeg808kG3`>1
+R12
+w1778577260
+8l1_icache.v
+Fl1_icache.v
+R14
+R15
+!i122 53
+R22
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+vmain_decoder
+R10
+R11
+!i10b 1
+!s100 <2:BVLi_JQfF_1InUMAYF1
+I_W462b?UzIf`:l<im=_lo3
+R12
+R13
+8main_decoder.v
+Fmain_decoder.v
+R14
+R15
+!i122 53
+L0 1 80
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+vmemory_cycle
+R10
+R11
+!i10b 1
+!s100 KW_ljjQDMIPflbc90GeZd3
+I6cCm@6TNba]_?OCR8gIAL1
+R12
+w1777866241
+8memory_cycle.v
+Fmemory_cycle.v
+R14
+R15
+!i122 53
+L0 1 55
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+vmux
+R10
+R11
+!i10b 1
+!s100 KGT;b8XbA>8foEM92GX_i2
+Ied<Jd?6JRgKHdXQ]Tf;`O0
+R12
+R13
+Z23 8mux.v
+Z24 Fmux.v
+R14
+R15
+!i122 53
+R16
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+vmux_3_1
+R10
+R11
+!i10b 1
+!s100 4;0]nh^R;[b?gUb5N4L1o3
+I0J[S8lB:jJPYFj30G3d:72
+R12
+R13
+R23
+R24
+R14
+R15
+!i122 53
+L0 9 13
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+vmux_4to1
+R10
+R11
+!i10b 1
+!s100 ?EOBg^c?Om`Yd;[2=UB?h0
+IQ8_P0^T?8An?Q5O]VlPQT0
+R12
+R13
+R23
+R24
+R14
+R15
+!i122 53
+L0 24 18
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+vpc
+R10
+R11
+!i10b 1
+!s100 mS4S@GzPXnD=gVZ[d5M^11
+IiZ?8g0f>P57f<9`jj013Q2
+R12
+R13
+8pc.v
+Fpc.v
+R14
+R15
+!i122 53
+L0 1 27
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+vpipeline_1_2
+R10
+R11
+!i10b 1
+!s100 zB[0`UOTg>>LU93:?h2fn0
+I6>[YC]o[2^;TTeS=j<W]j1
+R12
+R13
+Z25 8pipeline.v
+Z26 Fpipeline.v
+R14
+R15
+!i122 53
+L0 2 39
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+vpipeline_2_3
+R10
+R11
+!i10b 1
+!s100 oQbQaQk:=68Y79RKn5DXe2
+Ikd82kOP;mcf9_TU4YGLFJ0
+R12
+R13
+R25
+R26
+R14
+R15
+!i122 53
+L0 43 123
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+vpipeline_3_4
+R10
+R11
+!i10b 1
+!s100 VNHC3>a[?W:;A]81nOFNc0
+Ieg4U5;iY[9D8IVg0]EHl82
+R12
+R13
+R25
+R26
+R14
+R15
+!i122 53
+L0 168 89
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+vpipeline_4_5
+R10
+R11
+!i10b 1
+!s100 hcaN2dgObKm;dXe3F=1]o0
+I:Z4SbMZQaHREb7<H9f2^_2
+R12
+R13
+R25
+R26
+R14
+R15
+!i122 53
+L0 260 79
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+vregister_file
+R10
+R11
+!i10b 1
+!s100 U2dj`:5GSYTc<WcS^UV<D2
+IdVOJBDW6zW0I59eW9h`gF0
+R12
+R13
+8register_file.v
+Fregister_file.v
+!i122 53
+L0 3 43
+R17
+R18
+r1
+!s85 0
+31
+!i113 0
+R19
+R8
+Xriscv_agent_env_test_sv_unit
+R10
+Z27 !s115 riscv_if
+Z28 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z29 DXx6 mtiUvm 7 uvm_pkg 0 22 MiVhEBb9cnBN5^J=<XBKI2
+R11
+Vc@PhB?Ub[kE

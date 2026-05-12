@@ -158,7 +158,7 @@ class riscv_alu_test_seq extends riscv_base_seq;
         load_seq.start(m_sequencer);
 
         run_seq = riscv_run_seq::type_id::create("run_seq");
-        run_seq.run_cycles = 500;
+        run_seq.run_cycles = 2000;
         run_seq.start(m_sequencer);
 
         `uvm_info("ALU_TEST", "ALU test sequence complete", UVM_MEDIUM)
@@ -189,7 +189,7 @@ class riscv_mem_test_seq extends riscv_base_seq;
         load_seq.start(m_sequencer);
 
         run_seq = riscv_run_seq::type_id::create("run_seq");
-        run_seq.run_cycles = 800;
+        run_seq.run_cycles = 2000;
         run_seq.start(m_sequencer);
 
         `uvm_info("MEM_TEST", "Memory test complete", UVM_MEDIUM)
@@ -221,7 +221,7 @@ class riscv_branch_test_seq extends riscv_base_seq;
         load_seq.start(m_sequencer);
 
         run_seq = riscv_run_seq::type_id::create("run_seq");
-        run_seq.run_cycles = 600;
+        run_seq.run_cycles = 2000;
         run_seq.start(m_sequencer);
 
         `uvm_info("BRANCH_TEST", "Branch test complete", UVM_MEDIUM)
@@ -253,7 +253,7 @@ class riscv_hazard_test_seq extends riscv_base_seq;
         load_seq.start(m_sequencer);
 
         run_seq = riscv_run_seq::type_id::create("run_seq");
-        run_seq.run_cycles = 400;
+        run_seq.run_cycles = 2000;
         run_seq.start(m_sequencer);
 
         `uvm_info("HAZARD_TEST", "Hazard test complete", UVM_MEDIUM)
@@ -284,7 +284,7 @@ class riscv_csr_test_seq extends riscv_base_seq;
         load_seq.start(m_sequencer);
 
         run_seq = riscv_run_seq::type_id::create("run_seq");
-        run_seq.run_cycles = 300;
+        run_seq.run_cycles = 2000;
         run_seq.start(m_sequencer);
 
         `uvm_info("CSR_TEST", "CSR test complete", UVM_MEDIUM)
@@ -305,7 +305,7 @@ class riscv_extra_coverage_seq extends riscv_base_seq;
         load_seq.hex_file = "extra_coverage.hex";
         load_seq.start(m_sequencer);
         run_seq = riscv_run_seq::type_id::create("run_seq");
-        run_seq.run_cycles = 200;
+        run_seq.run_cycles = 2000;
         run_seq.start(m_sequencer);
     endtask
 endclass : riscv_extra_coverage_seq
@@ -351,7 +351,7 @@ class riscv_full_test_seq extends riscv_base_seq;
         full_load_seq.hex_file = "full_test.hex";
         full_load_seq.start(m_sequencer);
 
-        run_seq.run_cycles = 1500;
+        run_seq.run_cycles = 2000;
         run_seq.start(m_sequencer);
 
         alu_seq.start(m_sequencer);

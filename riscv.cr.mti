@@ -8,18 +8,12 @@ QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 Top level modules:
 	--none--
 
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/pipeline.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/pipeline.v
+} {} {}} C:/Users/Admin/Documents/GitHub/RAM/axi_interconnect.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/axi_interconnect.v
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
--- Compiling module pipeline_1_2
--- Compiling module pipeline_2_3
--- Compiling module pipeline_3_4
--- Compiling module pipeline_4_5
+-- Compiling module axi_interconnect
 
 Top level modules:
-	pipeline_1_2
-	pipeline_2_3
-	pipeline_3_4
-	pipeline_4_5
+	axi_interconnect
 
 } {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_agent_env_test.sv {2 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_agent_env_test.sv
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
@@ -32,20 +26,6 @@ QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 
 Top level modules:
 	--none--
-
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/tb_top.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/tb_top.v
-QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
--- Compiling module tb_riscv_pipeline_full
-
-Top level modules:
-	tb_riscv_pipeline_full
-
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/memory_cycle.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/memory_cycle.v
-QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
--- Compiling module memory_cycle
-
-Top level modules:
-	memory_cycle
 
 } {} {}} C:/Users/Admin/Documents/GitHub/RAM/control_unit.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/control_unit.v
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
@@ -73,20 +53,6 @@ QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 Top level modules:
 	--none--
 
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/alu.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/alu.v
-QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
--- Compiling module alu
-
-Top level modules:
-	alu
-
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/data_memory.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/data_memory.v
-QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
--- Compiling module data_memory
-
-Top level modules:
-	data_memory
-
 } {} {}} C:/Users/Admin/Documents/GitHub/RAM/mux.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/mux.v
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 -- Compiling module mux
@@ -105,19 +71,34 @@ QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 Top level modules:
 	main_decoder
 
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/instruction_memory.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/instruction_memory.v
+} {} {}} C:/Users/Admin/Documents/GitHub/RAM/alu.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/alu.v
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
--- Compiling module instruction_memory
+-- Compiling module alu
 
 Top level modules:
-	instruction_memory
+	alu
 
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/writeback_cycle.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/writeback_cycle.v
+} {} {}} C:/Users/Admin/Documents/GitHub/RAM/data_memory.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/data_memory.v
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
--- Compiling module writeback_cycle
+-- Compiling module data_memory
 
 Top level modules:
-	writeback_cycle
+	data_memory
+
+} {} {}} C:/Users/Admin/Documents/GitHub/RAM/tb_top.sv {2 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/tb_top.sv
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+-- Compiling package riscv_tb_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+** Note: (vlog-2286) riscv_tb_pkg.sv(10): Using implicit +incdir+C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+** Warning: ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/tb_top.sv(15)
+** at riscv_monitor.sv(87): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
+** Warning: ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/tb_top.sv(15)
+** at riscv_monitor.sv(88): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
+-- Compiling module tb_top
+-- Importing package riscv_tb_pkg
+
+Top level modules:
+	tb_top
 
 } {} {}} C:/Users/Admin/Documents/GitHub/RAM/decode_cycle.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/decode_cycle.v
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
@@ -126,39 +107,40 @@ QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 Top level modules:
 	decode_cycle
 
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_tests.sv {0 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_tests.sv
+} {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_tests.sv {2 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_tests.sv
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 ** Note: (vlog-2286) C:/Users/Admin/Documents/GitHub/RAM/riscv_tests.sv(20): Using implicit +incdir+C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
-** Error: ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/riscv_tests.sv(23)
-** at riscv_sequences.sv(343): (vlog-2730) Undefined variable: 'full_load_seq'.
-** Error: ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/riscv_tests.sv(23)
-** at riscv_sequences.sv(348): Illegal declaration after the statement near line '345'.  Declarations must precede statements.  Look for stray semicolons.
+** Warning: C:/Users/Admin/Documents/GitHub/RAM/riscv_tests.sv(21): (vlog-13233) Design unit "riscv_tests_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
+-- Compiling package riscv_tests_sv_unit
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+** Warning: riscv_monitor.sv(87): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
+** Warning: riscv_monitor.sv(88): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
 
-} {4.0 5.0 6.0 7.0} {}} C:/Users/Admin/Documents/GitHub/RAM/register_file.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/register_file.v
+Top level modules:
+	--none--
+
+} {} {}} C:/Users/Admin/Documents/GitHub/RAM/register_file.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/register_file.v
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 -- Compiling module register_file
 
 Top level modules:
 	register_file
 
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/l1_dcache.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/l1_dcache.v
-QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
--- Compiling module l1_dcache
-
-Top level modules:
-	l1_dcache
-
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_sequences.sv {0 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_sequences.sv
-QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
-** Note: (vlog-2286) C:/Users/Admin/Documents/GitHub/RAM/riscv_sequences.sv(18): Using implicit +incdir+C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
-** Error: C:/Users/Admin/Documents/GitHub/RAM/riscv_sequences.sv(343): (vlog-2730) Undefined variable: 'full_load_seq'.
-** Error: C:/Users/Admin/Documents/GitHub/RAM/riscv_sequences.sv(348): Illegal declaration after the statement near line '345'.  Declarations must precede statements.  Look for stray semicolons.
-
-} {4.0 6.0} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_driver.sv {2 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_driver.sv
+} {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_driver.sv {2 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_driver.sv
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 ** Note: (vlog-2286) C:/Users/Admin/Documents/GitHub/RAM/riscv_driver.sv(6): Using implicit +incdir+C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
 ** Warning: C:/Users/Admin/Documents/GitHub/RAM/riscv_driver.sv(7): (vlog-13233) Design unit "riscv_driver_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
 -- Compiling package riscv_driver_sv_unit
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+
+Top level modules:
+	--none--
+
+} {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_coverage.sv {2 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_coverage.sv
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+** Note: (vlog-2286) C:/Users/Admin/Documents/GitHub/RAM/riscv_coverage.sv(15): Using implicit +incdir+C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+** Warning: C:/Users/Admin/Documents/GitHub/RAM/riscv_coverage.sv(16): (vlog-13233) Design unit "riscv_coverage_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
+-- Compiling package riscv_coverage_sv_unit
 -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
 
 Top level modules:
@@ -171,13 +153,6 @@ QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 
 Top level modules:
 	EF_SRAM_1024x32_macro
-
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/tb_wb.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/tb_wb.v
-QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
--- Compiling module tb_writeback_cycle
-
-Top level modules:
-	tb_writeback_cycle
 
 } {} {}} C:/Users/Admin/Documents/GitHub/RAM/alu_decoder.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/alu_decoder.v
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
@@ -193,31 +168,18 @@ QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 Top level modules:
 	csr_file
 
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/top_module.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/top_module.v
-QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
--- Compiling module riscv_pipeline_top
-
-Top level modules:
-	riscv_pipeline_top
-
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/tb_full.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/tb_full.v
-QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
--- Compiling module tb_riscv_pipeline_mega
-
-Top level modules:
-	tb_riscv_pipeline_mega
-
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_tb_pkg.sv {0 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_tb_pkg.sv
+} {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_tb_pkg.sv {2 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_tb_pkg.sv
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 -- Compiling package riscv_tb_pkg
 -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
 ** Note: (vlog-2286) C:/Users/Admin/Documents/GitHub/RAM/riscv_tb_pkg.sv(10): Using implicit +incdir+C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
-** Error: ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/riscv_tb_pkg.sv(19)
-** at riscv_sequences.sv(343): (vlog-2730) Undefined variable: 'full_load_seq'.
-** Error: ** while parsing file included at C:/Users/Admin/Documents/GitHub/RAM/riscv_tb_pkg.sv(19)
-** at riscv_sequences.sv(348): Illegal declaration after the statement near line '345'.  Declarations must precede statements.  Look for stray semicolons.
+** Warning: riscv_monitor.sv(87): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
+** Warning: riscv_monitor.sv(88): (vlog-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
 
-} {6.0 7.0 8.0 9.0} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_seq_item.sv {2 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_seq_item.sv
+Top level modules:
+	--none--
+
+} {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_seq_item.sv {2 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_seq_item.sv
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 ** Note: (vlog-2286) C:/Users/Admin/Documents/GitHub/RAM/riscv_seq_item.sv(8): Using implicit +incdir+C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
 ** Warning: C:/Users/Admin/Documents/GitHub/RAM/riscv_seq_item.sv(9): (vlog-13233) Design unit "riscv_seq_item_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
@@ -226,27 +188,6 @@ QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 
 Top level modules:
 	--none--
-
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/l1_cache.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/l1_cache.v
-QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
--- Compiling module l1_icache
-
-Top level modules:
-	l1_icache
-
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/adder.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/adder.v
-QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
--- Compiling module adder
-
-Top level modules:
-	adder
-
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/extend.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/extend.v
-QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
--- Compiling module extend
-
-Top level modules:
-	extend
 
 } {} {}} C:/Users/Admin/Documents/GitHub/RAM/riscv_if.sv {2 {vlog -work work -vopt -sv -stats=none C:/Users/Admin/Documents/GitHub/RAM/riscv_if.sv
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
@@ -258,6 +199,20 @@ QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 
 Top level modules:
 	--none--
+
+} {} {}} C:/Users/Admin/Documents/GitHub/RAM/extend.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/extend.v
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+-- Compiling module extend
+
+Top level modules:
+	extend
+
+} {} {}} C:/Users/Admin/Documents/GitHub/RAM/adder.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/adder.v
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+-- Compiling module adder
+
+Top level modules:
+	adder
 
 } {} {}} C:/Users/Admin/Documents/GitHub/RAM/hazard_unit.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/hazard_unit.v
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
@@ -280,33 +235,12 @@ QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 Top level modules:
 	csr_alu
 
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/tb_id.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/tb_id.v
-QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
--- Compiling module tb_decode_cycle
-
-Top level modules:
-	tb_decode_cycle
-
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/tb_ex.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/tb_ex.v
-QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
--- Compiling module tb_execute_cycle
-
-Top level modules:
-	tb_execute_cycle
-
 } {} {}} C:/Users/Admin/Documents/GitHub/RAM/execute_cycle.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/execute_cycle.v
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 -- Compiling module execute_cycle
 
 Top level modules:
 	execute_cycle
-
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/sram_arbiter.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/sram_arbiter.v
-QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
--- Compiling module sram_arbiter
-
-Top level modules:
-	sram_arbiter
 
 } {} {}} C:/Users/Admin/Documents/GitHub/RAM/pc.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/pc.v
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
@@ -315,18 +249,11 @@ QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 Top level modules:
 	pc
 
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/tb_mem.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/tb_mem.v
+} {} {}} C:/Users/Admin/Documents/GitHub/RAM/axi_sram_wrapper.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/axi_sram_wrapper.v
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
--- Compiling module tb_memory_cycle
+-- Compiling module axi_sram_wrapper
 
 Top level modules:
-	tb_memory_cycle
-
-} {} {}} C:/Users/Admin/Documents/GitHub/RAM/tb_if.v {1 {vlog -work work -vopt -stats=none C:/Users/Admin/Documents/GitHub/RAM/tb_if.v
-QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
--- Compiling module tb_fetch_cycle
-
-Top level modules:
-	tb_fetch_cycle
+	axi_sram_wrapper
 
 } {} {}}
