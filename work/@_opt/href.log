@@ -1,88 +1,41 @@
-BEGIN 1:riscv_pipeline_top:fast:work
-    mem_write_d :  1:tb_top:fast:work
-    mem_write_m :  1:tb_top:fast:work
-    pc_e :  1:tb_top:fast:work
-    epc :  1:tb_top:fast:work
-    pc_d :  1:tb_top:fast:work
-    alu_result_m :  1:tb_top:fast:work
-    stall_f :  1:tb_top:fast:work
-    write_data_m :  1:tb_top:fast:work
-    trap_vec :  1:tb_top:fast:work
-    result_src_m :  1:tb_top:fast:work
-    alu_result_e :  1:tb_top:fast:work
-    rs2_d :  1:tb_top:fast:work
-    read_data_m :  1:tb_top:fast:work
-    icache_stall :  1:tb_top:fast:work
-    dcache_stall :  1:tb_top:fast:work
-    rd_d :  1:tb_top:fast:work
-    branch_d :  1:tb_top:fast:work
-    pc_plus_4_f :  1:tb_top:fast:work
-    is_ecall_d :  1:tb_top:fast:work
-    rs1_d :  1:tb_top:fast:work
-    instr_f :  1:tb_top:fast:work
-    is_mret_d :  1:tb_top:fast:work
-    instr_d :  1:tb_top:fast:work
-    pc_f :  1:tb_top:fast:work
-    reg_write_w :  1:tb_top:fast:work
-    flush_d :  1:tb_top:fast:work
-    pc_src_e :  1:tb_top:fast:work
-    result_w :  1:tb_top:fast:work
-    funct3_m :  1:tb_top:fast:work
-    pc_target_e :  1:tb_top:fast:work
-    reg_write_d :  1:tb_top:fast:work
-    rd_w :  1:tb_top:fast:work
-    jump_d :  1:tb_top:fast:work
-END 
 BEGIN 1:EF_SRAM_1024x32_memory_mode:fast:work
+    ENreg_scan :  1:EF_SRAM_1024x32_macro:fast:work
+    ADreg :  1:EF_SRAM_1024x32_macro:fast:work
+    memory :  1:EF_SRAM_1024x32_memory_mode:fast:work 1:EF_SRAM_1024x32_macro:fast:work 1:tb_riscv_pipeline_mega:fast:work
     DIreg :  1:EF_SRAM_1024x32_macro:fast:work
-    memory :  1:EF_SRAM_1024x32_macro:fast:work 1:EF_SRAM_1024x32_memory_mode:fast:work 3:riscv_if:fast__2:work
+    R_WBreg :  1:EF_SRAM_1024x32_macro:fast:work
     ENreg :  1:EF_SRAM_1024x32_macro:fast:work
     ADreg_scan :  1:EF_SRAM_1024x32_macro:fast:work
     R_WBreg_scan :  1:EF_SRAM_1024x32_macro:fast:work
-    R_WBreg :  1:EF_SRAM_1024x32_macro:fast:work
     BENreg :  1:EF_SRAM_1024x32_macro:fast:work
-    ENreg_scan :  1:EF_SRAM_1024x32_macro:fast:work
-    ADreg :  1:EF_SRAM_1024x32_macro:fast:work
+END 
+BEGIN 1:riscv_pipeline_top:fast:work
+    rs1_d :  1:tb_riscv_pipeline_mega:fast:work
+    rd_m :  1:tb_riscv_pipeline_mega:fast:work
+    instr_f :  1:tb_riscv_pipeline_mega:fast:work
+    flush_e :  1:tb_riscv_pipeline_mega:fast:work
+    stall_d :  1:tb_riscv_pipeline_mega:fast:work
+    write_data_m :  1:tb_riscv_pipeline_mega:fast:work
+    instr_d :  1:tb_riscv_pipeline_mega:fast:work
+    read_data_m :  1:tb_riscv_pipeline_mega:fast:work
+    mem_read_m :  1:tb_riscv_pipeline_mega:fast:work
+    rd_e :  1:tb_riscv_pipeline_mega:fast:work
+    pc_f :  1:tb_riscv_pipeline_mega:fast:work
+    alu_result_m :  1:tb_riscv_pipeline_mega:fast:work
+    stall_f :  1:tb_riscv_pipeline_mega:fast:work
+    flush_d :  1:tb_riscv_pipeline_mega:fast:work
+    reg_write_w :  1:tb_riscv_pipeline_mega:fast:work
+    icache_stall :  1:tb_riscv_pipeline_mega:fast:work
+    alu_result_e :  1:tb_riscv_pipeline_mega:fast:work
+    rs2_d :  1:tb_riscv_pipeline_mega:fast:work
+    mem_write_m :  1:tb_riscv_pipeline_mega:fast:work
+    result_w :  1:tb_riscv_pipeline_mega:fast:work
+    rd_d :  1:tb_riscv_pipeline_mega:fast:work
+    rd_w :  1:tb_riscv_pipeline_mega:fast:work
+    pc_d :  1:tb_riscv_pipeline_mega:fast:work
+    pc_e :  1:tb_riscv_pipeline_mega:fast:work
+    dcache_stall :  1:tb_riscv_pipeline_mega:fast:work
 END 
 BEGIN 1:register_file:fast:work
-    register_array :  1:tb_top:fast:work
-END 
-BEGIN 3:riscv_if:fast__2:work
-    reg_write_w :  1:tb_top:fast:work
-    flush_d :  1:tb_top:fast:work
-    pc_plus_4_f :  1:tb_top:fast:work
-    result_w :  1:tb_top:fast:work
-    funct3_m :  1:tb_top:fast:work
-    pc_target_e :  1:tb_top:fast:work
-    reg_write_d :  1:tb_top:fast:work
-    rd_w :  1:tb_top:fast:work
-    write_data_m :  1:tb_top:fast:work
-    mem_write_d :  1:tb_top:fast:work
-    mem_write_m :  1:tb_top:fast:work
-    alu_result_e :  1:tb_top:fast:work
-    epc :  1:tb_top:fast:work
-    pc_d :  1:tb_top:fast:work
-    pc_src_e :  1:tb_top:fast:work
-    stall_f :  1:tb_top:fast:work
-    instr_f :  1:tb_top:fast:work
-    trap_vec :  1:tb_top:fast:work
-    result_src_m :  1:tb_top:fast:work
-    pc_f :  1:tb_top:fast:work
-    rs2_d :  1:tb_top:fast:work
-    read_data_m :  1:tb_top:fast:work
-    icache_stall :  1:tb_top:fast:work
-    dcache_stall :  1:tb_top:fast:work
-    rd_d :  1:tb_top:fast:work
-    branch_d :  1:tb_top:fast:work
-    alu_result_m :  1:tb_top:fast:work
-    is_ecall_d :  1:tb_top:fast:work
-    rs1_d :  1:tb_top:fast:work
-    jump_d :  1:tb_top:fast:work
-    rst :  1:tb_top:fast:work
-    is_mret_d :  1:tb_top:fast:work
-    instr_d :  1:tb_top:fast:work
-    pc_e :  1:tb_top:fast:work
-END 
-BEGIN 3:riscv_if:fast__1:work
-    rst :  1:riscv_tb_pkg:fast:work
+    register_array :  1:tb_riscv_pipeline_mega:fast:work
 END 
