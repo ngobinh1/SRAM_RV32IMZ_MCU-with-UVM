@@ -10,7 +10,7 @@ module csr_alu (
 
     always @(funct3[1:0] or csr_rd or csr_operand) begin
         case (funct3[1:0])
-            2'b01: csr_wd = csr_operand;               // csrrw, csrrwi (Ghi đè)
+            2'b01: csr_wd = csr_operand;               // csrrw, csrrwi (Overwrite)
             2'b10: csr_wd = csr_rd | csr_operand;      // csrrs, csrrsi (Set bit)
             2'b11: csr_wd = csr_rd & ~csr_operand;     // csrrc, csrrci (Clear bit)
             default: csr_wd = 32'd0;

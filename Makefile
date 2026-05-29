@@ -70,6 +70,7 @@ RTL_FILES :=                                          \
   $(RTL_CORE)/pipeline.v                              \
   $(RTL_CORE)/fetch_cycle.v                           \
   $(RTL_CORE)/decode_cycle.v                          \
+  $(RTL_CORE)/issue.v                                 \
   $(RTL_CORE)/execute_cycle.v                         \
   $(RTL_CORE)/memory_cycle.v                          \
   $(RTL_CORE)/writeback_cycle.v                       \

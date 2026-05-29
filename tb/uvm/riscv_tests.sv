@@ -138,9 +138,30 @@ class riscv_csr_test extends riscv_base_test;
 
 endclass : riscv_csr_test
 
+// ============================================================
+// Test 6: Mul/Div Test
+// ============================================================
+class riscv_muldiv_test extends riscv_base_test;
+    `uvm_component_utils(riscv_muldiv_test)
+
+    function new(string name = "riscv_muldiv_test", uvm_component parent = null);
+        super.new(name, parent);
+        hex_file       = "muldiv_test.hex";
+        timeout_cycles = 10_000;
+    endfunction
+
+    task run_test_body(uvm_phase phase);
+        riscv_muldiv_test_seq seq;
+        seq = riscv_muldiv_test_seq::type_id::create("seq");
+        seq.start(get_sequencer());
+        vif.wait_clks(300);
+    endtask
+
+endclass : riscv_muldiv_test
+
 
 // ============================================================
-// Test 6: Full Regression Test
+// Test 7: Full Regression Test
 // ============================================================
 class riscv_full_test extends riscv_base_test;
     `uvm_component_utils(riscv_full_test)
@@ -162,7 +183,7 @@ endclass : riscv_full_test
 
 
 // ============================================================
-// Test 7: Randomised Stress Test
+// Test 8: Randomised Stress Test
 // ============================================================
 class riscv_random_test extends riscv_base_test;
     `uvm_component_utils(riscv_random_test)

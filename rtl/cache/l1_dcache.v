@@ -110,7 +110,7 @@ module l1_dcache (
             W_WAIT: begin
                 m_axi_wvalid = 1'b1;
                 m_axi_wdata  = cache_data[index];
-                m_axi_wstrb  = 4'b1111; // Evict toàn bộ word (4 bytes)
+                m_axi_wstrb  = 4'b1111; // Evict entire word (4 bytes)
                 if (m_axi_wready) next_state = B_WAIT;
             end
             

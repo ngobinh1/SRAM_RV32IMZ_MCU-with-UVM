@@ -71,6 +71,14 @@ class riscv_coverage extends uvm_subscriber #(riscv_seq_item);
                                 riscv_seq_item::INSTR_CSRRW,
                                 riscv_seq_item::INSTR_CSRRS,
                                 riscv_seq_item::INSTR_CSRRC};
+            bins muldiv[]    = {riscv_seq_item::INSTR_MUL,
+                                riscv_seq_item::INSTR_MULH,
+                                riscv_seq_item::INSTR_MULHSU,
+                                riscv_seq_item::INSTR_MULHU,
+                                riscv_seq_item::INSTR_DIV,
+                                riscv_seq_item::INSTR_DIVU,
+                                riscv_seq_item::INSTR_REM,
+                                riscv_seq_item::INSTR_REMU};
         }
     endgroup
 
@@ -250,6 +258,16 @@ class riscv_coverage extends uvm_subscriber #(riscv_seq_item);
         }
     endgroup
 
+    // ============================================================
+    // Coverage Group 8: AXI Bus Transactions
+    // ============================================================
+    covergroup cg_axi;
+        cp_axi_trans: coverpoint trans.trans_type {
+            bins axi_reads = {riscv_seq_item::TRANS_AXI_READ};
+            bins axi_writes = {riscv_seq_item::TRANS_AXI_WRITE};
+        }
+    endgroup
+
     // --------------------------------------------------------
     // Constructor: instantiate all coverage groups
     // --------------------------------------------------------
@@ -262,6 +280,7 @@ class riscv_coverage extends uvm_subscriber #(riscv_seq_item);
         cg_pipeline_flow = new();
         cg_regfile       = new();
         cg_csr           = new();
+        cg_axi           = new();
     endfunction
 
     // --------------------------------------------------------
@@ -293,6 +312,11 @@ class riscv_coverage extends uvm_subscriber #(riscv_seq_item);
             riscv_seq_item::INSTR_CSRRC,
             riscv_seq_item::INSTR_ECALL})
             cg_csr.sample();
+
+        if (t.trans_type inside {
+            riscv_seq_item::TRANS_AXI_WRITE,
+            riscv_seq_item::TRANS_AXI_READ})
+            cg_axi.sample();
     endfunction
 
     // --------------------------------------------------------
@@ -307,7 +331,8 @@ class riscv_coverage extends uvm_subscriber #(riscv_seq_item);
         msg = {msg, $sformatf("  Branch/Jump      : %0.1f%%\n", cg_branch.get_coverage())}; 
         msg = {msg, $sformatf("  Pipeline Flow    : %0.1f%%\n", cg_pipeline_flow.get_coverage())};
         msg = {msg, $sformatf("  Register File    : %0.1f%%\n", cg_regfile.get_coverage())};
-        msg = {msg, $sformatf("  CSR Instructions : %0.1f%%",   cg_csr.get_coverage())};
+        msg = {msg, $sformatf("  CSR Instructions : %0.1f%%\n",   cg_csr.get_coverage())};
+        msg = {msg, $sformatf("  AXI Transactions : %0.1f%%",     cg_axi.get_coverage())};
 
         `uvm_info("COVERAGE", msg, UVM_NONE)
     endfunction

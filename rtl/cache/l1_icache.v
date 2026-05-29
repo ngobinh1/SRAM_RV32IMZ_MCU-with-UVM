@@ -37,7 +37,7 @@ module l1_icache (
         else        state <= next_state;
     end
 
-    // Stall CPU khi Cache miss hoặc đang fetch
+    // Stall CPU when Cache miss or fetching
     assign icache_stall = (state == IDLE && !hit) || (state != IDLE);
 
     always @(state or hit or tag or index or m_axi_arready or m_axi_rvalid) begin

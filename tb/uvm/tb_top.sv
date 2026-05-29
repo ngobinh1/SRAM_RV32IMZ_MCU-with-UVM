@@ -92,6 +92,35 @@ module tb_top;
     assign riscv_if_inst.trap_vec   = dut.trap_vec;
     assign riscv_if_inst.epc        = dut.epc;
 
+    // --- AXI4-Lite signals (Master 0 - I-Cache) ---
+    assign riscv_if_inst.i_axi_araddr  = dut.i_araddr;
+    assign riscv_if_inst.i_axi_arvalid = dut.i_arvalid;
+    assign riscv_if_inst.i_axi_arready = dut.i_arready;
+    assign riscv_if_inst.i_axi_rdata   = dut.i_rdata;
+    assign riscv_if_inst.i_axi_rresp   = dut.i_rresp;
+    assign riscv_if_inst.i_axi_rvalid  = dut.i_rvalid;
+    assign riscv_if_inst.i_axi_rready  = dut.i_rready;
+    // Note: I-Cache only reads, so no aw/w/b channels mapped.
+
+    // --- AXI4-Lite signals (Master 1 - D-Cache) ---
+    assign riscv_if_inst.d_axi_awaddr  = dut.d_awaddr;
+    assign riscv_if_inst.d_axi_awvalid = dut.d_awvalid;
+    assign riscv_if_inst.d_axi_awready = dut.d_awready;
+    assign riscv_if_inst.d_axi_wdata   = dut.d_wdata;
+    assign riscv_if_inst.d_axi_wstrb   = dut.d_wstrb;
+    assign riscv_if_inst.d_axi_wvalid  = dut.d_wvalid;
+    assign riscv_if_inst.d_axi_wready  = dut.d_wready;
+    assign riscv_if_inst.d_axi_bresp   = dut.d_bresp;
+    assign riscv_if_inst.d_axi_bvalid  = dut.d_bvalid;
+    assign riscv_if_inst.d_axi_bready  = dut.d_bready;
+    assign riscv_if_inst.d_axi_araddr  = dut.d_araddr;
+    assign riscv_if_inst.d_axi_arvalid = dut.d_arvalid;
+    assign riscv_if_inst.d_axi_arready = dut.d_arready;
+    assign riscv_if_inst.d_axi_rdata   = dut.d_rdata;
+    assign riscv_if_inst.d_axi_rresp   = dut.d_rresp;
+    assign riscv_if_inst.d_axi_rvalid  = dut.d_rvalid;
+    assign riscv_if_inst.d_axi_rready  = dut.d_rready;
+
     wire [31:0] reg_x0  = dut.decode_stage.register_file.register_array[0];
     wire [31:0] reg_x1  = dut.decode_stage.register_file.register_array[1];
     wire [31:0] reg_x2  = dut.decode_stage.register_file.register_array[2];

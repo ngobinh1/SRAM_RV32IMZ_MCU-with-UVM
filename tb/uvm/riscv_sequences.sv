@@ -310,6 +310,35 @@ class riscv_extra_coverage_seq extends riscv_base_seq;
     endtask
 endclass : riscv_extra_coverage_seq
 
+// ============================================================
+// 8b. Mul/Div Test Sequence
+// ============================================================
+class riscv_muldiv_test_seq extends riscv_base_seq;
+    `uvm_object_utils(riscv_muldiv_test_seq)
+
+    function new(string name = "riscv_muldiv_test_seq");
+        super.new(name);
+    endfunction
+
+    task body();
+        riscv_load_program_seq load_seq;
+        riscv_run_seq          run_seq;
+
+        `uvm_info("MULDIV_TEST", "Starting Mul/Div test sequence", UVM_MEDIUM)
+
+        load_seq = riscv_load_program_seq::type_id::create("load_seq");
+        load_seq.hex_file = "muldiv_test.hex";
+        load_seq.start(m_sequencer);
+
+        run_seq = riscv_run_seq::type_id::create("run_seq");
+        run_seq.run_cycles = 2000;
+        run_seq.start(m_sequencer);
+
+        `uvm_info("MULDIV_TEST", "Mul/Div test sequence complete", UVM_MEDIUM)
+    endtask
+
+endclass : riscv_muldiv_test_seq
+
 
 // ============================================================
 // 9. Full Test Sequence
@@ -325,10 +354,10 @@ class riscv_full_test_seq extends riscv_base_seq;
 
     task body();
         // ----------------------------------------------------
-        // KHAI BÁO BIẾN (Tất cả phải ở đây)
+        // VARIABLE DECLARATION (All must be here)
         // ----------------------------------------------------
-        riscv_load_program_seq   full_load_seq; // Đổi tên cho khớp
-        riscv_run_seq            run_seq;       // Đưa lên đầu
+        riscv_load_program_seq   full_load_seq; // Rename to match
+        riscv_run_seq            run_seq;       // Move to top
         
         riscv_alu_test_seq       alu_seq;
         riscv_mem_test_seq       mem_seq;
@@ -336,6 +365,7 @@ class riscv_full_test_seq extends riscv_base_seq;
         riscv_hazard_test_seq    haz_seq;
         riscv_csr_test_seq       csr_seq;
         riscv_extra_coverage_seq extra_seq;
+        riscv_muldiv_test_seq    muldiv_seq;
 
         `uvm_info("FULL_TEST", "=== Starting full regression ===", UVM_NONE)
 
@@ -345,6 +375,7 @@ class riscv_full_test_seq extends riscv_base_seq;
         haz_seq       = riscv_hazard_test_seq::type_id::create("haz_seq");
         csr_seq       = riscv_csr_test_seq::type_id::create("csr_seq");
         extra_seq     = riscv_extra_coverage_seq::type_id::create("extra_seq");
+        muldiv_seq    = riscv_muldiv_test_seq::type_id::create("muldiv_seq");
         full_load_seq = riscv_load_program_seq::type_id::create("full_load_seq");
         run_seq       = riscv_run_seq::type_id::create("run_seq");
 
@@ -360,6 +391,7 @@ class riscv_full_test_seq extends riscv_base_seq;
         haz_seq.start(m_sequencer);
         csr_seq.start(m_sequencer);
         extra_seq.start(m_sequencer);
+        muldiv_seq.start(m_sequencer);
 
         `uvm_info("FULL_TEST", "=== Full regression complete ===", UVM_NONE)
     endtask
@@ -386,7 +418,8 @@ class riscv_random_seq extends riscv_base_seq;
         "hazard_test.hex",
         "csr_test.hex",
         "full_test.hex",
-        "extra_coverage.hex"
+        "extra_coverage.hex",
+        "muldiv_test.hex"
     };
 
     constraint c_iters  { iterations inside {[1:5]}; }

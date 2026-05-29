@@ -1,10 +1,76 @@
 m255
 K4
 z2
-!s12c _opt1
-Z0 !s99 nomlopt
-!s12c _opt
+Z0 !s12c _opt2
+Z1 !s99 nomlopt
 R0
+R1
+Z2 !s12c _opt
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+Z3 !s12c _opt1
+R1
+R3
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R0
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R3
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R0
+R1
+R3
+R1
+R2
+R1
 !s11f vlog 2024.1 2024.02, Feb  1 2024
 13
 !s112 1.1
@@ -12,773 +78,828 @@ R0
 !i10e 25
 !i10f 100
 cModel Technology
-Z1 dC:/Users/Admin/Documents/GitHub/RAM
+Z4 dC:/Users/Admin/Documents/GitHub/RAM
 T_opt
-!s110 1778825817
-V9PndNe2V8h46`OQUV`:n_1
-04 22 4 work tb_riscv_pipeline_mega fast 0
-=1-e884a5770f74-6a06ba58-18a-14c4
-R0
-Z2 !s12f OEM100
-Z3 !s12b OEM100
-Z4 !s124 OEM100
-Z5 o-quiet -auto_acc_if_foreign -work work +acc
-Z6 tCvgOpt 0
-n@_opt
-Z7 OL;O;2024.1;79
+!s110 1780044495
+VAemoHnkgfMDhk0TAe[LKD1
+Z5 04 22 4 work tb_riscv_pipeline_mega fast 0
+=1-e884a5770f74-6a1952ce-31b-b0c
 R1
-T_opt1
-!s11d riscv_tb_pkg C:/Users/Admin/Documents/GitHub/test/work 1 riscv_if 1 C:/Users/Admin/Documents/GitHub/test/work 
-!s11d uvm_pkg C:/questasim64_2024.1/uvm-1.1d 1 riscv_if 1 C:/Users/Admin/Documents/GitHub/test/work 
-!s110 1778825865
-VMLBgdI7bI0oLJUP1<`oW82
-04 6 4 work tb_top fast 0
-=1-e884a5770f74-6a06ba89-1b-294c
-R0
-R2
-R3
+Z6 !s12f OEM100
+Z7 !s12b OEM100
+Z8 !s124 OEM100
+o-quiet -auto_acc_if_foreign -work work
+Z9 tCvgOpt 0
+n@_opt
+Z10 OL;O;2024.1;79
 R4
-R5
+T_opt1
+!s11d riscv_tb_pkg C:/Users/Admin/Documents/GitHub/RAM/work 1 riscv_if 1 C:/Users/Admin/Documents/GitHub/RAM/work 
+!s11d uvm_pkg C:/questasim64_2024.1/uvm-1.1d 1 riscv_if 1 C:/Users/Admin/Documents/GitHub/RAM/work 
+!s110 1780040464
+V?oz2kOZDX:bO2WhE?DYcn1
+04 6 4 work tb_top fast 0
+=1-e884a5770f74-6a194310-31-1e1c
+R1
 R6
-n@_opt1
 R7
+R8
+Z11 o-quiet -auto_acc_if_foreign -work work +acc
+R9
+n@_opt1
+R10
+R4
+T_opt2
+!s110 1780044699
+Vf6XDiiZLf2>Nf_MS=HiQ01
+R5
+=1-e884a5770f74-6a19539b-50-32f8
+R1
+R6
+R7
+R8
+R11
+R9
+n@_opt2
+R10
 vadder
-2C:/Users/Admin/Documents/GitHub/test/rtl/datapath/adder.v
-Z8 !s110 1778825774
+2C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/adder.v
+Z12 !s110 1780044531
 !i10b 1
 !s100 YUb4>]J2aB_gKQzR]2Z4F0
-INInB>li;V4[6z491[zU8[0
-Z9 dC:/Users/Admin/Documents/GitHub/test
-Z10 w1776831144
-8C:/Users/Admin/Documents/GitHub/test/rtl/datapath/adder.v
-FC:/Users/Admin/Documents/GitHub/test/rtl/datapath/adder.v
-!i122 14
-Z11 L0 1 7
-Z12 VDg1SIo80bB@j0V0VzS_@n1
-Z13 OL;L;2024.1;79
+IZ1]Ia7zG0?V[GzDoV]H[b2
+R4
+Z13 w1776831144
+8C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/adder.v
+FC:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/adder.v
+!i122 469
+Z14 L0 1 7
+Z15 VDg1SIo80bB@j0V0VzS_@n1
+Z16 OL;L;2024.1;79
 r1
 !s85 0
 31
-Z14 !s108 1778825774.000000
-!s107 C:/Users/Admin/Documents/GitHub/test/rtl/datapath/adder.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/test/rtl/datapath/adder.v|
+Z17 !s108 1780044531.000000
+!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/adder.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/adder.v|
 !i113 0
-Z15 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-R6
+Z18 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R9
 valu
-2C:/Users/Admin/Documents/GitHub/test/rtl/datapath/alu.v
-R8
+2C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/alu.v
+R12
 !i10b 1
 !s100 :E6Bha;FCZmNAjZ;NK4VI0
-I><U1iRDc_eR;OnB_?`HSQ3
-R9
-R10
-8C:/Users/Admin/Documents/GitHub/test/rtl/datapath/alu.v
-FC:/Users/Admin/Documents/GitHub/test/rtl/datapath/alu.v
-!i122 15
-L0 1 58
-R12
+IOYc1M@;cC:hIcA9AXeBRj0
+R4
 R13
+8C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/alu.v
+FC:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/alu.v
+!i122 470
+L0 1 58
+R15
+R16
 r1
 !s85 0
 31
-R14
-!s107 C:/Users/Admin/Documents/GitHub/test/rtl/datapath/alu.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/test/rtl/datapath/alu.v|
+R17
+!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/alu.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/alu.v|
 !i113 0
-R15
-R6
+R18
+R9
 valu_decoder
-2C:/Users/Admin/Documents/GitHub/test/rtl/control/alu_decoder.v
-Z16 !s110 1778825773
+2C:/Users/Admin/Documents/GitHub/RAM/rtl/control/alu_decoder.v
+Z19 !s110 1780044530
 !i10b 1
 !s100 MCh4ZMXM<LgbQ;GmMZVmS1
-IL?Lg9NzhO=0Oc<V>zG0IR3
-R9
-R10
-8C:/Users/Admin/Documents/GitHub/test/rtl/control/alu_decoder.v
-FC:/Users/Admin/Documents/GitHub/test/rtl/control/alu_decoder.v
-!i122 2
-L0 1 51
-R12
+Il9o^WlTAHE_L;kF_oW:KQ1
+R4
 R13
+8C:/Users/Admin/Documents/GitHub/RAM/rtl/control/alu_decoder.v
+FC:/Users/Admin/Documents/GitHub/RAM/rtl/control/alu_decoder.v
+!i122 457
+L0 1 51
+R15
+R16
 r1
 !s85 0
 31
-Z17 !s108 1778825773.000000
-!s107 C:/Users/Admin/Documents/GitHub/test/rtl/control/alu_decoder.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/test/rtl/control/alu_decoder.v|
+Z20 !s108 1780044530.000000
+!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/control/alu_decoder.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/control/alu_decoder.v|
 !i113 0
-R15
-R6
+R18
+R9
 vaxi_interconnect
-2C:/Users/Admin/Documents/GitHub/test/rtl/memory/axi_interconnect.v
-Z18 !s110 1778825775
+2C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/axi_interconnect.v
+R12
 !i10b 1
 !s100 A=6Zh^>C<]`L>zFT>ljE@2
-IA7iP;D9dO><>jJ;InE25g2
-R9
+I?:HXN3G;0fDDRSl1ff>`_1
+R4
 w1778576480
-8C:/Users/Admin/Documents/GitHub/test/rtl/memory/axi_interconnect.v
-FC:/Users/Admin/Documents/GitHub/test/rtl/memory/axi_interconnect.v
-!i122 21
+8C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/axi_interconnect.v
+FC:/Users/Admin/Documents/GitHub/RAM/rtl/memory/axi_interconnect.v
+!i122 476
 L0 1 56
-R12
-R13
+R15
+R16
 r1
 !s85 0
 31
-R14
-!s107 C:/Users/Admin/Documents/GitHub/test/rtl/memory/axi_interconnect.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/test/rtl/memory/axi_interconnect.v|
+R17
+!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/axi_interconnect.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/axi_interconnect.v|
 !i113 0
-R15
-R6
-vaxi_sram_wrapper
-2C:/Users/Admin/Documents/GitHub/test/rtl/memory/axi_sram_wrapper.v
 R18
+R9
+vaxi_sram_wrapper
+2C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/axi_sram_wrapper.v
+R12
 !i10b 1
 !s100 b3Dz2UQZ:PoR@[^H<2m5;0
-IXf;GZkD0b[=`NX_FVmjc21
-R9
-w1778576687
-8C:/Users/Admin/Documents/GitHub/test/rtl/memory/axi_sram_wrapper.v
-FC:/Users/Admin/Documents/GitHub/test/rtl/memory/axi_sram_wrapper.v
-!i122 22
+I2BXW;Nl6lZoN`P`emOM8U3
+R4
+w1779786885
+8C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/axi_sram_wrapper.v
+FC:/Users/Admin/Documents/GitHub/RAM/rtl/memory/axi_sram_wrapper.v
+!i122 477
 L0 1 91
-R12
-R13
-r1
-!s85 0
-31
-Z19 !s108 1778825775.000000
-!s107 C:/Users/Admin/Documents/GitHub/test/rtl/memory/axi_sram_wrapper.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/test/rtl/memory/axi_sram_wrapper.v|
-!i113 0
 R15
-R6
-vcontrol_unit
-2C:/Users/Admin/Documents/GitHub/test/rtl/control/control_unit.v
 R16
-!i10b 1
-!s100 b4jOnh<mQS7Z5KcW5VRbF3
-ISIjOVW8lYMOAa1zGb>[KP2
-R9
-R10
-8C:/Users/Admin/Documents/GitHub/test/rtl/control/control_unit.v
-FC:/Users/Admin/Documents/GitHub/test/rtl/control/control_unit.v
-!i122 3
-L0 1 57
-R12
-R13
 r1
 !s85 0
 31
 R17
-!s107 C:/Users/Admin/Documents/GitHub/test/rtl/control/control_unit.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/test/rtl/control/control_unit.v|
+!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/axi_sram_wrapper.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/axi_sram_wrapper.v|
 !i113 0
+R18
+R9
+vcontrol_unit
+2C:/Users/Admin/Documents/GitHub/RAM/rtl/control/control_unit.v
+R19
+!i10b 1
+!s100 DJ?iah_mP0RN73B[n0GKk1
+I2enkdQS3EGmAUC:a[5Mj71
+R4
+w1779764478
+8C:/Users/Admin/Documents/GitHub/RAM/rtl/control/control_unit.v
+FC:/Users/Admin/Documents/GitHub/RAM/rtl/control/control_unit.v
+!i122 458
+L0 1 65
 R15
-R6
+R16
+r1
+!s85 0
+31
+R20
+!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/control/control_unit.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/control/control_unit.v|
+!i113 0
+R18
+R9
 vcsr_alu
-2C:/Users/Admin/Documents/GitHub/test/rtl/csr/csr_alu.v
-R8
+2C:/Users/Admin/Documents/GitHub/RAM/rtl/csr/csr_alu.v
+R12
 !i10b 1
 !s100 G8H_jD0H?n6_^QmM=J98n0
-I^@9RJ96bdnjhMiJEjFK]A3
-R9
-R10
-8C:/Users/Admin/Documents/GitHub/test/rtl/csr/csr_alu.v
-FC:/Users/Admin/Documents/GitHub/test/rtl/csr/csr_alu.v
-!i122 12
+I<kNJZ3YQ2Q@K5QhWfGk;93
+R4
+Z21 w1779759028
+8C:/Users/Admin/Documents/GitHub/RAM/rtl/csr/csr_alu.v
+FC:/Users/Admin/Documents/GitHub/RAM/rtl/csr/csr_alu.v
+!i122 467
 L0 1 19
-R12
-R13
+R15
+R16
 r1
 !s85 0
 31
-R17
-!s107 C:/Users/Admin/Documents/GitHub/test/rtl/csr/csr_alu.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/test/rtl/csr/csr_alu.v|
+R20
+!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/csr/csr_alu.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/csr/csr_alu.v|
 !i113 0
-R15
-R6
+R18
+R9
 vcsr_file
-2C:/Users/Admin/Documents/GitHub/test/rtl/csr/csr_file.v
-R8
+2C:/Users/Admin/Documents/GitHub/RAM/rtl/csr/csr_file.v
+R12
 !i10b 1
 !s100 3=H1VYQ3[Ah11c0JLcj7O2
-IGZafJE;[jzm`E[Mjn=JX61
-R9
-R10
-8C:/Users/Admin/Documents/GitHub/test/rtl/csr/csr_file.v
-FC:/Users/Admin/Documents/GitHub/test/rtl/csr/csr_file.v
-!i122 13
+I]n854QAO>f2lJY7lAO_o91
+R4
+R13
+8C:/Users/Admin/Documents/GitHub/RAM/rtl/csr/csr_file.v
+FC:/Users/Admin/Documents/GitHub/RAM/rtl/csr/csr_file.v
+!i122 468
 L0 1 70
-R12
-R13
-r1
-!s85 0
-31
-R14
-!s107 C:/Users/Admin/Documents/GitHub/test/rtl/csr/csr_file.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/test/rtl/csr/csr_file.v|
-!i113 0
 R15
-R6
-vdecode_cycle
-2C:/Users/Admin/Documents/GitHub/test/rtl/core/decode_cycle.v
 R16
-!i10b 1
-!s100 B^nd<^ooefzfB>j0?Xd<i0
-IW>?H=L2:J[4RXbTCioYUj3
-R9
-R10
-8C:/Users/Admin/Documents/GitHub/test/rtl/core/decode_cycle.v
-FC:/Users/Admin/Documents/GitHub/test/rtl/core/decode_cycle.v
-!i122 5
-L0 1 83
-R12
-R13
 r1
 !s85 0
 31
 R17
-!s107 C:/Users/Admin/Documents/GitHub/test/rtl/core/decode_cycle.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/test/rtl/core/decode_cycle.v|
+!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/csr/csr_file.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/csr/csr_file.v|
 !i113 0
-R15
-R6
-vEF_SRAM_1024x32
-2C:/Users/Admin/Documents/GitHub/test/rtl/memory/EF_SRAM_1024x32.v
 R18
+R9
+vdecode_cycle
+2C:/Users/Admin/Documents/GitHub/RAM/rtl/core/decode_cycle.v
+R19
+!i10b 1
+!s100 d38oD?]bz?=;IGOA?Qk6Z2
+I5`ZdbdQJ2:_dPNAOzbK610
+R4
+w1779764539
+8C:/Users/Admin/Documents/GitHub/RAM/rtl/core/decode_cycle.v
+FC:/Users/Admin/Documents/GitHub/RAM/rtl/core/decode_cycle.v
+!i122 460
+Z22 L0 1 89
+R15
+R16
+r1
+!s85 0
+31
+R20
+!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/core/decode_cycle.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/core/decode_cycle.v|
+!i113 0
+R18
+R9
+vEF_SRAM_1024x32
+2C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/EF_SRAM_1024x32.v
+R12
 !i10b 1
 !s100 BoSGX2C0V_W4CalSZL36O1
-I=S]JBQDV`2SK93[1_P:O30
-R9
-R10
-8C:/Users/Admin/Documents/GitHub/test/rtl/memory/EF_SRAM_1024x32.v
-FC:/Users/Admin/Documents/GitHub/test/rtl/memory/EF_SRAM_1024x32.v
-!i122 24
-L0 35 95
-R12
+I]9UcB5CRK=bjbdC[8SXzL1
+R4
 R13
+8C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/EF_SRAM_1024x32.v
+FC:/Users/Admin/Documents/GitHub/RAM/rtl/memory/EF_SRAM_1024x32.v
+!i122 479
+L0 35 95
+R15
+R16
 r1
 !s85 0
 31
-R19
-!s107 C:/Users/Admin/Documents/GitHub/test/rtl/memory/EF_SRAM_1024x32.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/test/rtl/memory/EF_SRAM_1024x32.v|
+R17
+!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/EF_SRAM_1024x32.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/EF_SRAM_1024x32.v|
 !i113 0
-R15
-R6
+R18
+R9
 n@e@f_@s@r@a@m_1024x32
 vEF_SRAM_1024x32_macro
-Z20 2C:/Users/Admin/Documents/GitHub/test/rtl/memory/EF_SRAM_1024x32.tt_180V_25C.v
-R18
+Z23 2C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/EF_SRAM_1024x32.tt_180V_25C.v
+R12
 !i10b 1
 !s100 l<K3iZYY;FIWi[n]?cg@01
-IULR3f[Ggj1HQg6QL9a^Z21
-R9
-R10
-Z21 8C:/Users/Admin/Documents/GitHub/test/rtl/memory/EF_SRAM_1024x32.tt_180V_25C.v
-Z22 FC:/Users/Admin/Documents/GitHub/test/rtl/memory/EF_SRAM_1024x32.tt_180V_25C.v
-!i122 23
-L0 32 1089
-R12
+I<Gj;lNXY?F?m;97ZaHkQb1
+R4
 R13
+Z24 8C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/EF_SRAM_1024x32.tt_180V_25C.v
+Z25 FC:/Users/Admin/Documents/GitHub/RAM/rtl/memory/EF_SRAM_1024x32.tt_180V_25C.v
+!i122 478
+L0 32 1089
+R15
+R16
 r1
 !s85 0
 31
-R19
-Z23 !s107 C:/Users/Admin/Documents/GitHub/test/rtl/memory/EF_SRAM_1024x32.tt_180V_25C.v|
-Z24 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/test/rtl/memory/EF_SRAM_1024x32.tt_180V_25C.v|
+R17
+Z26 !s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/EF_SRAM_1024x32.tt_180V_25C.v|
+Z27 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/EF_SRAM_1024x32.tt_180V_25C.v|
 !i113 0
-R15
-R6
+R18
+R9
 n@e@f_@s@r@a@m_1024x32_macro
 vEF_SRAM_1024x32_memory_mode
-R20
-R18
+R23
+R12
 !i10b 1
 !s100 =B?PQ_k[94f9aGNJjKOL20
-Im`VZ12A41T79GhTPFGgjU3
-R9
-R10
-R21
-R22
-!i122 23
-L0 1123 400
-R12
+ILTBD8^Q@98:>4VWGDTAOo1
+R4
 R13
+R24
+R25
+!i122 478
+L0 1123 400
+R15
+R16
 r1
 !s85 0
 31
-R19
-R23
-R24
+R17
+R26
+R27
 !i113 0
-R15
-R6
+R18
+R9
 n@e@f_@s@r@a@m_1024x32_memory_mode
 vexecute_cycle
-2C:/Users/Admin/Documents/GitHub/test/rtl/core/execute_cycle.v
-R16
+2C:/Users/Admin/Documents/GitHub/RAM/rtl/core/execute_cycle.v
+R19
 !i10b 1
-!s100 EHhH16YR7A3?dV8oTLiB93
-IlJj8KGfb8YN<L5;@:DnCV2
-R9
-R10
-8C:/Users/Admin/Documents/GitHub/test/rtl/core/execute_cycle.v
-FC:/Users/Admin/Documents/GitHub/test/rtl/core/execute_cycle.v
-!i122 6
-Z25 L0 1 85
-R12
-R13
+!s100 RUR13PHaHeV>[mHd[FD<B3
+IbLPg4b@G0kQSK=IZz48F<2
+R4
+w1779764621
+8C:/Users/Admin/Documents/GitHub/RAM/rtl/core/execute_cycle.v
+FC:/Users/Admin/Documents/GitHub/RAM/rtl/core/execute_cycle.v
+!i122 461
+R22
+R15
+R16
 r1
 !s85 0
 31
-R17
-!s107 C:/Users/Admin/Documents/GitHub/test/rtl/core/execute_cycle.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/test/rtl/core/execute_cycle.v|
+R20
+!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/core/execute_cycle.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/core/execute_cycle.v|
 !i113 0
-R15
-R6
+R18
+R9
 vextend
-2C:/Users/Admin/Documents/GitHub/test/rtl/datapath/extend.v
-R8
+2C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/extend.v
+R12
 !i10b 1
 !s100 @2KjFB<2FPkYUFATSzz[H1
-IkfTKO6fV1?linOgK<a8l=0
-R9
-R10
-8C:/Users/Admin/Documents/GitHub/test/rtl/datapath/extend.v
-FC:/Users/Admin/Documents/GitHub/test/rtl/datapath/extend.v
-!i122 16
-L0 1 40
-R12
+I@@@0TYj8=>ll01UoY_jEz0
+R4
 R13
+8C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/extend.v
+FC:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/extend.v
+!i122 471
+L0 1 40
+R15
+R16
 r1
 !s85 0
 31
-R14
-!s107 C:/Users/Admin/Documents/GitHub/test/rtl/datapath/extend.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/test/rtl/datapath/extend.v|
+R17
+!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/extend.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/extend.v|
 !i113 0
-R15
-R6
+R18
+R9
 vfetch_cycle
-2C:/Users/Admin/Documents/GitHub/test/rtl/core/fetch_cycle.v
-R16
+2C:/Users/Admin/Documents/GitHub/RAM/rtl/core/fetch_cycle.v
+R19
 !i10b 1
 !s100 J`4Cob;_KiD;ML7[@SLWi3
-Ib685=kCjEaXMo2`kQOlBn2
-R9
-R10
-8C:/Users/Admin/Documents/GitHub/test/rtl/core/fetch_cycle.v
-FC:/Users/Admin/Documents/GitHub/test/rtl/core/fetch_cycle.v
-!i122 7
-L0 1 62
-R12
+Ia7MG?R<:X<^]>YzFW0cOU0
+R4
 R13
+8C:/Users/Admin/Documents/GitHub/RAM/rtl/core/fetch_cycle.v
+FC:/Users/Admin/Documents/GitHub/RAM/rtl/core/fetch_cycle.v
+!i122 462
+L0 1 62
+R15
+R16
+r1
+!s85 0
+31
+R20
+!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/core/fetch_cycle.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/core/fetch_cycle.v|
+!i113 0
+R18
+R9
+vhazard_unit
+2C:/Users/Admin/Documents/GitHub/RAM/rtl/hazard/hazard_unit.v
+R12
+!i10b 1
+!s100 mGcL_Y`4`U3k9j<WO;[]B0
+I_QHKoTKbKlm=kDlRbm8K]3
+R4
+w1780043194
+8C:/Users/Admin/Documents/GitHub/RAM/rtl/hazard/hazard_unit.v
+FC:/Users/Admin/Documents/GitHub/RAM/rtl/hazard/hazard_unit.v
+!i122 475
+L0 1 75
+R15
+R16
 r1
 !s85 0
 31
 R17
-!s107 C:/Users/Admin/Documents/GitHub/test/rtl/core/fetch_cycle.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/test/rtl/core/fetch_cycle.v|
+!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/hazard/hazard_unit.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/hazard/hazard_unit.v|
 !i113 0
-R15
-R6
-vhazard_unit
-2C:/Users/Admin/Documents/GitHub/test/rtl/hazard/hazard_unit.v
-R8
-!i10b 1
-!s100 ??:SlJUCAhA5Db`dBL4Q92
-InPJUc<6SHfBOH>_51AdCU3
+R18
 R9
-w1777865387
-8C:/Users/Admin/Documents/GitHub/test/rtl/hazard/hazard_unit.v
-FC:/Users/Admin/Documents/GitHub/test/rtl/hazard/hazard_unit.v
-!i122 20
-L0 1 82
-R12
-R13
+vissue
+2C:/Users/Admin/Documents/GitHub/RAM/rtl/core/issue.v
+Z28 !s110 1780044537
+!i10b 1
+!s100 @AV>ROBJiV2JLhIVmWcF<3
+IJK=n1CiS_m6Jnb2b`dX?O1
+R4
+w1780043902
+8C:/Users/Admin/Documents/GitHub/RAM/rtl/core/issue.v
+FC:/Users/Admin/Documents/GitHub/RAM/rtl/core/issue.v
+!i122 494
+L0 1 126
+R15
+R16
 r1
 !s85 0
 31
-R14
-!s107 C:/Users/Admin/Documents/GitHub/test/rtl/hazard/hazard_unit.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/test/rtl/hazard/hazard_unit.v|
+Z29 !s108 1780044537.000000
+!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/core/issue.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/core/issue.v|
 !i113 0
-R15
-R6
+R18
+R9
 vl1_dcache
-2C:/Users/Admin/Documents/GitHub/test/rtl/cache/l1_dcache.v
-R16
+2C:/Users/Admin/Documents/GitHub/RAM/rtl/cache/l1_dcache.v
+R19
 !i10b 1
 !s100 FSd]c^mZI610Ih^[@IS0J1
-IH3^[mIlUGjR:9AELQ=[802
-R9
-w1778577164
-8C:/Users/Admin/Documents/GitHub/test/rtl/cache/l1_dcache.v
-FC:/Users/Admin/Documents/GitHub/test/rtl/cache/l1_dcache.v
-!i122 0
+I2<S;O_R@P4IJV8__nhT3X2
+R4
+R21
+8C:/Users/Admin/Documents/GitHub/RAM/rtl/cache/l1_dcache.v
+FC:/Users/Admin/Documents/GitHub/RAM/rtl/cache/l1_dcache.v
+!i122 455
 L0 1 156
-R12
-R13
+R15
+R16
 r1
 !s85 0
 31
-R17
-!s107 C:/Users/Admin/Documents/GitHub/test/rtl/cache/l1_dcache.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/test/rtl/cache/l1_dcache.v|
+R20
+!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/cache/l1_dcache.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/cache/l1_dcache.v|
 !i113 0
-R15
-R6
+R18
+R9
 vl1_icache
-2C:/Users/Admin/Documents/GitHub/test/rtl/cache/l1_icache.v
-R16
+2C:/Users/Admin/Documents/GitHub/RAM/rtl/cache/l1_icache.v
+R19
 !i10b 1
 !s100 U_7AS?GSaDY0VRWNSJP8c1
-I9bVQMWKSSoJH]ja]<oRca0
-R9
-w1778577260
-8C:/Users/Admin/Documents/GitHub/test/rtl/cache/l1_icache.v
-FC:/Users/Admin/Documents/GitHub/test/rtl/cache/l1_icache.v
-!i122 1
-R25
-R12
-R13
+Ii^g2>3oOnjn@6VXfEe6UQ3
+R4
+w1779786890
+8C:/Users/Admin/Documents/GitHub/RAM/rtl/cache/l1_icache.v
+FC:/Users/Admin/Documents/GitHub/RAM/rtl/cache/l1_icache.v
+!i122 456
+L0 1 85
+R15
+R16
 r1
 !s85 0
 31
-R17
-!s107 C:/Users/Admin/Documents/GitHub/test/rtl/cache/l1_icache.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/test/rtl/cache/l1_icache.v|
+R20
+!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/cache/l1_icache.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/cache/l1_icache.v|
 !i113 0
-R15
-R6
+R18
+R9
 vmain_decoder
-2C:/Users/Admin/Documents/GitHub/test/rtl/control/main_decoder.v
-R16
+2C:/Users/Admin/Documents/GitHub/RAM/rtl/control/main_decoder.v
+R19
 !i10b 1
 !s100 88Tof^7@WM@UJ@f=hBlB02
-I:zBIK:USNliFF^=k=WAaA3
-R9
-R10
-8C:/Users/Admin/Documents/GitHub/test/rtl/control/main_decoder.v
-FC:/Users/Admin/Documents/GitHub/test/rtl/control/main_decoder.v
-!i122 4
-L0 1 80
-R12
+IonZ`GB>V;nAgS@8m]BVOk3
+R4
 R13
+8C:/Users/Admin/Documents/GitHub/RAM/rtl/control/main_decoder.v
+FC:/Users/Admin/Documents/GitHub/RAM/rtl/control/main_decoder.v
+!i122 459
+L0 1 80
+R15
+R16
 r1
 !s85 0
 31
-R17
-!s107 C:/Users/Admin/Documents/GitHub/test/rtl/control/main_decoder.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/test/rtl/control/main_decoder.v|
+R20
+!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/control/main_decoder.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/control/main_decoder.v|
 !i113 0
-R15
-R6
+R18
+R9
 vmemory_cycle
-2C:/Users/Admin/Documents/GitHub/test/rtl/core/memory_cycle.v
-R16
+2C:/Users/Admin/Documents/GitHub/RAM/rtl/core/memory_cycle.v
+R19
 !i10b 1
 !s100 Jb;UE[SAA@E_QKWon82J41
-IoK8`B;C]U:6WYnbAWf_mM3
-R9
+I4X]^EldMh5m4I]75[Tafz3
+R4
 w1778577370
-8C:/Users/Admin/Documents/GitHub/test/rtl/core/memory_cycle.v
-FC:/Users/Admin/Documents/GitHub/test/rtl/core/memory_cycle.v
-!i122 8
+8C:/Users/Admin/Documents/GitHub/RAM/rtl/core/memory_cycle.v
+FC:/Users/Admin/Documents/GitHub/RAM/rtl/core/memory_cycle.v
+!i122 463
 L0 1 55
-R12
-R13
+R15
+R16
 r1
 !s85 0
 31
-R17
-!s107 C:/Users/Admin/Documents/GitHub/test/rtl/core/memory_cycle.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/test/rtl/core/memory_cycle.v|
+R20
+!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/core/memory_cycle.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/core/memory_cycle.v|
 !i113 0
+R18
+R9
+vmuldiv_alu
+2C:/Users/Admin/Documents/GitHub/RAM/rtl/mult_div/muldiv_alu.v
+R28
+!i10b 1
+!s100 CcQ;AL@f3I28H5:H<`;nG2
+IKl82V]8ka=W3h6IjaESJ21
+R4
+w1779781495
+8C:/Users/Admin/Documents/GitHub/RAM/rtl/mult_div/muldiv_alu.v
+FC:/Users/Admin/Documents/GitHub/RAM/rtl/mult_div/muldiv_alu.v
+!i122 492
+Z30 L0 3 150
 R15
-R6
+R16
+r1
+!s85 0
+31
+R29
+!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/mult_div/muldiv_alu.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/mult_div/muldiv_alu.v|
+!i113 0
+R18
+R9
 vmux
-Z26 2C:/Users/Admin/Documents/GitHub/test/rtl/datapath/mux.v
-R8
+Z31 2C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/mux.v
+R12
 !i10b 1
 !s100 K]Hl`ZozQ2cWiL^A>kJBd3
-IbKL[2md>BA?ASY<2]C?O10
-R9
-R10
-Z27 8C:/Users/Admin/Documents/GitHub/test/rtl/datapath/mux.v
-Z28 FC:/Users/Admin/Documents/GitHub/test/rtl/datapath/mux.v
-!i122 17
-R11
-R12
+IzZmL5h>Y?<4n4CQ68[U;h0
+R4
 R13
+Z32 8C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/mux.v
+Z33 FC:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/mux.v
+!i122 472
+R14
+R15
+R16
 r1
 !s85 0
 31
-R14
-Z29 !s107 C:/Users/Admin/Documents/GitHub/test/rtl/datapath/mux.v|
-Z30 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/test/rtl/datapath/mux.v|
+R17
+Z34 !s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/mux.v|
+Z35 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/mux.v|
 !i113 0
-R15
-R6
+R18
+R9
 vmux_3_1
-R26
-R8
+R31
+R12
 !i10b 1
 !s100 olhBOS>U5=S0eQ:j`o20W2
-IdzJGTD3oolSF[[FQA5P`P2
-R9
-R10
-R27
-R28
-!i122 17
-L0 9 13
-R12
+IB=k@??8zoOaBB=UYHgPe=0
+R4
 R13
+R32
+R33
+!i122 472
+L0 9 13
+R15
+R16
 r1
 !s85 0
 31
-R14
-R29
-R30
+R17
+R34
+R35
 !i113 0
-R15
-R6
+R18
+R9
 vmux_4to1
-R26
-R8
+R31
+R12
 !i10b 1
 !s100 IL@gG2Sl_KfZNQ5VO]?B[0
-I1;F7e4GT<J:R0bEh;Rcf63
-R9
-R10
-R27
-R28
-!i122 17
-L0 24 18
-R12
+IOj^l53JnTT4K>;4;HN]NQ1
+R4
 R13
+R32
+R33
+!i122 472
+L0 24 18
+R15
+R16
 r1
 !s85 0
 31
-R14
-R29
-R30
+R17
+R34
+R35
 !i113 0
-R15
-R6
+R18
+R9
 vpc
-2C:/Users/Admin/Documents/GitHub/test/rtl/datapath/pc.v
-R8
+2C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/pc.v
+R12
 !i10b 1
 !s100 V[cU=FEKIBMKe8CClej=?2
-I9W:V]=cCoRM0eObVWNl5h1
-R9
-R10
-8C:/Users/Admin/Documents/GitHub/test/rtl/datapath/pc.v
-FC:/Users/Admin/Documents/GitHub/test/rtl/datapath/pc.v
-!i122 18
-L0 1 27
-R12
+I7`K^PRJbAJb@m3kN1];FA0
+R4
 R13
+8C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/pc.v
+FC:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/pc.v
+!i122 473
+L0 1 27
+R15
+R16
 r1
 !s85 0
 31
-R14
-!s107 C:/Users/Admin/Documents/GitHub/test/rtl/datapath/pc.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/test/rtl/datapath/pc.v|
+R17
+!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/pc.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/pc.v|
 !i113 0
-R15
-R6
+R18
+R9
 vpipeline_1_2
-Z31 2C:/Users/Admin/Documents/GitHub/test/rtl/core/pipeline.v
-R16
+Z36 2C:/Users/Admin/Documents/GitHub/RAM/rtl/core/pipeline.v
+R19
 !i10b 1
 !s100 hLdbk>Sf1WEYD1>9az4PB3
-I80<[5oM]_U;QZETVSn<343
-R9
-Z32 w1778577400
-Z33 8C:/Users/Admin/Documents/GitHub/test/rtl/core/pipeline.v
-Z34 FC:/Users/Admin/Documents/GitHub/test/rtl/core/pipeline.v
-!i122 9
+I0eioV@8?J3O;VzI;UDBM@0
+R4
+Z37 w1780043254
+Z38 8C:/Users/Admin/Documents/GitHub/RAM/rtl/core/pipeline.v
+Z39 FC:/Users/Admin/Documents/GitHub/RAM/rtl/core/pipeline.v
+!i122 464
 L0 2 39
-R12
-R13
+R15
+R16
 r1
 !s85 0
 31
-R17
-Z35 !s107 C:/Users/Admin/Documents/GitHub/test/rtl/core/pipeline.v|
-Z36 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/test/rtl/core/pipeline.v|
+R20
+Z40 !s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/core/pipeline.v|
+Z41 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/core/pipeline.v|
 !i113 0
-R15
-R6
+R18
+R9
 vpipeline_2_3
-R31
-R16
+R36
+R19
 !i10b 1
-!s100 [cbiM^ki2URPB@nzK4Hh73
-IbAY^dbZ]LcaAHj4P;iZXR3
-R9
-R32
-R33
-R34
-!i122 9
-L0 43 123
-R12
-R13
+!s100 T4<An>[nQZW`33ZZG^>]J0
+IiB2EGbjS3YdaWga:gjS800
+R4
+R37
+R38
+R39
+!i122 464
+L0 43 149
+R15
+R16
 r1
 !s85 0
 31
-R17
-R35
-R36
+R20
+R40
+R41
 !i113 0
-R15
-R6
+R18
+R9
 vpipeline_3_4
-R31
-R16
+R36
+R19
 !i10b 1
-!s100 mEDH2<DFfNf>zZ]<_F5iN3
-I30i]aO<[O]8MFH49PPD6j2
-R9
-R32
-R33
-R34
-!i122 9
-L0 168 89
-R12
-R13
+!s100 <?eC65VGmi_]:`V?n]C_H1
+I`ZU6@cC70=:o98`YX=1RA0
+R4
+R37
+R38
+R39
+!i122 464
+L0 194 89
+R15
+R16
 r1
 !s85 0
 31
-R17
-R35
-R36
+R20
+R40
+R41
 !i113 0
-R15
-R6
+R18
+R9
 vpipeline_4_5
-R31
-R16
+R36
+R19
 !i10b 1
-!s100 YElmGbUH?[@@BAhlO6Uz13
-IR=LznXa[Bk@k2cVok2BaZ1
-R9
-R32
-R33
-R34
-!i122 9
-L0 260 79
-R12
-R13
+!s100 8`Y=idzB;ObkWHIn<_3?g0
+IL6CON9WhcmbA0IRhciBO^3
+R4
+R37
+R38
+R39
+!i122 464
+L0 286 79
+R15
+R16
 r1
 !s85 0
 31
-R17
-R35
-R36
+R20
+R40
+R41
 !i113 0
-R15
-R6
+R18
+R9
 vregister_file
-2C:/Users/Admin/Documents/GitHub/test/rtl/datapath/register_file.v
-R8
+2C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/register_file.v
+R12
 !i10b 1
 !s100 U2dj`:5GSYTc<WcS^UV<D2
-IJ5lm7zOmc9EVne7jMPY633
-R9
-R10
-8C:/Users/Admin/Documents/GitHub/test/rtl/datapath/register_file.v
-FC:/Users/Admin/Documents/GitHub/test/rtl/datapath/register_file.v
-!i122 19
+Iz4?WeFhzng6zYIBzl8`[e2
+R4
+R13
+8C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/register_file.v
+FC:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/register_file.v
+!i122 474
 L0 3 43
-R12
-R13
-r1
-!s85 0
-31
-R14
-!s107 C:/Users/Admin/Documents/GitHub/test/rtl/datapath/register_file.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/test/rtl/datapath/register_file.v|
-!i113 0
 R15
-R6
+R16
+r1
+!s85 0
+31
+R17
+!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/register_file.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/register_file.v|
+!i113 0
+R18
+R9
 Xriscv_agent_env_test_sv_unit
-2C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_agent_env_test.sv
-Z37 !s115 riscv_if
-Z38 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-Z39 DXx6 mtiUvm 7 uvm_pkg 0 22 MiVhEBb9cnBN5^J=<XBKI2
-Z40 !s110 1778825776
-V_BF_DbH92T_ekd><ZYSah1
+2C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_agent_env_test.sv
+Z42 !s115 riscv_if
+Z43 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z44 DXx6 mtiUvm 7 uvm_pkg 0 22 MiVhEBb9cnBN5^J=<XBKI2
+Z45 !s110 1780044532
+V6NN^D79?5P4iHB63DaPmg0
 r1
 !s85 0
 !i10b 1
-!s100 IS]_d?<:nPgSV4ggcR?fF3
-I_BF_DbH92T_ekd><ZYSah1
+!s100 HUB2omF`Ka22d0_A@3B>c1
+I6NN^D79?5P4iHB63DaPmg0
 !i103 1
 S1
-R9
-Z41 w1778382974
-8C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_agent_env_test.sv
-Z42 FC:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_agent_env_test.sv
-Z43 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh
-Z44 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh
-Z45 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh
-Z46 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh
-Z47 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh
-Z48 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh
-Z49 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh
-Z50 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh
-Z51 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh
-Z52 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh
-Z53 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh
-Z54 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh
-Z55 FC:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_seq_item.sv
-Z56 FC:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_driver.sv
-Z57 FC:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_monitor.sv
-Z58 FC:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_scoreboard.sv
-Z59 FC:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_coverage.sv
-!i122 25
-Z60 L0 8 0
-R13
+R4
+Z46 w1780040000
+8C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_agent_env_test.sv
+Z47 FC:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_agent_env_test.sv
+Z48 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh
+Z49 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh
+Z50 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh
+Z51 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh
+Z52 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh
+Z53 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh
+Z54 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh
+Z55 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh
+Z56 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh
+Z57 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh
+Z58 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh
+Z59 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh
+Z60 FC:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_seq_item.sv
+Z61 FC:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_driver.sv
+Z62 FC:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_monitor.sv
+Z63 FC:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_scoreboard.sv
+Z64 FC:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_coverage.sv
+!i122 481
+Z65 L0 8 0
+R16
 31
-R19
-!s107 C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_coverage.sv|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_scoreboard.sv|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_monitor.sv|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_driver.sv|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_seq_item.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_agent_env_test.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_agent_env_test.sv|
+R17
+!s107 C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_coverage.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_scoreboard.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_monitor.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_driver.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_seq_item.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_agent_env_test.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_agent_env_test.sv|
 !i113 0
-Z61 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-R6
+Z66 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R9
 Xriscv_coverage_sv_unit
-2C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_coverage.sv
-R38
-R39
-R40
-V6Aj[o8T9]kYmhQdGnYl2o1
-r1
-!s85 0
-!i10b 1
-!s100 XJmW:<iPMdV?n0[[?H1o=2
-I6Aj[o8T9]kYmhQdGnYl2o1
-!i103 1
-S1
-R9
-R41
-8C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_coverage.sv
-R59
+2C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_coverage.sv
 R43
 R44
 R45
+V^WzkcJSfXAVFe6N]M<7oU2
+r1
+!s85 0
+!i10b 1
+!s100 2f4[7QW2Z3ZNQbP[WBNU50
+I^WzkcJSfXAVFe6N]M<7oU2
+!i103 1
+S1
+R4
 R46
-R47
+8C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_coverage.sv
+R64
 R48
 R49
 R50
@@ -787,39 +908,39 @@ R52
 R53
 R54
 R55
-!i122 26
-L0 16 0
-R13
-31
-Z62 !s108 1778825776.000000
-!s107 C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_seq_item.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_coverage.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_coverage.sv|
-!i113 0
-R61
-R6
-Xriscv_driver_sv_unit
-2C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_driver.sv
-R37
-R38
-R39
-Z63 !s110 1778825777
-VZKVYfO`9>i68M3O2XkjFf1
-r1
-!s85 0
-!i10b 1
-!s100 cGZUoo3FTW0XdL:K>:T[U1
-IZKVYfO`9>i68M3O2XkjFf1
-!i103 1
-S1
-R9
-w1777363332
-8C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_driver.sv
 R56
+R57
+R58
+R59
+R60
+!i122 482
+L0 16 0
+R16
+31
+Z67 !s108 1780044532.000000
+!s107 C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_seq_item.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_coverage.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_coverage.sv|
+!i113 0
+R66
+R9
+Xriscv_driver_sv_unit
+2C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_driver.sv
+R42
 R43
 R44
-R45
-R46
-R47
+Z68 !s110 1780044533
+VCP1S=W2>JQK4F<2NiTalD1
+r1
+!s85 0
+!i10b 1
+!s100 P:aFJ:X_JgegW;gLcK:ka0
+ICP1S=W2>JQK4F<2NiTalD1
+!i103 1
+S1
+R4
+Z69 w1780039995
+8C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_driver.sv
+R61
 R48
 R49
 R50
@@ -828,287 +949,66 @@ R52
 R53
 R54
 R55
-!i122 27
+R56
+R57
+R58
+R59
+R60
+!i122 483
 L0 7 0
-R13
+R16
 31
-R62
-!s107 C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_seq_item.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_driver.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_driver.sv|
+R67
+!s107 C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_seq_item.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_driver.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_driver.sv|
 !i113 0
-R61
-R6
+R66
+R9
 Yriscv_if
-Z64 2C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_if.sv
-R38
-R39
-DXx4 work 16 riscv_if_sv_unit 0 22 ;;o9KT5bLea[>I:7aWo9`2
-R63
-R12
+Z70 2C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv
+R43
+R44
+DXx4 work 16 riscv_if_sv_unit 0 22 lT0Mi0C]5jlX_In=:V4dB2
+R68
+R15
 r1
 !s85 0
 !i10b 1
-!s100 NM<[`Mh`3kVG@9Sj0zNnV1
-I<jMjbO`]UU>Pi0SQi`EdS1
+!s100 USZ2Uh]o8;]dbW_UR6miP3
+I6Q]P?YF_@PPj704J<>PAz3
 !s105 riscv_if_sv_unit
 S1
-R9
-Z65 w1778824768
-Z66 8C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_if.sv
-Z67 FC:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_if.sv
-!i122 28
+R4
+Z71 w1780038629
+Z72 8C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv
+Z73 FC:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv
+!i122 484
 L0 11 0
-R13
+R16
 31
-Z68 !s108 1778825777.000000
-Z69 !s107 C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_if.sv|
-Z70 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_if.sv|
+Z74 !s108 1780044533.000000
+Z75 !s107 C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv|
+Z76 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv|
 !i113 0
-R61
-R6
-Xriscv_if_sv_unit
-R64
-R38
-R39
-R63
-V;;o9KT5bLea[>I:7aWo9`2
-r1
-!s85 0
-!i10b 1
-!s100 z6f3<R61b:5?o;MQVYl5i1
-I;;o9KT5bLea[>I:7aWo9`2
-!i103 1
-S1
-R9
-R65
 R66
-R67
-R43
-R44
-R45
-R46
-R47
-R48
-R49
-R50
-R51
-R52
-R53
-R54
-!i122 28
-L0 10 0
-R13
-31
-R68
-R69
+R9
+Xriscv_if_sv_unit
 R70
-!i113 0
-R61
-R6
-Xriscv_monitor_sv_unit
-2C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_monitor.sv
-R37
-R38
-R39
-Z71 !s110 1778825778
-VmLfn8VPl@G:NLhUmH<VIT1
-r1
-!s85 0
-!i10b 1
-!s100 VWg:k7KTegNElklC;b6572
-ImLfn8VPl@G:NLhUmH<VIT1
-!i103 1
-S1
-R9
-w1778313435
-8C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_monitor.sv
-R57
 R43
 R44
-R45
-R46
-R47
-R48
-R49
-R50
-R51
-R52
-R53
-R54
-R55
-!i122 29
-L0 6 0
-R13
-31
 R68
-!s107 C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_seq_item.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_monitor.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_monitor.sv|
-!i113 0
-R61
-R6
-vriscv_pipeline_top
-2C:/Users/Admin/Documents/GitHub/test/rtl/core/top_module.v
-R16
-!i10b 1
-!s100 bLfc76UmD^XeOVfJ2^hBg2
-IgJS=HdI[VEDSN@YzTk:SI2
-R9
-w1778577495
-8C:/Users/Admin/Documents/GitHub/test/rtl/core/top_module.v
-FC:/Users/Admin/Documents/GitHub/test/rtl/core/top_module.v
-!i122 10
-L0 1 293
-R12
-R13
+VlT0Mi0C]5jlX_In=:V4dB2
 r1
 !s85 0
-31
-R17
-!s107 C:/Users/Admin/Documents/GitHub/test/rtl/core/top_module.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/test/rtl/core/top_module.v|
-!i113 0
-R15
-R6
-Xriscv_scoreboard_sv_unit
-2C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_scoreboard.sv
-R37
-R38
-R39
+!i10b 1
+!s100 DRN:d0Co?A36h^QT8BDY>1
+IlT0Mi0C]5jlX_In=:V4dB2
+!i103 1
+S1
+R4
 R71
-V1g?_goo6OR2QF<R27EaFg3
-r1
-!s85 0
-!i10b 1
-!s100 zgbKNbP]1J`<2kYJ_n1Ne3
-I1g?_goo6OR2QF<R27EaFg3
-!i103 1
-S1
-R9
-w1778310638
-8C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_scoreboard.sv
-R58
-R43
-R44
-R45
-R46
-R47
-R48
-R49
-R50
-R51
-R52
-R53
-R54
-R55
-!i122 30
-Z72 L0 19 0
-R13
-31
-Z73 !s108 1778825778.000000
-!s107 C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_seq_item.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_scoreboard.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_scoreboard.sv|
-!i113 0
-R61
-R6
-Xriscv_seq_item_sv_unit
-2C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_seq_item.sv
-R38
-R39
-R71
-VoEl1R>S6JO_j4Y:BJ9mnS1
-r1
-!s85 0
-!i10b 1
-!s100 Zc=OIcAQ=MkWP?8b>cBXm0
-IoEl1R>S6JO_j4Y:BJ9mnS1
-!i103 1
-S1
-R9
-w1776931241
-8C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_seq_item.sv
-R55
-R43
-R44
-R45
-R46
-R47
-R48
-R49
-R50
-R51
-R52
-R53
-R54
-!i122 31
-L0 9 0
-R13
-31
-R73
-!s107 C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_seq_item.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_seq_item.sv|
-!i113 0
-R61
-R6
-Xriscv_sequences_sv_unit
-2C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_sequences.sv
-R38
-R39
-!s110 1778825779
-VL_EN3SkhEWUb5A2zfXbOd3
-r1
-!s85 0
-!i10b 1
-!s100 Um>D`^eiMoA0>QjA@]kN_0
-IL_EN3SkhEWUb5A2zfXbOd3
-!i103 1
-S1
-R9
-Z74 w1778575689
-8C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_sequences.sv
-Z75 FC:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_sequences.sv
-R43
-R44
-R45
-R46
-R47
-R48
-R49
-R50
-R51
-R52
-R53
-R54
-R55
-!i122 32
 R72
-R13
-31
-!s108 1778825779.000000
-!s107 C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_seq_item.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_sequences.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_sequences.sv|
-!i113 0
-R61
-R6
-Xriscv_tb_pkg
-!i114 1
-Z76 2C:/Users/Admin/Documents/GitHub/test/tb/uvm/tb_top.sv
-R37
-R38
-R39
-Z77 !s110 1778825780
-!i10b 1
-!s100 n4HlZR]?e>M`00ih4Bd=d1
-IF[?aTD:XK>^a0NbWOEXQk3
-S1
-R9
-R74
-FC:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_tb_pkg.sv
-Z78 FC:/Users/Admin/Documents/GitHub/test/tb/uvm/tb_top.sv
-R43
-R44
-R45
-R46
-R47
+R73
 R48
 R49
 R50
@@ -1121,45 +1021,34 @@ R56
 R57
 R58
 R59
-R42
-R75
-Z79 FC:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_tests.sv
-!i122 35
-R60
-VF[?aTD:XK>^a0NbWOEXQk3
-R13
-r1
-!s85 0
+!i122 484
+L0 10 0
+R16
 31
-Z80 !s108 1778825780.000000
-Z81 !s107 C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_tests.sv|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_sequences.sv|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_agent_env_test.sv|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_coverage.sv|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_scoreboard.sv|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_monitor.sv|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_driver.sv|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_seq_item.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_tb_pkg.sv|C:/Users/Admin/Documents/GitHub/test/tb/uvm/tb_top.sv|
-Z82 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/test/tb/uvm/tb_top.sv|
+R74
+R75
+R76
 !i113 0
-R61
-R6
-Xriscv_tests_sv_unit
-2C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_tests.sv
-R37
-R38
-R39
-R77
-V5<G?[JO??Kd4X0<Y;k_V92
+R66
+R9
+Xriscv_monitor_sv_unit
+2C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_monitor.sv
+R42
+R43
+R44
+Z77 !s110 1780044534
+VARO_TN0h5[ZLSB>o1A`030
 r1
 !s85 0
 !i10b 1
-!s100 YXA3g_d8XPJ@eH^IGGSBL3
-I5<G?[JO??Kd4X0<Y;k_V92
+!s100 T]2Tgm?SKA7RAKh[o4B5H0
+IARO_TN0h5[ZLSB>o1A`030
 !i103 1
 S1
-R9
-R74
-8C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_tests.sv
-R79
-R43
-R44
-R45
+R4
 R46
-R47
+8C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_monitor.sv
+R62
 R48
 R49
 R50
@@ -1167,94 +1056,376 @@ R51
 R52
 R53
 R54
-R42
 R55
 R56
 R57
 R58
 R59
-R75
-!i122 34
-L0 21 0
-R13
-31
-R80
-!s107 C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_sequences.sv|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_coverage.sv|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_scoreboard.sv|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_monitor.sv|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_driver.sv|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_seq_item.sv|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_agent_env_test.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_tests.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/test/tb/uvm/riscv_tests.sv|
-!i113 0
-R61
-R6
-vtb_riscv_pipeline_mega
-2C:/Users/Admin/Documents/GitHub/test/tb/legacy/tb_full.v
-!s110 1778825781
-!i10b 1
-!s100 9VjWld]jIoa:P4dMUPFLZ3
-I6@W:S_=6MnzF;W@:i`EDU1
-R9
-w1778824622
-8C:/Users/Admin/Documents/GitHub/test/tb/legacy/tb_full.v
-FC:/Users/Admin/Documents/GitHub/test/tb/legacy/tb_full.v
-!i122 36
-L0 3 159
-R12
-R13
-r1
-!s85 0
-31
-R80
-!s107 C:/Users/Admin/Documents/GitHub/test/tb/legacy/tb_full.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/test/tb/legacy/tb_full.v|
-!i113 0
-R15
-R6
-vtb_top
-R76
-R38
-R39
-DXx4 work 12 riscv_tb_pkg 0 22 F[?aTD:XK>^a0NbWOEXQk3
-R77
-!i10b 1
-!s100 FK:zK]59c0XZXIF=a<FbF2
-ITaCoQ5OBY7b9R5ZC<coEG0
-S1
-R9
-w1778552070
-8C:/Users/Admin/Documents/GitHub/test/tb/uvm/tb_top.sv
-R78
-R43
-!i122 35
-L0 16 241
-R12
-R13
-r1
-!s85 0
-31
-R80
-R81
-R82
-!i113 0
-R61
-R6
-vwriteback_cycle
-2C:/Users/Admin/Documents/GitHub/test/rtl/core/writeback_cycle.v
+R60
+!i122 485
+L0 6 0
 R16
+31
+R74
+!s107 C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_seq_item.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_monitor.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_monitor.sv|
+!i113 0
+R66
+R9
+vriscv_muldiv
+2C:/Users/Admin/Documents/GitHub/RAM/rtl/mult_div/mult_div_alu.v
+!s110 1779762138
+!i10b 1
+!s100 m?TCXA=ih@<?TEF[hX<jJ3
+INVoEWZ]2?05^15hTSZ<K62
+R4
+w1779761444
+8C:/Users/Admin/Documents/GitHub/RAM/rtl/mult_div/mult_div_alu.v
+FC:/Users/Admin/Documents/GitHub/RAM/rtl/mult_div/mult_div_alu.v
+!i122 62
+L0 3 266
+R15
+R16
+r1
+!s85 0
+31
+!s108 1779762138.000000
+!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/mult_div/mult_div_alu.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/mult_div/mult_div_alu.v|
+!i113 0
+R18
+R9
+vriscv_pipeline_top
+2C:/Users/Admin/Documents/GitHub/RAM/rtl/core/top_module.v
+R19
+!i10b 1
+!s100 1<9z5]SM[PZWe:PC]eMz72
+I8meF@c]PWY7o72_>NOEf83
+R4
+w1780043604
+8C:/Users/Admin/Documents/GitHub/RAM/rtl/core/top_module.v
+FC:/Users/Admin/Documents/GitHub/RAM/rtl/core/top_module.v
+!i122 465
+L0 1 378
+R15
+R16
+r1
+!s85 0
+31
+R20
+!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/core/top_module.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/core/top_module.v|
+!i113 0
+R18
+R9
+Xriscv_scoreboard_sv_unit
+2C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_scoreboard.sv
+R42
+R43
+R44
+R77
+VT9k<VIZ2GOmkM[1>lYX`92
+r1
+!s85 0
+!i10b 1
+!s100 DH>[k__iI]FCYz6FkRg^10
+IT9k<VIZ2GOmkM[1>lYX`92
+!i103 1
+S1
+R4
+R46
+8C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_scoreboard.sv
+R63
+R48
+R49
+R50
+R51
+R52
+R53
+R54
+R55
+R56
+R57
+R58
+R59
+R60
+!i122 486
+Z78 L0 19 0
+R16
+31
+Z79 !s108 1780044534.000000
+!s107 C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_seq_item.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_scoreboard.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_scoreboard.sv|
+!i113 0
+R66
+R9
+Xriscv_seq_item_sv_unit
+2C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_seq_item.sv
+R43
+R44
+R77
+VTQ>=hB1PeS:;mWlcGcjEj0
+r1
+!s85 0
+!i10b 1
+!s100 :XJg0CMVjXhhji_<_`^Aj2
+ITQ>=hB1PeS:;mWlcGcjEj0
+!i103 1
+S1
+R4
+R69
+8C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_seq_item.sv
+R60
+R48
+R49
+R50
+R51
+R52
+R53
+R54
+R55
+R56
+R57
+R58
+R59
+!i122 487
+L0 9 0
+R16
+31
+R79
+!s107 C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_seq_item.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_seq_item.sv|
+!i113 0
+R66
+R9
+Xriscv_sequences_sv_unit
+2C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_sequences.sv
+R43
+R44
+!s110 1780044535
+VoA9iOiCL89:hiZm>GlJYE2
+r1
+!s85 0
+!i10b 1
+!s100 f00gQQYGoo5=Ml[T0NX<D0
+IoA9iOiCL89:hiZm>GlJYE2
+!i103 1
+S1
+R4
+R69
+8C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_sequences.sv
+Z80 FC:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_sequences.sv
+R48
+R49
+R50
+R51
+R52
+R53
+R54
+R55
+R56
+R57
+R58
+R59
+R60
+!i122 488
+R78
+R16
+31
+!s108 1780044535.000000
+!s107 C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_seq_item.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_sequences.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_sequences.sv|
+!i113 0
+R66
+R9
+Xriscv_tb_pkg
+Z81 2C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/tb_top.sv
+R42
+R43
+R44
+R28
+!i10b 1
+!s100 LJ63=nU9HDPSC:3cO>Yc10
+IWbBbYX7l>Wc?J6TXZg2DR3
+S1
+R4
+R46
+FC:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_tb_pkg.sv
+Z82 FC:/Users/Admin/Documents/GitHub/RAM/tb/uvm/tb_top.sv
+R48
+R49
+R50
+R51
+R52
+R53
+R54
+R55
+R56
+R57
+R58
+R59
+R60
+R61
+R62
+R63
+R64
+R47
+R80
+Z83 FC:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_tests.sv
+!i122 491
+R65
+VWbBbYX7l>Wc?J6TXZg2DR3
+R16
+r1
+!s85 0
+31
+Z84 !s108 1780044536.000000
+Z85 !s107 C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_tests.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_sequences.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_agent_env_test.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_coverage.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_scoreboard.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_monitor.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_driver.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_seq_item.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_tb_pkg.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/tb_top.sv|
+Z86 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/tb_top.sv|
+!i113 0
+R66
+R9
+Xriscv_tests_sv_unit
+2C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_tests.sv
+R42
+R43
+R44
+!s110 1780044536
+V0ZY8fi`7zfKKVnLcP]_8P0
+r1
+!s85 0
+!i10b 1
+!s100 ?=MchV16OC]gHU@kXDOln3
+I0ZY8fi`7zfKKVnLcP]_8P0
+!i103 1
+S1
+R4
+R46
+8C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_tests.sv
+R83
+R48
+R49
+R50
+R51
+R52
+R53
+R54
+R55
+R56
+R57
+R58
+R59
+R47
+R60
+R61
+R62
+R63
+R64
+R80
+!i122 490
+L0 21 0
+R16
+31
+R84
+!s107 C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_sequences.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_coverage.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_scoreboard.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_monitor.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_driver.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_seq_item.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_agent_env_test.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_tests.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_tests.sv|
+!i113 0
+R66
+R9
+vtb_riscv_pipeline_mega
+2C:/Users/Admin/Documents/GitHub/RAM/tb/legacy/tb_full.v
+!s110 1780044694
+!i10b 1
+!s100 9ZGYjMXRRM]QANQ9h]lJc1
+If<gRh:a0nXaU5LFPje]FH1
+R4
+w1780044685
+8C:/Users/Admin/Documents/GitHub/RAM/tb/legacy/tb_full.v
+FC:/Users/Admin/Documents/GitHub/RAM/tb/legacy/tb_full.v
+!i122 495
+L0 3 162
+R15
+R16
+r1
+!s85 0
+31
+!s108 1780044694.000000
+!s107 C:/Users/Admin/Documents/GitHub/RAM/tb/legacy/tb_full.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/tb/legacy/tb_full.v|
+!i113 0
+R18
+R9
+vtb_riscv_pipeline_muldiv
+2C:/Users/Admin/Documents/GitHub/RAM/tb/legacy/tb_muldiv.v
+R28
+!i10b 1
+!s100 VSd5Ni94Vjb4=m3I]X;b02
+IR84J_T7:>A?M63T46^eNX3
+R4
+w1779788658
+8C:/Users/Admin/Documents/GitHub/RAM/tb/legacy/tb_muldiv.v
+FC:/Users/Admin/Documents/GitHub/RAM/tb/legacy/tb_muldiv.v
+!i122 493
+R30
+R15
+R16
+r1
+!s85 0
+31
+R29
+!s107 C:/Users/Admin/Documents/GitHub/RAM/tb/legacy/tb_muldiv.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/tb/legacy/tb_muldiv.v|
+!i113 0
+R18
+R9
+vtb_top
+R81
+R43
+R44
+DXx4 work 12 riscv_tb_pkg 0 22 WbBbYX7l>Wc?J6TXZg2DR3
+R28
+!i10b 1
+!s100 HX<dRfQcVkM[@e4BBDQj[3
+ID7zP9M4:?kcnT7:[3MRWg3
+S1
+R4
+w1780039237
+8C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/tb_top.sv
+R82
+R48
+!i122 491
+L0 16 270
+R15
+R16
+r1
+!s85 0
+31
+R84
+R85
+R86
+!i113 0
+R66
+R9
+vwriteback_cycle
+2C:/Users/Admin/Documents/GitHub/RAM/rtl/core/writeback_cycle.v
+R19
 !i10b 1
 !s100 4Mn8jJm6gO^d5>DPKMhWQ1
-IT]T8c4jWZhP0;m=^oZC5K3
-R9
+INmA6eD`0E:14N0RiF5;Rd3
+R4
 w1778577505
-8C:/Users/Admin/Documents/GitHub/test/rtl/core/writeback_cycle.v
-FC:/Users/Admin/Documents/GitHub/test/rtl/core/writeback_cycle.v
-!i122 11
+8C:/Users/Admin/Documents/GitHub/RAM/rtl/core/writeback_cycle.v
+FC:/Users/Admin/Documents/GitHub/RAM/rtl/core/writeback_cycle.v
+!i122 466
 L0 1 20
-R12
-R13
+R15
+R16
 r1
 !s85 0
 31
-R17
-!s107 C:/Users/Admin/Documents/GitHub/test/rtl/core/writeback_cycle.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/test/rtl/core/writeback_cycle.v|
+R20
+!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/core/writeback_cycle.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/core/writeback_cycle.v|
 !i113 0
-R15
-R6
+R18
+R9

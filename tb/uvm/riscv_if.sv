@@ -74,6 +74,64 @@ interface riscv_if (input logic clk);
     logic [31:0] trap_vec;
     logic [31:0] epc;
 
+    // ------------------------------------------------------------
+    // AXI4-Lite signals (for monitoring bus transactions)
+    // ------------------------------------------------------------
+    // Write Address Channel
+    logic [31:0] i_axi_awaddr;
+    logic        i_axi_awvalid;
+    logic        i_axi_awready;
+    // Write Data Channel
+    logic [31:0] i_axi_wdata;
+    logic [3:0]  i_axi_wstrb;
+    logic        i_axi_wvalid;
+    logic        i_axi_wready;
+    // Write Response Channel
+    logic [1:0]  i_axi_bresp;
+    logic        i_axi_bvalid;
+    logic        i_axi_bready;
+    // Read Address Channel
+    logic [31:0] i_axi_araddr;
+    logic        i_axi_arvalid;
+    logic        i_axi_arready;
+    // Read Data Channel
+    logic [31:0] i_axi_rdata;
+    logic [1:0]  i_axi_rresp;
+    logic        i_axi_rvalid;
+    logic        i_axi_rready;
+    // ========================
+    //  AXI4-Lite Master Interface (Data Access)
+    // ========================
+    // Write Address Channel
+    logic [31:0] d_axi_awaddr;
+    logic        d_axi_awvalid;
+    logic        d_axi_awready;
+    // Write Data Channel
+    logic [31:0] d_axi_wdata;
+    logic [3:0]  d_axi_wstrb;
+    logic        d_axi_wvalid;
+    logic        d_axi_wready;
+    // Write Response Channel
+    logic [1:0]  d_axi_bresp;
+    logic        d_axi_bvalid;
+    logic        d_axi_bready;
+    // Read Address Channel
+    logic [31:0] d_axi_araddr;
+    logic        d_axi_arvalid;
+    logic        d_axi_arready;
+    // Read Data Channel
+    logic [31:0] d_axi_rdata;
+    logic [1:0]  d_axi_rresp;
+    logic        d_axi_rvalid;
+    logic        d_axi_rready;
+    // ========================
+    //  Memory Interface
+    // ========================
+    logic [31:0] mem_addr;
+    logic [31:0] mem_wdata;
+    logic [31:0] mem_rdata;
+    logic        mem_we;
+
     // ============================================================
     // Clocking Blocks
     // ============================================================
@@ -120,6 +178,18 @@ interface riscv_if (input logic clk);
         input dcache_stall;
         input is_ecall_d;
         input is_mret_d;
+        // AXI signals
+        input i_axi_awaddr, i_axi_awvalid, i_axi_awready;
+        input i_axi_wdata, i_axi_wstrb, i_axi_wvalid, i_axi_wready;
+        input i_axi_bresp, i_axi_bvalid, i_axi_bready;
+        input i_axi_araddr, i_axi_arvalid, i_axi_arready;
+        input i_axi_rdata, i_axi_rresp, i_axi_rvalid, i_axi_rready;
+        input d_axi_awaddr, d_axi_awvalid, d_axi_awready;
+        input d_axi_wdata, d_axi_wstrb, d_axi_wvalid, d_axi_wready;
+        input d_axi_bresp, d_axi_bvalid, d_axi_bready;
+        input d_axi_araddr, d_axi_arvalid, d_axi_arready;
+        input d_axi_rdata, d_axi_rresp, d_axi_rvalid, d_axi_rready;
+        input mem_addr, mem_wdata, mem_rdata, mem_we;
     endclocking
 
     // ============================================================

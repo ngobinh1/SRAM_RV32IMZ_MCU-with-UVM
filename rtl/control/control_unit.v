@@ -6,12 +6,17 @@ module control_unit(
     output  [2:0] result_src, 
     output  [2:0] imm_src, 
     output  [3:0] alu_control,
-    output csr_we, is_ecall, is_mret
+    output csr_we, is_ecall, is_mret,
+    output wire md_req,
+    output wire is_illegal
 );
+    parameter SUPPORT_MULDIV = 1;
+
     wire [1:0] alu_op;
     wire reg_write_raw;
     // Generate synthetic funct3 for LUI and AUIPC to distinguish them
     wire [2:0] funct3_modified;
+    wire is_rv32m = (op == 7'b0110011) && (funct7 == 7'b0000001);
 
     // CSR and EXCEPTION handling
     wire is_system = (op == 7'b1110011);
@@ -33,6 +38,9 @@ module control_unit(
     assign funct3_modified = (op == 7'b0110111) ? 3'b001 :  // LUI
                             (op == 7'b0010111) ? 3'b000 :  // AUIPC
                             funct3;                         // Normal instructions
+    
+    assign md_req = SUPPORT_MULDIV ? is_rv32m : 1'b0;
+    assign is_illegal = is_rv32m && !SUPPORT_MULDIV;
 
     main_decoder main_decoder(
         .op(op),

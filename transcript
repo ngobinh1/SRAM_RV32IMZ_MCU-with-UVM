@@ -1,0 +1,525 @@
+# vsim -c work.tb_top "+UVM_TESTNAME=riscv_full_test" "+UVM_VERBOSITY=UVM_LOW" "+HEX_DIR=sim/hex/" -L uvm -do "run -all; quit -f" 
+# Start time: 15:38:32 on May 29,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# Support of the MGLS_LICENSE_FILE and LM_LICENSE_FILE licensing environment variables will be discontinued starting with the 2025.1 release. Please update to using the SALT_LICENSE_SERVER variable.
+# Please contact Siemens EDA Customer Support (https://support.sw.siemens.com/) for assistance.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: ../../questasim64_2024.1/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/core/top_module.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/core/fetch_cycle.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/datapath/mux.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/datapath/pc.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/datapath/adder.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/core/pipeline.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/core/decode_cycle.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/control/control_unit.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/control/main_decoder.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/control/alu_decoder.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/datapath/register_file.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/datapath/extend.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/core/issue.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/core/pipeline.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/csr/csr_alu.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/core/execute_cycle.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/datapath/mux.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/datapath/mux.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/datapath/mux.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/datapath/alu.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/datapath/alu.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: C:/Users/Admin/Documents/GitHub/RAM/rtl/mult_div/muldiv_alu.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/core/pipeline.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/core/memory_cycle.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/core/pipeline.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/csr/csr_file.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/core/writeback_cycle.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/datapath/mux.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/hazard/hazard_unit.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/cache/l1_icache.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/cache/l1_dcache.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/memory/axi_interconnect.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/memory/axi_sram_wrapper.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/memory/EF_SRAM_1024x32.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/memory/EF_SRAM_1024x32.tt_180V_25C.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/memory/EF_SRAM_1024x32.tt_180V_25C.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/memory/EF_SRAM_1024x32.tt_180V_25C.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/memory/EF_SRAM_1024x32.tt_180V_25C.v(1): (vopt-2669) Unable to find library 'uvm'.
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'uvm' at "uvm".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: rtl/memory/EF_SRAM_1024x32.tt_180V_25C.v(1): (vopt-2669) Unable to find library 'uvm'.
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=221, Warnings=73.
+# Error loading design
+# End time: 15:38:33 on May 29,2026, Elapsed time: 0:00:01
+# Errors: 221, Warnings: 73

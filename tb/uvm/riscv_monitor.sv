@@ -1,6 +1,6 @@
 // ============================================================
 // File: riscv_monitor.sv
-// Description: UVM Monitor - Phiên bản Hoàn hảo (Bản cuối cùng)
+// Description: UVM Monitor - Perfect Version (Final)
 // ============================================================
 `include "uvm_macros.svh"
 import uvm_pkg::*;
@@ -23,6 +23,10 @@ class riscv_monitor extends uvm_monitor;
     int unsigned branch_taken_count;
     int unsigned mem_write_count;
     int unsigned mem_read_count;
+    
+    // AXI Bus statistics
+    int unsigned axi_read_count;
+    int unsigned axi_write_count;
 
     function new(string name = "riscv_monitor", uvm_component parent = null);
         super.new(name, parent);
@@ -45,6 +49,7 @@ class riscv_monitor extends uvm_monitor;
             monitor_memaccesses();
             monitor_branches();
             monitor_all_instrs();
+            monitor_axi();
         join_none
     endtask
 
@@ -64,7 +69,7 @@ class riscv_monitor extends uvm_monitor;
                 pc_queue.delete();
             end 
             else begin
-                // PUSH: Lưu các lệnh hợp lệ ở tầng Decode
+                // PUSH: Save valid instructions at Decode stage
                 if (!vif.monitor_cb.stall_f && 
                     !vif.monitor_cb.flush_d && 
                     vif.monitor_cb.reg_write_d === 1'b1 && 
@@ -75,14 +80,14 @@ class riscv_monitor extends uvm_monitor;
                     pc_queue.push_back(vif.monitor_cb.pc_d);
                 end
 
-                // POP: Tầng WB chỉ bị đóng băng khi D-Cache Stall (SRAM đang bận)
+                // POP: WB stage only frozen when D-Cache Stall (SRAM busy)
                 if (!vif.monitor_cb.dcache_stall && 
                     vif.monitor_cb.reg_write_w === 1'b1 &&
                     vif.monitor_cb.rd_w !== 5'h0 &&
                     !$isunknown(vif.monitor_cb.result_w)) 
                 begin
                     
-                    // SELF-HEALING: Tự động loại bỏ các lệnh bị nuốt bởi flush_e
+                    // SELF-HEALING: Automatically remove instructions swallowed by flush_e
                     while (instr_queue.size() > 0 && instr_queue[0][11:7] !== vif.monitor_cb.rd_w) begin
                         instr_queue.pop_front();
                         pc_queue.pop_front();
@@ -125,7 +130,7 @@ class riscv_monitor extends uvm_monitor;
             @(vif.monitor_cb);
             if (vif.monitor_cb.rst !== 1'b1) continue;
 
-            // CHỈ CHẶN D-CACHE STALL
+            // ONLY BLOCK D-CACHE STALL
             if (!vif.monitor_cb.dcache_stall && 
                 vif.monitor_cb.mem_write_m === 1'b1 && 
                 !$isunknown(vif.monitor_cb.alu_result_m))
@@ -197,7 +202,7 @@ class riscv_monitor extends uvm_monitor;
                 continue;
             end
 
-            // CHỈ CHẶN D-CACHE STALL để không bỏ lỡ Branch
+            // ONLY BLOCK D-CACHE STALL to not miss Branch
             if (!vif.monitor_cb.dcache_stall && (is_branch_e_reg || is_jump_e_reg)) begin
                 item = riscv_seq_item::type_id::create("branch_item");
                 item.trans_type    = riscv_seq_item::TRANS_BRANCH_TAKEN;
@@ -214,13 +219,13 @@ class riscv_monitor extends uvm_monitor;
             end
 
             if (!vif.monitor_cb.dcache_stall) begin
-                // Nếu tầng Decode bị stall (do load-use), flush, hoặc tín hiệu rác 
-                // -> Tầng E sẽ nhận một bong bóng (bubble), không phải branch
+                // If Decode stage stalls (due to load-use), flush, or garbage signal
+                // -> Execute stage will receive a bubble, not a branch
                 if (vif.monitor_cb.stall_f || vif.monitor_cb.flush_d || $isunknown(vif.monitor_cb.instr_d)) begin
                     is_branch_e_reg = 1'b0;
                     is_jump_e_reg   = 1'b0;
                 end else begin
-                    // Nếu hợp lệ, đẩy thông tin lệnh từ D sang E để chu kỳ sau xử lý
+                    // If valid, push instruction info from D to E for processing in next cycle
                     instr_e_reg     = vif.monitor_cb.instr_d;
                     is_branch_e_reg = vif.monitor_cb.branch_d;
                     is_jump_e_reg   = vif.monitor_cb.jump_d;
@@ -260,6 +265,46 @@ class riscv_monitor extends uvm_monitor;
     endtask
 
     // ========================================================
+    // Thread 5: Monitor AXI Bus Data Transfer
+    // ========================================================
+    task automatic monitor_axi();
+        forever begin
+            @(vif.monitor_cb);
+            if (vif.monitor_cb.rst !== 1'b1) continue;
+            
+            // Monitor D-Cache AXI Reads (Master 1)
+            if (vif.monitor_cb.d_axi_rvalid && vif.monitor_cb.d_axi_rready) begin
+                axi_read_count++;
+                `uvm_info("MONITOR", $sformatf("AXI READ: data=%h", vif.monitor_cb.d_axi_rdata), UVM_HIGH)
+                begin
+                    riscv_seq_item axi_item = riscv_seq_item::type_id::create("axi_rd_item");
+                    axi_item.trans_type = riscv_seq_item::TRANS_AXI_READ;
+                    axi_item.timestamp = $time;
+                    ap_memaccess.write(axi_item);
+                end
+            end
+            
+            // Monitor D-Cache AXI Writes (Master 1)
+            if (vif.monitor_cb.d_axi_bvalid && vif.monitor_cb.d_axi_bready) begin
+                axi_write_count++;
+                `uvm_info("MONITOR", "AXI WRITE COMPLETED (BVALID/BREADY)", UVM_HIGH)
+                begin
+                    riscv_seq_item axi_item = riscv_seq_item::type_id::create("axi_wr_item");
+                    axi_item.trans_type = riscv_seq_item::TRANS_AXI_WRITE;
+                    axi_item.timestamp = $time;
+                    ap_memaccess.write(axi_item);
+                end
+            end
+            
+            // Monitor I-Cache AXI Reads (Master 0)
+            if (vif.monitor_cb.i_axi_rvalid && vif.monitor_cb.i_axi_rready) begin
+                // Optional: we can count I-Cache reads too or just keep it silent
+                // axi_read_count++;
+            end
+        end
+    endtask
+
+    // ========================================================
     // report_phase: print statistics
     // ========================================================
     function void report_phase(uvm_phase phase);
@@ -269,7 +314,9 @@ class riscv_monitor extends uvm_monitor;
         msg = {msg, $sformatf("  Stall cycles        : %0d\n", stall_count)};
         msg = {msg, $sformatf("  Branches taken      : %0d\n", branch_taken_count)};
         msg = {msg, $sformatf("  Memory writes       : %0d\n", mem_write_count)};
-        msg = {msg, $sformatf("  Memory reads        : %0d",   mem_read_count)};
+        msg = {msg, $sformatf("  Memory reads        : %0d\n", mem_read_count)};
+        msg = {msg, $sformatf("  AXI Data Reads      : %0d\n", axi_read_count)};
+        msg = {msg, $sformatf("  AXI Data Writes     : %0d",   axi_write_count)};
         `uvm_info("MONITOR", msg, UVM_NONE)
     endfunction
 

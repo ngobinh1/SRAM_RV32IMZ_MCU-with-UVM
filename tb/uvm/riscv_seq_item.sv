@@ -15,42 +15,48 @@ class riscv_seq_item extends uvm_sequence_item;
     // ============================================================
     // Transaction type enum
     // ============================================================
-    typedef enum logic [2:0] {
-        TRANS_RESET        = 3'h0,  // Assert/deassert reset
-        TRANS_LOAD_PROGRAM = 3'h1,  // Load hex program into IMEM
-        TRANS_WAIT_CYCLES  = 3'h2,  // Wait N clock cycles
-        TRANS_REG_WRITE    = 3'h3,  // Observed: register file write
-        TRANS_MEM_WRITE    = 3'h4,  // Observed: data memory write
-        TRANS_MEM_READ     = 3'h5,  // Observed: data memory read
-        TRANS_BRANCH_TAKEN = 3'h6,  // Observed: branch/jump taken
-        TRANS_ECALL        = 3'h7   // Observed: ecall exception
+    typedef enum logic [3:0] {
+        TRANS_RESET        = 4'h0,  // Assert/deassert reset
+        TRANS_LOAD_PROGRAM = 4'h1,  // Load hex program into IMEM
+        TRANS_WAIT_CYCLES  = 4'h2,  // Wait N clock cycles
+        TRANS_REG_WRITE    = 4'h3,  // Observed: register file write
+        TRANS_MEM_WRITE    = 4'h4,  // Observed: data memory write
+        TRANS_MEM_READ     = 4'h5,  // Observed: data memory read
+        TRANS_BRANCH_TAKEN = 4'h6,  // Observed: branch/jump taken
+        TRANS_ECALL        = 4'h7,  // Observed: ecall exception
+        TRANS_AXI_WRITE    = 4'h8,  // Observed: AXI Write transaction
+        TRANS_AXI_READ     = 4'h9   // Observed: AXI Read transaction
     } trans_type_e;
 
     // ============================================================
     // RISC-V instruction type enum (for coverage)
     // ============================================================
     typedef enum logic [5:0] {
-        INSTR_ADD   = 6'h00, INSTR_SUB   = 6'h01,
-        INSTR_AND   = 6'h02, INSTR_OR    = 6'h03,
-        INSTR_XOR   = 6'h04, INSTR_SLT   = 6'h05,
-        INSTR_SLTU  = 6'h06, INSTR_SLL   = 6'h07,
-        INSTR_SRL   = 6'h08, INSTR_SRA   = 6'h09,
-        INSTR_ADDI  = 6'h0A, INSTR_ANDI  = 6'h0B,
-        INSTR_ORI   = 6'h0C, INSTR_XORI  = 6'h0D,
-        INSTR_SLTI  = 6'h0E, INSTR_SLTIU = 6'h0F,
-        INSTR_SLLI  = 6'h10, INSTR_SRLI  = 6'h11,
-        INSTR_SRAI  = 6'h12, INSTR_LW    = 6'h13,
-        INSTR_LH    = 6'h14, INSTR_LB    = 6'h15,
-        INSTR_LHU   = 6'h16, INSTR_LBU   = 6'h17,
-        INSTR_SW    = 6'h18, INSTR_SH    = 6'h19,
-        INSTR_SB    = 6'h1A, INSTR_BEQ   = 6'h1B,
-        INSTR_BNE   = 6'h1C, INSTR_BLT   = 6'h1D,
-        INSTR_BGE   = 6'h1E, INSTR_BLTU  = 6'h1F,
-        INSTR_BGEU  = 6'h20, INSTR_JAL   = 6'h21,
-        INSTR_JALR  = 6'h22, INSTR_LUI   = 6'h23,
-        INSTR_AUIPC = 6'h24, INSTR_ECALL = 6'h25,
-        INSTR_CSRRW = 6'h26, INSTR_CSRRS = 6'h27,
-        INSTR_CSRRC = 6'h28, INSTR_NOP   = 6'h3F
+        INSTR_ADD    = 6'h00, INSTR_SUB   = 6'h01,
+        INSTR_AND    = 6'h02, INSTR_OR    = 6'h03,
+        INSTR_XOR    = 6'h04, INSTR_SLT   = 6'h05,
+        INSTR_SLTU   = 6'h06, INSTR_SLL   = 6'h07,
+        INSTR_SRL    = 6'h08, INSTR_SRA   = 6'h09,
+        INSTR_ADDI   = 6'h0A, INSTR_ANDI  = 6'h0B,
+        INSTR_ORI    = 6'h0C, INSTR_XORI  = 6'h0D,
+        INSTR_SLTI   = 6'h0E, INSTR_SLTIU = 6'h0F,
+        INSTR_SLLI   = 6'h10, INSTR_SRLI  = 6'h11,
+        INSTR_SRAI   = 6'h12, INSTR_LW    = 6'h13,
+        INSTR_LH     = 6'h14, INSTR_LB    = 6'h15,
+        INSTR_LHU    = 6'h16, INSTR_LBU   = 6'h17,
+        INSTR_SW     = 6'h18, INSTR_SH    = 6'h19,
+        INSTR_SB     = 6'h1A, INSTR_BEQ   = 6'h1B,
+        INSTR_BNE    = 6'h1C, INSTR_BLT   = 6'h1D,
+        INSTR_BGE    = 6'h1E, INSTR_BLTU  = 6'h1F,
+        INSTR_BGEU   = 6'h20, INSTR_JAL   = 6'h21,
+        INSTR_JALR   = 6'h22, INSTR_LUI   = 6'h23,
+        INSTR_AUIPC  = 6'h24, INSTR_ECALL = 6'h25,
+        INSTR_CSRRW  = 6'h26, INSTR_CSRRS = 6'h27,
+        INSTR_CSRRC  = 6'h28, INSTR_NOP   = 6'h3F,
+        INSTR_MUL    = 6'h29, INSTR_MULH  = 6'h2A, 
+        INSTR_MULHSU = 6'h2B, INSTR_MULHU = 6'h2C,
+        INSTR_DIV    = 6'h2D, INSTR_DIVU  = 6'h2E, 
+        INSTR_REM    = 6'h2F, INSTR_REMU  = 6'h30
     } instr_type_e;
 
     // ============================================================
@@ -141,19 +147,33 @@ class riscv_seq_item extends uvm_sequence_item;
 
         case (opcode)
             7'b0110011: begin // R-type
-                case ({fn7[5], fn3})
-                    4'b0000: instr_type = INSTR_ADD;
-                    4'b1000: instr_type = INSTR_SUB;
-                    4'b0001: instr_type = INSTR_SLL;
-                    4'b0010: instr_type = INSTR_SLT;
-                    4'b0011: instr_type = INSTR_SLTU;
-                    4'b0100: instr_type = INSTR_XOR;
-                    4'b0101: instr_type = INSTR_SRL;
-                    4'b1101: instr_type = INSTR_SRA;
-                    4'b0110: instr_type = INSTR_OR;
-                    4'b0111: instr_type = INSTR_AND;
-                    default: instr_type = INSTR_NOP;
-                endcase
+                if (fn7 == 7'b0000001) begin // RV32M
+                    case (fn3)
+                        3'b000: instr_type = INSTR_MUL;
+                        3'b001: instr_type = INSTR_MULH;
+                        3'b010: instr_type = INSTR_MULHSU;
+                        3'b011: instr_type = INSTR_MULHU;
+                        3'b100: instr_type = INSTR_DIV;
+                        3'b101: instr_type = INSTR_DIVU;
+                        3'b110: instr_type = INSTR_REM;
+                        3'b111: instr_type = INSTR_REMU;
+                        default: instr_type = INSTR_NOP;
+                    endcase
+                end else begin
+                    case ({fn7[5], fn3})
+                        4'b0000: instr_type = INSTR_ADD;
+                        4'b1000: instr_type = INSTR_SUB;
+                        4'b0001: instr_type = INSTR_SLL;
+                        4'b0010: instr_type = INSTR_SLT;
+                        4'b0011: instr_type = INSTR_SLTU;
+                        4'b0100: instr_type = INSTR_XOR;
+                        4'b0101: instr_type = INSTR_SRL;
+                        4'b1101: instr_type = INSTR_SRA;
+                        4'b0110: instr_type = INSTR_OR;
+                        4'b0111: instr_type = INSTR_AND;
+                        default: instr_type = INSTR_NOP;
+                    endcase
+                end
             end
             7'b0010011: begin // I-type ALU
                 case (fn3)
@@ -244,6 +264,10 @@ class riscv_seq_item extends uvm_sequence_item;
                 s = {s, $sformatf("cycles=%0d", wait_cycles)};
             TRANS_LOAD_PROGRAM:
                 s = {s, $sformatf("file=%0s", program_hex_file)};
+            TRANS_AXI_WRITE:
+                s = {s, "AXI_WRITE completed"};
+            TRANS_AXI_READ:
+                s = {s, "AXI_READ completed"};
         endcase
         if (stall_seen) s = {s, " [STALL]"};
         return s;

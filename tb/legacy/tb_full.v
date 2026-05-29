@@ -33,12 +33,15 @@ module tb_riscv_pipeline_mega();
             dut.sram_macro.EF_SRAM_1024x32_inst.memory_mode_inst.memory[i] = 32'h00000000;
         end
 
-        #20;
-        // Thay đổi đường dẫn tuyệt đối
+        #2;
+        // Change absolute path
         $readmemh("sim/hex/full_test.hex", dut.sram_macro.EF_SRAM_1024x32_inst.memory_mode_inst.memory);
         
-        #25 rst = 1;
-
+        #98 rst = 1;
+        $display("========================================");
+        $display("DEBUG: memory[0] = %h", dut.sram_macro.EF_SRAM_1024x32_inst.memory_mode_inst.memory[0]);
+        $display("DEBUG: memory[1] = %h", dut.sram_macro.EF_SRAM_1024x32_inst.memory_mode_inst.memory[1]);
+        $display("========================================");
         #10;
 
         $display("\n========================================================");

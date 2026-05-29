@@ -8,13 +8,17 @@ module decode_cycle (
     output  [2:0] funct3_d,
     output  [2:0] result_src_d,
     output  [3:0] alu_control_d,
-    output  csr_we_d, is_ecall_d, is_mret_d
+    output  csr_we_d, is_ecall_d, is_mret_d,
+    output wire       md_req_d,
+    output wire [2:0] md_op_d,
+    output wire       is_illegal_d
 );
 
     wire [2:0] imm_src_d;
     wire [11:0] imm12;
 
     assign funct3_d = instr_d[14:12];
+    assign md_op_d = instr_d[14:12];
 
     
     control_unit control_unit(
@@ -33,7 +37,9 @@ module decode_cycle (
         .imm_src(imm_src_d),
         .csr_we(csr_we_d),
         .is_ecall(is_ecall_d),
-        .is_mret(is_mret_d)
+        .is_mret(is_mret_d),
+        .md_req(md_req_d),
+        .is_illegal(is_illegal_d)
     );
 
     // Extract register addresses

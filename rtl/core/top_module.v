@@ -15,7 +15,8 @@ module riscv_pipeline_top (
     wire [2:0] result_src_d;
     wire [3:0] alu_control_d;
     wire stall_d, flush_d;
-    wire is_ecall_d, is_mret_d, csr_we_d;
+    wire is_ecall_d, is_mret_d, csr_we_d, md_req_d, is_illegal_d;
+    wire [2:0] md_op_d;
     wire [11:0] csr_addr_d=instr_d[31:20];
     wire [31:0] csr_rd_d;
 
@@ -32,6 +33,20 @@ module riscv_pipeline_top (
     wire csr_we_e;
     wire [11:0] csr_addr_e;
     wire [31:0] csr_rd_e, csr_wd_e;
+    wire md_req_e;
+    wire is_ecall_e, is_mret_e, is_illegal_e;
+    wire [2:0] md_op_e;
+
+    // Issue stage signals (output of issue, input to pipeline_2_3)
+    wire issue_stall, issue_valid;
+    wire reg_write_i, mem_write_i, alu_src_i, jump_i, branch_i, jalr_i;
+    wire [2:0] funct3_i, result_src_i, md_op_i;
+    wire [3:0] alu_control_i;
+    wire [31:0] read_data_1_i, read_data_2_i, pc_i, pc_plus_4_i, imm_ext_i;
+    wire [4:0] rs1_i, rs2_i, rd_i;
+    wire csr_we_i, is_ecall_i, is_mret_i, md_req_i, is_illegal_i;
+    wire [11:0] csr_addr_i;
+    wire [31:0] csr_rd_i;
 
     // Memory stage signals
     wire [31:0] alu_result_m, write_data_m, pc_plus_4_m, read_data_m;
@@ -42,6 +57,7 @@ module riscv_pipeline_top (
     wire csr_we_m;
     wire [11:0] csr_addr_m;
     wire [31:0] csr_rd_m, csr_wd_m;
+    wire [31:0] write_data_m_aligned;
 
     // Writeback stage signals
     wire [31:0] alu_result_w, read_data_w, pc_plus_4_w, result_w;
@@ -65,6 +81,10 @@ module riscv_pipeline_top (
     wire [31:0] instr_f_from_icache;
     wire [31:0] read_data_m_from_dcache;
     wire mem_read_m = (result_src_m == 3'b001);
+
+    wire reg_write_w_pipe;
+    wire [4:0] rd_w_pipe;
+    wire [31:0] result_w_pipe;
 
     // ==========================================
     // AXI4-LITE WIRES
@@ -97,6 +117,12 @@ module riscv_pipeline_top (
     wire en_f = ~stall_f;
     wire en_d = ~stall_d;
 
+    // Mult/Div unit signals
+    wire [31:0] md_src_a, md_src_b_reg;
+    wire [31:0] muldiv_result;
+    wire div_busy, md_valid;
+    wire real_div_busy = div_busy | (md_req_e & ~md_valid);
+
     // Fetch Cycle
     fetch_cycle fetch_stage (
         .clk(clk), .rst(rst), .en(en_f),
@@ -114,35 +140,73 @@ module riscv_pipeline_top (
         .instr_d(instr_d), .pc_d(pc_d), .pc_plus_4_d(pc_plus_4_d)
     );
 
+    wire        actual_rf_we  = (md_req_e & md_valid) ? 1'b1          : reg_write_w_pipe;
+    wire [4:0]  actual_rf_rd  = (md_req_e & md_valid) ? rd_e          : rd_w_pipe; 
+    wire [31:0] actual_rf_din = (md_req_e & md_valid) ? muldiv_result : result_w_pipe;
+
     // Decode Cycle
     decode_cycle decode_stage (
-        .clk(clk), .rst(rst), .reg_write_w(reg_write_w), .rd_w(rd_w),
-        .instr_d(instr_d), .result_w(result_w), .pc_in(pc_d), .pc_plus_4_in(pc_plus_4_d),
+        .clk(clk), .rst(rst), .reg_write_w(actual_rf_we), .rd_w(actual_rf_rd),
+        .instr_d(instr_d), .result_w(actual_rf_din), .pc_in(pc_d), .pc_plus_4_in(pc_plus_4_d),
         .imm_ext_d(imm_ext_d), .read_data_1_d(read_data_1_d), .read_data_2_d(read_data_2_d),
         .rs1_d(rs1_d), .rs2_d(rs2_d), .rd_d(rd_d),
         .reg_write_d(reg_write_d), .mem_write_d(mem_write_d),
         .jump_d(jump_d), .branch_d(branch_d), .jalr_d(jalr_d),
         .funct3_d(funct3_d), .alu_src_d(alu_src_d), .result_src_d(result_src_d),
-        .alu_control_d(alu_control_d), .is_ecall_d(is_ecall_d), .is_mret_d(is_mret_d), .csr_we_d(csr_we_d)
+        .alu_control_d(alu_control_d), .is_ecall_d(is_ecall_d), .is_mret_d(is_mret_d), .csr_we_d(csr_we_d),
+        .md_req_d(md_req_d), .is_illegal_d(is_illegal_d), .md_op_d(md_op_d)
     );
 
-    // Pipeline Register: Decode -> Execute
-    pipeline_2_3 pipeline_de (
-        .clk(clk), .rst(rst), .clr(flush_e), .en(en_e),
-        .reg_write_d(reg_write_d), .mem_write_d(mem_write_d),
-        .alu_src_d(alu_src_d), .jump_d(jump_d), .branch_d(branch_d), .jalr_d(jalr_d),
+    wire execute_ready = ~real_div_busy & ~dcache_stall;
+    wire clr_issue = flush_e;
+
+    // Issue Queue / Scheduler
+    issue issue_stage (
+        .clk(clk), .rst(rst), .clr(clr_issue),
+        .execute_ready(execute_ready), .rd_e(rd_e), .result_src_e(result_src_e),
+        .decode_valid(~stall_d),
+        .reg_write_d(reg_write_d), .mem_write_d(mem_write_d), .alu_src_d(alu_src_d),
+        .jump_d(jump_d), .branch_d(branch_d), .jalr_d(jalr_d),
         .funct3_d(funct3_d), .result_src_d(result_src_d), .alu_control_d(alu_control_d),
         .read_data_1_d(read_data_1_d), .read_data_2_d(read_data_2_d),
         .pc_d(pc_d), .pc_plus_4_d(pc_plus_4_d), .imm_ext_d(imm_ext_d),
         .rs1_d(rs1_d), .rs2_d(rs2_d), .rd_d(rd_d),
         .csr_we_d(csr_we_d), .csr_addr_d(csr_addr_d), .csr_rd_d(csr_rd_d),
+        .is_ecall_d(is_ecall_d), .is_mret_d(is_mret_d), .md_req_d(md_req_d), .is_illegal_d(is_illegal_d), .md_op_d(md_op_d),
+        .issue_stall(issue_stall), .issue_valid(issue_valid),
+        .reg_write_i(reg_write_i), .mem_write_i(mem_write_i), .alu_src_i(alu_src_i),
+        .jump_i(jump_i), .branch_i(branch_i), .jalr_i(jalr_i),
+        .funct3_i(funct3_i), .result_src_i(result_src_i), .alu_control_i(alu_control_i),
+        .read_data_1_i(read_data_1_i), .read_data_2_i(read_data_2_i),
+        .pc_i(pc_i), .pc_plus_4_i(pc_plus_4_i), .imm_ext_i(imm_ext_i),
+        .rs1_i(rs1_i), .rs2_i(rs2_i), .rd_i(rd_i),
+        .csr_we_i(csr_we_i), .csr_addr_i(csr_addr_i), .csr_rd_i(csr_rd_i),
+        .is_ecall_i(is_ecall_i), .is_mret_i(is_mret_i), .md_req_i(md_req_i), .is_illegal_i(is_illegal_i), .md_op_i(md_op_i)
+    );
+
+    wire flush_pipeline_2_3 = flush_e | ~issue_valid;
+
+    // Pipeline Register: Decode/Issue -> Execute
+    pipeline_2_3 pipeline_de (
+        .clk(clk), .rst(rst), .clr(flush_pipeline_2_3), .en(en_e),
+        .reg_write_d(reg_write_i), .mem_write_d(mem_write_i),
+        .alu_src_d(alu_src_i), .jump_d(jump_i), .branch_d(branch_i), .jalr_d(jalr_i),
+        .funct3_d(funct3_i), .result_src_d(result_src_i), .alu_control_d(alu_control_i),
+        .read_data_1_d(read_data_1_i), .read_data_2_d(read_data_2_i),
+        .pc_d(pc_i), .pc_plus_4_d(pc_plus_4_i), .imm_ext_d(imm_ext_i),
+        .rs1_d(rs1_i), .rs2_d(rs2_i), .rd_d(rd_i),
+        .csr_we_d(csr_we_i), .csr_addr_d(csr_addr_i), .csr_rd_d(csr_rd_i),
+        .md_req_d(md_req_i), .is_illegal_d(is_illegal_i), .is_ecall_d(is_ecall_i), .is_mret_d(is_mret_i),
+        .md_op_d(md_op_i),
         .reg_write_e(reg_write_e), .mem_write_e(mem_write_e),
         .alu_src_e(alu_src_e), .jump_e(jump_e), .branch_e(branch_e), .jalr_e(jalr_e),
         .funct3_e(funct3_e), .result_src_e(result_src_e), .alu_control_e(alu_control_e),
         .read_data_1_e(read_data_1_e), .read_data_2_e(read_data_2_e),
         .pc_e(pc_e), .pc_plus_4_e(pc_plus_4_e), .imm_ext_e(imm_ext_e),
         .rs1_e(rs1_e), .rs2_e(rs2_e), .rd_e(rd_e),
-        .csr_we_e(csr_we_e), .csr_addr_e(csr_addr_e), .csr_rd_e(csr_rd_e)
+        .csr_we_e(csr_we_e), .csr_addr_e(csr_addr_e), .csr_rd_e(csr_rd_e),
+        .md_req_e(md_req_e), .is_illegal_e(is_illegal_e), .is_ecall_e(is_ecall_e), .is_mret_e(is_mret_e),
+        .md_op_e(md_op_e)
     );
 
     wire [31:0] src_a_e_forwarded = (forward_a_e == 2'b10) ? alu_result_m : (forward_a_e == 2'b01) ? result_w : read_data_1_e;
@@ -159,13 +223,28 @@ module riscv_pipeline_top (
         .alu_result_m(alu_result_m), .read_data_1_e(read_data_1_e), .read_data_2_e(read_data_2_e),
         .imm_ext_e(imm_ext_e), .pc_e(pc_e), .pc_plus_4_e(pc_plus_4_e), .result_w(result_w),
         .rd_e(rd_e), .pc_target_e(pc_target_e), .alu_result_e(alu_result_e),
-        .write_data_e(write_data_e), .pc_src_e(pc_src_e)
+        .write_data_e(write_data_e), .pc_src_e(pc_src_e), .src_a_out(md_src_a), .src_b_reg_out(md_src_b_reg)
+    );
+
+    wire md_ack = en_e & md_valid;
+    
+    muldiv_alu u_muldiv_core (
+        .clk(clk),
+        .rst(rst),
+        .req(md_req_e),
+        .ack(md_ack),
+        .funct3(funct3_e),
+        .a(md_src_a),
+        .b(md_src_b_reg),
+        .result(muldiv_result),
+        .busy(div_busy),
+        .valid(md_valid)
     );
 
     // Pipeline Register: Execute -> Memory
     pipeline_3_4 pipeline_em (
         .clk(clk), .rst(rst), .en(en_m),
-        .reg_write_e(reg_write_e), .mem_write_e(mem_write_e), .result_src_e(result_src_e),
+        .reg_write_e(reg_write_e & ~md_req_e), .mem_write_e(mem_write_e), .result_src_e(result_src_e),
         .funct3_e(funct3_e), .alu_result_e(alu_result_e), .write_data_e(write_data_e),
         .pc_plus_4_e(pc_plus_4_e), .rd_e(rd_e),
         .csr_we_e(csr_we_e), .csr_addr_e(csr_addr_e), .csr_rd_e(csr_rd_e), .csr_wd_e(csr_wd_e),
@@ -173,9 +252,7 @@ module riscv_pipeline_top (
         .result_src_m(result_src_m), .alu_result_m(alu_result_m), .write_data_m(write_data_m),
         .pc_plus_4_m(pc_plus_4_m), .rd_m(rd_m),
         .csr_we_m(csr_we_m), .csr_addr_m(csr_addr_m), .csr_rd_m(csr_rd_m), .csr_wd_m(csr_wd_m)
-    );
-
-    wire [31:0] write_data_m_aligned;
+        );
     
     // Memory Cycle
     memory_cycle memory_stage (
@@ -190,23 +267,30 @@ module riscv_pipeline_top (
         .reg_write_m(reg_write_m), .result_src_m(result_src_m), .alu_result_m(alu_result_m),
         .read_data_m(read_data_m), .pc_plus_4_m(pc_plus_4_m), .rd_m(rd_m),
         .csr_we_m(csr_we_m), .csr_addr_m(csr_addr_m), .csr_rd_m(csr_rd_m), .csr_wd_m(csr_wd_m),
-        .reg_write_w(reg_write_w), .result_src_w(result_src_w), .alu_result_w(alu_result_w),
-        .read_data_w(read_data_w), .pc_plus_4_w(pc_plus_4_w), .rd_w(rd_w),
+        .reg_write_w(reg_write_w_pipe), .result_src_w(result_src_w), .alu_result_w(alu_result_w),
+        .read_data_w(read_data_w), .pc_plus_4_w(pc_plus_4_w), .rd_w(rd_w_pipe),
         .csr_we_w(csr_we_w), .csr_addr_w(csr_addr_w), .csr_rd_w(csr_rd_w), .csr_wd_w(csr_wd_w)
     );
+
+    wire is_exception_d = is_ecall_e | is_illegal_e;
+    wire [31:0] exception_cause = is_ecall_e ? 32'd11 : 32'd2;
 
     csr_file csr_file_inst (
         .clk(clk), .rst(rst), .csr_we(csr_we_w),
         .csr_raddr(instr_d[31:20]), .csr_waddr(csr_addr_w), .csr_wd(csr_wd_w), .csr_rd(csr_rd_d),
-        .is_exception(is_ecall_d), .pc(pc_d), .cause(32'd11), .epc(epc), .trap_vec(trap_vec)
+        .is_exception(is_exception_d), .pc(pc_d), .cause(exception_cause), .epc(epc), .trap_vec(trap_vec)
     );
 
     // Writeback Cycle
     writeback_cycle writeback_stage (
         .result_src_w(result_src_w), .alu_result_w(alu_result_w),
         .read_data_w(read_data_w), .pc_plus_4_w(pc_plus_4_w),
-        .csr_rd_w(csr_rd_w), .result_w(result_w)
+        .csr_rd_w(csr_rd_w), .result_w(result_w_pipe) 
     );
+
+    assign rd_w        = actual_rf_rd;
+    assign reg_write_w = actual_rf_we;
+    assign result_w    = actual_rf_din;
 
     // Hazard Unit
     hazard_unit hazard_detection (
@@ -215,6 +299,7 @@ module riscv_pipeline_top (
         .rs1_e(rs1_e), .rs2_e(rs2_e), .rd_e(rd_e), .rs1_d(rs1_d), .rs2_d(rs2_d),
         .result_src_e(result_src_e), .forward_a_e(forward_a_e), .forward_b_e(forward_b_e),
         .stall_f(stall_f), .stall_d(stall_d), .icache_stall(icache_stall), .dcache_stall(dcache_stall),
+        .div_busy(real_div_busy), .issue_stall(issue_stall),
         .stall_e(stall_e), .stall_m(stall_m), .stall_w(stall_w),
         .flush_e(flush_e), .flush_d(flush_d)
     );

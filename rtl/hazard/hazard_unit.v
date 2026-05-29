@@ -3,12 +3,11 @@ module hazard_unit (
     input  [4:0] rd_m, rd_w, rs1_e, rs2_e, rd_e, rs1_d, rs2_d,
     input  [2:0] result_src_e,
     input  icache_stall, dcache_stall,
+    input wire div_busy, issue_stall,
     output reg [1:0] forward_a_e, forward_b_e,
     output reg stall_f, stall_d, stall_e, stall_m, stall_w,
     output flush_e, flush_d
-);
-
-    wire stall; 
+); 
 
     // Solving data hazards with forwarding
     // Priority: Memory stage (M) > Writeback stage (W)
@@ -47,12 +46,8 @@ module hazard_unit (
         end
     end
 
-    // Solving data hazards with stalls (for load instructions)
-    // When a load instruction is in Execute stage and the next instruction 
-    // in Decode needs that loaded value, we must stall
-    // result_src_e[0] == 1 indicates a load instruction (result from memory)
-    assign stall = result_src_e[0] && (rd_e != 5'b00000) && ((rs1_d == rd_e) || (rs2_d == rd_e));
-    always @(icache_stall or dcache_stall or stall) begin
+    // Solving data hazards with stalls (now handled by issue module)
+    always @(icache_stall or dcache_stall or issue_stall) begin
         // Default is no stall
         stall_f = 0; stall_d = 0; stall_e = 0; stall_m = 0; stall_w = 0;
 
@@ -61,11 +56,11 @@ module hazard_unit (
             stall_f = 1; stall_d = 1; stall_e = 1; stall_m = 1; stall_w = 1;
         end 
         else if (icache_stall) begin
-            // I-Cache is busy -> Stall PC and Decode, subsequent instructions continue to run
+            // I-Cache is busy -> Stall PC and Decode
             stall_f = 1; stall_d = 1;
         end 
-        else if (stall) begin
-            // Load-Use hazard
+        else if (issue_stall) begin
+            // Issue queue full or blocking due to RAW hazard/execute busy
             stall_f = 1; stall_d = 1;
         end
     end
@@ -74,9 +69,7 @@ module hazard_unit (
     // Flush decode when branch/jump is taken
     assign flush_d = pc_src_e & ~dcache_stall;
     
-    // Flush execute when:
-    // 1. Stalling (insert bubble)
-    // 2. Branch/jump taken (wrong instruction in pipeline)
-    assign flush_e = (stall | pc_src_e | icache_stall) & ~dcache_stall; 
+    // Flush execute when branch/jump taken
+    assign flush_e = pc_src_e & ~dcache_stall;  
 
 endmodule

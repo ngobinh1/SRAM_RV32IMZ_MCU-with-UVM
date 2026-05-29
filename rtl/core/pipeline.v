@@ -1,4 +1,4 @@
-// pipeline cho fetch và decode
+// pipeline for fetch and decode
 module pipeline_1_2 (
     input wire clk, rst, clr, en,
     input wire [31:0] instr_f, pc_f, pc_plus_4_f,
@@ -51,6 +51,8 @@ module pipeline_2_3 (
     input wire csr_we_d,
     input wire [11:0] csr_addr_d,
     input wire [31:0] csr_rd_d,
+    input wire is_ecall_d, is_mret_d, md_req_d, is_illegal_d,
+    input wire [2:0] md_op_d,
     output  reg_write_e, mem_write_e, alu_src_e, jump_e, branch_e, jalr_e,
     output  [2:0] funct3_e,
     output  [2:0] result_src_e,
@@ -59,7 +61,9 @@ module pipeline_2_3 (
     output  [4:0] rs1_e, rs2_e, rd_e,
     output  csr_we_e,
     output  [11:0] csr_addr_e,
-    output  [31:0] csr_rd_e
+    output  [31:0] csr_rd_e,
+    output  is_ecall_e, is_mret_e, md_req_e, is_illegal_e,
+    output  [2:0] md_op_e
 );  
     reg reg_write_reg, mem_write_reg, alu_src_reg, jump_reg, branch_reg, jalr_reg;
     reg [2:0] result_src_reg;
@@ -70,6 +74,8 @@ module pipeline_2_3 (
     reg csr_we_reg;
     reg [11:0] csr_addr_reg;
     reg [31:0] csr_rd_reg;
+    reg is_ecall_reg, is_mret_reg, md_req_reg, is_illegal_reg;
+    reg [2:0] md_op_reg;
     
     // Initialize all registers to prevent 'x' values
     initial begin
@@ -93,6 +99,11 @@ module pipeline_2_3 (
         csr_we_reg = 1'b0;
         csr_addr_reg = 12'h000;
         csr_rd_reg = 32'h00000000;
+        is_ecall_reg = 1'b0;
+        is_mret_reg = 1'b0;
+        md_req_reg = 1'b0;
+        is_illegal_reg = 1'b0;
+        md_op_reg = 3'b000;
     end
     
     always @(posedge clk ) begin
@@ -117,6 +128,11 @@ module pipeline_2_3 (
             csr_we_reg <= 1'b0;
             csr_addr_reg <= 12'h000;
             csr_rd_reg <= 32'h00000000;
+            is_ecall_reg <= 1'b0;
+            is_mret_reg <= 1'b0;
+            md_req_reg <= 1'b0;
+            is_illegal_reg <= 1'b0;
+            md_op_reg <= 3'b000;
         end
         else if(en) begin
             reg_write_reg <= reg_write_d;
@@ -139,6 +155,11 @@ module pipeline_2_3 (
             csr_we_reg <= csr_we_d;
             csr_addr_reg <= csr_addr_d;
             csr_rd_reg <= csr_rd_d;
+            is_ecall_reg <= is_ecall_d;
+            is_mret_reg <= is_mret_d;
+            md_req_reg <= md_req_d;
+            is_illegal_reg <= is_illegal_d;
+            md_op_reg <= md_op_d;
         end
     end
 
@@ -162,6 +183,11 @@ module pipeline_2_3 (
     assign csr_we_e = csr_we_reg;
     assign csr_addr_e = csr_addr_reg;
     assign csr_rd_e = csr_rd_reg;
+    assign is_ecall_e = is_ecall_reg;
+    assign is_mret_e = is_mret_reg;
+    assign md_req_e = md_req_reg;
+    assign is_illegal_e = is_illegal_reg;
+    assign md_op_e = md_op_reg;
 endmodule
 
 //pipeline for execute and memory

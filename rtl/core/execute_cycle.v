@@ -6,7 +6,9 @@ module execute_cycle(
     input wire [31:0] alu_result_m, read_data_1_e, read_data_2_e, imm_ext_e, pc_e, pc_plus_4_e, result_w,
     input wire [4:0] rd_e, 
     output  [31:0] pc_target_e, alu_result_e, write_data_e, 
-    output  pc_src_e
+    output  pc_src_e,
+    output wire [31:0] src_a_out,
+    output wire [31:0] src_b_reg_out
 );
     wire [31:0] src_a_e, src_b_e, src_b_interim_e;
     wire [31:0] alu_input_a;
@@ -81,5 +83,7 @@ module execute_cycle(
     
     // Write data for store instructions (use forwarded value)
     assign write_data_e = src_b_interim_e;
+    assign src_a_out       = src_a_e;
+    assign src_b_reg_out   = src_b_interim_e;
 
 endmodule
