@@ -11,7 +11,7 @@ module alu (
     assign b_inv = (alu_control[0] == 1'b1) ? ~b : b;
     assign {cout, sum} = a + b_inv + {31'b0, alu_control[0]};
 
-    always @(alu_control or a or b) begin
+    always @(*) begin
         case(alu_control)
             4'b0000: result = sum;                     // ADD
             4'b0001: result = sum;                     // SUB

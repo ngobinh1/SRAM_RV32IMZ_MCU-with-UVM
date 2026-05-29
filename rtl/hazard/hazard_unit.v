@@ -12,7 +12,7 @@ module hazard_unit (
     // Solving data hazards with forwarding
     // Priority: Memory stage (M) > Writeback stage (W)
     // Memory forwarding has priority because it has more recent data
-    always @(rs1_e or rs2_e or reg_write_m or reg_write_w or rst) begin
+    always @(*) begin
         // Forward A - Check if rs1_e matches producing instruction
         if (rst == 1'b0) begin
             forward_a_e = 2'b00;  // No forwarding during reset
@@ -47,7 +47,7 @@ module hazard_unit (
     end
 
     // Solving data hazards with stalls (now handled by issue module)
-    always @(icache_stall or dcache_stall or issue_stall) begin
+    always @(*) begin
         // Default is no stall
         stall_f = 0; stall_d = 0; stall_e = 0; stall_m = 0; stall_w = 0;
 

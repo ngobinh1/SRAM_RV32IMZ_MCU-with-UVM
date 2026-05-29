@@ -1,1431 +1,1083 @@
 m255
 K4
 z2
-Z0 !s12c _opt2
-Z1 !s99 nomlopt
-R0
-R1
-Z2 !s12c _opt
-R1
-R0
-R1
-R0
-R1
-R0
-R1
-Z3 !s12c _opt1
-R1
-R3
-R1
-R2
-R1
-R2
-R1
-R2
-R1
-R2
-R1
-R2
-R1
-R2
-R1
-R2
-R1
-R2
-R1
-R0
-R1
-R2
-R1
-R2
-R1
-R2
-R1
-R2
-R1
-R2
-R1
-R2
-R1
-R2
-R1
-R2
-R1
-R2
-R1
-R3
-R1
-R2
-R1
-R2
-R1
-R2
-R1
-R2
-R1
-R2
-R1
-R0
-R1
-R3
-R1
-R2
-R1
-!s11f vlog 2024.1 2024.02, Feb  1 2024
+!s99 nomlopt
+!s11f vlog 2021.2_1 2021.05, May 15 2021
 13
 !s112 1.1
 !i10d 8192
 !i10e 25
 !i10f 100
 cModel Technology
-Z4 dC:/Users/Admin/Documents/GitHub/RAM
+Z0 d/home/ngobinh/code/SRAM_RV32I_CSR_MCU-with-UVM
 T_opt
-!s110 1780044495
-VAemoHnkgfMDhk0TAe[LKD1
-Z5 04 22 4 work tb_riscv_pipeline_mega fast 0
-=1-e884a5770f74-6a1952ce-31b-b0c
-R1
-Z6 !s12f OEM100
-Z7 !s12b OEM100
-Z8 !s124 OEM100
-o-quiet -auto_acc_if_foreign -work work
-Z9 tCvgOpt 0
-n@_opt
-Z10 OL;O;2024.1;79
-R4
-T_opt1
-!s11d riscv_tb_pkg C:/Users/Admin/Documents/GitHub/RAM/work 1 riscv_if 1 C:/Users/Admin/Documents/GitHub/RAM/work 
-!s11d uvm_pkg C:/questasim64_2024.1/uvm-1.1d 1 riscv_if 1 C:/Users/Admin/Documents/GitHub/RAM/work 
-!s110 1780040464
-V?oz2kOZDX:bO2WhE?DYcn1
+!s11d riscv_tb_pkg /home/ngobinh/code/SRAM_RV32I_CSR_MCU-with-UVM/work 1 riscv_if 1 /home/ngobinh/code/SRAM_RV32I_CSR_MCU-with-UVM/work 
+!s110 1780053557
+Vbl_Pd1TPUBEgkL6eI[Q_l1
 04 6 4 work tb_top fast 0
-=1-e884a5770f74-6a194310-31-1e1c
-R1
-R6
-R7
-R8
-Z11 o-quiet -auto_acc_if_foreign -work work +acc
-R9
-n@_opt1
-R10
-R4
-T_opt2
-!s110 1780044699
-Vf6XDiiZLf2>Nf_MS=HiQ01
-R5
-=1-e884a5770f74-6a19539b-50-32f8
-R1
-R6
-R7
-R8
-R11
-R9
-n@_opt2
-R10
+=1-000ae431a4f1-6a197634-ad11e-3502
+!s124 OEM100
+o-quiet -auto_acc_if_foreign -work work
+Z1 tCvgOpt 0
+n@_opt
+OL;O;2021.2_1;73
 vadder
-2C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/adder.v
-Z12 !s110 1780044531
+Z2 !s110 1780053554
 !i10b 1
-!s100 YUb4>]J2aB_gKQzR]2Z4F0
-IZ1]Ia7zG0?V[GzDoV]H[b2
-R4
-Z13 w1776831144
-8C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/adder.v
-FC:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/adder.v
-!i122 469
-Z14 L0 1 7
-Z15 VDg1SIo80bB@j0V0VzS_@n1
-Z16 OL;L;2024.1;79
+!s100 0A2XY@gYG;e]Enci=f>C_0
+IjSNBmY4Uf:?@`YDSll]:S2
+R0
+Z3 w1779862314
+8rtl/datapath/adder.v
+Frtl/datapath/adder.v
+!i122 0
+Z4 L0 1 7
+Z5 VDg1SIo80bB@j0V0VzS_@n1
+Z6 OL;L;2021.2_1;73
 r1
 !s85 0
 31
-Z17 !s108 1780044531.000000
-!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/adder.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/adder.v|
+Z7 !s108 1780053554.000000
+Z8 !s107 rtl/core/top_module.v|rtl/core/writeback_cycle.v|rtl/core/memory_cycle.v|rtl/core/execute_cycle.v|rtl/core/issue.v|rtl/core/decode_cycle.v|rtl/core/fetch_cycle.v|rtl/core/pipeline.v|rtl/control/control_unit.v|rtl/control/main_decoder.v|rtl/control/alu_decoder.v|rtl/datapath/alu.v|rtl/datapath/register_file.v|rtl/datapath/pc.v|rtl/datapath/extend.v|rtl/datapath/mux.v|rtl/datapath/adder.v|rtl/mult_div/muldiv_alu.v|rtl/csr/csr_file.v|rtl/csr/csr_alu.v|rtl/hazard/hazard_unit.v|rtl/cache/l1_dcache.v|rtl/cache/l1_icache.v|rtl/memory/axi_interconnect.v|rtl/memory/axi_sram_wrapper.v|rtl/memory/EF_SRAM_1024x32.v|rtl/memory/EF_SRAM_1024x32.tt_180V_25C.v|
+Z9 !s90 -timescale|1ns/1ps|+define+functional|+incdir+rtl/core|+incdir+rtl/control|+incdir+rtl/datapath|+incdir+rtl/csr|+incdir+rtl/hazard|+incdir+rtl/cache|+incdir+rtl/memory|+incdir+rtl/mult_div|rtl/memory/EF_SRAM_1024x32.tt_180V_25C.v|rtl/memory/EF_SRAM_1024x32.v|rtl/memory/axi_sram_wrapper.v|rtl/memory/axi_interconnect.v|rtl/cache/l1_icache.v|rtl/cache/l1_dcache.v|rtl/hazard/hazard_unit.v|rtl/csr/csr_alu.v|rtl/csr/csr_file.v|rtl/mult_div/muldiv_alu.v|rtl/datapath/adder.v|rtl/datapath/mux.v|rtl/datapath/extend.v|rtl/datapath/pc.v|rtl/datapath/register_file.v|rtl/datapath/alu.v|rtl/control/alu_decoder.v|rtl/control/main_decoder.v|rtl/control/control_unit.v|rtl/core/pipeline.v|rtl/core/fetch_cycle.v|rtl/core/decode_cycle.v|rtl/core/issue.v|rtl/core/execute_cycle.v|rtl/core/memory_cycle.v|rtl/core/writeback_cycle.v|rtl/core/top_module.v|
 !i113 0
-Z18 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-R9
+Z10 o-timescale 1ns/1ps -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z11 !s92 -timescale 1ns/1ps +define+functional +incdir+rtl/core +incdir+rtl/control +incdir+rtl/datapath +incdir+rtl/csr +incdir+rtl/hazard +incdir+rtl/cache +incdir+rtl/memory +incdir+rtl/mult_div -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
 valu
-2C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/alu.v
-R12
+R2
 !i10b 1
-!s100 :E6Bha;FCZmNAjZ;NK4VI0
-IOYc1M@;cC:hIcA9AXeBRj0
-R4
-R13
-8C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/alu.v
-FC:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/alu.v
-!i122 470
+!s100 8DCMKi5V?Ih9[7?o@1b<Y0
+I43d<zM7eWC;fVl1gCS2Q51
+R0
+w1780052514
+8rtl/datapath/alu.v
+Frtl/datapath/alu.v
+!i122 0
 L0 1 58
-R15
-R16
+R5
+R6
 r1
 !s85 0
 31
-R17
-!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/alu.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/alu.v|
-!i113 0
-R18
+R7
+R8
 R9
+!i113 0
+R10
+R11
+R1
 valu_decoder
-2C:/Users/Admin/Documents/GitHub/RAM/rtl/control/alu_decoder.v
-Z19 !s110 1780044530
+R2
 !i10b 1
-!s100 MCh4ZMXM<LgbQ;GmMZVmS1
-Il9o^WlTAHE_L;kF_oW:KQ1
-R4
-R13
-8C:/Users/Admin/Documents/GitHub/RAM/rtl/control/alu_decoder.v
-FC:/Users/Admin/Documents/GitHub/RAM/rtl/control/alu_decoder.v
-!i122 457
+!s100 ^Q7fM?BJ7Uec0G_>W^64l0
+Inihbb]7JFQbUb;N530hR62
+R0
+R3
+8rtl/control/alu_decoder.v
+Frtl/control/alu_decoder.v
+!i122 0
 L0 1 51
-R15
-R16
+R5
+R6
 r1
 !s85 0
 31
-Z20 !s108 1780044530.000000
-!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/control/alu_decoder.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/control/alu_decoder.v|
-!i113 0
-R18
+R7
+R8
 R9
+!i113 0
+R10
+R11
+R1
 vaxi_interconnect
-2C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/axi_interconnect.v
-R12
+R2
 !i10b 1
-!s100 A=6Zh^>C<]`L>zFT>ljE@2
-I?:HXN3G;0fDDRSl1ff>`_1
-R4
-w1778576480
-8C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/axi_interconnect.v
-FC:/Users/Admin/Documents/GitHub/RAM/rtl/memory/axi_interconnect.v
-!i122 476
+!s100 bRX]=fM8;LH0VZ`?bb<Pi0
+I2^h7_^YaRM]>?V>SFG8Qz1
+R0
+R3
+8rtl/memory/axi_interconnect.v
+Frtl/memory/axi_interconnect.v
+!i122 0
 L0 1 56
-R15
-R16
+R5
+R6
 r1
 !s85 0
 31
-R17
-!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/axi_interconnect.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/axi_interconnect.v|
-!i113 0
-R18
+R7
+R8
 R9
+!i113 0
+R10
+R11
+R1
 vaxi_sram_wrapper
-2C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/axi_sram_wrapper.v
-R12
+R2
 !i10b 1
-!s100 b3Dz2UQZ:PoR@[^H<2m5;0
-I2BXW;Nl6lZoN`P`emOM8U3
-R4
-w1779786885
-8C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/axi_sram_wrapper.v
-FC:/Users/Admin/Documents/GitHub/RAM/rtl/memory/axi_sram_wrapper.v
-!i122 477
+!s100 9X30lFJ]6mfIa1iG>Ki?13
+IE[X1@_:A7C2[]EQkY8NB_0
+R0
+R3
+8rtl/memory/axi_sram_wrapper.v
+Frtl/memory/axi_sram_wrapper.v
+!i122 0
 L0 1 91
-R15
-R16
+R5
+R6
 r1
 !s85 0
 31
-R17
-!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/axi_sram_wrapper.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/axi_sram_wrapper.v|
-!i113 0
-R18
+R7
+R8
 R9
+!i113 0
+R10
+R11
+R1
 vcontrol_unit
-2C:/Users/Admin/Documents/GitHub/RAM/rtl/control/control_unit.v
-R19
+R2
 !i10b 1
-!s100 DJ?iah_mP0RN73B[n0GKk1
-I2enkdQS3EGmAUC:a[5Mj71
-R4
-w1779764478
-8C:/Users/Admin/Documents/GitHub/RAM/rtl/control/control_unit.v
-FC:/Users/Admin/Documents/GitHub/RAM/rtl/control/control_unit.v
-!i122 458
+!s100 BggGS<1g6fkeIcRgo2ETK2
+IhHFB`k4fNZ>DiZj8hd=bR3
+R0
+Z12 w1780051437
+8rtl/control/control_unit.v
+Frtl/control/control_unit.v
+!i122 0
 L0 1 65
-R15
-R16
+R5
+R6
 r1
 !s85 0
 31
-R20
-!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/control/control_unit.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/control/control_unit.v|
-!i113 0
-R18
+R7
+R8
 R9
+!i113 0
+R10
+R11
+R1
 vcsr_alu
-2C:/Users/Admin/Documents/GitHub/RAM/rtl/csr/csr_alu.v
-R12
+R2
 !i10b 1
-!s100 G8H_jD0H?n6_^QmM=J98n0
-I<kNJZ3YQ2Q@K5QhWfGk;93
-R4
-Z21 w1779759028
-8C:/Users/Admin/Documents/GitHub/RAM/rtl/csr/csr_alu.v
-FC:/Users/Admin/Documents/GitHub/RAM/rtl/csr/csr_alu.v
-!i122 467
+!s100 8WYc>dUa>g51W0cJ[:Cma2
+If@<kjBUH2>JUNCFXz=FFD1
+R0
+R12
+8rtl/csr/csr_alu.v
+Frtl/csr/csr_alu.v
+!i122 0
 L0 1 19
-R15
-R16
+R5
+R6
 r1
 !s85 0
 31
-R20
-!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/csr/csr_alu.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/csr/csr_alu.v|
-!i113 0
-R18
+R7
+R8
 R9
+!i113 0
+R10
+R11
+R1
 vcsr_file
-2C:/Users/Admin/Documents/GitHub/RAM/rtl/csr/csr_file.v
-R12
+R2
 !i10b 1
-!s100 3=H1VYQ3[Ah11c0JLcj7O2
-I]n854QAO>f2lJY7lAO_o91
-R4
-R13
-8C:/Users/Admin/Documents/GitHub/RAM/rtl/csr/csr_file.v
-FC:/Users/Admin/Documents/GitHub/RAM/rtl/csr/csr_file.v
-!i122 468
+!s100 clo;gU]^O`SGJLP7DZhTW1
+IVFQ8[e9=2QdkZg@cFLQzZ1
+R0
+R3
+8rtl/csr/csr_file.v
+Frtl/csr/csr_file.v
+!i122 0
 L0 1 70
-R15
-R16
+R5
+R6
 r1
 !s85 0
 31
-R17
-!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/csr/csr_file.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/csr/csr_file.v|
-!i113 0
-R18
+R7
+R8
 R9
+!i113 0
+R10
+R11
+R1
 vdecode_cycle
-2C:/Users/Admin/Documents/GitHub/RAM/rtl/core/decode_cycle.v
-R19
+R2
 !i10b 1
-!s100 d38oD?]bz?=;IGOA?Qk6Z2
-I5`ZdbdQJ2:_dPNAOzbK610
-R4
-w1779764539
-8C:/Users/Admin/Documents/GitHub/RAM/rtl/core/decode_cycle.v
-FC:/Users/Admin/Documents/GitHub/RAM/rtl/core/decode_cycle.v
-!i122 460
-Z22 L0 1 89
-R15
-R16
-r1
-!s85 0
-31
-R20
-!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/core/decode_cycle.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/core/decode_cycle.v|
-!i113 0
-R18
-R9
-vEF_SRAM_1024x32
-2C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/EF_SRAM_1024x32.v
+!s100 eHBzdi7EJKojlJeMh:@0N3
+I3zGGIIZh5cQGfO0IR9Pdo1
+R0
 R12
-!i10b 1
-!s100 BoSGX2C0V_W4CalSZL36O1
-I]9UcB5CRK=bjbdC[8SXzL1
-R4
-R13
-8C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/EF_SRAM_1024x32.v
-FC:/Users/Admin/Documents/GitHub/RAM/rtl/memory/EF_SRAM_1024x32.v
-!i122 479
-L0 35 95
-R15
-R16
+8rtl/core/decode_cycle.v
+Frtl/core/decode_cycle.v
+!i122 0
+Z13 L0 1 89
+R5
+R6
 r1
 !s85 0
 31
-R17
-!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/EF_SRAM_1024x32.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/EF_SRAM_1024x32.v|
-!i113 0
-R18
+R7
+R8
 R9
+!i113 0
+R10
+R11
+R1
+vEF_SRAM_1024x32
+R2
+!i10b 1
+!s100 e@77zcWSGbZFfi;3BH<8<3
+IKC8N=Z53z`g8g>]UhHo1[2
+R0
+R3
+8rtl/memory/EF_SRAM_1024x32.v
+Frtl/memory/EF_SRAM_1024x32.v
+!i122 0
+L0 35 95
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R1
 n@e@f_@s@r@a@m_1024x32
 vEF_SRAM_1024x32_macro
-Z23 2C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/EF_SRAM_1024x32.tt_180V_25C.v
-R12
+R2
 !i10b 1
-!s100 l<K3iZYY;FIWi[n]?cg@01
-I<Gj;lNXY?F?m;97ZaHkQb1
-R4
-R13
-Z24 8C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/EF_SRAM_1024x32.tt_180V_25C.v
-Z25 FC:/Users/Admin/Documents/GitHub/RAM/rtl/memory/EF_SRAM_1024x32.tt_180V_25C.v
-!i122 478
+!s100 1GaB;J:37af<J=E3kHCJ]3
+I?OV@7=@?A?D8HO>dVKhfK2
+R0
+R3
+Z14 8rtl/memory/EF_SRAM_1024x32.tt_180V_25C.v
+Z15 Frtl/memory/EF_SRAM_1024x32.tt_180V_25C.v
+!i122 0
 L0 32 1089
-R15
-R16
+R5
+R6
 r1
 !s85 0
 31
-R17
-Z26 !s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/EF_SRAM_1024x32.tt_180V_25C.v|
-Z27 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/memory/EF_SRAM_1024x32.tt_180V_25C.v|
-!i113 0
-R18
+R7
+R8
 R9
+!i113 0
+R10
+R11
+R1
 n@e@f_@s@r@a@m_1024x32_macro
 vEF_SRAM_1024x32_memory_mode
-R23
-R12
+R2
 !i10b 1
-!s100 =B?PQ_k[94f9aGNJjKOL20
-ILTBD8^Q@98:>4VWGDTAOo1
-R4
-R13
-R24
-R25
-!i122 478
-L0 1123 400
-R15
-R16
-r1
-!s85 0
-31
-R17
-R26
-R27
-!i113 0
-R18
-R9
-n@e@f_@s@r@a@m_1024x32_memory_mode
-vexecute_cycle
-2C:/Users/Admin/Documents/GitHub/RAM/rtl/core/execute_cycle.v
-R19
-!i10b 1
-!s100 RUR13PHaHeV>[mHd[FD<B3
-IbLPg4b@G0kQSK=IZz48F<2
-R4
-w1779764621
-8C:/Users/Admin/Documents/GitHub/RAM/rtl/core/execute_cycle.v
-FC:/Users/Admin/Documents/GitHub/RAM/rtl/core/execute_cycle.v
-!i122 461
-R22
-R15
-R16
-r1
-!s85 0
-31
-R20
-!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/core/execute_cycle.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/core/execute_cycle.v|
-!i113 0
-R18
-R9
-vextend
-2C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/extend.v
-R12
-!i10b 1
-!s100 @2KjFB<2FPkYUFATSzz[H1
-I@@@0TYj8=>ll01UoY_jEz0
-R4
-R13
-8C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/extend.v
-FC:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/extend.v
-!i122 471
-L0 1 40
-R15
-R16
-r1
-!s85 0
-31
-R17
-!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/extend.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/extend.v|
-!i113 0
-R18
-R9
-vfetch_cycle
-2C:/Users/Admin/Documents/GitHub/RAM/rtl/core/fetch_cycle.v
-R19
-!i10b 1
-!s100 J`4Cob;_KiD;ML7[@SLWi3
-Ia7MG?R<:X<^]>YzFW0cOU0
-R4
-R13
-8C:/Users/Admin/Documents/GitHub/RAM/rtl/core/fetch_cycle.v
-FC:/Users/Admin/Documents/GitHub/RAM/rtl/core/fetch_cycle.v
-!i122 462
-L0 1 62
-R15
-R16
-r1
-!s85 0
-31
-R20
-!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/core/fetch_cycle.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/core/fetch_cycle.v|
-!i113 0
-R18
-R9
-vhazard_unit
-2C:/Users/Admin/Documents/GitHub/RAM/rtl/hazard/hazard_unit.v
-R12
-!i10b 1
-!s100 mGcL_Y`4`U3k9j<WO;[]B0
-I_QHKoTKbKlm=kDlRbm8K]3
-R4
-w1780043194
-8C:/Users/Admin/Documents/GitHub/RAM/rtl/hazard/hazard_unit.v
-FC:/Users/Admin/Documents/GitHub/RAM/rtl/hazard/hazard_unit.v
-!i122 475
-L0 1 75
-R15
-R16
-r1
-!s85 0
-31
-R17
-!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/hazard/hazard_unit.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/hazard/hazard_unit.v|
-!i113 0
-R18
-R9
-vissue
-2C:/Users/Admin/Documents/GitHub/RAM/rtl/core/issue.v
-Z28 !s110 1780044537
-!i10b 1
-!s100 @AV>ROBJiV2JLhIVmWcF<3
-IJK=n1CiS_m6Jnb2b`dX?O1
-R4
-w1780043902
-8C:/Users/Admin/Documents/GitHub/RAM/rtl/core/issue.v
-FC:/Users/Admin/Documents/GitHub/RAM/rtl/core/issue.v
-!i122 494
-L0 1 126
-R15
-R16
-r1
-!s85 0
-31
-Z29 !s108 1780044537.000000
-!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/core/issue.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/core/issue.v|
-!i113 0
-R18
-R9
-vl1_dcache
-2C:/Users/Admin/Documents/GitHub/RAM/rtl/cache/l1_dcache.v
-R19
-!i10b 1
-!s100 FSd]c^mZI610Ih^[@IS0J1
-I2<S;O_R@P4IJV8__nhT3X2
-R4
-R21
-8C:/Users/Admin/Documents/GitHub/RAM/rtl/cache/l1_dcache.v
-FC:/Users/Admin/Documents/GitHub/RAM/rtl/cache/l1_dcache.v
-!i122 455
-L0 1 156
-R15
-R16
-r1
-!s85 0
-31
-R20
-!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/cache/l1_dcache.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/cache/l1_dcache.v|
-!i113 0
-R18
-R9
-vl1_icache
-2C:/Users/Admin/Documents/GitHub/RAM/rtl/cache/l1_icache.v
-R19
-!i10b 1
-!s100 U_7AS?GSaDY0VRWNSJP8c1
-Ii^g2>3oOnjn@6VXfEe6UQ3
-R4
-w1779786890
-8C:/Users/Admin/Documents/GitHub/RAM/rtl/cache/l1_icache.v
-FC:/Users/Admin/Documents/GitHub/RAM/rtl/cache/l1_icache.v
-!i122 456
-L0 1 85
-R15
-R16
-r1
-!s85 0
-31
-R20
-!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/cache/l1_icache.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/cache/l1_icache.v|
-!i113 0
-R18
-R9
-vmain_decoder
-2C:/Users/Admin/Documents/GitHub/RAM/rtl/control/main_decoder.v
-R19
-!i10b 1
-!s100 88Tof^7@WM@UJ@f=hBlB02
-IonZ`GB>V;nAgS@8m]BVOk3
-R4
-R13
-8C:/Users/Admin/Documents/GitHub/RAM/rtl/control/main_decoder.v
-FC:/Users/Admin/Documents/GitHub/RAM/rtl/control/main_decoder.v
-!i122 459
-L0 1 80
-R15
-R16
-r1
-!s85 0
-31
-R20
-!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/control/main_decoder.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/control/main_decoder.v|
-!i113 0
-R18
-R9
-vmemory_cycle
-2C:/Users/Admin/Documents/GitHub/RAM/rtl/core/memory_cycle.v
-R19
-!i10b 1
-!s100 Jb;UE[SAA@E_QKWon82J41
-I4X]^EldMh5m4I]75[Tafz3
-R4
-w1778577370
-8C:/Users/Admin/Documents/GitHub/RAM/rtl/core/memory_cycle.v
-FC:/Users/Admin/Documents/GitHub/RAM/rtl/core/memory_cycle.v
-!i122 463
-L0 1 55
-R15
-R16
-r1
-!s85 0
-31
-R20
-!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/core/memory_cycle.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/core/memory_cycle.v|
-!i113 0
-R18
-R9
-vmuldiv_alu
-2C:/Users/Admin/Documents/GitHub/RAM/rtl/mult_div/muldiv_alu.v
-R28
-!i10b 1
-!s100 CcQ;AL@f3I28H5:H<`;nG2
-IKl82V]8ka=W3h6IjaESJ21
-R4
-w1779781495
-8C:/Users/Admin/Documents/GitHub/RAM/rtl/mult_div/muldiv_alu.v
-FC:/Users/Admin/Documents/GitHub/RAM/rtl/mult_div/muldiv_alu.v
-!i122 492
-Z30 L0 3 150
-R15
-R16
-r1
-!s85 0
-31
-R29
-!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/mult_div/muldiv_alu.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/mult_div/muldiv_alu.v|
-!i113 0
-R18
-R9
-vmux
-Z31 2C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/mux.v
-R12
-!i10b 1
-!s100 K]Hl`ZozQ2cWiL^A>kJBd3
-IzZmL5h>Y?<4n4CQ68[U;h0
-R4
-R13
-Z32 8C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/mux.v
-Z33 FC:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/mux.v
-!i122 472
+!s100 k91<@MKX7H?;NLN^01NLf2
+I8?J^YiE_4>YfW`FJNd@QZ3
+R0
+R3
 R14
 R15
-R16
+!i122 0
+L0 1123 400
+R5
+R6
 r1
 !s85 0
 31
-R17
-Z34 !s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/mux.v|
-Z35 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/mux.v|
-!i113 0
-R18
+R7
+R8
 R9
+!i113 0
+R10
+R11
+R1
+n@e@f_@s@r@a@m_1024x32_memory_mode
+vexecute_cycle
+R2
+!i10b 1
+!s100 TW;`fhm>1_<]A7dc=PV1a2
+IDEi[^S214dIbbBnYe<1NM1
+R0
+R12
+8rtl/core/execute_cycle.v
+Frtl/core/execute_cycle.v
+!i122 0
+R13
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R1
+vextend
+R2
+!i10b 1
+!s100 ZAFiAQkG4ULgc3h36f@<i2
+IhnZF6;0E^H5[C7`eHmXjM1
+R0
+R3
+8rtl/datapath/extend.v
+Frtl/datapath/extend.v
+!i122 0
+L0 1 40
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R1
+vfetch_cycle
+R2
+!i10b 1
+!s100 5cGC3f1oca2aSzCI0M]`f1
+ISgMXOJ921KI[GokFc<Tl>2
+R0
+R3
+8rtl/core/fetch_cycle.v
+Frtl/core/fetch_cycle.v
+!i122 0
+L0 1 62
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R1
+vhazard_unit
+R2
+!i10b 1
+!s100 VDEYnZR@?OZS7jh8mZ7Nd2
+IE3TgGL>J_A<f>OE:jce]f3
+R0
+w1780052507
+8rtl/hazard/hazard_unit.v
+Frtl/hazard/hazard_unit.v
+!i122 0
+L0 1 75
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R1
+vissue
+R2
+!i10b 1
+!s100 ha8VV]`CN[Qaz1[>KO5mz0
+IM9ecF;o:?F7GVf8Eh76T31
+R0
+w1780052711
+8rtl/core/issue.v
+Frtl/core/issue.v
+!i122 0
+L0 1 126
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R1
+vl1_dcache
+R2
+!i10b 1
+!s100 [<zM?nGz?4>;eSdREa`Ih3
+IAB;l^F=_:b9?F2o]Y[12G2
+R0
+R12
+8rtl/cache/l1_dcache.v
+Frtl/cache/l1_dcache.v
+!i122 0
+L0 1 156
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R1
+vl1_icache
+R2
+!i10b 1
+!s100 ?^nb[@A6H;cEz<dR^Zh1b2
+I;W1b2zRZ?zEGSf=c^LLL@1
+R0
+R12
+8rtl/cache/l1_icache.v
+Frtl/cache/l1_icache.v
+!i122 0
+L0 1 85
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R1
+vmain_decoder
+R2
+!i10b 1
+!s100 iLEkZ@0c7KlI1mzZ<WRHK2
+I?[G^=j8WIF]cm@ZAV3W4:1
+R0
+R3
+8rtl/control/main_decoder.v
+Frtl/control/main_decoder.v
+!i122 0
+L0 1 80
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R1
+vmemory_cycle
+R2
+!i10b 1
+!s100 ]<zMM7EbPS:Vm_mzhXYak1
+Il^>08B9]8n=@eeAV1lNc[3
+R0
+R3
+8rtl/core/memory_cycle.v
+Frtl/core/memory_cycle.v
+!i122 0
+L0 1 55
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R1
+vmuldiv_alu
+R2
+!i10b 1
+!s100 hS5aQ^FMBT@59nL]<ReIg0
+IhoM]XE@X^N_[ERPeIiTKi3
+R0
+R12
+8rtl/mult_div/muldiv_alu.v
+Frtl/mult_div/muldiv_alu.v
+!i122 0
+L0 3 150
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R1
+vmux
+R2
+!i10b 1
+!s100 ^F0fPzb7L=E2Vek>23;lK2
+I9DBi1QFQfK9Zg92=4GF6l2
+R0
+R3
+Z16 8rtl/datapath/mux.v
+Z17 Frtl/datapath/mux.v
+!i122 0
+R4
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R1
 vmux_3_1
-R31
-R12
+R2
 !i10b 1
-!s100 olhBOS>U5=S0eQ:j`o20W2
-IB=k@??8zoOaBB=UYHgPe=0
-R4
-R13
-R32
-R33
-!i122 472
+!s100 87E1=0zVWnCA[O0l9m9[X2
+I8MgAXA@F2m]=:ma5Wg_8Q0
+R0
+R3
+R16
+R17
+!i122 0
 L0 9 13
-R15
-R16
+R5
+R6
 r1
 !s85 0
 31
-R17
-R34
-R35
-!i113 0
-R18
+R7
+R8
 R9
+!i113 0
+R10
+R11
+R1
 vmux_4to1
-R31
-R12
+R2
 !i10b 1
-!s100 IL@gG2Sl_KfZNQ5VO]?B[0
-IOj^l53JnTT4K>;4;HN]NQ1
-R4
-R13
-R32
-R33
-!i122 472
+!s100 TG4I45gM[2zdieOgmP;BB1
+IVgMf=ce_iPh=B4mHEnn_B2
+R0
+R3
+R16
+R17
+!i122 0
 L0 24 18
-R15
-R16
+R5
+R6
 r1
 !s85 0
 31
-R17
-R34
-R35
-!i113 0
-R18
+R7
+R8
 R9
+!i113 0
+R10
+R11
+R1
 vpc
-2C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/pc.v
-R12
+R2
 !i10b 1
-!s100 V[cU=FEKIBMKe8CClej=?2
-I7`K^PRJbAJb@m3kN1];FA0
-R4
-R13
-8C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/pc.v
-FC:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/pc.v
-!i122 473
+!s100 ]Wg3O@SDE]l5jN8h0@6X@0
+I4le7E0FL1ZPHz@HnQj0IS1
+R0
+R3
+8rtl/datapath/pc.v
+Frtl/datapath/pc.v
+!i122 0
 L0 1 27
-R15
-R16
+R5
+R6
 r1
 !s85 0
 31
-R17
-!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/pc.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/pc.v|
-!i113 0
-R18
+R7
+R8
 R9
+!i113 0
+R10
+R11
+R1
 vpipeline_1_2
-Z36 2C:/Users/Admin/Documents/GitHub/RAM/rtl/core/pipeline.v
-R19
+R2
 !i10b 1
-!s100 hLdbk>Sf1WEYD1>9az4PB3
-I0eioV@8?J3O;VzI;UDBM@0
-R4
-Z37 w1780043254
-Z38 8C:/Users/Admin/Documents/GitHub/RAM/rtl/core/pipeline.v
-Z39 FC:/Users/Admin/Documents/GitHub/RAM/rtl/core/pipeline.v
-!i122 464
-L0 2 39
-R15
-R16
-r1
-!s85 0
-31
-R20
-Z40 !s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/core/pipeline.v|
-Z41 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/core/pipeline.v|
-!i113 0
-R18
-R9
-vpipeline_2_3
-R36
-R19
-!i10b 1
-!s100 T4<An>[nQZW`33ZZG^>]J0
-IiB2EGbjS3YdaWga:gjS800
-R4
-R37
-R38
-R39
-!i122 464
-L0 43 149
-R15
-R16
-r1
-!s85 0
-31
-R20
-R40
-R41
-!i113 0
-R18
-R9
-vpipeline_3_4
-R36
-R19
-!i10b 1
-!s100 <?eC65VGmi_]:`V?n]C_H1
-I`ZU6@cC70=:o98`YX=1RA0
-R4
-R37
-R38
-R39
-!i122 464
-L0 194 89
-R15
-R16
-r1
-!s85 0
-31
-R20
-R40
-R41
-!i113 0
-R18
-R9
-vpipeline_4_5
-R36
-R19
-!i10b 1
-!s100 8`Y=idzB;ObkWHIn<_3?g0
-IL6CON9WhcmbA0IRhciBO^3
-R4
-R37
-R38
-R39
-!i122 464
-L0 286 79
-R15
-R16
-r1
-!s85 0
-31
-R20
-R40
-R41
-!i113 0
-R18
-R9
-vregister_file
-2C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/register_file.v
+!s100 YzED?lBTBL<1:eFIC>;]B2
+IT0N_kohWWa`]?ZiN0?NPF2
+R0
 R12
-!i10b 1
-!s100 U2dj`:5GSYTc<WcS^UV<D2
-Iz4?WeFhzng6zYIBzl8`[e2
-R4
-R13
-8C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/register_file.v
-FC:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/register_file.v
-!i122 474
-L0 3 43
-R15
-R16
+Z18 8rtl/core/pipeline.v
+Z19 Frtl/core/pipeline.v
+!i122 0
+L0 2 39
+R5
+R6
 r1
 !s85 0
 31
-R17
-!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/register_file.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/datapath/register_file.v|
+R7
+R8
+R9
 !i113 0
+R10
+R11
+R1
+vpipeline_2_3
+R2
+!i10b 1
+!s100 E0]EK^RoERcWX_KNX`]h`2
+I9aGP[jW8Uh?fV8zA^EWda1
+R0
+R12
 R18
-R9
-Xriscv_agent_env_test_sv_unit
-2C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_agent_env_test.sv
-Z42 !s115 riscv_if
-Z43 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-Z44 DXx6 mtiUvm 7 uvm_pkg 0 22 MiVhEBb9cnBN5^J=<XBKI2
-Z45 !s110 1780044532
-V6NN^D79?5P4iHB63DaPmg0
+R19
+!i122 0
+L0 43 149
+R5
+R6
 r1
 !s85 0
-!i10b 1
-!s100 HUB2omF`Ka22d0_A@3B>c1
-I6NN^D79?5P4iHB63DaPmg0
-!i103 1
-S1
-R4
-Z46 w1780040000
-8C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_agent_env_test.sv
-Z47 FC:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_agent_env_test.sv
-Z48 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh
-Z49 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh
-Z50 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh
-Z51 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh
-Z52 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh
-Z53 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh
-Z54 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh
-Z55 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh
-Z56 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh
-Z57 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh
-Z58 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh
-Z59 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh
-Z60 FC:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_seq_item.sv
-Z61 FC:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_driver.sv
-Z62 FC:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_monitor.sv
-Z63 FC:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_scoreboard.sv
-Z64 FC:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_coverage.sv
-!i122 481
-Z65 L0 8 0
-R16
 31
-R17
-!s107 C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_coverage.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_scoreboard.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_monitor.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_driver.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_seq_item.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_agent_env_test.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_agent_env_test.sv|
-!i113 0
-Z66 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R7
+R8
 R9
-Xriscv_coverage_sv_unit
-2C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_coverage.sv
-R43
-R44
-R45
-V^WzkcJSfXAVFe6N]M<7oU2
+!i113 0
+R10
+R11
+R1
+vpipeline_3_4
+R2
+!i10b 1
+!s100 l3^`Z9[2QTMd@DFB_A_;z1
+I0ojggh4nKjRkHZW7hO2V11
+R0
+R12
+R18
+R19
+!i122 0
+L0 194 89
+R5
+R6
 r1
 !s85 0
-!i10b 1
-!s100 2f4[7QW2Z3ZNQbP[WBNU50
-I^WzkcJSfXAVFe6N]M<7oU2
-!i103 1
-S1
-R4
-R46
-8C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_coverage.sv
-R64
-R48
-R49
-R50
-R51
-R52
-R53
-R54
-R55
-R56
-R57
-R58
-R59
-R60
-!i122 482
-L0 16 0
-R16
 31
-Z67 !s108 1780044532.000000
-!s107 C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_seq_item.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_coverage.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_coverage.sv|
-!i113 0
-R66
+R7
+R8
 R9
-Xriscv_driver_sv_unit
-2C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_driver.sv
-R42
-R43
-R44
-Z68 !s110 1780044533
-VCP1S=W2>JQK4F<2NiTalD1
+!i113 0
+R10
+R11
+R1
+vpipeline_4_5
+R2
+!i10b 1
+!s100 azf_>gXn^L1O^]Q6Ao@lX2
+I_`jgHoA8dLkKOdU_XiF0=0
+R0
+R12
+R18
+R19
+!i122 0
+L0 286 79
+R5
+R6
 r1
 !s85 0
-!i10b 1
-!s100 P:aFJ:X_JgegW;gLcK:ka0
-ICP1S=W2>JQK4F<2NiTalD1
-!i103 1
-S1
-R4
-Z69 w1780039995
-8C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_driver.sv
-R61
-R48
-R49
-R50
-R51
-R52
-R53
-R54
-R55
-R56
-R57
-R58
-R59
-R60
-!i122 483
-L0 7 0
-R16
 31
-R67
-!s107 C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_seq_item.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_driver.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_driver.sv|
-!i113 0
-R66
+R7
+R8
 R9
+!i113 0
+R10
+R11
+R1
+vregister_file
+R2
+!i10b 1
+!s100 03dfdHF>Ng=`?fY>[LM6`1
+IY_Z8`DgDkNU[f32N0Ym820
+R0
+R3
+8rtl/datapath/register_file.v
+Frtl/datapath/register_file.v
+!i122 0
+L0 3 43
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R1
 Yriscv_if
-Z70 2C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv
-R43
-R44
-DXx4 work 16 riscv_if_sv_unit 0 22 lT0Mi0C]5jlX_In=:V4dB2
-R68
-R15
+Z20 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z21 DXx4 work 7 uvm_pkg 0 22 Xhh^LQ>6i8]FPQl4WH6?R1
+DXx4 work 16 riscv_if_sv_unit 0 22 enHTCOBk;ad2i<>Io7G;H3
+R2
+R5
 r1
 !s85 0
 !i10b 1
-!s100 USZ2Uh]o8;]dbW_UR6miP3
-I6Q]P?YF_@PPj704J<>PAz3
+!s100 [1@03P?:bZ`z1iEk[@?571
+IiYZOoeo_PE[3=Hb<fEz7j1
 !s105 riscv_if_sv_unit
 S1
-R4
-Z71 w1780038629
-Z72 8C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv
-Z73 FC:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv
-!i122 484
+R0
+Z22 w1780052946
+Z23 8tb/uvm/riscv_if.sv
+Z24 Ftb/uvm/riscv_if.sv
+!i122 1
 L0 11 0
-R16
+R6
 31
-Z74 !s108 1780044533.000000
-Z75 !s107 C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv|
-Z76 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_if.sv|
+R7
+Z25 !s107 tb/uvm/riscv_tests.sv|tb/uvm/riscv_sequences.sv|tb/uvm/riscv_agent_env_test.sv|tb/uvm/riscv_coverage.sv|tb/uvm/riscv_scoreboard.sv|tb/uvm/riscv_monitor.sv|tb/uvm/riscv_driver.sv|tb/uvm/riscv_seq_item.sv|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_mem_hdl_paths_seq.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_mem_built_in_seq.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_mem_shared_access_seq.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_access_seq.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_mem_access_seq.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_mem_walk_seq.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_bit_bash_seq.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_hw_reset_seq.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg_block.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg_map.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_mem.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_vreg.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_mem_mam.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg_file.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg_fifo.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg_indirect.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_vreg_field.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg_field.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg_backdoor.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg_cbs.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg_sequence.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg_predictor.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg_adapter.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg_item.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg_model.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm2/uvm_tlm2_sockets.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm2/uvm_tlm2_sockets_base.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm2/uvm_tlm2_exports.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm2/uvm_tlm2_ports.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm2/uvm_tlm2_imps.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm2/uvm_tlm2_ifs.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm2/uvm_tlm2_generic_payload.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm2/uvm_tlm2_time.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm2/uvm_tlm2_defines.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm2/uvm_tlm2.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/seq/uvm_sequence_builtin.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/seq/uvm_sequence_library.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/seq/uvm_sequence.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/seq/uvm_sequence_base.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/seq/uvm_push_sequencer.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/seq/uvm_sequencer.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/seq/uvm_sequencer_param_base.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/seq/uvm_sequencer_analysis_fifo.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/seq/uvm_sequencer_base.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/seq/uvm_sequence_item.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/seq/uvm_seq.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/comps/uvm_test.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/comps/uvm_env.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/comps/uvm_agent.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/comps/uvm_scoreboard.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/comps/uvm_push_driver.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/comps/uvm_driver.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/comps/uvm_monitor.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/comps/uvm_subscriber.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/comps/uvm_random_stimulus.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/comps/uvm_algorithmic_comparator.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/comps/uvm_in_order_comparator.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/comps/uvm_policies.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/comps/uvm_pair.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/comps/uvm_comps.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm1/uvm_sqr_connections.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm1/uvm_tlm_req_rsp.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm1/uvm_tlm_fifos.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm1/uvm_tlm_fifo_base.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm1/uvm_analysis_port.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm1/uvm_exports.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm1/uvm_ports.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm1/uvm_imps.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_port_base.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm1/uvm_sqr_ifs.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm1/uvm_tlm_ifs.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm1/uvm_tlm.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/dap/uvm_set_before_get_dap.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/dap/uvm_get_to_lock_dap.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/dap/uvm_simple_lock_dap.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/dap/uvm_set_get_dap_base.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/dap/uvm_dap.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_traversal.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_cmdline_processor.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_globals.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_heartbeat.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_objection.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_component.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_runtime_phases.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_common_phases.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_task_phase.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_topdown_phase.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_bottomup_phase.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_domain.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_phase.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_transaction.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_report_object.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_report_handler.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_report_server.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_report_catcher.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_report_message.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_callback.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_barrier.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_event.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_event_callback.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_recorder.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_tr_stream.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_tr_database.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_links.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_packer.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_comparer.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_printer.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_config_db.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_resource_db.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_resource_specializations.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_resource.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_spell_chkr.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_registry.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_factory.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_queue.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_pool.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_object.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_misc.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_object_globals.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_version.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_coreservice.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_base.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/dpi/uvm_regex.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/dpi/uvm_svcmd_dpi.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/dpi/uvm_hdl.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/macros/uvm_deprecated_defines.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/macros/uvm_reg_defines.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/macros/uvm_callback_defines.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/macros/uvm_sequence_defines.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm1/uvm_tlm_imps.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/macros/uvm_tlm_defines.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/macros/uvm_printer_defines.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/macros/uvm_object_defines.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/macros/uvm_phase_defines.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/macros/uvm_message_defines.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/macros/uvm_global_defines.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/macros/uvm_version_defines.svh|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/uvm_macros.svh|tb/uvm/tb_top.sv|tb/uvm/riscv_tb_pkg.sv|tb/uvm/riscv_if.sv|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/uvm_pkg.sv|
+Z26 !s90 -sv|-timescale|1ns/1ps|+define+functional|+incdir+rtl/core|+incdir+rtl/control|+incdir+rtl/datapath|+incdir+rtl/csr|+incdir+rtl/hazard|+incdir+rtl/cache|+incdir+rtl/memory|+incdir+rtl/mult_div|+incdir+/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src|+incdir+tb/uvm|/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/uvm_pkg.sv|tb/uvm/riscv_if.sv|tb/uvm/riscv_tb_pkg.sv|tb/uvm/tb_top.sv|
 !i113 0
-R66
-R9
+Z27 o-sv -timescale 1ns/1ps -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z28 !s92 -sv -timescale 1ns/1ps +define+functional +incdir+rtl/core +incdir+rtl/control +incdir+rtl/datapath +incdir+rtl/csr +incdir+rtl/hazard +incdir+rtl/cache +incdir+rtl/memory +incdir+rtl/mult_div +incdir+/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src +incdir+tb/uvm -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
 Xriscv_if_sv_unit
-R70
-R43
-R44
-R68
-VlT0Mi0C]5jlX_In=:V4dB2
+R20
+R21
+R2
+VenHTCOBk;ad2i<>Io7G;H3
 r1
 !s85 0
 !i10b 1
-!s100 DRN:d0Co?A36h^QT8BDY>1
-IlT0Mi0C]5jlX_In=:V4dB2
+!s100 BT?:lcAU1C79m^P6^JRz10
+IenHTCOBk;ad2i<>Io7G;H3
 !i103 1
 S1
-R4
-R71
-R72
-R73
-R48
-R49
-R50
-R51
-R52
-R53
-R54
-R55
-R56
-R57
-R58
-R59
-!i122 484
+R0
+R22
+R23
+R24
+Z29 F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/uvm_macros.svh
+Z30 F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/macros/uvm_version_defines.svh
+Z31 F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/macros/uvm_global_defines.svh
+Z32 F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/macros/uvm_message_defines.svh
+Z33 F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/macros/uvm_phase_defines.svh
+Z34 F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/macros/uvm_object_defines.svh
+Z35 F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/macros/uvm_printer_defines.svh
+Z36 F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/macros/uvm_tlm_defines.svh
+Z37 F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm1/uvm_tlm_imps.svh
+Z38 F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/macros/uvm_sequence_defines.svh
+Z39 F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/macros/uvm_callback_defines.svh
+Z40 F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/macros/uvm_reg_defines.svh
+Z41 F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/macros/uvm_deprecated_defines.svh
+!i122 1
 L0 10 0
-R16
+R6
 31
-R74
-R75
-R76
+R7
+R25
+R26
 !i113 0
-R66
-R9
-Xriscv_monitor_sv_unit
-2C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_monitor.sv
-R42
-R43
-R44
-Z77 !s110 1780044534
-VARO_TN0h5[ZLSB>o1A`030
-r1
-!s85 0
-!i10b 1
-!s100 T]2Tgm?SKA7RAKh[o4B5H0
-IARO_TN0h5[ZLSB>o1A`030
-!i103 1
-S1
-R4
-R46
-8C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_monitor.sv
-R62
-R48
-R49
-R50
-R51
-R52
-R53
-R54
-R55
-R56
-R57
-R58
-R59
-R60
-!i122 485
-L0 6 0
-R16
-31
-R74
-!s107 C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_seq_item.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_monitor.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_monitor.sv|
-!i113 0
-R66
-R9
-vriscv_muldiv
-2C:/Users/Admin/Documents/GitHub/RAM/rtl/mult_div/mult_div_alu.v
-!s110 1779762138
-!i10b 1
-!s100 m?TCXA=ih@<?TEF[hX<jJ3
-INVoEWZ]2?05^15hTSZ<K62
-R4
-w1779761444
-8C:/Users/Admin/Documents/GitHub/RAM/rtl/mult_div/mult_div_alu.v
-FC:/Users/Admin/Documents/GitHub/RAM/rtl/mult_div/mult_div_alu.v
-!i122 62
-L0 3 266
-R15
-R16
-r1
-!s85 0
-31
-!s108 1779762138.000000
-!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/mult_div/mult_div_alu.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/mult_div/mult_div_alu.v|
-!i113 0
-R18
-R9
+R27
+R28
+R1
 vriscv_pipeline_top
-2C:/Users/Admin/Documents/GitHub/RAM/rtl/core/top_module.v
-R19
+R2
 !i10b 1
-!s100 1<9z5]SM[PZWe:PC]eMz72
-I8meF@c]PWY7o72_>NOEf83
-R4
-w1780043604
-8C:/Users/Admin/Documents/GitHub/RAM/rtl/core/top_module.v
-FC:/Users/Admin/Documents/GitHub/RAM/rtl/core/top_module.v
-!i122 465
+!s100 KO;Vd5GD05[4GD]VPWdnL3
+IbZP?ePe]Z?A2WzDOWM[lR1
+R0
+R12
+8rtl/core/top_module.v
+Frtl/core/top_module.v
+!i122 0
 L0 1 378
-R15
-R16
+R5
+R6
 r1
 !s85 0
 31
-R20
-!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/core/top_module.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/core/top_module.v|
-!i113 0
-R18
+R7
+R8
 R9
-Xriscv_scoreboard_sv_unit
-2C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_scoreboard.sv
-R42
-R43
-R44
-R77
-VT9k<VIZ2GOmkM[1>lYX`92
-r1
-!s85 0
-!i10b 1
-!s100 DH>[k__iI]FCYz6FkRg^10
-IT9k<VIZ2GOmkM[1>lYX`92
-!i103 1
-S1
-R4
-R46
-8C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_scoreboard.sv
-R63
-R48
-R49
-R50
-R51
-R52
-R53
-R54
-R55
-R56
-R57
-R58
-R59
-R60
-!i122 486
-Z78 L0 19 0
-R16
-31
-Z79 !s108 1780044534.000000
-!s107 C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_seq_item.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_scoreboard.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_scoreboard.sv|
 !i113 0
-R66
-R9
-Xriscv_seq_item_sv_unit
-2C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_seq_item.sv
-R43
-R44
-R77
-VTQ>=hB1PeS:;mWlcGcjEj0
-r1
-!s85 0
-!i10b 1
-!s100 :XJg0CMVjXhhji_<_`^Aj2
-ITQ>=hB1PeS:;mWlcGcjEj0
-!i103 1
-S1
-R4
-R69
-8C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_seq_item.sv
-R60
-R48
-R49
-R50
-R51
-R52
-R53
-R54
-R55
-R56
-R57
-R58
-R59
-!i122 487
-L0 9 0
-R16
-31
-R79
-!s107 C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_seq_item.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_seq_item.sv|
-!i113 0
-R66
-R9
-Xriscv_sequences_sv_unit
-2C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_sequences.sv
-R43
-R44
-!s110 1780044535
-VoA9iOiCL89:hiZm>GlJYE2
-r1
-!s85 0
-!i10b 1
-!s100 f00gQQYGoo5=Ml[T0NX<D0
-IoA9iOiCL89:hiZm>GlJYE2
-!i103 1
-S1
-R4
-R69
-8C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_sequences.sv
-Z80 FC:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_sequences.sv
-R48
-R49
-R50
-R51
-R52
-R53
-R54
-R55
-R56
-R57
-R58
-R59
-R60
-!i122 488
-R78
-R16
-31
-!s108 1780044535.000000
-!s107 C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_seq_item.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_sequences.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_sequences.sv|
-!i113 0
-R66
-R9
+R10
+R11
+R1
 Xriscv_tb_pkg
-Z81 2C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/tb_top.sv
-R42
-R43
-R44
-R28
-!i10b 1
-!s100 LJ63=nU9HDPSC:3cO>Yc10
-IWbBbYX7l>Wc?J6TXZg2DR3
-S1
-R4
-R46
-FC:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_tb_pkg.sv
-Z82 FC:/Users/Admin/Documents/GitHub/RAM/tb/uvm/tb_top.sv
-R48
-R49
-R50
-R51
-R52
-R53
-R54
-R55
-R56
-R57
-R58
-R59
-R60
-R61
-R62
-R63
-R64
-R47
-R80
-Z83 FC:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_tests.sv
-!i122 491
-R65
-VWbBbYX7l>Wc?J6TXZg2DR3
-R16
-r1
-!s85 0
-31
-Z84 !s108 1780044536.000000
-Z85 !s107 C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_tests.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_sequences.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_agent_env_test.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_coverage.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_scoreboard.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_monitor.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_driver.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_seq_item.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_tb_pkg.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/tb_top.sv|
-Z86 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/tb_top.sv|
-!i113 0
-R66
-R9
-Xriscv_tests_sv_unit
-2C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_tests.sv
-R42
-R43
-R44
-!s110 1780044536
-V0ZY8fi`7zfKKVnLcP]_8P0
-r1
-!s85 0
-!i10b 1
-!s100 ?=MchV16OC]gHU@kXDOln3
-I0ZY8fi`7zfKKVnLcP]_8P0
-!i103 1
-S1
-R4
-R46
-8C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_tests.sv
-R83
-R48
-R49
-R50
-R51
-R52
-R53
-R54
-R55
-R56
-R57
-R58
-R59
-R47
-R60
-R61
-R62
-R63
-R64
-R80
-!i122 490
-L0 21 0
-R16
-31
-R84
-!s107 C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_sequences.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_coverage.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_scoreboard.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_monitor.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_driver.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_seq_item.sv|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_agent_env_test.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_tests.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/riscv_tests.sv|
-!i113 0
-R66
-R9
-vtb_riscv_pipeline_mega
-2C:/Users/Admin/Documents/GitHub/RAM/tb/legacy/tb_full.v
-!s110 1780044694
-!i10b 1
-!s100 9ZGYjMXRRM]QANQ9h]lJc1
-If<gRh:a0nXaU5LFPje]FH1
-R4
-w1780044685
-8C:/Users/Admin/Documents/GitHub/RAM/tb/legacy/tb_full.v
-FC:/Users/Admin/Documents/GitHub/RAM/tb/legacy/tb_full.v
-!i122 495
-L0 3 162
-R15
-R16
-r1
-!s85 0
-31
-!s108 1780044694.000000
-!s107 C:/Users/Admin/Documents/GitHub/RAM/tb/legacy/tb_full.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/tb/legacy/tb_full.v|
-!i113 0
-R18
-R9
-vtb_riscv_pipeline_muldiv
-2C:/Users/Admin/Documents/GitHub/RAM/tb/legacy/tb_muldiv.v
-R28
-!i10b 1
-!s100 VSd5Ni94Vjb4=m3I]X;b02
-IR84J_T7:>A?M63T46^eNX3
-R4
-w1779788658
-8C:/Users/Admin/Documents/GitHub/RAM/tb/legacy/tb_muldiv.v
-FC:/Users/Admin/Documents/GitHub/RAM/tb/legacy/tb_muldiv.v
-!i122 493
-R30
-R15
-R16
-r1
-!s85 0
-31
-R29
-!s107 C:/Users/Admin/Documents/GitHub/RAM/tb/legacy/tb_muldiv.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/tb/legacy/tb_muldiv.v|
-!i113 0
-R18
-R9
-vtb_top
-R81
-R43
-R44
-DXx4 work 12 riscv_tb_pkg 0 22 WbBbYX7l>Wc?J6TXZg2DR3
-R28
-!i10b 1
-!s100 HX<dRfQcVkM[@e4BBDQj[3
-ID7zP9M4:?kcnT7:[3MRWg3
-S1
-R4
-w1780039237
-8C:/Users/Admin/Documents/GitHub/RAM/tb/uvm/tb_top.sv
-R82
-R48
-!i122 491
-L0 16 270
-R15
-R16
-r1
-!s85 0
-31
-R84
-R85
-R86
-!i113 0
-R66
-R9
-vwriteback_cycle
-2C:/Users/Admin/Documents/GitHub/RAM/rtl/core/writeback_cycle.v
-R19
-!i10b 1
-!s100 4Mn8jJm6gO^d5>DPKMhWQ1
-INmA6eD`0E:14N0RiF5;Rd3
-R4
-w1778577505
-8C:/Users/Admin/Documents/GitHub/RAM/rtl/core/writeback_cycle.v
-FC:/Users/Admin/Documents/GitHub/RAM/rtl/core/writeback_cycle.v
-!i122 466
-L0 1 20
-R15
-R16
-r1
-!s85 0
-31
+!s115 riscv_if
 R20
-!s107 C:/Users/Admin/Documents/GitHub/RAM/rtl/core/writeback_cycle.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Admin/Documents/GitHub/RAM/rtl/core/writeback_cycle.v|
+R21
+Z42 !s110 1780053555
+!i10b 1
+!s100 ^iK>[PX2aVo1iR[cYaI9W2
+INhbS5>:]]iGR>zC[OWOT=3
+S1
+R0
+w1780053547
+Ftb/uvm/riscv_tb_pkg.sv
+R29
+R30
+R31
+R32
+R33
+R34
+R35
+R36
+R37
+R38
+R39
+R40
+R41
+Ftb/uvm/riscv_seq_item.sv
+Ftb/uvm/riscv_driver.sv
+Ftb/uvm/riscv_monitor.sv
+Ftb/uvm/riscv_scoreboard.sv
+Ftb/uvm/riscv_coverage.sv
+Ftb/uvm/riscv_agent_env_test.sv
+Ftb/uvm/riscv_sequences.sv
+Ftb/uvm/riscv_tests.sv
+!i122 1
+L0 8 0
+VNhbS5>:]]iGR>zC[OWOT=3
+R6
+r1
+!s85 0
+31
+R7
+R25
+R26
 !i113 0
-R18
+R27
+R28
+R1
+vtb_top
+R20
+R21
+DXx4 work 12 riscv_tb_pkg 0 22 NhbS5>:]]iGR>zC[OWOT=3
+R42
+!i10b 1
+!s100 T=G0?3i`kTKg>WAXfoRzV0
+I9N779PAjiFE6G]3d>9N^f2
+S1
+R0
+w1780052981
+8tb/uvm/tb_top.sv
+Ftb/uvm/tb_top.sv
+R29
+!i122 1
+L0 16 285
+R5
+R6
+r1
+!s85 0
+31
+R7
+R25
+R26
+!i113 0
+R27
+R28
+R1
+Xuvm_pkg
+R20
+R2
+!i10b 1
+!s100 J4Ko1R>@N7D2_DN<c4Q>N1
+IXhh^LQ>6i8]FPQl4WH6?R1
+S1
+R0
+w1621116607
+8/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/uvm_pkg.sv
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/uvm_pkg.sv
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/dpi/uvm_hdl.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/dpi/uvm_svcmd_dpi.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/dpi/uvm_regex.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_base.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_coreservice.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_version.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_object_globals.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_misc.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_object.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_pool.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_queue.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_factory.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_registry.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_spell_chkr.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_resource.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_resource_specializations.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_resource_db.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_config_db.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_printer.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_comparer.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_packer.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_links.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_tr_database.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_tr_stream.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_recorder.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_event_callback.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_event.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_barrier.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_callback.svh
+R29
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_report_message.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_report_catcher.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_report_server.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_report_handler.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_report_object.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_transaction.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_phase.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_domain.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_bottomup_phase.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_topdown_phase.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_task_phase.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_common_phases.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_runtime_phases.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_component.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_objection.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_heartbeat.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_globals.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_cmdline_processor.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_traversal.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/dap/uvm_dap.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/dap/uvm_set_get_dap_base.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/dap/uvm_simple_lock_dap.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/dap/uvm_get_to_lock_dap.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/dap/uvm_set_before_get_dap.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm1/uvm_tlm.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm1/uvm_tlm_ifs.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm1/uvm_sqr_ifs.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_port_base.svh
+R37
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm1/uvm_imps.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm1/uvm_ports.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm1/uvm_exports.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm1/uvm_analysis_port.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm1/uvm_tlm_fifo_base.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm1/uvm_tlm_fifos.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm1/uvm_tlm_req_rsp.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm1/uvm_sqr_connections.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/comps/uvm_comps.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/comps/uvm_pair.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/comps/uvm_policies.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/comps/uvm_in_order_comparator.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/comps/uvm_algorithmic_comparator.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/comps/uvm_random_stimulus.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/comps/uvm_subscriber.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/comps/uvm_monitor.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/comps/uvm_driver.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/comps/uvm_push_driver.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/comps/uvm_scoreboard.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/comps/uvm_agent.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/comps/uvm_env.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/comps/uvm_test.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/seq/uvm_seq.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/seq/uvm_sequence_item.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/seq/uvm_sequencer_base.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/seq/uvm_sequencer_analysis_fifo.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/seq/uvm_sequencer_param_base.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/seq/uvm_sequencer.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/seq/uvm_push_sequencer.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/seq/uvm_sequence_base.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/seq/uvm_sequence.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/seq/uvm_sequence_library.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/seq/uvm_sequence_builtin.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm2/uvm_tlm2.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm2/uvm_tlm2_defines.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm2/uvm_tlm2_time.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm2/uvm_tlm2_generic_payload.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm2/uvm_tlm2_ifs.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm2/uvm_tlm2_imps.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm2/uvm_tlm2_ports.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm2/uvm_tlm2_exports.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm2/uvm_tlm2_sockets_base.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/tlm2/uvm_tlm2_sockets.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg_model.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg_item.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg_adapter.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg_predictor.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg_sequence.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg_cbs.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg_backdoor.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg_field.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_vreg_field.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg_indirect.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg_fifo.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg_file.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_mem_mam.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_vreg.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_mem.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg_map.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg_block.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_hw_reset_seq.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_bit_bash_seq.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_mem_walk_seq.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_mem_access_seq.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_access_seq.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_mem_shared_access_seq.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_mem_built_in_seq.svh
+F/home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_mem_hdl_paths_seq.svh
+!i122 1
+L0 30 0
+VXhh^LQ>6i8]FPQl4WH6?R1
+R6
+r1
+!s85 0
+31
+R7
+R25
+R26
+!i113 0
+R27
+R28
+R1
+vwriteback_cycle
+R2
+!i10b 1
+!s100 :73dj4UJfGTPg:f^dBiU50
+IDzODlP<:6iO55en6iM=>01
+R0
+R3
+8rtl/core/writeback_cycle.v
+Frtl/core/writeback_cycle.v
+!i122 0
+L0 1 20
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
 R9
+!i113 0
+R10
+R11
+R1

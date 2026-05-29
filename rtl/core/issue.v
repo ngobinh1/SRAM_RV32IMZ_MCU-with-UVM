@@ -36,7 +36,7 @@ module issue (
     output wire [2:0] md_op_i
 );
 
-    localparam PW = 242;
+    localparam PW = 243;
 
     wire [PW-1:0] push_data = {
         reg_write_d, mem_write_d, alu_src_d, jump_d, branch_d, jalr_d,

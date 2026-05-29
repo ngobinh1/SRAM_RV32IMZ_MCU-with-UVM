@@ -268,6 +268,43 @@ class riscv_coverage extends uvm_subscriber #(riscv_seq_item);
         }
     endgroup
 
+    // ============================================================
+    // Coverage Group 9: Issue Stage Coverage
+    // ============================================================
+    covergroup cg_issue;
+        cp_issue_stall: coverpoint trans.issue_stall {
+            bins no_stall = {0};
+            bins stalled  = {1};
+        }
+        cp_issue_valid: coverpoint trans.issue_valid {
+            bins invalid = {0};
+            bins valid   = {1};
+        }
+        cp_execute_ready: coverpoint trans.execute_ready {
+            bins not_ready = {0};
+            bins ready     = {1};
+        }
+        cp_load_use_hazard: coverpoint trans.load_use_hazard {
+            bins no_hazard = {0};
+            bins hazard    = {1};
+        }
+        cp_issue_valid_q: coverpoint trans.issue_valid_q {
+            bins empty    = {2'b00};
+            bins one_item = {2'b01};
+            bins full     = {2'b11};
+            ignore_bins impossible_q = {2'b10};
+        }
+        // Cross issue conditions
+        cx_stall_q: cross cp_issue_stall, cp_issue_valid_q {
+            ignore_bins impossible_stall = binsof(cp_issue_stall) intersect {1} &&
+                                           binsof(cp_issue_valid_q) intersect {2'b00, 2'b01};
+        }
+        cx_hazard_q: cross cp_load_use_hazard, cp_issue_valid_q {
+            ignore_bins rare_hazards = binsof(cp_load_use_hazard) intersect {1} &&
+                                       binsof(cp_issue_valid_q) intersect {2'b11, 2'b01};
+        }
+    endgroup
+
     // --------------------------------------------------------
     // Constructor: instantiate all coverage groups
     // --------------------------------------------------------
@@ -281,6 +318,7 @@ class riscv_coverage extends uvm_subscriber #(riscv_seq_item);
         cg_regfile       = new();
         cg_csr           = new();
         cg_axi           = new();
+        cg_issue         = new();
     endfunction
 
     // --------------------------------------------------------
@@ -293,6 +331,7 @@ class riscv_coverage extends uvm_subscriber #(riscv_seq_item);
         cg_hazards.sample();
         cg_pipeline_flow.sample();
         cg_regfile.sample();
+        cg_issue.sample();
 
         if (trans.trans_type == riscv_seq_item::TRANS_MEM_WRITE ||
             trans.trans_type == riscv_seq_item::TRANS_MEM_READ  ||
@@ -332,7 +371,8 @@ class riscv_coverage extends uvm_subscriber #(riscv_seq_item);
         msg = {msg, $sformatf("  Pipeline Flow    : %0.1f%%\n", cg_pipeline_flow.get_coverage())};
         msg = {msg, $sformatf("  Register File    : %0.1f%%\n", cg_regfile.get_coverage())};
         msg = {msg, $sformatf("  CSR Instructions : %0.1f%%\n",   cg_csr.get_coverage())};
-        msg = {msg, $sformatf("  AXI Transactions : %0.1f%%",     cg_axi.get_coverage())};
+        msg = {msg, $sformatf("  AXI Transactions : %0.1f%%\n",   cg_axi.get_coverage())};
+        msg = {msg, $sformatf("  Issue Stage      : %0.1f%%",     cg_issue.get_coverage())};
 
         `uvm_info("COVERAGE", msg, UVM_NONE)
     endfunction

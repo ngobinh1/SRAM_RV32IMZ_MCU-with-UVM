@@ -20,7 +20,7 @@ VMAP   := vmap
 # Kiểm tra đường dẫn thực tế bằng: echo $UVM_HOME
 # Nếu dùng UVM built-in của Questa thì chỉ cần -L uvm
 # --------------------------------------------------------------
-UVM_HOME   ?= $(QUESTA_HOME)/verilog_src/uvm-1.2
+UVM_HOME   := $(QUESTA_HOME)/questasim/verilog_src/uvm-1.2
 UVM_SRC    := $(UVM_HOME)/src
 
 # --------------------------------------------------------------
@@ -33,6 +33,7 @@ RTL_CSR     := rtl/csr
 RTL_HAZARD  := rtl/hazard
 RTL_CACHE   := rtl/cache
 RTL_MEM     := rtl/memory
+RTL_MULT_DIV:= rtl/mult_div
 TB_LEGACY   := tb/legacy
 TB_UVM      := tb/uvm
 SIM_OUT     := sim/out
@@ -49,7 +50,7 @@ SEED       ?= random
 # Danh sách file RTL (theo thứ tự phụ thuộc: leaf → top)
 # --------------------------------------------------------------
 RTL_FILES :=                                          \
-  $(RTL_MEM)/EF_SRAM_1024x32_tt_180V_25C.v           \
+  $(RTL_MEM)/EF_SRAM_1024x32.tt_180V_25C.v           \
   $(RTL_MEM)/EF_SRAM_1024x32.v                        \
   $(RTL_MEM)/axi_sram_wrapper.v                       \
   $(RTL_MEM)/axi_interconnect.v                       \
@@ -58,6 +59,7 @@ RTL_FILES :=                                          \
   $(RTL_HAZARD)/hazard_unit.v                         \
   $(RTL_CSR)/csr_alu.v                                \
   $(RTL_CSR)/csr_file.v                               \
+  $(RTL_MULT_DIV)/muldiv_alu.v                        \
   $(RTL_DP)/adder.v                                   \
   $(RTL_DP)/mux.v                                     \
   $(RTL_DP)/extend.v                                  \
@@ -88,7 +90,8 @@ VLOG_COMMON_FLAGS :=                                  \
   +incdir+$(RTL_CSR)                                  \
   +incdir+$(RTL_HAZARD)                               \
   +incdir+$(RTL_CACHE)                                \
-  +incdir+$(RTL_MEM)
+  +incdir+$(RTL_MEM)                                  \
+  +incdir+$(RTL_MULT_DIV)
 
 # ==============================================================
 # TARGET: tạo thư mục work và output
@@ -142,6 +145,7 @@ compile_uvm: compile_rtl
 	  +incdir+$(UVM_SRC)                              \
 	  +incdir+$(TB_UVM)                               \
 	  $(UVM_SRC)/uvm_pkg.sv                           \
+	  $(TB_UVM)/riscv_if.sv                           \
 	  $(TB_UVM)/riscv_tb_pkg.sv                       \
 	  $(TB_UVM)/tb_top.sv                             \
 	  2>&1 | tee $(SIM_OUT)/compile_uvm.log
@@ -156,7 +160,7 @@ sim_uvm: compile_uvm
 	  +UVM_VERBOSITY=$(VERBOSITY)                     \
 	  +UVM_NO_RELNOTES                                \
 	  +HEX_DIR=$(HEX_DIR)/                            \
-	  -L uvm                                          \
+	  -sv_lib $(QUESTA_HOME)/questasim/uvm-1.2/linux_x86_64/uvm_dpi \
 	  -do "coverage save -onexit $(SIM_OUT)/$(TEST).ucdb; run -all; quit -f" \
 	  -l $(SIM_OUT)/$(TEST)_sim.log
 	@echo ">>> UVM test [$(TEST)] done."

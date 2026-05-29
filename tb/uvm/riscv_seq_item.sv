@@ -84,6 +84,11 @@ class riscv_seq_item extends uvm_sequence_item;
     logic         branch_taken;  // Was branch actually taken?
     logic [31:0]  branch_target; // Target PC for branch/jump
     logic         stall_seen;    // Pipeline was stalled this cycle
+    logic         issue_stall;   // Issue stage was stalled
+    logic         issue_valid;   // Issue dispatched
+    logic         execute_ready; // EX stage was ready
+    logic         load_use_hazard; // Detected load-use hazard
+    logic [1:0]   issue_valid_q;   // Elements in issue queue
     longint       timestamp;     // $time when captured
 
     // ============================================================
@@ -128,6 +133,12 @@ class riscv_seq_item extends uvm_sequence_item;
         `uvm_field_int(mem_rdata,       UVM_ALL_ON | UVM_HEX)
         `uvm_field_int(branch_taken,    UVM_ALL_ON)
         `uvm_field_int(branch_target,   UVM_ALL_ON | UVM_HEX)
+        `uvm_field_int(stall_seen,      UVM_ALL_ON)
+        `uvm_field_int(issue_stall,     UVM_ALL_ON)
+        `uvm_field_int(issue_valid,     UVM_ALL_ON)
+        `uvm_field_int(execute_ready,   UVM_ALL_ON)
+        `uvm_field_int(load_use_hazard, UVM_ALL_ON)
+        `uvm_field_int(issue_valid_q,   UVM_ALL_ON)
         `uvm_field_int(timestamp,       UVM_ALL_ON)
     `uvm_object_utils_end
 

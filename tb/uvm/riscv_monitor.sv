@@ -256,6 +256,11 @@ class riscv_monitor extends uvm_monitor;
             item.stall_seen = vif.monitor_cb.stall_f |
                               vif.monitor_cb.icache_stall |
                               vif.monitor_cb.dcache_stall;
+            item.issue_stall     = vif.monitor_cb.issue_stall;
+            item.issue_valid     = vif.monitor_cb.issue_valid;
+            item.execute_ready   = vif.monitor_cb.execute_ready;
+            item.load_use_hazard = vif.monitor_cb.load_use_hazard;
+            item.issue_valid_q   = vif.monitor_cb.issue_valid_q;
             item.timestamp  = $time;
             item.decode_instr(vif.monitor_cb.instr_d);
 
