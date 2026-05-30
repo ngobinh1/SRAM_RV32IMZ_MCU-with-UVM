@@ -1,6 +1,6 @@
 # vsim -c work.tb_top -sv_seed random "+UVM_TESTNAME=riscv_full_test" "+UVM_VERBOSITY=UVM_MEDIUM" "+UVM_NO_RELNOTES" "+HEX_DIR=sim/hex/" -sv_lib /home/ngobinh/Questasim/questasim/uvm-1.2/linux_x86_64/uvm_dpi -do "coverage save -onexit sim/out/riscv_full_test.ucdb; run -all; quit -f" -l sim/out/riscv_full_test_sim.log 
-# Start time: 18:19:16 on May 29,2026
-# Loading /tmp/ngobinh@ngobinh-Vostro-5301_dpi_13570/linux_x86_64_gcc-7.4.0/export_tramp.so
+# Start time: 10:16:38 on May 30,2026
+# Loading /tmp/ngobinh@ngobinh-Vostro-5301_dpi_7267/linux_x86_64_gcc-7.4.0/export_tramp.so
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Warning: tb/uvm/riscv_monitor.sv(92): (vopt-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
 # ** Warning: tb/uvm/riscv_monitor.sv(93): (vopt-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
@@ -29,10 +29,10 @@
 # Loading work.riscv_tb_pkg(fast)
 # Loading work.tb_top(fast)
 # Loading work.riscv_pipeline_top(fast)
-# Compiling /tmp/ngobinh@ngobinh-Vostro-5301_dpi_13570/linux_x86_64_gcc-7.4.0/exportwrapper.c
-# Loading /tmp/ngobinh@ngobinh-Vostro-5301_dpi_13570/linux_x86_64_gcc-7.4.0/vsim_auto_compile.so
+# Compiling /tmp/ngobinh@ngobinh-Vostro-5301_dpi_7267/linux_x86_64_gcc-7.4.0/exportwrapper.c
+# Loading /tmp/ngobinh@ngobinh-Vostro-5301_dpi_7267/linux_x86_64_gcc-7.4.0/vsim_auto_compile.so
 # Loading /home/ngobinh/Questasim/questasim/uvm-1.2/linux_x86_64/uvm_dpi.so
-# Sv_Seed = 3708744578
+# Sv_Seed = 1208667811
 # coverage save -onexit sim/out/riscv_full_test.ucdb
 #  run -all
 # UVM_INFO @ 0: reporter [RNTST] Running test riscv_full_test...
@@ -57,7 +57,7 @@
 # UVM_INFO tb/uvm/riscv_monitor.sv(217) @ 1715000: uvm_test_top.env.agent.monitor [MONITOR] [1715000] TRANS=TRANS_BRANCH_TAKEN PC=0x000000ac target=0x000000b4 taken=1
 # UVM_INFO tb/uvm/riscv_monitor.sv(217) @ 1775000: uvm_test_top.env.agent.monitor [MONITOR] [1775000] TRANS=TRANS_BRANCH_TAKEN PC=0x000000b4 target=0x000000c0 taken=1
 # UVM_INFO tb/uvm/riscv_monitor.sv(217) @ 1925000: uvm_test_top.env.agent.monitor [MONITOR] [1925000] TRANS=TRANS_BRANCH_TAKEN PC=0x000000c8 target=0x000000cc taken=1
-# UVM_INFO tb/uvm/riscv_monitor.sv(217) @ 3485000: uvm_test_top.env.agent.monitor [MONITOR] [3485000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000000 target=0x00000000 taken=0
+# UVM_INFO tb/uvm/riscv_monitor.sv(217) @ 3905000: uvm_test_top.env.agent.monitor [MONITOR] [3905000] TRANS=TRANS_BRANCH_TAKEN PC=0x00000118 target=0x00000118 taken=1
 # UVM_INFO tb/uvm/riscv_sequences.sv(154) @ 20465000: uvm_test_top.env.agent.sequencer@@alu_seq [ALU_TEST] Starting ALU test sequence
 # UVM_INFO tb/uvm/riscv_sequences.sv(106) @ 20465000: uvm_test_top.env.agent.sequencer@@load_seq [LOAD_SEQ] Loading: alu_test.hex
 # UVM_INFO tb/uvm/riscv_driver.sv(98) @ 20475000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 0
@@ -173,16 +173,16 @@
 # UVM_INFO tb/uvm/riscv_sequences.sv(337) @ 162985000: uvm_test_top.env.agent.sequencer@@muldiv_seq [MULDIV_TEST] Mul/Div test sequence complete
 # UVM_INFO tb/uvm/riscv_sequences.sv(396) @ 162985000: uvm_test_top.env.agent.sequencer@@seq [FULL_TEST] === Full regression complete ===
 # UVM_INFO /home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_objection.svh(1270) @ 167985000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
-# UVM_INFO tb/uvm/riscv_monitor.sv(325) @ 167985000: uvm_test_top.env.agent.monitor [MONITOR] 
+# UVM_INFO tb/uvm/riscv_monitor.sv(324) @ 167985000: uvm_test_top.env.agent.monitor [MONITOR] 
 # === Monitor Statistics ===
-#   Instruction commits : 1338
-#   Stall cycles        : 9222
+#   Instruction commits : 1334
+#   Stall cycles        : 9237
 #   Branches taken      : 44
 #   Memory writes       : 35
 #   Memory reads        : 28
 #   AXI Data Reads      : 22
 #   AXI Data Writes     : 6
-# UVM_INFO tb/uvm/riscv_coverage.sv(377) @ 167985000: uvm_test_top.env.coverage [COVERAGE] 
+# UVM_INFO tb/uvm/riscv_coverage.sv(362) @ 167985000: uvm_test_top.env.coverage [COVERAGE] 
 # === Functional Coverage Summary ===
 #   Instruction Type : 100.0%
 #   Hazard Detection : 100.0%
@@ -197,8 +197,8 @@
 # ========================================
 # *** SIMULATION PASSED ***
 # ========================================
-#   Total instructions  : 1338
-#   Checks PASSED       : 1457
+#   Total instructions  : 1334
+#   Checks PASSED       : 1454
 #   Checks FAILED       : 0
 #   Branch checks       : 44
 #   x0 write violations : 0
@@ -234,5 +234,5 @@
 # ** Note: $finish    : /home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(517)
 #    Time: 167985 ns  Iteration: 69  Instance: /tb_top
 # Saving coverage database on exit...
-# End time: 18:19:21 on May 29,2026, Elapsed time: 0:00:05
+# End time: 10:16:43 on May 30,2026, Elapsed time: 0:00:05
 # Errors: 0, Warnings: 2

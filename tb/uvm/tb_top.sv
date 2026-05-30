@@ -126,8 +126,6 @@ module tb_top;
     assign riscv_if_inst.issue_valid     = dut.issue_valid;
     assign riscv_if_inst.execute_ready   = dut.issue_stage.execute_ready;
     assign riscv_if_inst.load_use_hazard = dut.issue_stage.load_use_hazard;
-    assign riscv_if_inst.issue_valid_q   = dut.issue_stage.valid_q;
-
 
     wire [31:0] reg_x0  = dut.decode_stage.register_file.register_array[0];
     wire [31:0] reg_x1  = dut.decode_stage.register_file.register_array[1];

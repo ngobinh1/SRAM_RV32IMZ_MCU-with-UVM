@@ -70,7 +70,6 @@ interface riscv_if (input logic clk);
     logic        issue_valid;
     logic        execute_ready;
     logic        load_use_hazard;
-    logic [1:0]  issue_valid_q;
 
     // ------------------------------------------------------------
     // CSR / exception signals
@@ -188,7 +187,6 @@ interface riscv_if (input logic clk);
         input issue_valid;
         input execute_ready;
         input load_use_hazard;
-        input issue_valid_q;
         // AXI signals
         input i_axi_awaddr, i_axi_awvalid, i_axi_awready;
         input i_axi_wdata, i_axi_wstrb, i_axi_wvalid, i_axi_wready;

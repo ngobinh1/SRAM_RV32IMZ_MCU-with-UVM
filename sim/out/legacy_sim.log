@@ -1,0 +1,3316 @@
+# vsim -c work.tb_riscv_pipeline_mega -do "run -all; quit -f" -l sim/out/legacy_sim.log 
+# Start time: 10:16:35 on May 30,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# //  Questa Sim-64
+# //  Version 2021.2_1 linux_x86_64 May 15 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading work.tb_riscv_pipeline_mega(fast)
+# run -all
+# ========================================
+# DEBUG: memory[0] = 123450b7
+# DEBUG: memory[1] = 00000117
+# ========================================
+# Time: 100000 | PC_F: 00000000
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000000
+# --------------------------------------------------
+# 
+# --- Cycle 1 ---
+#   [IF]  PC = 00000000 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000000 | Instr = 00000000 | rs1=x0, rs2=x0, rd=x0 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# 
+# ========================================================
+#    [MEGA TEST DEBUG] PIPELINE CYCLE-BY-CYCLE TRACE
+# ========================================================
+# Time: 110000 | PC_F: 00000000
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000000
+# --------------------------------------------------
+# 
+# --- Cycle 2 ---
+#   [IF]  PC = 00000000 | Instr = 123450b7            
+#   [ID]  PC = 00000000 | Instr = 00000000 | rs1=x0, rs2=x0, rd=x0                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 120000 | PC_F: 00000000
+#   [I-CACHE HIT]  Instruction fetched: 123450b7
+# --------------------------------------------------
+# 
+# --- Cycle 3 ---
+#   [IF]  PC = 00000004 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000000 | Instr = 123450b7 | rs1=x8, rs2=x3, rd=x1 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 130000 | PC_F: 00000004
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000004
+# --------------------------------------------------
+# 
+# --- Cycle 4 ---
+#   [IF]  PC = 00000004 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000000 | Instr = 123450b7 | rs1=x8, rs2=x3, rd=x1 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 140000 | PC_F: 00000004
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000004
+# --------------------------------------------------
+# 
+# --- Cycle 5 ---
+#   [IF]  PC = 00000004 | Instr = 00000117            
+#   [ID]  PC = 00000000 | Instr = 123450b7 | rs1=x8, rs2=x3, rd=x1                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 150000 | PC_F: 00000004
+#   [I-CACHE HIT]  Instruction fetched: 00000117
+# --------------------------------------------------
+# 
+# --- Cycle 6 ---
+#   [IF]  PC = 00000008 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000004 | Instr = 00000117 | rs1=x0, rs2=x0, rd=x2 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 12345000 | rd=x1            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 160000 | PC_F: 00000008
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000008
+# --------------------------------------------------
+# 
+# --- Cycle 7 ---
+#   [IF]  PC = 00000008 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000004 | Instr = 00000117 | rs1=x0, rs2=x0, rd=x2 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 12345000 | WriteData = 00000000 | ReadData = 00000000 | rd=x1 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 170000 | PC_F: 00000008
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000008
+# --------------------------------------------------
+# 
+# --- Cycle 8 ---
+#   [IF]  PC = 00000008 | Instr = ff600193            
+#   [ID]  PC = 00000004 | Instr = 00000117 | rs1=x0, rs2=x0, rd=x2                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 12345000 | rd=x1 | RegWr=1
+# Time: 180000 | PC_F: 00000008
+#   [I-CACHE HIT]  Instruction fetched: ff600193
+# --------------------------------------------------
+# 
+# --- Cycle 9 ---
+#   [IF]  PC = 0000000c | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000008 | Instr = ff600193 | rs1=x0, rs2=x22, rd=x3 >>> [STALL]           
+#   [EX]  PC = 00000004 | ALU_Out = 00000004 | rd=x2            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 190000 | PC_F: 0000000c
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 0000000c
+# --------------------------------------------------
+# 
+# --- Cycle 10 ---
+#   [IF]  PC = 0000000c | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000008 | Instr = ff600193 | rs1=x0, rs2=x22, rd=x3 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000004 | WriteData = 00000000 | ReadData = 00000000 | rd=x2 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 200000 | PC_F: 0000000c
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 0000000c
+# --------------------------------------------------
+# 
+# --- Cycle 11 ---
+#   [IF]  PC = 0000000c | Instr = 00f1c213            
+#   [ID]  PC = 00000008 | Instr = ff600193 | rs1=x0, rs2=x22, rd=x3                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000004 | rd=x2 | RegWr=1
+# Time: 210000 | PC_F: 0000000c
+#   [I-CACHE HIT]  Instruction fetched: 00f1c213
+# --------------------------------------------------
+# 
+# --- Cycle 12 ---
+#   [IF]  PC = 00000010 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 0000000c | Instr = 00f1c213 | rs1=x3, rs2=x15, rd=x4 >>> [STALL]           
+#   [EX]  PC = 00000008 | ALU_Out = fffffff6 | rd=x3            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 220000 | PC_F: 00000010
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000010
+# --------------------------------------------------
+# 
+# --- Cycle 13 ---
+#   [IF]  PC = 00000010 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 0000000c | Instr = 00f1c213 | rs1=x3, rs2=x15, rd=x4 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = fffffff6 | WriteData = 00000000 | ReadData = 00000000 | rd=x3 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 230000 | PC_F: 00000010
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000010
+# --------------------------------------------------
+# 
+# --- Cycle 14 ---
+#   [IF]  PC = 00000010 | Instr = 00f06293            
+#   [ID]  PC = 0000000c | Instr = 00f1c213 | rs1=x3, rs2=x15, rd=x4                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = fffffff6 | rd=x3 | RegWr=1
+# Time: 240000 | PC_F: 00000010
+#   [I-CACHE HIT]  Instruction fetched: 00f06293
+# --------------------------------------------------
+# 
+# --- Cycle 15 ---
+#   [IF]  PC = 00000014 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000010 | Instr = 00f06293 | rs1=x0, rs2=x15, rd=x5 >>> [STALL]           
+#   [EX]  PC = 0000000c | ALU_Out = fffffff9 | rd=x4            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 250000 | PC_F: 00000014
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000014
+# --------------------------------------------------
+# 
+# --- Cycle 16 ---
+#   [IF]  PC = 00000014 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000010 | Instr = 00f06293 | rs1=x0, rs2=x15, rd=x5 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = fffffff9 | WriteData = 00000000 | ReadData = 00000000 | rd=x4 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 260000 | PC_F: 00000014
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000014
+# --------------------------------------------------
+# 
+# --- Cycle 17 ---
+#   [IF]  PC = 00000014 | Instr = 00f2f313            
+#   [ID]  PC = 00000010 | Instr = 00f06293 | rs1=x0, rs2=x15, rd=x5                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = fffffff9 | rd=x4 | RegWr=1
+# Time: 270000 | PC_F: 00000014
+#   [I-CACHE HIT]  Instruction fetched: 00f2f313
+# --------------------------------------------------
+# 
+# --- Cycle 18 ---
+#   [IF]  PC = 00000018 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000014 | Instr = 00f2f313 | rs1=x5, rs2=x15, rd=x6 >>> [STALL]           
+#   [EX]  PC = 00000010 | ALU_Out = 0000000f | rd=x5            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 280000 | PC_F: 00000018
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000018
+# --------------------------------------------------
+# 
+# --- Cycle 19 ---
+#   [IF]  PC = 00000018 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000014 | Instr = 00f2f313 | rs1=x5, rs2=x15, rd=x6 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 0000000f | WriteData = 00000000 | ReadData = 00000000 | rd=x5 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 290000 | PC_F: 00000018
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000018
+# --------------------------------------------------
+# 
+# --- Cycle 20 ---
+#   [IF]  PC = 00000018 | Instr = 003203b3            
+#   [ID]  PC = 00000014 | Instr = 00f2f313 | rs1=x5, rs2=x15, rd=x6                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 0000000f | rd=x5 | RegWr=1
+# Time: 300000 | PC_F: 00000018
+#   [I-CACHE HIT]  Instruction fetched: 003203b3
+# --------------------------------------------------
+# 
+# --- Cycle 21 ---
+#   [IF]  PC = 0000001c | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000018 | Instr = 003203b3 | rs1=x4, rs2=x3, rd=x7 >>> [STALL]           
+#   [EX]  PC = 00000014 | ALU_Out = 0000000f | rd=x6            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 310000 | PC_F: 0000001c
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 0000001c
+# --------------------------------------------------
+# 
+# --- Cycle 22 ---
+#   [IF]  PC = 0000001c | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000018 | Instr = 003203b3 | rs1=x4, rs2=x3, rd=x7 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 0000000f | WriteData = 00000000 | ReadData = 00000000 | rd=x6 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 320000 | PC_F: 0000001c
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 0000001c
+# --------------------------------------------------
+# 
+# --- Cycle 23 ---
+#   [IF]  PC = 0000001c | Instr = 40320433            
+#   [ID]  PC = 00000018 | Instr = 003203b3 | rs1=x4, rs2=x3, rd=x7                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 0000000f | rd=x6 | RegWr=1
+# Time: 330000 | PC_F: 0000001c
+#   [I-CACHE HIT]  Instruction fetched: 40320433
+# --------------------------------------------------
+# 
+# --- Cycle 24 ---
+#   [IF]  PC = 00000020 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 0000001c | Instr = 40320433 | rs1=x4, rs2=x3, rd=x8 >>> [STALL]           
+#   [EX]  PC = 00000018 | ALU_Out = ffffffef | rd=x7            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 340000 | PC_F: 00000020
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000020
+# --------------------------------------------------
+# 
+# --- Cycle 25 ---
+#   [IF]  PC = 00000020 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 0000001c | Instr = 40320433 | rs1=x4, rs2=x3, rd=x8 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = ffffffef | WriteData = fffffff6 | ReadData = 00000000 | rd=x7 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 350000 | PC_F: 00000020
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000020
+# --------------------------------------------------
+# 
+# --- Cycle 26 ---
+#   [IF]  PC = 00000020 | Instr = 0053f4b3            
+#   [ID]  PC = 0000001c | Instr = 40320433 | rs1=x4, rs2=x3, rd=x8                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = ffffffef | rd=x7 | RegWr=1
+# Time: 360000 | PC_F: 00000020
+#   [I-CACHE HIT]  Instruction fetched: 0053f4b3
+# --------------------------------------------------
+# 
+# --- Cycle 27 ---
+#   [IF]  PC = 00000024 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000020 | Instr = 0053f4b3 | rs1=x7, rs2=x5, rd=x9 >>> [STALL]           
+#   [EX]  PC = 0000001c | ALU_Out = 00000003 | rd=x8            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 370000 | PC_F: 00000024
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000024
+# --------------------------------------------------
+# 
+# --- Cycle 28 ---
+#   [IF]  PC = 00000024 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000020 | Instr = 0053f4b3 | rs1=x7, rs2=x5, rd=x9 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000003 | WriteData = fffffff6 | ReadData = 00000000 | rd=x8 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 380000 | PC_F: 00000024
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000024
+# --------------------------------------------------
+# 
+# --- Cycle 29 ---
+#   [IF]  PC = 00000024 | Instr = 00836533            
+#   [ID]  PC = 00000020 | Instr = 0053f4b3 | rs1=x7, rs2=x5, rd=x9                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000003 | rd=x8 | RegWr=1
+# Time: 390000 | PC_F: 00000024
+#   [I-CACHE HIT]  Instruction fetched: 00836533
+# --------------------------------------------------
+# 
+# --- Cycle 30 ---
+#   [IF]  PC = 00000028 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000024 | Instr = 00836533 | rs1=x6, rs2=x8, rd=x10 >>> [STALL]           
+#   [EX]  PC = 00000020 | ALU_Out = 0000000f | rd=x9            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 400000 | PC_F: 00000028
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000028
+# --------------------------------------------------
+# 
+# --- Cycle 31 ---
+#   [IF]  PC = 00000028 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000024 | Instr = 00836533 | rs1=x6, rs2=x8, rd=x10 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 0000000f | WriteData = 0000000f | ReadData = 00000000 | rd=x9 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 410000 | PC_F: 00000028
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000028
+# --------------------------------------------------
+# 
+# --- Cycle 32 ---
+#   [IF]  PC = 00000028 | Instr = 008545b3            
+#   [ID]  PC = 00000024 | Instr = 00836533 | rs1=x6, rs2=x8, rd=x10                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 0000000f | rd=x9 | RegWr=1
+# Time: 420000 | PC_F: 00000028
+#   [I-CACHE HIT]  Instruction fetched: 008545b3
+# --------------------------------------------------
+# 
+# --- Cycle 33 ---
+#   [IF]  PC = 0000002c | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000028 | Instr = 008545b3 | rs1=x10, rs2=x8, rd=x11 >>> [STALL]           
+#   [EX]  PC = 00000024 | ALU_Out = 0000000f | rd=x10            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 430000 | PC_F: 0000002c
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 0000002c
+# --------------------------------------------------
+# 
+# --- Cycle 34 ---
+#   [IF]  PC = 0000002c | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000028 | Instr = 008545b3 | rs1=x10, rs2=x8, rd=x11 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 0000000f | WriteData = 00000003 | ReadData = 00000000 | rd=x10 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 440000 | PC_F: 0000002c
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 0000002c
+# --------------------------------------------------
+# 
+# --- Cycle 35 ---
+#   [IF]  PC = 0000002c | Instr = 00200613            
+#   [ID]  PC = 00000028 | Instr = 008545b3 | rs1=x10, rs2=x8, rd=x11                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 0000000f | rd=x10 | RegWr=1
+# Time: 450000 | PC_F: 0000002c
+#   [I-CACHE HIT]  Instruction fetched: 00200613
+# --------------------------------------------------
+# 
+# --- Cycle 36 ---
+#   [IF]  PC = 00000030 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 0000002c | Instr = 00200613 | rs1=x0, rs2=x2, rd=x12 >>> [STALL]           
+#   [EX]  PC = 00000028 | ALU_Out = 0000000c | rd=x11            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 460000 | PC_F: 00000030
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000030
+# --------------------------------------------------
+# 
+# --- Cycle 37 ---
+#   [IF]  PC = 00000030 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 0000002c | Instr = 00200613 | rs1=x0, rs2=x2, rd=x12 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 0000000c | WriteData = 00000003 | ReadData = 00000000 | rd=x11 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 470000 | PC_F: 00000030
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000030
+# --------------------------------------------------
+# 
+# --- Cycle 38 ---
+#   [IF]  PC = 00000030 | Instr = 00261693            
+#   [ID]  PC = 0000002c | Instr = 00200613 | rs1=x0, rs2=x2, rd=x12                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 0000000c | rd=x11 | RegWr=1
+# Time: 480000 | PC_F: 00000030
+#   [I-CACHE HIT]  Instruction fetched: 00261693
+# --------------------------------------------------
+# 
+# --- Cycle 39 ---
+#   [IF]  PC = 00000034 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000030 | Instr = 00261693 | rs1=x12, rs2=x2, rd=x13 >>> [STALL]           
+#   [EX]  PC = 0000002c | ALU_Out = 00000002 | rd=x12            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 490000 | PC_F: 00000034
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000034
+# --------------------------------------------------
+# 
+# --- Cycle 40 ---
+#   [IF]  PC = 00000034 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000030 | Instr = 00261693 | rs1=x12, rs2=x2, rd=x13 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000002 | WriteData = 00000004 | ReadData = 00000000 | rd=x12 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 500000 | PC_F: 00000034
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000034
+# --------------------------------------------------
+# 
+# --- Cycle 41 ---
+#   [IF]  PC = 00000034 | Instr = 00139713            
+#   [ID]  PC = 00000030 | Instr = 00261693 | rs1=x12, rs2=x2, rd=x13                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000002 | rd=x12 | RegWr=1
+# Time: 510000 | PC_F: 00000034
+#   [I-CACHE HIT]  Instruction fetched: 00139713
+# --------------------------------------------------
+# 
+# --- Cycle 42 ---
+#   [IF]  PC = 00000038 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000034 | Instr = 00139713 | rs1=x7, rs2=x1, rd=x14 >>> [STALL]           
+#   [EX]  PC = 00000030 | ALU_Out = 00000008 | rd=x13            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 520000 | PC_F: 00000038
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000038
+# --------------------------------------------------
+# 
+# --- Cycle 43 ---
+#   [IF]  PC = 00000038 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000034 | Instr = 00139713 | rs1=x7, rs2=x1, rd=x14 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000008 | WriteData = 00000004 | ReadData = 00000000 | rd=x13 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 530000 | PC_F: 00000038
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000038
+# --------------------------------------------------
+# 
+# --- Cycle 44 ---
+#   [IF]  PC = 00000038 | Instr = 00175793            
+#   [ID]  PC = 00000034 | Instr = 00139713 | rs1=x7, rs2=x1, rd=x14                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000008 | rd=x13 | RegWr=1
+# Time: 540000 | PC_F: 00000038
+#   [I-CACHE HIT]  Instruction fetched: 00175793
+# --------------------------------------------------
+# 
+# --- Cycle 45 ---
+#   [IF]  PC = 0000003c | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000038 | Instr = 00175793 | rs1=x14, rs2=x1, rd=x15 >>> [STALL]           
+#   [EX]  PC = 00000034 | ALU_Out = ffffffde | rd=x14            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 550000 | PC_F: 0000003c
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 0000003c
+# --------------------------------------------------
+# 
+# --- Cycle 46 ---
+#   [IF]  PC = 0000003c | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000038 | Instr = 00175793 | rs1=x14, rs2=x1, rd=x15 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = ffffffde | WriteData = 12345000 | ReadData = 00000000 | rd=x14 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 560000 | PC_F: 0000003c
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 0000003c
+# --------------------------------------------------
+# 
+# --- Cycle 47 ---
+#   [IF]  PC = 0000003c | Instr = 40175813            
+#   [ID]  PC = 00000038 | Instr = 00175793 | rs1=x14, rs2=x1, rd=x15                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = ffffffde | rd=x14 | RegWr=1
+# Time: 570000 | PC_F: 0000003c
+#   [I-CACHE HIT]  Instruction fetched: 40175813
+# --------------------------------------------------
+# 
+# --- Cycle 48 ---
+#   [IF]  PC = 00000040 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 0000003c | Instr = 40175813 | rs1=x14, rs2=x1, rd=x16 >>> [STALL]           
+#   [EX]  PC = 00000038 | ALU_Out = 7fffffef | rd=x15            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 580000 | PC_F: 00000040
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000040
+# --------------------------------------------------
+# 
+# --- Cycle 49 ---
+#   [IF]  PC = 00000040 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 0000003c | Instr = 40175813 | rs1=x14, rs2=x1, rd=x16 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 7fffffef | WriteData = 12345000 | ReadData = 00000000 | rd=x15 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 590000 | PC_F: 00000040
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000040
+# --------------------------------------------------
+# 
+# --- Cycle 50 ---
+#   [IF]  PC = 00000040 | Instr = 00c618b3            
+#   [ID]  PC = 0000003c | Instr = 40175813 | rs1=x14, rs2=x1, rd=x16                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 7fffffef | rd=x15 | RegWr=1
+# Time: 600000 | PC_F: 00000040
+#   [I-CACHE HIT]  Instruction fetched: 00c618b3
+# --------------------------------------------------
+# 
+# --- Cycle 51 ---
+#   [IF]  PC = 00000044 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000040 | Instr = 00c618b3 | rs1=x12, rs2=x12, rd=x17 >>> [STALL]           
+#   [EX]  PC = 0000003c | ALU_Out = ffffffef | rd=x16            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 610000 | PC_F: 00000044
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000044
+# --------------------------------------------------
+# 
+# --- Cycle 52 ---
+#   [IF]  PC = 00000044 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000040 | Instr = 00c618b3 | rs1=x12, rs2=x12, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = ffffffef | WriteData = 12345000 | ReadData = 00000000 | rd=x16 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 620000 | PC_F: 00000044
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000044
+# --------------------------------------------------
+# 
+# --- Cycle 53 ---
+#   [IF]  PC = 00000044 | Instr = 00c7d933            
+#   [ID]  PC = 00000040 | Instr = 00c618b3 | rs1=x12, rs2=x12, rd=x17                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = ffffffef | rd=x16 | RegWr=1
+# Time: 630000 | PC_F: 00000044
+#   [I-CACHE HIT]  Instruction fetched: 00c7d933
+# --------------------------------------------------
+# 
+# --- Cycle 54 ---
+#   [IF]  PC = 00000048 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000044 | Instr = 00c7d933 | rs1=x15, rs2=x12, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000040 | ALU_Out = 00000008 | rd=x17            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 640000 | PC_F: 00000048
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000048
+# --------------------------------------------------
+# 
+# --- Cycle 55 ---
+#   [IF]  PC = 00000048 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000044 | Instr = 00c7d933 | rs1=x15, rs2=x12, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000008 | WriteData = 00000002 | ReadData = 00000000 | rd=x17 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 650000 | PC_F: 00000048
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000048
+# --------------------------------------------------
+# 
+# --- Cycle 56 ---
+#   [IF]  PC = 00000048 | Instr = 40c859b3            
+#   [ID]  PC = 00000044 | Instr = 00c7d933 | rs1=x15, rs2=x12, rd=x18                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000008 | rd=x17 | RegWr=1
+# Time: 660000 | PC_F: 00000048
+#   [I-CACHE HIT]  Instruction fetched: 40c859b3
+# --------------------------------------------------
+# 
+# --- Cycle 57 ---
+#   [IF]  PC = 0000004c | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000048 | Instr = 40c859b3 | rs1=x16, rs2=x12, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000044 | ALU_Out = 1ffffffb | rd=x18            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 670000 | PC_F: 0000004c
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 0000004c
+# --------------------------------------------------
+# 
+# --- Cycle 58 ---
+#   [IF]  PC = 0000004c | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000048 | Instr = 40c859b3 | rs1=x16, rs2=x12, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 1ffffffb | WriteData = 00000002 | ReadData = 00000000 | rd=x18 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 680000 | PC_F: 0000004c
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 0000004c
+# --------------------------------------------------
+# 
+# --- Cycle 59 ---
+#   [IF]  PC = 0000004c | Instr = 01442a13            
+#   [ID]  PC = 00000048 | Instr = 40c859b3 | rs1=x16, rs2=x12, rd=x19                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 1ffffffb | rd=x18 | RegWr=1
+# Time: 690000 | PC_F: 0000004c
+#   [I-CACHE HIT]  Instruction fetched: 01442a13
+# --------------------------------------------------
+# 
+# --- Cycle 60 ---
+#   [IF]  PC = 00000050 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 0000004c | Instr = 01442a13 | rs1=x8, rs2=x20, rd=x20 >>> [STALL]           
+#   [EX]  PC = 00000048 | ALU_Out = fffffffb | rd=x19            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 700000 | PC_F: 00000050
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000050
+# --------------------------------------------------
+# 
+# --- Cycle 61 ---
+#   [IF]  PC = 00000050 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 0000004c | Instr = 01442a13 | rs1=x8, rs2=x20, rd=x20 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = fffffffb | WriteData = 00000002 | ReadData = 00000000 | rd=x19 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 710000 | PC_F: 00000050
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000050
+# --------------------------------------------------
+# 
+# --- Cycle 62 ---
+#   [IF]  PC = 00000050 | Instr = 0141ba93            
+#   [ID]  PC = 0000004c | Instr = 01442a13 | rs1=x8, rs2=x20, rd=x20                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = fffffffb | rd=x19 | RegWr=1
+# Time: 720000 | PC_F: 00000050
+#   [I-CACHE HIT]  Instruction fetched: 0141ba93
+# --------------------------------------------------
+# 
+# --- Cycle 63 ---
+#   [IF]  PC = 00000054 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000050 | Instr = 0141ba93 | rs1=x3, rs2=x20, rd=x21 >>> [STALL]           
+#   [EX]  PC = 0000004c | ALU_Out = 00000001 | rd=x20            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 730000 | PC_F: 00000054
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000054
+# --------------------------------------------------
+# 
+# --- Cycle 64 ---
+#   [IF]  PC = 00000054 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000050 | Instr = 0141ba93 | rs1=x3, rs2=x20, rd=x21 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000001 | WriteData = 00000000 | ReadData = 00000000 | rd=x20 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 740000 | PC_F: 00000054
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000054
+# --------------------------------------------------
+# 
+# --- Cycle 65 ---
+#   [IF]  PC = 00000054 | Instr = 0081ab33            
+#   [ID]  PC = 00000050 | Instr = 0141ba93 | rs1=x3, rs2=x20, rd=x21                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000001 | rd=x20 | RegWr=1
+# Time: 750000 | PC_F: 00000054
+#   [I-CACHE HIT]  Instruction fetched: 0081ab33
+# --------------------------------------------------
+# 
+# --- Cycle 66 ---
+#   [IF]  PC = 00000058 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000054 | Instr = 0081ab33 | rs1=x3, rs2=x8, rd=x22 >>> [STALL]           
+#   [EX]  PC = 00000050 | ALU_Out = 00000000 | rd=x21            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 760000 | PC_F: 00000058
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000058
+# --------------------------------------------------
+# 
+# --- Cycle 67 ---
+#   [IF]  PC = 00000058 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000054 | Instr = 0081ab33 | rs1=x3, rs2=x8, rd=x22 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000001 | ReadData = 00000000 | rd=x21 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 770000 | PC_F: 00000058
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000058
+# --------------------------------------------------
+# 
+# --- Cycle 68 ---
+#   [IF]  PC = 00000058 | Instr = 0081bbb3            
+#   [ID]  PC = 00000054 | Instr = 0081ab33 | rs1=x3, rs2=x8, rd=x22                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x21 | RegWr=1
+# Time: 780000 | PC_F: 00000058
+#   [I-CACHE HIT]  Instruction fetched: 0081bbb3
+# --------------------------------------------------
+# 
+# --- Cycle 69 ---
+#   [IF]  PC = 0000005c | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000058 | Instr = 0081bbb3 | rs1=x3, rs2=x8, rd=x23 >>> [STALL]           
+#   [EX]  PC = 00000054 | ALU_Out = 00000001 | rd=x22            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 790000 | PC_F: 0000005c
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 0000005c
+# --------------------------------------------------
+# 
+# --- Cycle 70 ---
+#   [IF]  PC = 0000005c | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000058 | Instr = 0081bbb3 | rs1=x3, rs2=x8, rd=x23 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000001 | WriteData = 00000003 | ReadData = 00000000 | rd=x22 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 800000 | PC_F: 0000005c
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 0000005c
+# --------------------------------------------------
+# 
+# --- Cycle 71 ---
+#   [IF]  PC = 0000005c | Instr = 00000c37            
+#   [ID]  PC = 00000058 | Instr = 0081bbb3 | rs1=x3, rs2=x8, rd=x23                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000001 | rd=x22 | RegWr=1
+# Time: 810000 | PC_F: 0000005c
+#   [I-CACHE HIT]  Instruction fetched: 00000c37
+# --------------------------------------------------
+# 
+# --- Cycle 72 ---
+#   [IF]  PC = 00000060 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 0000005c | Instr = 00000c37 | rs1=x0, rs2=x0, rd=x24 >>> [STALL]           
+#   [EX]  PC = 00000058 | ALU_Out = 00000000 | rd=x23            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 820000 | PC_F: 00000060
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000060
+# --------------------------------------------------
+# 
+# --- Cycle 73 ---
+#   [IF]  PC = 00000060 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 0000005c | Instr = 00000c37 | rs1=x0, rs2=x0, rd=x24 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000003 | ReadData = 00000000 | rd=x23 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 830000 | PC_F: 00000060
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000060
+# --------------------------------------------------
+# 
+# --- Cycle 74 ---
+#   [IF]  PC = 00000060 | Instr = 008c2023            
+#   [ID]  PC = 0000005c | Instr = 00000c37 | rs1=x0, rs2=x0, rd=x24                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x23 | RegWr=1
+# Time: 840000 | PC_F: 00000060
+#   [I-CACHE HIT]  Instruction fetched: 008c2023
+# --------------------------------------------------
+# 
+# --- Cycle 75 ---
+#   [IF]  PC = 00000064 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000060 | Instr = 008c2023 | rs1=x24, rs2=x8, rd=x0 >>> [STALL]           
+#   [EX]  PC = 0000005c | ALU_Out = 00000000 | rd=x24            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 850000 | PC_F: 00000064
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000064
+# --------------------------------------------------
+# 
+# --- Cycle 76 ---
+#   [IF]  PC = 00000064 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000060 | Instr = 008c2023 | rs1=x24, rs2=x8, rd=x0 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x24 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 860000 | PC_F: 00000064
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000064
+# --------------------------------------------------
+# 
+# --- Cycle 77 ---
+#   [IF]  PC = 00000064 | Instr = 00dc1223            
+#   [ID]  PC = 00000060 | Instr = 008c2023 | rs1=x24, rs2=x8, rd=x0                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x24 | RegWr=1
+# Time: 870000 | PC_F: 00000064
+#   [I-CACHE HIT]  Instruction fetched: 00dc1223
+# --------------------------------------------------
+# 
+# --- Cycle 78 ---
+#   [IF]  PC = 00000068 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000064 | Instr = 00dc1223 | rs1=x24, rs2=x13, rd=x4 >>> [STALL]           
+#   [EX]  PC = 00000060 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 880000 | PC_F: 00000068
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000068
+# --------------------------------------------------
+# 
+# --- Cycle 79 ---
+#   [IF]  PC = 00000068 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000064 | Instr = 00dc1223 | rs1=x24, rs2=x13, rd=x4 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000003 | ReadData = 00000000 | rd=x0 | MemWr=1
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 890000 | PC_F: 00000068
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000068
+#   [D-CACHE MISS/BUSY] Stalling pipeline to process Data at Addr: 00000000
+# --------------------------------------------------
+# 
+# --- Cycle 80 ---
+#   [IF]  PC = 00000068 | Instr = 007c0323 >>> [STALL]
+#   [ID]  PC = 00000064 | Instr = 00dc1223 | rs1=x24, rs2=x13, rd=x4 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000003 | ReadData = 00000000 | rd=x0 | MemWr=1
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 900000 | PC_F: 00000068
+#   [I-CACHE HIT]  Instruction fetched: 007c0323
+#   [D-CACHE MISS/BUSY] Stalling pipeline to process Data at Addr: 00000000
+# --------------------------------------------------
+# 
+# --- Cycle 81 ---
+#   [IF]  PC = 00000068 | Instr = 007c0323 >>> [STALL]
+#   [ID]  PC = 00000064 | Instr = 00dc1223 | rs1=x24, rs2=x13, rd=x4 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000003 | ReadData = 00000000 | rd=x0 | MemWr=1
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 910000 | PC_F: 00000068
+#   [I-CACHE HIT]  Instruction fetched: 007c0323
+#   [D-CACHE MISS/BUSY] Stalling pipeline to process Data at Addr: 00000000
+# --------------------------------------------------
+# 
+# --- Cycle 82 ---
+#   [IF]  PC = 00000068 | Instr = 007c0323            
+#   [ID]  PC = 00000064 | Instr = 00dc1223 | rs1=x24, rs2=x13, rd=x4                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000003 | ReadData = 123450b7 | rd=x0 | MemWr=1
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 920000 | PC_F: 00000068
+#   [I-CACHE HIT]  Instruction fetched: 007c0323
+#   [D-CACHE HIT]  Data successfully accessed at Addr: 00000000
+# --------------------------------------------------
+# 
+# --- Cycle 83 ---
+#   [IF]  PC = 0000006c | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000068 | Instr = 007c0323 | rs1=x24, rs2=x7, rd=x6 >>> [STALL]           
+#   [EX]  PC = 00000064 | ALU_Out = 00000004 | rd=x4            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 930000 | PC_F: 0000006c
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 0000006c
+# --------------------------------------------------
+# 
+# --- Cycle 84 ---
+#   [IF]  PC = 0000006c | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000068 | Instr = 007c0323 | rs1=x24, rs2=x7, rd=x6 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000004 | WriteData = 00000008 | ReadData = 00000000 | rd=x4 | MemWr=1
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 940000 | PC_F: 0000006c
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 0000006c
+#   [D-CACHE MISS/BUSY] Stalling pipeline to process Data at Addr: 00000004
+# --------------------------------------------------
+# 
+# --- Cycle 85 ---
+#   [IF]  PC = 0000006c | Instr = 000c2c83 >>> [STALL]
+#   [ID]  PC = 00000068 | Instr = 007c0323 | rs1=x24, rs2=x7, rd=x6 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000004 | WriteData = 00000008 | ReadData = 00000000 | rd=x4 | MemWr=1
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 950000 | PC_F: 0000006c
+#   [I-CACHE HIT]  Instruction fetched: 000c2c83
+#   [D-CACHE MISS/BUSY] Stalling pipeline to process Data at Addr: 00000004
+# --------------------------------------------------
+# 
+# --- Cycle 86 ---
+#   [IF]  PC = 0000006c | Instr = 000c2c83 >>> [STALL]
+#   [ID]  PC = 00000068 | Instr = 007c0323 | rs1=x24, rs2=x7, rd=x6 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000004 | WriteData = 00000008 | ReadData = 00000000 | rd=x4 | MemWr=1
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 960000 | PC_F: 0000006c
+#   [I-CACHE HIT]  Instruction fetched: 000c2c83
+#   [D-CACHE MISS/BUSY] Stalling pipeline to process Data at Addr: 00000004
+# --------------------------------------------------
+# 
+# --- Cycle 87 ---
+#   [IF]  PC = 0000006c | Instr = 000c2c83            
+#   [ID]  PC = 00000068 | Instr = 007c0323 | rs1=x24, rs2=x7, rd=x6                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000004 | WriteData = 00000008 | ReadData = 00000117 | rd=x4 | MemWr=1
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 970000 | PC_F: 0000006c
+#   [I-CACHE HIT]  Instruction fetched: 000c2c83
+#   [D-CACHE HIT]  Data successfully accessed at Addr: 00000004
+# --------------------------------------------------
+# 
+# --- Cycle 88 ---
+#   [IF]  PC = 00000070 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 0000006c | Instr = 000c2c83 | rs1=x24, rs2=x0, rd=x25 >>> [STALL]           
+#   [EX]  PC = 00000068 | ALU_Out = 00000006 | rd=x6            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000004 | rd=x4 | RegWr=0
+# Time: 980000 | PC_F: 00000070
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000070
+# --------------------------------------------------
+# 
+# --- Cycle 89 ---
+#   [IF]  PC = 00000070 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 0000006c | Instr = 000c2c83 | rs1=x24, rs2=x0, rd=x25 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000006 | WriteData = ffffffef | ReadData = 00000000 | rd=x6 | MemWr=1
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 990000 | PC_F: 00000070
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000070
+#   [D-CACHE HIT]  Data successfully accessed at Addr: 00000006
+# --------------------------------------------------
+# 
+# --- Cycle 90 ---
+#   [IF]  PC = 00000070 | Instr = 000c8d33            
+#   [ID]  PC = 0000006c | Instr = 000c2c83 | rs1=x24, rs2=x0, rd=x25                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000006 | rd=x6 | RegWr=0
+# Time: 1000000 | PC_F: 00000070
+#   [I-CACHE HIT]  Instruction fetched: 000c8d33
+# --------------------------------------------------
+# 
+# --- Cycle 91 ---
+#   [IF]  PC = 00000074 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000070 | Instr = 000c8d33 | rs1=x25, rs2=x0, rd=x26 >>> [STALL]           
+#   [EX]  PC = 0000006c | ALU_Out = 00000000 | rd=x25            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1010000 | PC_F: 00000074
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000074
+# --------------------------------------------------
+# 
+# --- Cycle 92 ---
+#   [IF]  PC = 00000074 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000070 | Instr = 000c8d33 | rs1=x25, rs2=x0, rd=x26 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x25 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1020000 | PC_F: 00000074
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000074
+#   [D-CACHE HIT]  Data successfully accessed at Addr: 00000000
+# --------------------------------------------------
+# 
+# --- Cycle 93 ---
+#   [IF]  PC = 00000074 | Instr = 004c1d83            
+#   [ID]  PC = 00000070 | Instr = 000c8d33 | rs1=x25, rs2=x0, rd=x26                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000003 | rd=x25 | RegWr=1
+# Time: 1030000 | PC_F: 00000074
+#   [I-CACHE HIT]  Instruction fetched: 004c1d83
+# --------------------------------------------------
+# 
+# --- Cycle 94 ---
+#   [IF]  PC = 00000078 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000074 | Instr = 004c1d83 | rs1=x24, rs2=x4, rd=x27 >>> [STALL]           
+#   [EX]  PC = 00000070 | ALU_Out = 00000003 | rd=x26            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1040000 | PC_F: 00000078
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000078
+# --------------------------------------------------
+# 
+# --- Cycle 95 ---
+#   [IF]  PC = 00000078 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000074 | Instr = 004c1d83 | rs1=x24, rs2=x4, rd=x27 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000003 | WriteData = 00000000 | ReadData = 00000000 | rd=x26 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1050000 | PC_F: 00000078
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000078
+# --------------------------------------------------
+# 
+# --- Cycle 96 ---
+#   [IF]  PC = 00000078 | Instr = 006c5e03            
+#   [ID]  PC = 00000074 | Instr = 004c1d83 | rs1=x24, rs2=x4, rd=x27                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000003 | rd=x26 | RegWr=1
+# Time: 1060000 | PC_F: 00000078
+#   [I-CACHE HIT]  Instruction fetched: 006c5e03
+# --------------------------------------------------
+# 
+# --- Cycle 97 ---
+#   [IF]  PC = 0000007c | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000078 | Instr = 006c5e03 | rs1=x24, rs2=x6, rd=x28 >>> [STALL]           
+#   [EX]  PC = 00000074 | ALU_Out = 00000004 | rd=x27            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1070000 | PC_F: 0000007c
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 0000007c
+# --------------------------------------------------
+# 
+# --- Cycle 98 ---
+#   [IF]  PC = 0000007c | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000078 | Instr = 006c5e03 | rs1=x24, rs2=x6, rd=x28 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000004 | WriteData = fffffff9 | ReadData = 00000008 | rd=x27 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1080000 | PC_F: 0000007c
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 0000007c
+#   [D-CACHE HIT]  Data successfully accessed at Addr: 00000004
+# --------------------------------------------------
+# 
+# --- Cycle 99 ---
+#   [IF]  PC = 0000007c | Instr = 006c0e83            
+#   [ID]  PC = 00000078 | Instr = 006c5e03 | rs1=x24, rs2=x6, rd=x28                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000008 | rd=x27 | RegWr=1
+# Time: 1090000 | PC_F: 0000007c
+#   [I-CACHE HIT]  Instruction fetched: 006c0e83
+# --------------------------------------------------
+# 
+# --- Cycle 100 ---
+#   [IF]  PC = 00000080 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 0000007c | Instr = 006c0e83 | rs1=x24, rs2=x6, rd=x29 >>> [STALL]           
+#   [EX]  PC = 00000078 | ALU_Out = 00000006 | rd=x28            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1100000 | PC_F: 00000080
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000080
+# --------------------------------------------------
+# 
+# --- Cycle 101 ---
+#   [IF]  PC = 00000080 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 0000007c | Instr = 006c0e83 | rs1=x24, rs2=x6, rd=x29 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000006 | WriteData = 0000000f | ReadData = 000000ef | rd=x28 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1110000 | PC_F: 00000080
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000080
+#   [D-CACHE HIT]  Data successfully accessed at Addr: 00000006
+# --------------------------------------------------
+# 
+# --- Cycle 102 ---
+#   [IF]  PC = 00000080 | Instr = 006c4f03            
+#   [ID]  PC = 0000007c | Instr = 006c0e83 | rs1=x24, rs2=x6, rd=x29                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 000000ef | rd=x28 | RegWr=1
+# Time: 1120000 | PC_F: 00000080
+#   [I-CACHE HIT]  Instruction fetched: 006c4f03
+# --------------------------------------------------
+# 
+# --- Cycle 103 ---
+#   [IF]  PC = 00000084 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000080 | Instr = 006c4f03 | rs1=x24, rs2=x6, rd=x30 >>> [STALL]           
+#   [EX]  PC = 0000007c | ALU_Out = 00000006 | rd=x29            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1130000 | PC_F: 00000084
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000084
+# --------------------------------------------------
+# 
+# --- Cycle 104 ---
+#   [IF]  PC = 00000084 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000080 | Instr = 006c4f03 | rs1=x24, rs2=x6, rd=x30 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000006 | WriteData = 0000000f | ReadData = ffffffef | rd=x29 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1140000 | PC_F: 00000084
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000084
+#   [D-CACHE HIT]  Data successfully accessed at Addr: 00000006
+# --------------------------------------------------
+# 
+# --- Cycle 105 ---
+#   [IF]  PC = 00000084 | Instr = 01ac8463            
+#   [ID]  PC = 00000080 | Instr = 006c4f03 | rs1=x24, rs2=x6, rd=x30                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = ffffffef | rd=x29 | RegWr=1
+# Time: 1150000 | PC_F: 00000084
+#   [I-CACHE HIT]  Instruction fetched: 01ac8463
+# --------------------------------------------------
+# 
+# --- Cycle 106 ---
+#   [IF]  PC = 00000088 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000084 | Instr = 01ac8463 | rs1=x25, rs2=x26, rd=x8 >>> [STALL]           
+#   [EX]  PC = 00000080 | ALU_Out = 00000006 | rd=x30            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1160000 | PC_F: 00000088
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000088
+# --------------------------------------------------
+# 
+# --- Cycle 107 ---
+#   [IF]  PC = 00000088 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000084 | Instr = 01ac8463 | rs1=x25, rs2=x26, rd=x8 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000006 | WriteData = 0000000f | ReadData = 000000ef | rd=x30 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1170000 | PC_F: 00000088
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000088
+#   [D-CACHE HIT]  Data successfully accessed at Addr: 00000006
+# --------------------------------------------------
+# 
+# --- Cycle 108 ---
+#   [IF]  PC = 00000088 | Instr = fff00f93            
+#   [ID]  PC = 00000084 | Instr = 01ac8463 | rs1=x25, rs2=x26, rd=x8                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 000000ef | rd=x30 | RegWr=1
+# Time: 1180000 | PC_F: 00000088
+#   [I-CACHE HIT]  Instruction fetched: fff00f93
+# --------------------------------------------------
+# 
+# --- Cycle 109 ---
+#   [IF]  PC = 0000008c | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000088 | Instr = fff00f93 | rs1=x0, rs2=x31, rd=x31 >>> [STALL]>>> [FLUSH]
+#   [EX]  PC = 00000084 | ALU_Out = 00000000 | rd=x8 >>> [FLUSH]
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1190000 | PC_F: 0000008c
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 0000008c
+# --------------------------------------------------
+# 
+# --- Cycle 110 ---
+#   [IF]  PC = 0000008c | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000000 | Instr = 00000000 | rs1=x0, rs2=x0, rd=x0 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000003 | ReadData = 00000003 | rd=x8 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1200000 | PC_F: 0000008c
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 0000008c
+# --------------------------------------------------
+# 
+# --- Cycle 111 ---
+#   [IF]  PC = 0000008c | Instr = 000c9463            
+#   [ID]  PC = 00000000 | Instr = 00000000 | rs1=x0, rs2=x0, rd=x0                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x8 | RegWr=0
+# Time: 1210000 | PC_F: 0000008c
+#   [I-CACHE HIT]  Instruction fetched: 000c9463
+# --------------------------------------------------
+# 
+# --- Cycle 112 ---
+#   [IF]  PC = 00000090 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 0000008c | Instr = 000c9463 | rs1=x25, rs2=x0, rd=x8 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1220000 | PC_F: 00000090
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000090
+# --------------------------------------------------
+# 
+# --- Cycle 113 ---
+#   [IF]  PC = 00000090 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 0000008c | Instr = 000c9463 | rs1=x25, rs2=x0, rd=x8 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1230000 | PC_F: 00000090
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000090
+# --------------------------------------------------
+# 
+# --- Cycle 114 ---
+#   [IF]  PC = 00000090 | Instr = ffe00f93            
+#   [ID]  PC = 0000008c | Instr = 000c9463 | rs1=x25, rs2=x0, rd=x8                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1240000 | PC_F: 00000090
+#   [I-CACHE HIT]  Instruction fetched: ffe00f93
+# --------------------------------------------------
+# 
+# --- Cycle 115 ---
+#   [IF]  PC = 00000094 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000090 | Instr = ffe00f93 | rs1=x0, rs2=x30, rd=x31 >>> [STALL]>>> [FLUSH]
+#   [EX]  PC = 0000008c | ALU_Out = 00000003 | rd=x8 >>> [FLUSH]
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1250000 | PC_F: 00000094
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000094
+# --------------------------------------------------
+# 
+# --- Cycle 116 ---
+#   [IF]  PC = 00000094 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000000 | Instr = 00000000 | rs1=x0, rs2=x0, rd=x0 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000003 | WriteData = 00000000 | ReadData = 00000000 | rd=x8 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1260000 | PC_F: 00000094
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000094
+# --------------------------------------------------
+# 
+# --- Cycle 117 ---
+#   [IF]  PC = 00000094 | Instr = 0081c463            
+#   [ID]  PC = 00000000 | Instr = 00000000 | rs1=x0, rs2=x0, rd=x0                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000003 | rd=x8 | RegWr=0
+# Time: 1270000 | PC_F: 00000094
+#   [I-CACHE HIT]  Instruction fetched: 0081c463
+# --------------------------------------------------
+# 
+# --- Cycle 118 ---
+#   [IF]  PC = 00000098 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000094 | Instr = 0081c463 | rs1=x3, rs2=x8, rd=x8 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1280000 | PC_F: 00000098
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000098
+# --------------------------------------------------
+# 
+# --- Cycle 119 ---
+#   [IF]  PC = 00000098 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000094 | Instr = 0081c463 | rs1=x3, rs2=x8, rd=x8 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1290000 | PC_F: 00000098
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000098
+# --------------------------------------------------
+# 
+# --- Cycle 120 ---
+#   [IF]  PC = 00000098 | Instr = ffd00f93            
+#   [ID]  PC = 00000094 | Instr = 0081c463 | rs1=x3, rs2=x8, rd=x8                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1300000 | PC_F: 00000098
+#   [I-CACHE HIT]  Instruction fetched: ffd00f93
+# --------------------------------------------------
+# 
+# --- Cycle 121 ---
+#   [IF]  PC = 0000009c | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000098 | Instr = ffd00f93 | rs1=x0, rs2=x29, rd=x31 >>> [STALL]>>> [FLUSH]
+#   [EX]  PC = 00000094 | ALU_Out = fffffff3 | rd=x8 >>> [FLUSH]
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1310000 | PC_F: 0000009c
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 0000009c
+# --------------------------------------------------
+# 
+# --- Cycle 122 ---
+#   [IF]  PC = 0000009c | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000000 | Instr = 00000000 | rs1=x0, rs2=x0, rd=x0 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = fffffff3 | WriteData = 00000003 | ReadData = 00000000 | rd=x8 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1320000 | PC_F: 0000009c
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 0000009c
+# --------------------------------------------------
+# 
+# --- Cycle 123 ---
+#   [IF]  PC = 0000009c | Instr = 00345463            
+#   [ID]  PC = 00000000 | Instr = 00000000 | rs1=x0, rs2=x0, rd=x0                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = fffffff3 | rd=x8 | RegWr=0
+# Time: 1330000 | PC_F: 0000009c
+#   [I-CACHE HIT]  Instruction fetched: 00345463
+# --------------------------------------------------
+# 
+# --- Cycle 124 ---
+#   [IF]  PC = 000000a0 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 0000009c | Instr = 00345463 | rs1=x8, rs2=x3, rd=x8 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1340000 | PC_F: 000000a0
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000a0
+# --------------------------------------------------
+# 
+# --- Cycle 125 ---
+#   [IF]  PC = 000000a0 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 0000009c | Instr = 00345463 | rs1=x8, rs2=x3, rd=x8 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1350000 | PC_F: 000000a0
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000a0
+# --------------------------------------------------
+# 
+# --- Cycle 126 ---
+#   [IF]  PC = 000000a0 | Instr = ffc00f93            
+#   [ID]  PC = 0000009c | Instr = 00345463 | rs1=x8, rs2=x3, rd=x8                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1360000 | PC_F: 000000a0
+#   [I-CACHE HIT]  Instruction fetched: ffc00f93
+# --------------------------------------------------
+# 
+# --- Cycle 127 ---
+#   [IF]  PC = 000000a4 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000a0 | Instr = ffc00f93 | rs1=x0, rs2=x28, rd=x31 >>> [STALL]>>> [FLUSH]
+#   [EX]  PC = 0000009c | ALU_Out = 0000000d | rd=x8 >>> [FLUSH]
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1370000 | PC_F: 000000a4
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000a4
+# --------------------------------------------------
+# 
+# --- Cycle 128 ---
+#   [IF]  PC = 000000a4 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000000 | Instr = 00000000 | rs1=x0, rs2=x0, rd=x0 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 0000000d | WriteData = fffffff6 | ReadData = 00000000 | rd=x8 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1380000 | PC_F: 000000a4
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000a4
+# --------------------------------------------------
+# 
+# --- Cycle 129 ---
+#   [IF]  PC = 000000a4 | Instr = 00346463            
+#   [ID]  PC = 00000000 | Instr = 00000000 | rs1=x0, rs2=x0, rd=x0                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 0000000d | rd=x8 | RegWr=0
+# Time: 1390000 | PC_F: 000000a4
+#   [I-CACHE HIT]  Instruction fetched: 00346463
+# --------------------------------------------------
+# 
+# --- Cycle 130 ---
+#   [IF]  PC = 000000a8 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000a4 | Instr = 00346463 | rs1=x8, rs2=x3, rd=x8 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1400000 | PC_F: 000000a8
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000a8
+# --------------------------------------------------
+# 
+# --- Cycle 131 ---
+#   [IF]  PC = 000000a8 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000a4 | Instr = 00346463 | rs1=x8, rs2=x3, rd=x8 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1410000 | PC_F: 000000a8
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000a8
+# --------------------------------------------------
+# 
+# --- Cycle 132 ---
+#   [IF]  PC = 000000a8 | Instr = ffb00f93            
+#   [ID]  PC = 000000a4 | Instr = 00346463 | rs1=x8, rs2=x3, rd=x8                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1420000 | PC_F: 000000a8
+#   [I-CACHE HIT]  Instruction fetched: ffb00f93
+# --------------------------------------------------
+# 
+# --- Cycle 133 ---
+#   [IF]  PC = 000000ac | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000a8 | Instr = ffb00f93 | rs1=x0, rs2=x27, rd=x31 >>> [STALL]>>> [FLUSH]
+#   [EX]  PC = 000000a4 | ALU_Out = 0000000d | rd=x8 >>> [FLUSH]
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1430000 | PC_F: 000000ac
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000ac
+# --------------------------------------------------
+# 
+# --- Cycle 134 ---
+#   [IF]  PC = 000000ac | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000000 | Instr = 00000000 | rs1=x0, rs2=x0, rd=x0 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 0000000d | WriteData = fffffff6 | ReadData = 00000000 | rd=x8 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1440000 | PC_F: 000000ac
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000ac
+# --------------------------------------------------
+# 
+# --- Cycle 135 ---
+#   [IF]  PC = 000000ac | Instr = 0081f463            
+#   [ID]  PC = 00000000 | Instr = 00000000 | rs1=x0, rs2=x0, rd=x0                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 0000000d | rd=x8 | RegWr=0
+# Time: 1450000 | PC_F: 000000ac
+#   [I-CACHE HIT]  Instruction fetched: 0081f463
+# --------------------------------------------------
+# 
+# --- Cycle 136 ---
+#   [IF]  PC = 000000b0 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000ac | Instr = 0081f463 | rs1=x3, rs2=x8, rd=x8 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1460000 | PC_F: 000000b0
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000b0
+# --------------------------------------------------
+# 
+# --- Cycle 137 ---
+#   [IF]  PC = 000000b0 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000ac | Instr = 0081f463 | rs1=x3, rs2=x8, rd=x8 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1470000 | PC_F: 000000b0
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000b0
+# --------------------------------------------------
+# 
+# --- Cycle 138 ---
+#   [IF]  PC = 000000b0 | Instr = ffa00f93            
+#   [ID]  PC = 000000ac | Instr = 0081f463 | rs1=x3, rs2=x8, rd=x8                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1480000 | PC_F: 000000b0
+#   [I-CACHE HIT]  Instruction fetched: ffa00f93
+# --------------------------------------------------
+# 
+# --- Cycle 139 ---
+#   [IF]  PC = 000000b4 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000b0 | Instr = ffa00f93 | rs1=x0, rs2=x26, rd=x31 >>> [STALL]>>> [FLUSH]
+#   [EX]  PC = 000000ac | ALU_Out = fffffff3 | rd=x8 >>> [FLUSH]
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1490000 | PC_F: 000000b4
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000b4
+# --------------------------------------------------
+# 
+# --- Cycle 140 ---
+#   [IF]  PC = 000000b4 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000000 | Instr = 00000000 | rs1=x0, rs2=x0, rd=x0 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = fffffff3 | WriteData = 00000003 | ReadData = 00000000 | rd=x8 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1500000 | PC_F: 000000b4
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000b4
+# --------------------------------------------------
+# 
+# --- Cycle 141 ---
+#   [IF]  PC = 000000b4 | Instr = 00c00fef            
+#   [ID]  PC = 00000000 | Instr = 00000000 | rs1=x0, rs2=x0, rd=x0                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = fffffff3 | rd=x8 | RegWr=0
+# Time: 1510000 | PC_F: 000000b4
+#   [I-CACHE HIT]  Instruction fetched: 00c00fef
+# --------------------------------------------------
+# 
+# --- Cycle 142 ---
+#   [IF]  PC = 000000b8 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000b4 | Instr = 00c00fef | rs1=x0, rs2=x12, rd=x31 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1520000 | PC_F: 000000b8
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000b8
+# --------------------------------------------------
+# 
+# --- Cycle 143 ---
+#   [IF]  PC = 000000b8 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000b4 | Instr = 00c00fef | rs1=x0, rs2=x12, rd=x31 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1530000 | PC_F: 000000b8
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000b8
+# --------------------------------------------------
+# 
+# --- Cycle 144 ---
+#   [IF]  PC = 000000b8 | Instr = ff900f93            
+#   [ID]  PC = 000000b4 | Instr = 00c00fef | rs1=x0, rs2=x12, rd=x31                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1540000 | PC_F: 000000b8
+#   [I-CACHE HIT]  Instruction fetched: ff900f93
+# --------------------------------------------------
+# 
+# --- Cycle 145 ---
+#   [IF]  PC = 000000bc | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000b8 | Instr = ff900f93 | rs1=x0, rs2=x25, rd=x31 >>> [STALL]>>> [FLUSH]
+#   [EX]  PC = 000000b4 | ALU_Out = 00000002 | rd=x31 >>> [FLUSH]
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1550000 | PC_F: 000000bc
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000bc
+# --------------------------------------------------
+# 
+# --- Cycle 146 ---
+#   [IF]  PC = 000000bc | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000000 | Instr = 00000000 | rs1=x0, rs2=x0, rd=x0 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000002 | WriteData = 00000002 | ReadData = 00000000 | rd=x31 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1560000 | PC_F: 000000bc
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000bc
+# --------------------------------------------------
+# 
+# --- Cycle 147 ---
+#   [IF]  PC = 000000bc | Instr = ff800f93            
+#   [ID]  PC = 00000000 | Instr = 00000000 | rs1=x0, rs2=x0, rd=x0                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 000000b8 | rd=x31 | RegWr=1
+# Time: 1570000 | PC_F: 000000bc
+#   [I-CACHE HIT]  Instruction fetched: ff800f93
+# --------------------------------------------------
+# 
+# --- Cycle 148 ---
+#   [IF]  PC = 000000c0 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000bc | Instr = ff800f93 | rs1=x0, rs2=x24, rd=x31 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1580000 | PC_F: 000000c0
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000c0
+# --------------------------------------------------
+# 
+# --- Cycle 149 ---
+#   [IF]  PC = 000000c0 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000bc | Instr = ff800f93 | rs1=x0, rs2=x24, rd=x31 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1590000 | PC_F: 000000c0
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000c0
+# --------------------------------------------------
+# 
+# --- Cycle 150 ---
+#   [IF]  PC = 000000c0 | Instr = 00000297            
+#   [ID]  PC = 000000bc | Instr = ff800f93 | rs1=x0, rs2=x24, rd=x31                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1600000 | PC_F: 000000c0
+#   [I-CACHE HIT]  Instruction fetched: 00000297
+# --------------------------------------------------
+# 
+# --- Cycle 151 ---
+#   [IF]  PC = 000000c4 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000c0 | Instr = 00000297 | rs1=x0, rs2=x0, rd=x5 >>> [STALL]           
+#   [EX]  PC = 000000bc | ALU_Out = fffffff8 | rd=x31            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1610000 | PC_F: 000000c4
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000c4
+# --------------------------------------------------
+# 
+# --- Cycle 152 ---
+#   [IF]  PC = 000000c4 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000c0 | Instr = 00000297 | rs1=x0, rs2=x0, rd=x5 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = fffffff8 | WriteData = 00000000 | ReadData = 00000000 | rd=x31 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1620000 | PC_F: 000000c4
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000c4
+# --------------------------------------------------
+# 
+# --- Cycle 153 ---
+#   [IF]  PC = 000000c4 | Instr = 00c28293            
+#   [ID]  PC = 000000c0 | Instr = 00000297 | rs1=x0, rs2=x0, rd=x5                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = fffffff8 | rd=x31 | RegWr=1
+# Time: 1630000 | PC_F: 000000c4
+#   [I-CACHE HIT]  Instruction fetched: 00c28293
+# --------------------------------------------------
+# 
+# --- Cycle 154 ---
+#   [IF]  PC = 000000c8 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000c4 | Instr = 00c28293 | rs1=x5, rs2=x12, rd=x5 >>> [STALL]           
+#   [EX]  PC = 000000c0 | ALU_Out = 000000c0 | rd=x5            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1640000 | PC_F: 000000c8
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000c8
+# --------------------------------------------------
+# 
+# --- Cycle 155 ---
+#   [IF]  PC = 000000c8 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000c4 | Instr = 00c28293 | rs1=x5, rs2=x12, rd=x5 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 000000c0 | WriteData = 00000000 | ReadData = 00000000 | rd=x5 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1650000 | PC_F: 000000c8
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000c8
+# --------------------------------------------------
+# 
+# --- Cycle 156 ---
+#   [IF]  PC = 000000c8 | Instr = 00028067            
+#   [ID]  PC = 000000c4 | Instr = 00c28293 | rs1=x5, rs2=x12, rd=x5                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 000000c0 | rd=x5 | RegWr=1
+# Time: 1660000 | PC_F: 000000c8
+#   [I-CACHE HIT]  Instruction fetched: 00028067
+# --------------------------------------------------
+# 
+# --- Cycle 157 ---
+#   [IF]  PC = 000000cc | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000c8 | Instr = 00028067 | rs1=x5, rs2=x0, rd=x0 >>> [STALL]           
+#   [EX]  PC = 000000c4 | ALU_Out = 000000cc | rd=x5            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1670000 | PC_F: 000000cc
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000cc
+# --------------------------------------------------
+# 
+# --- Cycle 158 ---
+#   [IF]  PC = 000000cc | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000c8 | Instr = 00028067 | rs1=x5, rs2=x0, rd=x0 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 000000cc | WriteData = 00000002 | ReadData = 00000000 | rd=x5 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1680000 | PC_F: 000000cc
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000cc
+# --------------------------------------------------
+# 
+# --- Cycle 159 ---
+#   [IF]  PC = 000000cc | Instr = ff700f93            
+#   [ID]  PC = 000000c8 | Instr = 00028067 | rs1=x5, rs2=x0, rd=x0                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 000000cc | rd=x5 | RegWr=1
+# Time: 1690000 | PC_F: 000000cc
+#   [I-CACHE HIT]  Instruction fetched: ff700f93
+# --------------------------------------------------
+# 
+# --- Cycle 160 ---
+#   [IF]  PC = 000000d0 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000cc | Instr = ff700f93 | rs1=x0, rs2=x23, rd=x31 >>> [STALL]>>> [FLUSH]
+#   [EX]  PC = 000000c8 | ALU_Out = 000000cc | rd=x0 >>> [FLUSH]
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1700000 | PC_F: 000000d0
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000d0
+# --------------------------------------------------
+# 
+# --- Cycle 161 ---
+#   [IF]  PC = 000000d0 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000000 | Instr = 00000000 | rs1=x0, rs2=x0, rd=x0 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 000000cc | WriteData = 00000000 | ReadData = 00000000 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1710000 | PC_F: 000000d0
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000d0
+# --------------------------------------------------
+# 
+# --- Cycle 162 ---
+#   [IF]  PC = 000000d0 | Instr = ff600f93            
+#   [ID]  PC = 00000000 | Instr = 00000000 | rs1=x0, rs2=x0, rd=x0                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 000000cc | rd=x0 | RegWr=1
+# Time: 1720000 | PC_F: 000000d0
+#   [I-CACHE HIT]  Instruction fetched: ff600f93
+# --------------------------------------------------
+# 
+# --- Cycle 163 ---
+#   [IF]  PC = 000000d4 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000d0 | Instr = ff600f93 | rs1=x0, rs2=x22, rd=x31 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1730000 | PC_F: 000000d4
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000d4
+# --------------------------------------------------
+# 
+# --- Cycle 164 ---
+#   [IF]  PC = 000000d4 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000d0 | Instr = ff600f93 | rs1=x0, rs2=x22, rd=x31 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1740000 | PC_F: 000000d4
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000d4
+# --------------------------------------------------
+# 
+# --- Cycle 165 ---
+#   [IF]  PC = 000000d4 | Instr = 00100f93            
+#   [ID]  PC = 000000d0 | Instr = ff600f93 | rs1=x0, rs2=x22, rd=x31                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1750000 | PC_F: 000000d4
+#   [I-CACHE HIT]  Instruction fetched: 00100f93
+# --------------------------------------------------
+# 
+# --- Cycle 166 ---
+#   [IF]  PC = 000000d8 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000d4 | Instr = 00100f93 | rs1=x0, rs2=x1, rd=x31 >>> [STALL]           
+#   [EX]  PC = 000000d0 | ALU_Out = fffffff6 | rd=x31            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1760000 | PC_F: 000000d8
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000d8
+# --------------------------------------------------
+# 
+# --- Cycle 167 ---
+#   [IF]  PC = 000000d8 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000d4 | Instr = 00100f93 | rs1=x0, rs2=x1, rd=x31 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = fffffff6 | WriteData = 00000001 | ReadData = 00000000 | rd=x31 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1770000 | PC_F: 000000d8
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000d8
+# --------------------------------------------------
+# 
+# --- Cycle 168 ---
+#   [IF]  PC = 000000d8 | Instr = 03200513            
+#   [ID]  PC = 000000d4 | Instr = 00100f93 | rs1=x0, rs2=x1, rd=x31                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = fffffff6 | rd=x31 | RegWr=1
+# Time: 1780000 | PC_F: 000000d8
+#   [I-CACHE HIT]  Instruction fetched: 03200513
+# --------------------------------------------------
+# 
+# --- Cycle 169 ---
+#   [IF]  PC = 000000dc | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000d8 | Instr = 03200513 | rs1=x0, rs2=x18, rd=x10 >>> [STALL]           
+#   [EX]  PC = 000000d4 | ALU_Out = 00000001 | rd=x31            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1790000 | PC_F: 000000dc
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000dc
+# --------------------------------------------------
+# 
+# --- Cycle 170 ---
+#   [IF]  PC = 000000dc | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000d8 | Instr = 03200513 | rs1=x0, rs2=x18, rd=x10 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000001 | WriteData = 12345000 | ReadData = 00000000 | rd=x31 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1800000 | PC_F: 000000dc
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000dc
+# --------------------------------------------------
+# 
+# --- Cycle 171 ---
+#   [IF]  PC = 000000dc | Instr = 00700593            
+#   [ID]  PC = 000000d8 | Instr = 03200513 | rs1=x0, rs2=x18, rd=x10                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000001 | rd=x31 | RegWr=1
+# Time: 1810000 | PC_F: 000000dc
+#   [I-CACHE HIT]  Instruction fetched: 00700593
+# --------------------------------------------------
+# 
+# --- Cycle 172 ---
+#   [IF]  PC = 000000e0 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000dc | Instr = 00700593 | rs1=x0, rs2=x7, rd=x11 >>> [STALL]           
+#   [EX]  PC = 000000d8 | ALU_Out = 00000032 | rd=x10            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1820000 | PC_F: 000000e0
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000e0
+# --------------------------------------------------
+# 
+# --- Cycle 173 ---
+#   [IF]  PC = 000000e0 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000dc | Instr = 00700593 | rs1=x0, rs2=x7, rd=x11 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000032 | WriteData = 1ffffffb | ReadData = 00000000 | rd=x10 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1830000 | PC_F: 000000e0
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000e0
+# --------------------------------------------------
+# 
+# --- Cycle 174 ---
+#   [IF]  PC = 000000e0 | Instr = fce00613            
+#   [ID]  PC = 000000dc | Instr = 00700593 | rs1=x0, rs2=x7, rd=x11                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000032 | rd=x10 | RegWr=1
+# Time: 1840000 | PC_F: 000000e0
+#   [I-CACHE HIT]  Instruction fetched: fce00613
+# --------------------------------------------------
+# 
+# --- Cycle 175 ---
+#   [IF]  PC = 000000e4 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000e0 | Instr = fce00613 | rs1=x0, rs2=x14, rd=x12 >>> [STALL]           
+#   [EX]  PC = 000000dc | ALU_Out = 00000007 | rd=x11            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1850000 | PC_F: 000000e4
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000e4
+# --------------------------------------------------
+# 
+# --- Cycle 176 ---
+#   [IF]  PC = 000000e4 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000e0 | Instr = fce00613 | rs1=x0, rs2=x14, rd=x12 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000007 | WriteData = ffffffef | ReadData = 00000000 | rd=x11 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1860000 | PC_F: 000000e4
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000e4
+# --------------------------------------------------
+# 
+# --- Cycle 177 ---
+#   [IF]  PC = 000000e4 | Instr = ff900693            
+#   [ID]  PC = 000000e0 | Instr = fce00613 | rs1=x0, rs2=x14, rd=x12                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000007 | rd=x11 | RegWr=1
+# Time: 1870000 | PC_F: 000000e4
+#   [I-CACHE HIT]  Instruction fetched: ff900693
+# --------------------------------------------------
+# 
+# --- Cycle 178 ---
+#   [IF]  PC = 000000e8 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000e4 | Instr = ff900693 | rs1=x0, rs2=x25, rd=x13 >>> [STALL]           
+#   [EX]  PC = 000000e0 | ALU_Out = ffffffce | rd=x12            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1880000 | PC_F: 000000e8
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000e8
+# --------------------------------------------------
+# 
+# --- Cycle 179 ---
+#   [IF]  PC = 000000e8 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000e4 | Instr = ff900693 | rs1=x0, rs2=x25, rd=x13 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = ffffffce | WriteData = ffffffde | ReadData = 00000000 | rd=x12 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1890000 | PC_F: 000000e8
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000e8
+# --------------------------------------------------
+# 
+# --- Cycle 180 ---
+#   [IF]  PC = 000000e8 | Instr = 02b50733            
+#   [ID]  PC = 000000e4 | Instr = ff900693 | rs1=x0, rs2=x25, rd=x13                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = ffffffce | rd=x12 | RegWr=1
+# Time: 1900000 | PC_F: 000000e8
+#   [I-CACHE HIT]  Instruction fetched: 02b50733
+# --------------------------------------------------
+# 
+# --- Cycle 181 ---
+#   [IF]  PC = 000000ec | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000e8 | Instr = 02b50733 | rs1=x10, rs2=x11, rd=x14 >>> [STALL]           
+#   [EX]  PC = 000000e4 | ALU_Out = fffffff9 | rd=x13            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1910000 | PC_F: 000000ec
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000ec
+# --------------------------------------------------
+# 
+# --- Cycle 182 ---
+#   [IF]  PC = 000000ec | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000e8 | Instr = 02b50733 | rs1=x10, rs2=x11, rd=x14 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = fffffff9 | WriteData = 00000003 | ReadData = 00000000 | rd=x13 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1920000 | PC_F: 000000ec
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000ec
+# --------------------------------------------------
+# 
+# --- Cycle 183 ---
+#   [IF]  PC = 000000ec | Instr = 02b617b3            
+#   [ID]  PC = 000000e8 | Instr = 02b50733 | rs1=x10, rs2=x11, rd=x14                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = fffffff9 | rd=x13 | RegWr=1
+# Time: 1930000 | PC_F: 000000ec
+#   [I-CACHE HIT]  Instruction fetched: 02b617b3
+# --------------------------------------------------
+# 
+# --- Cycle 184 ---
+#   [IF]  PC = 000000f0 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000ec | Instr = 02b617b3 | rs1=x12, rs2=x11, rd=x15 >>> [STALL]           
+#   [EX]  PC = 000000e8 | ALU_Out = 00000039 | rd=x14            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1940000 | PC_F: 000000f0
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000f0
+# --------------------------------------------------
+# 
+# --- Cycle 185 ---
+#   [IF]  PC = 000000f0 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000ec | Instr = 02b617b3 | rs1=x12, rs2=x11, rd=x15 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000039 | WriteData = 00000007 | ReadData = 00000000 | rd=x14 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1950000 | PC_F: 000000f0
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000f0
+# --------------------------------------------------
+# 
+# --- Cycle 186 ---
+#   [IF]  PC = 000000f0 | Instr = 02b54833 >>> [STALL]
+#   [ID]  PC = 000000ec | Instr = 02b617b3 | rs1=x12, rs2=x11, rd=x15 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000039 | rd=x14 | RegWr=0
+# Time: 1960000 | PC_F: 000000f0
+#   [I-CACHE HIT]  Instruction fetched: 02b54833
+# --------------------------------------------------
+# 
+# --- Cycle 187 ---
+#   [IF]  PC = 000000f0 | Instr = 02b54833            
+#   [ID]  PC = 000000ec | Instr = 02b617b3 | rs1=x12, rs2=x11, rd=x15                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1970000 | PC_F: 000000f0
+#   [I-CACHE HIT]  Instruction fetched: 02b54833
+# --------------------------------------------------
+# 
+# --- Cycle 188 ---
+#   [IF]  PC = 000000f4 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000f0 | Instr = 02b54833 | rs1=x10, rs2=x11, rd=x16 >>> [STALL]           
+#   [EX]  PC = 000000ec | ALU_Out = ffffe700 | rd=x15            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1980000 | PC_F: 000000f4
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000f4
+# --------------------------------------------------
+# 
+# --- Cycle 189 ---
+#   [IF]  PC = 000000f4 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000f0 | Instr = 02b54833 | rs1=x10, rs2=x11, rd=x16 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = ffffe700 | WriteData = 00000007 | ReadData = 00000000 | rd=x15 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 1990000 | PC_F: 000000f4
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000f4
+# --------------------------------------------------
+# 
+# --- Cycle 190 ---
+#   [IF]  PC = 000000f4 | Instr = 02b568b3 >>> [STALL]
+#   [ID]  PC = 000000f0 | Instr = 02b54833 | rs1=x10, rs2=x11, rd=x16 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = ffffe700 | rd=x15 | RegWr=0
+# Time: 2000000 | PC_F: 000000f4
+#   [I-CACHE HIT]  Instruction fetched: 02b568b3
+# --------------------------------------------------
+# 
+# --- Cycle 191 ---
+#   [IF]  PC = 000000f4 | Instr = 02b568b3            
+#   [ID]  PC = 000000f0 | Instr = 02b54833 | rs1=x10, rs2=x11, rd=x16                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2010000 | PC_F: 000000f4
+#   [I-CACHE HIT]  Instruction fetched: 02b568b3
+# --------------------------------------------------
+# 
+# --- Cycle 192 ---
+#   [IF]  PC = 000000f8 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 000000f0 | ALU_Out = 00000035 | rd=x16            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2020000 | PC_F: 000000f8
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000f8
+# --------------------------------------------------
+# 
+# --- Cycle 193 ---
+#   [IF]  PC = 000000f8 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000035 | WriteData = 00000007 | ReadData = 00000000 | rd=x16 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2030000 | PC_F: 000000f8
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000f8
+# --------------------------------------------------
+# 
+# --- Cycle 194 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000035 | rd=x16 | RegWr=0
+# Time: 2040000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 195 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2050000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 196 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2060000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 197 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2070000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 198 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2080000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 199 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2090000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 200 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2100000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 201 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2110000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 202 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2120000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 203 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2130000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 204 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2140000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 205 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2150000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 206 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2160000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 207 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2170000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 208 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2180000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 209 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2190000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 210 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2200000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 211 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2210000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 212 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2220000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 213 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2230000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 214 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2240000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 215 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2250000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 216 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2260000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 217 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2270000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 218 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2280000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 219 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2290000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 220 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2300000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 221 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2310000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 222 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2320000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 223 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2330000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 224 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2340000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 225 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2350000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 226 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933 >>> [STALL]
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2360000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 227 ---
+#   [IF]  PC = 000000f8 | Instr = 02b65933            
+#   [ID]  PC = 000000f4 | Instr = 02b568b3 | rs1=x10, rs2=x11, rd=x17                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2370000 | PC_F: 000000f8
+#   [I-CACHE HIT]  Instruction fetched: 02b65933
+# --------------------------------------------------
+# 
+# --- Cycle 228 ---
+#   [IF]  PC = 000000fc | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 000000f4 | ALU_Out = 00000037 | rd=x17            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2380000 | PC_F: 000000fc
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000fc
+# --------------------------------------------------
+# 
+# --- Cycle 229 ---
+#   [IF]  PC = 000000fc | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000037 | WriteData = 00000007 | ReadData = 00000000 | rd=x17 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2390000 | PC_F: 000000fc
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 000000fc
+# --------------------------------------------------
+# 
+# --- Cycle 230 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000037 | rd=x17 | RegWr=0
+# Time: 2400000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 231 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2410000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 232 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2420000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 233 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2430000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 234 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2440000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 235 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2450000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 236 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2460000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 237 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2470000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 238 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2480000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 239 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2490000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 240 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2500000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 241 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2510000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 242 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2520000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 243 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2530000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 244 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2540000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 245 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2550000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 246 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2560000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 247 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2570000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 248 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2580000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 249 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2590000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 250 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2600000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 251 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2610000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 252 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2620000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 253 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2630000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 254 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2640000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 255 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2650000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 256 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2660000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 257 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2670000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 258 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2680000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 259 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2690000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 260 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2700000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 261 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2710000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 262 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3 >>> [STALL]
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2720000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 263 ---
+#   [IF]  PC = 000000fc | Instr = 020549b3            
+#   [ID]  PC = 000000f8 | Instr = 02b65933 | rs1=x12, rs2=x11, rd=x18                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2730000 | PC_F: 000000fc
+#   [I-CACHE HIT]  Instruction fetched: 020549b3
+# --------------------------------------------------
+# 
+# --- Cycle 264 ---
+#   [IF]  PC = 00000100 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 000000f8 | ALU_Out = 01ffffff | rd=x18            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2740000 | PC_F: 00000100
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000100
+# --------------------------------------------------
+# 
+# --- Cycle 265 ---
+#   [IF]  PC = 00000100 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 01ffffff | WriteData = 00000007 | ReadData = 00000000 | rd=x18 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2750000 | PC_F: 00000100
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000100
+# --------------------------------------------------
+# 
+# --- Cycle 266 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 01ffffff | rd=x18 | RegWr=0
+# Time: 2760000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 267 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2770000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 268 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2780000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 269 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2790000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 270 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2800000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 271 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2810000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 272 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2820000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 273 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2830000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 274 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2840000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 275 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2850000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 276 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2860000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 277 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2870000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 278 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2880000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 279 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2890000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 280 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2900000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 281 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2910000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 282 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2920000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 283 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2930000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 284 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2940000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 285 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2950000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 286 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2960000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 287 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2970000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 288 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2980000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 289 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 2990000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 290 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 3000000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 291 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 3010000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 292 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 3020000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 293 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 3030000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 294 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 3040000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 295 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 3050000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 296 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 3060000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 297 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 3070000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 298 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37 >>> [STALL]
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 3080000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 299 ---
+#   [IF]  PC = 00000100 | Instr = 80000a37            
+#   [ID]  PC = 000000fc | Instr = 020549b3 | rs1=x10, rs2=x0, rd=x19                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 3090000 | PC_F: 00000100
+#   [I-CACHE HIT]  Instruction fetched: 80000a37
+# --------------------------------------------------
+# 
+# --- Cycle 300 ---
+#   [IF]  PC = 00000104 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000100 | Instr = 80000a37 | rs1=x0, rs2=x0, rd=x20 >>> [STALL]           
+#   [EX]  PC = 000000fc | ALU_Out = 00000032 | rd=x19            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 3100000 | PC_F: 00000104
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000104
+# --------------------------------------------------
+# 
+# --- Cycle 301 ---
+#   [IF]  PC = 00000104 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000100 | Instr = 80000a37 | rs1=x0, rs2=x0, rd=x20 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000032 | WriteData = 00000000 | ReadData = 00000000 | rd=x19 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 3110000 | PC_F: 00000104
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000104
+# --------------------------------------------------
+# 
+# --- Cycle 302 ---
+#   [IF]  PC = 00000104 | Instr = fff00a93 >>> [STALL]
+#   [ID]  PC = 00000100 | Instr = 80000a37 | rs1=x0, rs2=x0, rd=x20 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000032 | rd=x19 | RegWr=0
+# Time: 3120000 | PC_F: 00000104
+#   [I-CACHE HIT]  Instruction fetched: fff00a93
+# --------------------------------------------------
+# 
+# --- Cycle 303 ---
+#   [IF]  PC = 00000104 | Instr = fff00a93            
+#   [ID]  PC = 00000100 | Instr = 80000a37 | rs1=x0, rs2=x0, rd=x20                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 3130000 | PC_F: 00000104
+#   [I-CACHE HIT]  Instruction fetched: fff00a93
+# --------------------------------------------------
+# 
+# --- Cycle 304 ---
+#   [IF]  PC = 00000108 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000104 | Instr = fff00a93 | rs1=x0, rs2=x31, rd=x21 >>> [STALL]           
+#   [EX]  PC = 00000100 | ALU_Out = 80000000 | rd=x20            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 3140000 | PC_F: 00000108
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000108
+# --------------------------------------------------
+# 
+# --- Cycle 305 ---
+#   [IF]  PC = 00000108 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000104 | Instr = fff00a93 | rs1=x0, rs2=x31, rd=x21 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 80000000 | WriteData = 00000000 | ReadData = 00000000 | rd=x20 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 3150000 | PC_F: 00000108
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000108
+# --------------------------------------------------
+# 
+# --- Cycle 306 ---
+#   [IF]  PC = 00000108 | Instr = 035a4bb3            
+#   [ID]  PC = 00000104 | Instr = fff00a93 | rs1=x0, rs2=x31, rd=x21                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 80000000 | rd=x20 | RegWr=1
+# Time: 3160000 | PC_F: 00000108
+#   [I-CACHE HIT]  Instruction fetched: 035a4bb3
+# --------------------------------------------------
+# 
+# --- Cycle 307 ---
+#   [IF]  PC = 0000010c | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000108 | Instr = 035a4bb3 | rs1=x20, rs2=x21, rd=x23 >>> [STALL]           
+#   [EX]  PC = 00000104 | ALU_Out = ffffffff | rd=x21            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 3170000 | PC_F: 0000010c
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 0000010c
+# --------------------------------------------------
+# 
+# --- Cycle 308 ---
+#   [IF]  PC = 0000010c | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000108 | Instr = 035a4bb3 | rs1=x20, rs2=x21, rd=x23 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = ffffffff | WriteData = 00000001 | ReadData = 00000000 | rd=x21 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 3180000 | PC_F: 0000010c
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 0000010c
+# --------------------------------------------------
+# 
+# --- Cycle 309 ---
+#   [IF]  PC = 0000010c | Instr = 02b62c33            
+#   [ID]  PC = 00000108 | Instr = 035a4bb3 | rs1=x20, rs2=x21, rd=x23                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = ffffffff | rd=x21 | RegWr=1
+# Time: 3190000 | PC_F: 0000010c
+#   [I-CACHE HIT]  Instruction fetched: 02b62c33
+# --------------------------------------------------
+# 
+# --- Cycle 310 ---
+#   [IF]  PC = 00000110 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 0000010c | Instr = 02b62c33 | rs1=x12, rs2=x11, rd=x24 >>> [STALL]           
+#   [EX]  PC = 00000108 | ALU_Out = 7fffffff | rd=x23            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 3200000 | PC_F: 00000110
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000110
+# --------------------------------------------------
+# 
+# --- Cycle 311 ---
+#   [IF]  PC = 00000110 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 0000010c | Instr = 02b62c33 | rs1=x12, rs2=x11, rd=x24 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 7fffffff | WriteData = ffffffff | ReadData = 00000000 | rd=x23 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 3210000 | PC_F: 00000110
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000110
+# --------------------------------------------------
+# 
+# --- Cycle 312 ---
+#   [IF]  PC = 00000110 | Instr = 02b63cb3 >>> [STALL]
+#   [ID]  PC = 0000010c | Instr = 02b62c33 | rs1=x12, rs2=x11, rd=x24 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 7fffffff | rd=x23 | RegWr=0
+# Time: 3220000 | PC_F: 00000110
+#   [I-CACHE HIT]  Instruction fetched: 02b63cb3
+# --------------------------------------------------
+# 
+# --- Cycle 313 ---
+#   [IF]  PC = 00000110 | Instr = 02b63cb3            
+#   [ID]  PC = 0000010c | Instr = 02b62c33 | rs1=x12, rs2=x11, rd=x24                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 3230000 | PC_F: 00000110
+#   [I-CACHE HIT]  Instruction fetched: 02b63cb3
+# --------------------------------------------------
+# 
+# --- Cycle 314 ---
+#   [IF]  PC = 00000114 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000110 | Instr = 02b63cb3 | rs1=x12, rs2=x11, rd=x25 >>> [STALL]           
+#   [EX]  PC = 0000010c | ALU_Out = 00000001 | rd=x24            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 3240000 | PC_F: 00000114
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000114
+# --------------------------------------------------
+# 
+# --- Cycle 315 ---
+#   [IF]  PC = 00000114 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000110 | Instr = 02b63cb3 | rs1=x12, rs2=x11, rd=x25 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000001 | WriteData = 00000007 | ReadData = 00000003 | rd=x24 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 3250000 | PC_F: 00000114
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000114
+# --------------------------------------------------
+# 
+# --- Cycle 316 ---
+#   [IF]  PC = 00000114 | Instr = 02b67d33 >>> [STALL]
+#   [ID]  PC = 00000110 | Instr = 02b63cb3 | rs1=x12, rs2=x11, rd=x25 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000001 | rd=x24 | RegWr=0
+# Time: 3260000 | PC_F: 00000114
+#   [I-CACHE HIT]  Instruction fetched: 02b67d33
+# --------------------------------------------------
+# 
+# --- Cycle 317 ---
+#   [IF]  PC = 00000114 | Instr = 02b67d33            
+#   [ID]  PC = 00000110 | Instr = 02b63cb3 | rs1=x12, rs2=x11, rd=x25                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 3270000 | PC_F: 00000114
+#   [I-CACHE HIT]  Instruction fetched: 02b67d33
+# --------------------------------------------------
+# 
+# --- Cycle 318 ---
+#   [IF]  PC = 00000118 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000114 | Instr = 02b67d33 | rs1=x12, rs2=x11, rd=x26 >>> [STALL]           
+#   [EX]  PC = 00000110 | ALU_Out = 00000000 | rd=x25            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 3280000 | PC_F: 00000118
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000118
+# --------------------------------------------------
+# 
+# --- Cycle 319 ---
+#   [IF]  PC = 00000118 | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000114 | Instr = 02b67d33 | rs1=x12, rs2=x11, rd=x26 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000007 | ReadData = 00000003 | rd=x25 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 3290000 | PC_F: 00000118
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 00000118
+# --------------------------------------------------
+# 
+# --- Cycle 320 ---
+#   [IF]  PC = 00000118 | Instr = 00000063 >>> [STALL]
+#   [ID]  PC = 00000114 | Instr = 02b67d33 | rs1=x12, rs2=x11, rd=x26 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x25 | RegWr=0
+# Time: 3300000 | PC_F: 00000118
+#   [I-CACHE HIT]  Instruction fetched: 00000063
+# --------------------------------------------------
+# 
+# --- Cycle 321 ---
+#   [IF]  PC = 00000118 | Instr = 00000063            
+#   [ID]  PC = 00000114 | Instr = 02b67d33 | rs1=x12, rs2=x11, rd=x26                       
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 3310000 | PC_F: 00000118
+#   [I-CACHE HIT]  Instruction fetched: 00000063
+# --------------------------------------------------
+# 
+# --- Cycle 322 ---
+#   [IF]  PC = 0000011c | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000118 | Instr = 00000063 | rs1=x0, rs2=x0, rd=x0 >>> [STALL]           
+#   [EX]  PC = 00000114 | ALU_Out = 00000006 | rd=x26            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 3320000 | PC_F: 0000011c
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 0000011c
+# --------------------------------------------------
+# 
+# --- Cycle 323 ---
+#   [IF]  PC = 0000011c | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000118 | Instr = 00000063 | rs1=x0, rs2=x0, rd=x0 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000006 | WriteData = 00000007 | ReadData = 00ef0008 | rd=x26 | MemWr=0
+#   [WB]  Result = 00000000 | rd=x0 | RegWr=0
+# Time: 3330000 | PC_F: 0000011c
+#   [I-CACHE MISS] Stalling pipeline to fetch Instruction at Addr: 0000011c
+# --------------------------------------------------
+# 
+# --- Cycle 324 ---
+#   [IF]  PC = 0000011c | Instr = 00000000 >>> [STALL]
+#   [ID]  PC = 00000118 | Instr = 00000063 | rs1=x0, rs2=x0, rd=x0 >>> [STALL]           
+#   [EX]  PC = 00000000 | ALU_Out = 00000000 | rd=x0            
+#   [MEM] ALU_Out/Addr = 00000000 | WriteData = 00000000 | ReadData = 00000003 | rd=x0 | MemWr=0
+#   [WB]  Result = 00000006 | rd=x26 | RegWr=0
+# 
+# ========================================================
+#    [MEGA TEST DEBUG] DETAILED VALUES OF EACH REGISTER
+# ========================================================
+# 
+# --- 1. ALU COMPUTATION STAGE (Test Data Hazard) ---
+# x3  (addi -10) : -10 	(Hex: fffffff6)
+# x4  (xori)     : -7 	(Hex: fffffff9)
+# x7  (add)      : -17 	(Hex: ffffffef)
+# x8  (sub)      : 3 	(Hex: 00000003) -> Should be 3
+# 
+# --- 2. COMPARISON (Test SLT signed/unsigned) ---
+# x22 (slt x3,x8): 1 	(Hex: 00000001) -> Should be 1
+# 
+# --- 3. MEMORY ACCESS (Test Load-Use Stall) ---
+# x25 (lw)       : 3 	(Hex: 00000003)
+# x26 (add x25,0): 3 	(Hex: 00000003) -> Should be 3
+# x29 (lb x7)    : -17 	(Hex: ffffffef) -> Should be ffffffef
+# 
+# ========================================================
+#                    OVERALL CONCLUSION                   
+# ========================================================
+# 1. Data Hazard & ALU: PASS (Expected x8 = 3)
+# 2. Set Less Than    : PASS (Expected x22 = 1)
+# 3. Load-Use Stall   : PASS (Expected x26 = 3)
+# 4. Memory Access    : PASS (Expected x29 = ffffffef)
+# 
+# --- CONTROL HAZARD SUMMARY (BRANCH/JUMP) ---
+# >> [PERFECT PASS] Pipeline bypassed all Traps!
+# ========================================================
+# 
+# ** Note: $finish    : tb/legacy/tb_full.v(93)
+#    Time: 3340 ns  Iteration: 0  Instance: /tb_riscv_pipeline_mega
+# End time: 10:16:36 on May 30,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0

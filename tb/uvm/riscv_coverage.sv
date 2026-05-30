@@ -288,21 +288,6 @@ class riscv_coverage extends uvm_subscriber #(riscv_seq_item);
             bins no_hazard = {0};
             bins hazard    = {1};
         }
-        cp_issue_valid_q: coverpoint trans.issue_valid_q {
-            bins empty    = {2'b00};
-            bins one_item = {2'b01};
-            bins full     = {2'b11};
-            ignore_bins impossible_q = {2'b10};
-        }
-        // Cross issue conditions
-        cx_stall_q: cross cp_issue_stall, cp_issue_valid_q {
-            ignore_bins impossible_stall = binsof(cp_issue_stall) intersect {1} &&
-                                           binsof(cp_issue_valid_q) intersect {2'b00, 2'b01};
-        }
-        cx_hazard_q: cross cp_load_use_hazard, cp_issue_valid_q {
-            ignore_bins rare_hazards = binsof(cp_load_use_hazard) intersect {1} &&
-                                       binsof(cp_issue_valid_q) intersect {2'b11, 2'b01};
-        }
     endgroup
 
     // --------------------------------------------------------

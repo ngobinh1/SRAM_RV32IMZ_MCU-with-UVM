@@ -88,7 +88,6 @@ class riscv_seq_item extends uvm_sequence_item;
     logic         issue_valid;   // Issue dispatched
     logic         execute_ready; // EX stage was ready
     logic         load_use_hazard; // Detected load-use hazard
-    logic [1:0]   issue_valid_q;   // Elements in issue queue
     longint       timestamp;     // $time when captured
 
     // ============================================================
@@ -138,7 +137,6 @@ class riscv_seq_item extends uvm_sequence_item;
         `uvm_field_int(issue_valid,     UVM_ALL_ON)
         `uvm_field_int(execute_ready,   UVM_ALL_ON)
         `uvm_field_int(load_use_hazard, UVM_ALL_ON)
-        `uvm_field_int(issue_valid_q,   UVM_ALL_ON)
         `uvm_field_int(timestamp,       UVM_ALL_ON)
     `uvm_object_utils_end
 

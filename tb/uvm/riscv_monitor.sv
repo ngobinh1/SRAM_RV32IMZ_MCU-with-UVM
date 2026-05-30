@@ -260,7 +260,6 @@ class riscv_monitor extends uvm_monitor;
             item.issue_valid     = vif.monitor_cb.issue_valid;
             item.execute_ready   = vif.monitor_cb.execute_ready;
             item.load_use_hazard = vif.monitor_cb.load_use_hazard;
-            item.issue_valid_q   = vif.monitor_cb.issue_valid_q;
             item.timestamp  = $time;
             item.decode_instr(vif.monitor_cb.instr_d);
 

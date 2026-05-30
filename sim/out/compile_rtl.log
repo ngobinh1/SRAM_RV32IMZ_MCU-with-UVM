@@ -1,5 +1,5 @@
 QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
-Start time: 18:19:14 on May 29,2026
+Start time: 10:16:36 on May 30,2026
 vlog -timescale 1ns/1ps "+define+functional" "+incdir+rtl/core" "+incdir+rtl/control" "+incdir+rtl/datapath" "+incdir+rtl/csr" "+incdir+rtl/hazard" "+incdir+rtl/cache" "+incdir+rtl/memory" "+incdir+rtl/mult_div" rtl/memory/EF_SRAM_1024x32.tt_180V_25C.v rtl/memory/EF_SRAM_1024x32.v rtl/memory/axi_sram_wrapper.v rtl/memory/axi_interconnect.v rtl/cache/l1_icache.v rtl/cache/l1_dcache.v rtl/hazard/hazard_unit.v rtl/csr/csr_alu.v rtl/csr/csr_file.v rtl/mult_div/muldiv_alu.v rtl/datapath/adder.v rtl/datapath/mux.v rtl/datapath/extend.v rtl/datapath/pc.v rtl/datapath/register_file.v rtl/datapath/alu.v rtl/control/alu_decoder.v rtl/control/main_decoder.v rtl/control/control_unit.v rtl/core/pipeline.v rtl/core/fetch_cycle.v rtl/core/decode_cycle.v rtl/core/issue.v rtl/core/execute_cycle.v rtl/core/memory_cycle.v rtl/core/writeback_cycle.v rtl/core/top_module.v 
 -- Compiling module EF_SRAM_1024x32_macro
 -- Compiling module EF_SRAM_1024x32_memory_mode
@@ -40,5 +40,5 @@ vlog -timescale 1ns/1ps "+define+functional" "+incdir+rtl/core" "+incdir+rtl/con
 
 Top level modules:
 	riscv_pipeline_top
-End time: 18:19:14 on May 29,2026, Elapsed time: 0:00:00
+End time: 10:16:36 on May 30,2026, Elapsed time: 0:00:00
 Errors: 0, Warnings: 3

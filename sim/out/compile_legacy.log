@@ -1,0 +1,9 @@
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+Start time: 10:16:33 on May 30,2026
+vlog -timescale 1ns/1ps "+define+functional" "+incdir+rtl/core" "+incdir+rtl/control" "+incdir+rtl/datapath" "+incdir+rtl/csr" "+incdir+rtl/hazard" "+incdir+rtl/cache" "+incdir+rtl/memory" "+incdir+rtl/mult_div" tb/legacy/tb_full.v 
+-- Compiling module tb_riscv_pipeline_mega
+
+Top level modules:
+	tb_riscv_pipeline_mega
+End time: 10:16:33 on May 30,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
