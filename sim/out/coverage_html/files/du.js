@@ -1,0 +1,2 @@
+var g_data = {"data":[{"n":"work.riscv_if","id":3,"zf":1,"tc":0.00,"a":0.00},{"n":"work.riscv_tb_pkg","id":4,"zf":1,"tc":100.00,"g":100.00},{"n":"work.uvm_pkg","id":1,"zf":1,"tc":100.00,"a":100.00}]};
+processDuData(g_data);

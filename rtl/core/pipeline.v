@@ -2,15 +2,22 @@
 module pipeline_1_2 (
     input wire clk, rst, clr, en,
     input wire [31:0] instr_f, pc_f, pc_plus_4_f,
-    output [31:0] instr_d, pc_d, pc_plus_4_d
+    input wire predict_taken_f,
+    input wire [31:0] predict_target_f,
+    output [31:0] instr_d, pc_d, pc_plus_4_d,
+    output predict_taken_d,
+    output [31:0] predict_target_d
 );
-    reg [31:0] instr_reg, pc_reg, pc_plus_4_reg;
+    reg [31:0] instr_reg, pc_reg, pc_plus_4_reg, predict_target_reg;
+    reg predict_taken_reg;
 
     // Initialize registers to prevent 'x' values
     initial begin
         instr_reg = 32'h00000000;
         pc_reg = 32'h00000000;
         pc_plus_4_reg = 32'h00000000;
+        predict_taken_reg = 1'b0;
+        predict_target_reg = 32'h00000000;
     end
 
     always @(posedge clk ) begin
@@ -18,17 +25,23 @@ module pipeline_1_2 (
             instr_reg <= 32'h00000000;
             pc_reg <= 32'h00000000;
             pc_plus_4_reg <= 32'h00000000;
+            predict_taken_reg <= 1'b0;
+            predict_target_reg <= 32'h00000000;
         end
         else begin
             if(en) begin
                 instr_reg <= instr_f;
                 pc_reg <= pc_f;
                 pc_plus_4_reg <= pc_plus_4_f;
+                predict_taken_reg <= predict_taken_f;
+                predict_target_reg <= predict_target_f;
             end
             else begin
                 instr_reg <= instr_reg;
                 pc_reg <= pc_reg;
                 pc_plus_4_reg <= pc_plus_4_reg;
+                predict_taken_reg <= predict_taken_reg;
+                predict_target_reg <= predict_target_reg;
             end
         end
     end
@@ -36,6 +49,8 @@ module pipeline_1_2 (
     assign instr_d = instr_reg;
     assign pc_d = pc_reg;
     assign pc_plus_4_d = pc_plus_4_reg;
+    assign predict_taken_d = predict_taken_reg;
+    assign predict_target_d = predict_target_reg;
 
 endmodule 
 
@@ -53,6 +68,8 @@ module pipeline_2_3 (
     input wire [31:0] csr_rd_d,
     input wire is_ecall_d, is_mret_d, md_req_d, is_illegal_d,
     input wire [2:0] md_op_d,
+    input wire predict_taken_d,
+    input wire [31:0] predict_target_d,
     output  reg_write_e, mem_write_e, alu_src_e, jump_e, branch_e, jalr_e,
     output  [2:0] funct3_e,
     output  [2:0] result_src_e,
@@ -63,7 +80,9 @@ module pipeline_2_3 (
     output  [11:0] csr_addr_e,
     output  [31:0] csr_rd_e,
     output  is_ecall_e, is_mret_e, md_req_e, is_illegal_e,
-    output  [2:0] md_op_e
+    output  [2:0] md_op_e,
+    output  predict_taken_e,
+    output  [31:0] predict_target_e
 );  
     reg reg_write_reg, mem_write_reg, alu_src_reg, jump_reg, branch_reg, jalr_reg;
     reg [2:0] result_src_reg;
@@ -76,6 +95,8 @@ module pipeline_2_3 (
     reg [31:0] csr_rd_reg;
     reg is_ecall_reg, is_mret_reg, md_req_reg, is_illegal_reg;
     reg [2:0] md_op_reg;
+    reg predict_taken_reg;
+    reg [31:0] predict_target_reg;
     
     // Initialize all registers to prevent 'x' values
     initial begin
@@ -104,6 +125,8 @@ module pipeline_2_3 (
         md_req_reg = 1'b0;
         is_illegal_reg = 1'b0;
         md_op_reg = 3'b000;
+        predict_taken_reg = 1'b0;
+        predict_target_reg = 32'h00000000;
     end
     
     always @(posedge clk ) begin
@@ -133,6 +156,8 @@ module pipeline_2_3 (
             md_req_reg <= 1'b0;
             is_illegal_reg <= 1'b0;
             md_op_reg <= 3'b000;
+            predict_taken_reg <= 1'b0;
+            predict_target_reg <= 32'h00000000;
         end
         else if(en) begin
             reg_write_reg <= reg_write_d;
@@ -160,6 +185,8 @@ module pipeline_2_3 (
             md_req_reg <= md_req_d;
             is_illegal_reg <= is_illegal_d;
             md_op_reg <= md_op_d;
+            predict_taken_reg <= predict_taken_d;
+            predict_target_reg <= predict_target_d;
         end
     end
 
@@ -188,6 +215,8 @@ module pipeline_2_3 (
     assign md_req_e = md_req_reg;
     assign is_illegal_e = is_illegal_reg;
     assign md_op_e = md_op_reg;
+    assign predict_taken_e = predict_taken_reg;
+    assign predict_target_e = predict_target_reg;
 endmodule
 
 //pipeline for execute and memory

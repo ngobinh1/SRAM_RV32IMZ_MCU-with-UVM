@@ -39,6 +39,10 @@ interface riscv_if (input logic clk);
     logic        pc_src_e;     // Branch/jump taken
     logic [31:0] pc_target_e;  // Branch/jump target address
     logic [31:0] pc_e;         // PC in execute stage (for ecall/mret handling)
+    logic        predict_taken_e;
+    logic [31:0] predict_target_e;
+    logic        actual_taken_e;
+    logic [31:0] actual_target_e;
 
     // ------------------------------------------------------------
     // Memory stage probes
@@ -167,6 +171,10 @@ interface riscv_if (input logic clk);
         input pc_src_e;
         input pc_target_e;
         input pc_e;
+        input predict_taken_e;
+        input predict_target_e;
+        input actual_taken_e;
+        input actual_target_e;
         input pc_m;
         input alu_result_m;
         input write_data_m;

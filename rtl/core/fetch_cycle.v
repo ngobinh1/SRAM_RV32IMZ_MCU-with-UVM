@@ -8,14 +8,19 @@ module fetch_cycle(
 
     input wire [31:0] instr_f_in,
     output  [31:0] instr_f,
-    output  [31:0] pc_f, pc_plus_4_f
+    output  [31:0] pc_f, pc_plus_4_f,
+    
+    input wire predict_taken_f,
+    input wire [31:0] predict_target_f
 );
     wire [31:0] pc_next_final;
     wire [31:0] pc_next_normal;
     // reg [31:0] instr_f_reg, pc_f_reg, pc_plus_4_f_reg;
 
+    wire [31:0] pc_next_predict = predict_taken_f ? predict_target_f : pc_plus_4_f;
+
     mux fetch_mux(
-        .a(pc_plus_4_f),
+        .a(pc_next_predict),
         .b(pc_target_e),
         .s(pc_src_e),
         .c(pc_next_normal)

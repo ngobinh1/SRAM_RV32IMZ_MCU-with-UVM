@@ -1,0 +1,110 @@
+# vsim -c work.tb_top -sv_seed random "+UVM_TESTNAME=riscv_mem_test" "+UVM_VERBOSITY=UVM_MEDIUM" "+UVM_NO_RELNOTES" "+HEX_DIR=sim/hex/" -sv_lib /home/ngobinh/Questasim/questasim/uvm-1.2/linux_x86_64/uvm_dpi -do "coverage save -onexit sim/out/riscv_mem_test.ucdb; run -all; quit -f" -l sim/out/riscv_mem_test.log 
+# Start time: 08:04:24 on May 31,2026
+# Loading /tmp/ngobinh@ngobinh-Vostro-5301_dpi_10742/linux_x86_64_gcc-7.4.0/export_tramp.so
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# //  Questa Sim-64
+# //  Version 2021.2_1 linux_x86_64 May 15 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# ** Note: (vsim-8785) UVM-aware debugging capabilities will be disabled since no compiled "questa_uvm_pkg" can be found.
+# This also means that later if you turn on UVM-aware debugging your debug simulations may have
+# different random seeds from your non-debug simulations.
+# Loading sv_std.std
+# Loading work.uvm_pkg(fast)
+# Loading work.riscv_if_sv_unit(fast)
+# Loading work.riscv_if(fast)
+# Loading work.riscv_tb_pkg(fast)
+# Loading work.tb_top(fast)
+# Loading work.riscv_pipeline_top(fast)
+# Compiling /tmp/ngobinh@ngobinh-Vostro-5301_dpi_10742/linux_x86_64_gcc-7.4.0/exportwrapper.c
+# Loading /tmp/ngobinh@ngobinh-Vostro-5301_dpi_10742/linux_x86_64_gcc-7.4.0/vsim_auto_compile.so
+# Loading /home/ngobinh/Questasim/questasim/uvm-1.2/linux_x86_64/uvm_dpi.so
+# Sv_Seed = 4002482934
+# coverage save -onexit sim/out/riscv_mem_test.ucdb
+#  run -all
+# UVM_INFO @ 0: reporter [RNTST] Running test riscv_mem_test...
+# UVM_INFO tb/uvm/riscv_agent_env_test.sv(154) @ 0: uvm_test_top [BASE_TEST] Build complete. hex=mem_test.hex timeout=8000 cycles
+# UVM_INFO tb/uvm/riscv_scoreboard.sv(125) @ 0: uvm_test_top.env.scoreboard [SCOREBOARD] Reference model initialised (all regs = 0)
+# UVM_INFO tb/uvm/riscv_sequences.sv(185) @ 0: uvm_test_top.env.agent.sequencer@@seq [MEM_TEST] Starting memory access test
+# UVM_INFO tb/uvm/riscv_sequences.sv(106) @ 0: uvm_test_top.env.agent.sequencer@@load_seq [LOAD_SEQ] Loading: mem_test.hex
+# UVM_INFO tb/uvm/riscv_driver.sv(98) @ 5000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 0
+# UVM_INFO tb/uvm/riscv_scoreboard.sv(125) @ 6000: uvm_test_top.env.scoreboard [SCOREBOARD] Reference model initialised (all regs = 0)
+# UVM_INFO tb/uvm/riscv_scoreboard.sv(311) @ 6000: uvm_test_top.env.scoreboard [SCOREBOARD] Hardware reset detected. Cleared Reference Model.
+# UVM_INFO tb/uvm/riscv_driver.sv(98) @ 115000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 0
+# UVM_INFO tb/uvm/riscv_driver.sv(123) @ 245000: uvm_test_top.env.agent.driver [DRIVER] Loading program via VIF: mem_test.hex
+# [VIF] Memory cleared.
+# [VIF] Program loaded into memory from mem_test.hex
+# UVM_INFO tb/uvm/riscv_driver.sv(98) @ 315000: uvm_test_top.env.agent.driver [DRIVER] RST driven to 1
+# UVM_INFO tb/uvm/riscv_sequences.sv(130) @ 465000: uvm_test_top.env.agent.sequencer@@run_seq [RUN_SEQ] Running for 2000 cycles
+# UVM_ERROR tb/uvm/riscv_scoreboard.sv(191) @ 1305000: uvm_test_top.env.scoreboard [SCOREBOARD] FAIL: INSTR_LH rd=x15 result=0x00003400 != expected=0x00000234 at PC=0x00000068 t=1305000
+# UVM_INFO tb/uvm/riscv_monitor.sv(226) @ 2535000: uvm_test_top.env.agent.monitor [MONITOR] [2535000] TRANS=TRANS_BRANCH_TAKEN PC=0x000000e4 target=0x000000e4 taken=1
+# UVM_INFO tb/uvm/riscv_sequences.sv(195) @ 20465000: uvm_test_top.env.agent.sequencer@@seq [MEM_TEST] Memory test complete
+# UVM_INFO /home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_objection.svh(1270) @ 23465000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO tb/uvm/riscv_monitor.sv(333) @ 23465000: uvm_test_top.env.agent.monitor [MONITOR] 
+# === Monitor Statistics ===
+#   Instruction commits : 27
+#   Stall cycles        : 1558
+#   Branches taken      : 1
+#   Memory writes       : 29
+#   Memory reads        : 14
+#   AXI Data Reads      : 15
+#   AXI Data Writes     : 7
+# UVM_INFO tb/uvm/riscv_coverage.sv(400) @ 23465000: uvm_test_top.env.coverage [COVERAGE] 
+# === Functional Coverage Summary ===
+#   Instruction Type : 20.4%
+#   Hazard Detection : 66.7%
+#   Memory Access    : 100.0%
+#   Branch/Jump      : 23.2%
+#   Pipeline Flow    : 87.5%
+#   Register File    : 62.9%
+#   CSR Instructions : 0.0%
+#   AXI Transactions : 100.0%
+#   Issue Stage      : 75.0%
+#   Branch Predictor : 23.2%
+# UVM_INFO tb/uvm/riscv_scoreboard.sv(456) @ 23465000: uvm_test_top.env.scoreboard [SCOREBOARD] 
+# ========================================
+# *** SIMULATION FAILED ***
+# ========================================
+#   Total instructions  : 27
+#   Checks PASSED       : 92
+#   Checks FAILED       : 1
+#   Branch checks       : 1
+#   x0 write violations : 0
+# ========================================
+# UVM_ERROR tb/uvm/riscv_scoreboard.sv(459) @ 23465000: uvm_test_top.env.scoreboard [SCOREBOARD] One or more checks FAILED – see log above
+# UVM_INFO tb/uvm/riscv_agent_env_test.sv(203) @ 23465000: uvm_test_top [BASE_TEST] TEST FAILED
+# UVM_INFO /home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_report_server.svh(847) @ 23465000: reporter [UVM/REPORT/SERVER] 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   19
+# UVM_WARNING :    0
+# UVM_ERROR :    2
+# UVM_FATAL :    0
+# ** Report counts by id
+# [BASE_TEST]     2
+# [COVERAGE]     1
+# [DRIVER]     4
+# [LOAD_SEQ]     1
+# [MEM_TEST]     2
+# [MONITOR]     2
+# [RNTST]     1
+# [RUN_SEQ]     1
+# [SCOREBOARD]     6
+# [TEST_DONE]     1
+# 
+# ** Note: $finish    : /home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(517)
+#    Time: 23465 ns  Iteration: 71  Instance: /tb_top
+# Saving coverage database on exit...
+# End time: 08:04:26 on May 31,2026, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0

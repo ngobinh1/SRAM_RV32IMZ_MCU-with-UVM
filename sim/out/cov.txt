@@ -1,0 +1,911 @@
+QuestaSim-64 vcover 2021.2_1 Coverage Utility 2021.05 May 15 2021
+Start time: 08:03:57 on May 31,2026
+vcover report -details sim/out/merged.ucdb 
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /tb_top/riscv_if_inst
+=== Design Unit: work.riscv_if
+=================================================================================
+
+Assertion Coverage:
+    Assertions                       2         0         2     0.00%
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/tb_top/riscv_if_inst/assert__pc_increment
+                     tb/uvm/riscv_if.sv(264)            2         12
+/tb_top/riscv_if_inst/assert__pc_valid_after_reset
+                     tb/uvm/riscv_if.sv(258)         4350         12
+
+=================================================================================
+=== Instance: /uvm_pkg
+=== Design Unit: work.uvm_pkg
+=================================================================================
+
+Assertion Coverage:
+    Assertions                       1         1         0   100.00%
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/uvm_pkg/uvm_component_name_check_visitor/visit/immed__262
+                     /home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_traversal.svh(262)
+                                                        0         12
+
+=================================================================================
+=== Instance: /riscv_tb_pkg
+=== Design Unit: work.riscv_tb_pkg
+=================================================================================
+
+Covergroup Coverage:
+    Covergroups                     10        na        na    99.58%
+        Coverpoints/Crosses         28        na        na        na
+            Covergroup Bins        253       251         2    99.20%
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /riscv_tb_pkg/riscv_coverage/cg_instr_type      100.00%        100          -    Covered              
+    covered/total bins:                                    49         49          -                      
+    missing/total bins:                                     0         49          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_instr                               100.00%        100          -    Covered              
+        covered/total bins:                                49         49          -                      
+        missing/total bins:                                 0         49          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin alu_r[INSTR_ADD]                              312          1          -    Covered              
+        bin alu_r[INSTR_SUB]                               28          1          -    Covered              
+        bin alu_r[INSTR_AND]                               12          1          -    Covered              
+        bin alu_r[INSTR_OR]                                12          1          -    Covered              
+        bin alu_r[INSTR_XOR]                               20          1          -    Covered              
+        bin alu_r[INSTR_SLT]                               28          1          -    Covered              
+        bin alu_r[INSTR_SLTU]                              20          1          -    Covered              
+        bin alu_r[INSTR_SLL]                               12          1          -    Covered              
+        bin alu_r[INSTR_SRL]                               12          1          -    Covered              
+        bin alu_r[INSTR_SRA]                               12          1          -    Covered              
+        bin alu_i[INSTR_ADDI]                            6144          1          -    Covered              
+        bin alu_i[INSTR_ANDI]                              20          1          -    Covered              
+        bin alu_i[INSTR_ORI]                               12          1          -    Covered              
+        bin alu_i[INSTR_XORI]                              12          1          -    Covered              
+        bin alu_i[INSTR_SLTI]                              20          1          -    Covered              
+        bin alu_i[INSTR_SLTIU]                             12          1          -    Covered              
+        bin alu_i[INSTR_SLLI]                              24          1          -    Covered              
+        bin alu_i[INSTR_SRLI]                              12          1          -    Covered              
+        bin alu_i[INSTR_SRAI]                              12          1          -    Covered              
+        bin load[INSTR_LW]                                126          1          -    Covered              
+        bin load[INSTR_LH]                                 54          1          -    Covered              
+        bin load[INSTR_LB]                                 30          1          -    Covered              
+        bin load[INSTR_LHU]                                42          1          -    Covered              
+        bin load[INSTR_LBU]                                54          1          -    Covered              
+        bin store[INSTR_SW]                                84          1          -    Covered              
+        bin store[INSTR_SH]                                92          1          -    Covered              
+        bin store[INSTR_SB]                                92          1          -    Covered              
+        bin branch[INSTR_BEQ]                              72          1          -    Covered              
+        bin branch[INSTR_BNE]                              44          1          -    Covered              
+        bin branch[INSTR_BLT]                              36          1          -    Covered              
+        bin branch[INSTR_BGE]                              36          1          -    Covered              
+        bin branch[INSTR_BLTU]                             44          1          -    Covered              
+        bin branch[INSTR_BGEU]                             36          1          -    Covered              
+        bin jump[INSTR_JAL]                                50          1          -    Covered              
+        bin jump[INSTR_JALR]                                4          1          -    Covered              
+        bin upper[INSTR_LUI]                              768          1          -    Covered              
+        bin upper[INSTR_AUIPC]                             24          1          -    Covered              
+        bin system[INSTR_ECALL]                          2136          1          -    Covered              
+        bin system[INSTR_CSRRW]                           682          1          -    Covered              
+        bin system[INSTR_CSRRS]                           676          1          -    Covered              
+        bin system[INSTR_CSRRC]                           338          1          -    Covered              
+        bin muldiv[INSTR_MUL]                              30          1          -    Covered              
+        bin muldiv[INSTR_MULH]                             30          1          -    Covered              
+        bin muldiv[INSTR_MULHSU]                           30          1          -    Covered              
+        bin muldiv[INSTR_MULHU]                            30          1          -    Covered              
+        bin muldiv[INSTR_DIV]                              90          1          -    Covered              
+        bin muldiv[INSTR_DIVU]                             30          1          -    Covered              
+        bin muldiv[INSTR_REM]                              30          1          -    Covered              
+        bin muldiv[INSTR_REMU]                             30          1          -    Covered              
+ TYPE /riscv_tb_pkg/riscv_coverage/cg_hazards         100.00%        100          -    Covered              
+    covered/total bins:                                     6          6          -                      
+    missing/total bins:                                     0          6          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_stall                               100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin no_stall                                    10908          1          -    Covered              
+        bin stalled                                      1814          1          -    Covered              
+    Coverpoint cp_instr_at_stall                      100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin load_use                                       78          1          -    Covered              
+        bin branch_haz                                     94          1          -    Covered              
+        default bin other                                1642                     -    Occurred             
+    Cross cx_stall_instr                              100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <stalled,load_use>                         78          1          -    Covered              
+            bin <stalled,branch_haz>                       94          1          -    Covered              
+        Illegal and Ignore Bins:
+            ignore_bin no_stall_cross                       0                     -    ZERO                 
+ TYPE /riscv_tb_pkg/riscv_coverage/cg_mem_access      100.00%        100          -    Covered              
+    covered/total bins:                                    24         24          -                      
+    missing/total bins:                                     0         24          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_load_type                           100.00%        100          -    Covered              
+        covered/total bins:                                 5          5          -                      
+        missing/total bins:                                 0          5          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin load_word                                      24          1          -    Covered              
+        bin load_half                                      18          1          -    Covered              
+        bin load_half_u                                    14          1          -    Covered              
+        bin load_byte                                      10          1          -    Covered              
+        bin load_byte_u                                    18          1          -    Covered              
+    Coverpoint cp_store_type                          100.00%        100          -    Covered              
+        covered/total bins:                                 3          3          -                      
+        missing/total bins:                                 0          3          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin store_word                                     42          1          -    Covered              
+        bin store_half                                     46          1          -    Covered              
+        bin store_byte                                     46          1          -    Covered              
+    Coverpoint cp_byte_offset                         100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin offset_0                                       76          1          -    Covered              
+        bin offset_1                                       64          1          -    Covered              
+        bin offset_2                                       56          1          -    Covered              
+        bin offset_3                                       22          1          -    Covered              
+    Cross cx_store_offset                             100.00%        100          -    Covered              
+        covered/total bins:                                12         12          -                      
+        missing/total bins:                                 0         12          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <store_byte,offset_3>                       8          1          -    Covered              
+            bin <store_half,offset_3>                       8          1          -    Covered              
+            bin <store_word,offset_3>                       4          1          -    Covered              
+            bin <store_byte,offset_2>                      18          1          -    Covered              
+            bin <store_half,offset_2>                      14          1          -    Covered              
+            bin <store_word,offset_2>                       8          1          -    Covered              
+            bin <store_byte,offset_1>                      10          1          -    Covered              
+            bin <store_half,offset_1>                      12          1          -    Covered              
+            bin <store_word,offset_1>                      14          1          -    Covered              
+            bin <store_byte,offset_0>                      10          1          -    Covered              
+            bin <store_half,offset_0>                      12          1          -    Covered              
+            bin <store_word,offset_0>                      16          1          -    Covered              
+ TYPE /riscv_tb_pkg/riscv_coverage/cg_branch          100.00%        100          -    Covered              
+    covered/total bins:                                    24         24          -                      
+    missing/total bins:                                     0         24          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_branch_type                         100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin beq                                            36          1          -    Covered              
+        bin bne                                            22          1          -    Covered              
+        bin blt                                            18          1          -    Covered              
+        bin bge                                            18          1          -    Covered              
+        bin bltu                                           22          1          -    Covered              
+        bin bgeu                                           18          1          -    Covered              
+        bin jal                                            22          1          -    Covered              
+        bin jalr                                            2          1          -    Covered              
+    Coverpoint cp_taken                               100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin taken                                          98          1          -    Covered              
+        bin not_taken                                      60          1          -    Covered              
+    Cross cx_branch_taken                             100.00%        100          -    Covered              
+        covered/total bins:                                14         14          -                      
+        missing/total bins:                                 0         14          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <jalr,taken>                                2          1          -    Covered              
+            bin <bgeu,not_taken>                            8          1          -    Covered              
+            bin <bltu,not_taken>                           12          1          -    Covered              
+            bin <bge,not_taken>                             4          1          -    Covered              
+            bin <bne,not_taken>                             4          1          -    Covered              
+            bin <blt,not_taken>                             8          1          -    Covered              
+            bin <beq,not_taken>                            24          1          -    Covered              
+            bin <bge,taken>                                14          1          -    Covered              
+            bin <bgeu,taken>                               10          1          -    Covered              
+            bin <bne,taken>                                18          1          -    Covered              
+            bin <blt,taken>                                10          1          -    Covered              
+            bin <bltu,taken>                               10          1          -    Covered              
+            bin <beq,taken>                                12          1          -    Covered              
+            bin <jal,taken>                                22          1          -    Covered              
+        Illegal and Ignore Bins:
+            ignore_bin jalr_not_taken                       0                     -    ZERO                 
+            ignore_bin jal_not_taken                        0                     -    ZERO                 
+ TYPE /riscv_tb_pkg/riscv_coverage/cg_pipeline_flow 
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                     6          6          -                      
+    missing/total bins:                                     0          6          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_stall                               100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin yes                                          1814          1          -    Covered              
+        bin no                                          10908          1          -    Covered              
+    Coverpoint cp_result_range                        100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin zero                                          504          1          -    Covered              
+        bin all_ones                                       72          1          -    Covered              
+        bin msb_set                                       214          1          -    Covered              
+        bin msb_clear                                    2248          1          -    Covered              
+ TYPE /riscv_tb_pkg/riscv_coverage/cg_regfile         100.00%        100          -    Covered              
+    covered/total bins:                                    99         99          -                      
+    missing/total bins:                                     0         99          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_rd                                  100.00%        100          -    Covered              
+        covered/total bins:                                31         31          -                      
+        missing/total bins:                                 0         31          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin gpr[1]                                        422          1          -    Covered              
+        bin gpr[2]                                        428          1          -    Covered              
+        bin gpr[3]                                         30          1          -    Covered              
+        bin gpr[4]                                         26          1          -    Covered              
+        bin gpr[5]                                        368          1          -    Covered              
+        bin gpr[6]                                         26          1          -    Covered              
+        bin gpr[7]                                        356          1          -    Covered              
+        bin gpr[8]                                         18          1          -    Covered              
+        bin gpr[9]                                        350          1          -    Covered              
+        bin gpr[10]                                       388          1          -    Covered              
+        bin gpr[11]                                        60          1          -    Covered              
+        bin gpr[12]                                        52          1          -    Covered              
+        bin gpr[13]                                        56          1          -    Covered              
+        bin gpr[14]                                        22          1          -    Covered              
+        bin gpr[15]                                        26          1          -    Covered              
+        bin gpr[16]                                        18          1          -    Covered              
+        bin gpr[17]                                        22          1          -    Covered              
+        bin gpr[18]                                        18          1          -    Covered              
+        bin gpr[19]                                        14          1          -    Covered              
+        bin gpr[20]                                        56          1          -    Covered              
+        bin gpr[21]                                        52          1          -    Covered              
+        bin gpr[22]                                        14          1          -    Covered              
+        bin gpr[23]                                        18          1          -    Covered              
+        bin gpr[24]                                        14          1          -    Covered              
+        bin gpr[25]                                        18          1          -    Covered              
+        bin gpr[26]                                        18          1          -    Covered              
+        bin gpr[27]                                        14          1          -    Covered              
+        bin gpr[28]                                        14          1          -    Covered              
+        bin gpr[29]                                        14          1          -    Covered              
+        bin gpr[30]                                        14          1          -    Covered              
+        bin gpr[31]                                        20          1          -    Covered              
+    Coverpoint cp_rs1                                 100.00%        100          -    Covered              
+        covered/total bins:                                32         32          -                      
+        missing/total bins:                                 0         32          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin x0_src                                       2558          1          -    Covered              
+        bin gpr[1]                                        116          1          -    Covered              
+        bin gpr[2]                                         28          1          -    Covered              
+        bin gpr[3]                                         36          1          -    Covered              
+        bin gpr[4]                                         12          1          -    Covered              
+        bin gpr[5]                                         12          1          -    Covered              
+        bin gpr[6]                                          6          1          -    Covered              
+        bin gpr[7]                                          8          1          -    Covered              
+        bin gpr[8]                                         12          1          -    Covered              
+        bin gpr[9]                                          4          1          -    Covered              
+        bin gpr[10]                                        34          1          -    Covered              
+        bin gpr[11]                                         8          1          -    Covered              
+        bin gpr[12]                                         8          1          -    Covered              
+        bin gpr[13]                                         8          1          -    Covered              
+        bin gpr[14]                                         8          1          -    Covered              
+        bin gpr[15]                                        10          1          -    Covered              
+        bin gpr[16]                                         6          1          -    Covered              
+        bin gpr[17]                                         4          1          -    Covered              
+        bin gpr[18]                                         8          1          -    Covered              
+        bin gpr[19]                                        12          1          -    Covered              
+        bin gpr[20]                                        12          1          -    Covered              
+        bin gpr[21]                                         4          1          -    Covered              
+        bin gpr[22]                                         4          1          -    Covered              
+        bin gpr[23]                                         4          1          -    Covered              
+        bin gpr[24]                                        14          1          -    Covered              
+        bin gpr[25]                                         6          1          -    Covered              
+        bin gpr[26]                                         4          1          -    Covered              
+        bin gpr[27]                                         4          1          -    Covered              
+        bin gpr[28]                                         4          1          -    Covered              
+        bin gpr[29]                                         4          1          -    Covered              
+        bin gpr[30]                                         4          1          -    Covered              
+        bin gpr[31]                                         4          1          -    Covered              
+    Coverpoint cp_rs2                                 100.00%        100          -    Covered              
+        covered/total bins:                                32         32          -                      
+        missing/total bins:                                 0         32          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin x0_src                                        460          1          -    Covered              
+        bin gpr[1]                                        390          1          -    Covered              
+        bin gpr[2]                                        382          1          -    Covered              
+        bin gpr[3]                                         70          1          -    Covered              
+        bin gpr[4]                                         38          1          -    Covered              
+        bin gpr[5]                                         46          1          -    Covered              
+        bin gpr[6]                                         18          1          -    Covered              
+        bin gpr[7]                                         78          1          -    Covered              
+        bin gpr[8]                                         28          1          -    Covered              
+        bin gpr[9]                                         12          1          -    Covered              
+        bin gpr[10]                                        40          1          -    Covered              
+        bin gpr[11]                                       344          1          -    Covered              
+        bin gpr[12]                                        30          1          -    Covered              
+        bin gpr[13]                                       342          1          -    Covered              
+        bin gpr[14]                                        34          1          -    Covered              
+        bin gpr[15]                                        18          1          -    Covered              
+        bin gpr[16]                                        20          1          -    Covered              
+        bin gpr[17]                                         4          1          -    Covered              
+        bin gpr[18]                                        36          1          -    Covered              
+        bin gpr[19]                                         8          1          -    Covered              
+        bin gpr[20]                                        28          1          -    Covered              
+        bin gpr[21]                                       346          1          -    Covered              
+        bin gpr[22]                                        12          1          -    Covered              
+        bin gpr[23]                                         8          1          -    Covered              
+        bin gpr[24]                                        10          1          -    Covered              
+        bin gpr[25]                                        38          1          -    Covered              
+        bin gpr[26]                                        12          1          -    Covered              
+        bin gpr[27]                                         8          1          -    Covered              
+        bin gpr[28]                                         8          1          -    Covered              
+        bin gpr[29]                                        12          1          -    Covered              
+        bin gpr[30]                                         8          1          -    Covered              
+        bin gpr[31]                                        78          1          -    Covered              
+    Coverpoint cp_raw_rs1                             100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[0]                                     12314          1          -    Covered              
+        bin auto[1]                                       410          1          -    Covered              
+    Coverpoint cp_raw_rs2                             100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[0]                                     12280          1          -    Covered              
+        bin auto[1]                                       444          1          -    Covered              
+ TYPE /riscv_tb_pkg/riscv_coverage/cg_csr             100.00%        100          -    Covered              
+    covered/total bins:                                     9          9          -                      
+    missing/total bins:                                     0          9          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_csr_instr                           100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin csrrw                                         682          1          -    Covered              
+        bin csrrs                                         676          1          -    Covered              
+        bin csrrc                                         338          1          -    Covered              
+        bin ecall                                        2136          1          -    Covered              
+    Coverpoint cp_csr_addr                            100.00%        100          -    Covered              
+        covered/total bins:                                 5          5          -                      
+        missing/total bins:                                 0          5          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin mstatus                                         4          1          -    Covered              
+        bin mtvec                                         344          1          -    Covered              
+        bin mscratch                                     1340          1          -    Covered              
+        bin mepc                                            4          1          -    Covered              
+        bin mcause                                          4          1          -    Covered              
+        default bin other                                   0                     -    ZERO                 
+ TYPE /riscv_tb_pkg/riscv_coverage/cg_axi             100.00%        100          -    Covered              
+    covered/total bins:                                     2          2          -                      
+    missing/total bins:                                     0          2          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_axi_trans                           100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin axi_reads                                      84          1          -    Covered              
+        bin axi_writes                                     28          1          -    Covered              
+ TYPE /riscv_tb_pkg/riscv_coverage/cg_issue           100.00%        100          -    Covered              
+    covered/total bins:                                     8          8          -                      
+    missing/total bins:                                     0          8          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_issue_stall                         100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin no_stall                                     9010          1          -    Covered              
+        bin stalled                                       338          1          -    Covered              
+    Coverpoint cp_issue_valid                         100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin invalid                                      1702          1          -    Covered              
+        bin valid                                        7658          1          -    Covered              
+    Coverpoint cp_execute_ready                       100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin not_ready                                     300          1          -    Covered              
+        bin ready                                        9048          1          -    Covered              
+    Coverpoint cp_load_use_hazard                     100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin no_hazard                                    9312          1          -    Covered              
+        bin hazard                                         38          1          -    Covered              
+ TYPE /riscv_tb_pkg/riscv_coverage/cg_branch_prediction 
+                                                       95.83%        100          -    Uncovered            
+    covered/total bins:                                    24         26          -                      
+    missing/total bins:                                     2         26          -                      
+    % Hit:                                             92.30%        100          -                      
+    Coverpoint cp_mispredict                          100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin correct                                        30          1          -    Covered              
+        bin mispredicted                                   49          1          -    Covered              
+    Coverpoint cp_branch_type                         100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin beq                                            18          1          -    Covered              
+        bin bne                                            11          1          -    Covered              
+        bin blt                                             9          1          -    Covered              
+        bin bge                                             9          1          -    Covered              
+        bin bltu                                           11          1          -    Covered              
+        bin bgeu                                            9          1          -    Covered              
+        bin jal                                            11          1          -    Covered              
+        bin jalr                                            1          1          -    Covered              
+    Cross cx_prediction                                87.50%        100          -    Uncovered            
+        covered/total bins:                                14         16          -                      
+        missing/total bins:                                 2         16          -                      
+        % Hit:                                         87.50%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <jalr,mispredicted>                         1          1          -    Covered              
+            bin <bgeu,mispredicted>                         5          1          -    Covered              
+            bin <bltu,mispredicted>                         5          1          -    Covered              
+            bin <bge,mispredicted>                          7          1          -    Covered              
+            bin <blt,mispredicted>                          5          1          -    Covered              
+            bin <bne,mispredicted>                          9          1          -    Covered              
+            bin <beq,mispredicted>                          6          1          -    Covered              
+            bin <bgeu,correct>                              4          1          -    Covered              
+            bin <bltu,correct>                              6          1          -    Covered              
+            bin <bge,correct>                               2          1          -    Covered              
+            bin <blt,correct>                               4          1          -    Covered              
+            bin <bne,correct>                               2          1          -    Covered              
+            bin <beq,correct>                              12          1          -    Covered              
+            bin <jal,mispredicted>                         11          1          -    Covered              
+            bin <jalr,correct>                              0          1          1    ZERO                 
+            bin <jal,correct>                               0          1          1    ZERO                 
+
+COVERGROUP COVERAGE:
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /riscv_tb_pkg/riscv_coverage/cg_instr_type      100.00%        100          -    Covered              
+    covered/total bins:                                    49         49          -                      
+    missing/total bins:                                     0         49          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_instr                               100.00%        100          -    Covered              
+        covered/total bins:                                49         49          -                      
+        missing/total bins:                                 0         49          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin alu_r[INSTR_ADD]                              312          1          -    Covered              
+        bin alu_r[INSTR_SUB]                               28          1          -    Covered              
+        bin alu_r[INSTR_AND]                               12          1          -    Covered              
+        bin alu_r[INSTR_OR]                                12          1          -    Covered              
+        bin alu_r[INSTR_XOR]                               20          1          -    Covered              
+        bin alu_r[INSTR_SLT]                               28          1          -    Covered              
+        bin alu_r[INSTR_SLTU]                              20          1          -    Covered              
+        bin alu_r[INSTR_SLL]                               12          1          -    Covered              
+        bin alu_r[INSTR_SRL]                               12          1          -    Covered              
+        bin alu_r[INSTR_SRA]                               12          1          -    Covered              
+        bin alu_i[INSTR_ADDI]                            6144          1          -    Covered              
+        bin alu_i[INSTR_ANDI]                              20          1          -    Covered              
+        bin alu_i[INSTR_ORI]                               12          1          -    Covered              
+        bin alu_i[INSTR_XORI]                              12          1          -    Covered              
+        bin alu_i[INSTR_SLTI]                              20          1          -    Covered              
+        bin alu_i[INSTR_SLTIU]                             12          1          -    Covered              
+        bin alu_i[INSTR_SLLI]                              24          1          -    Covered              
+        bin alu_i[INSTR_SRLI]                              12          1          -    Covered              
+        bin alu_i[INSTR_SRAI]                              12          1          -    Covered              
+        bin load[INSTR_LW]                                126          1          -    Covered              
+        bin load[INSTR_LH]                                 54          1          -    Covered              
+        bin load[INSTR_LB]                                 30          1          -    Covered              
+        bin load[INSTR_LHU]                                42          1          -    Covered              
+        bin load[INSTR_LBU]                                54          1          -    Covered              
+        bin store[INSTR_SW]                                84          1          -    Covered              
+        bin store[INSTR_SH]                                92          1          -    Covered              
+        bin store[INSTR_SB]                                92          1          -    Covered              
+        bin branch[INSTR_BEQ]                              72          1          -    Covered              
+        bin branch[INSTR_BNE]                              44          1          -    Covered              
+        bin branch[INSTR_BLT]                              36          1          -    Covered              
+        bin branch[INSTR_BGE]                              36          1          -    Covered              
+        bin branch[INSTR_BLTU]                             44          1          -    Covered              
+        bin branch[INSTR_BGEU]                             36          1          -    Covered              
+        bin jump[INSTR_JAL]                                50          1          -    Covered              
+        bin jump[INSTR_JALR]                                4          1          -    Covered              
+        bin upper[INSTR_LUI]                              768          1          -    Covered              
+        bin upper[INSTR_AUIPC]                             24          1          -    Covered              
+        bin system[INSTR_ECALL]                          2136          1          -    Covered              
+        bin system[INSTR_CSRRW]                           682          1          -    Covered              
+        bin system[INSTR_CSRRS]                           676          1          -    Covered              
+        bin system[INSTR_CSRRC]                           338          1          -    Covered              
+        bin muldiv[INSTR_MUL]                              30          1          -    Covered              
+        bin muldiv[INSTR_MULH]                             30          1          -    Covered              
+        bin muldiv[INSTR_MULHSU]                           30          1          -    Covered              
+        bin muldiv[INSTR_MULHU]                            30          1          -    Covered              
+        bin muldiv[INSTR_DIV]                              90          1          -    Covered              
+        bin muldiv[INSTR_DIVU]                             30          1          -    Covered              
+        bin muldiv[INSTR_REM]                              30          1          -    Covered              
+        bin muldiv[INSTR_REMU]                             30          1          -    Covered              
+ TYPE /riscv_tb_pkg/riscv_coverage/cg_hazards         100.00%        100          -    Covered              
+    covered/total bins:                                     6          6          -                      
+    missing/total bins:                                     0          6          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_stall                               100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin no_stall                                    10908          1          -    Covered              
+        bin stalled                                      1814          1          -    Covered              
+    Coverpoint cp_instr_at_stall                      100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin load_use                                       78          1          -    Covered              
+        bin branch_haz                                     94          1          -    Covered              
+        default bin other                                1642                     -    Occurred             
+    Cross cx_stall_instr                              100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <stalled,load_use>                         78          1          -    Covered              
+            bin <stalled,branch_haz>                       94          1          -    Covered              
+        Illegal and Ignore Bins:
+            ignore_bin no_stall_cross                       0                     -    ZERO                 
+ TYPE /riscv_tb_pkg/riscv_coverage/cg_mem_access      100.00%        100          -    Covered              
+    covered/total bins:                                    24         24          -                      
+    missing/total bins:                                     0         24          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_load_type                           100.00%        100          -    Covered              
+        covered/total bins:                                 5          5          -                      
+        missing/total bins:                                 0          5          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin load_word                                      24          1          -    Covered              
+        bin load_half                                      18          1          -    Covered              
+        bin load_half_u                                    14          1          -    Covered              
+        bin load_byte                                      10          1          -    Covered              
+        bin load_byte_u                                    18          1          -    Covered              
+    Coverpoint cp_store_type                          100.00%        100          -    Covered              
+        covered/total bins:                                 3          3          -                      
+        missing/total bins:                                 0          3          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin store_word                                     42          1          -    Covered              
+        bin store_half                                     46          1          -    Covered              
+        bin store_byte                                     46          1          -    Covered              
+    Coverpoint cp_byte_offset                         100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin offset_0                                       76          1          -    Covered              
+        bin offset_1                                       64          1          -    Covered              
+        bin offset_2                                       56          1          -    Covered              
+        bin offset_3                                       22          1          -    Covered              
+    Cross cx_store_offset                             100.00%        100          -    Covered              
+        covered/total bins:                                12         12          -                      
+        missing/total bins:                                 0         12          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <store_byte,offset_3>                       8          1          -    Covered              
+            bin <store_half,offset_3>                       8          1          -    Covered              
+            bin <store_word,offset_3>                       4          1          -    Covered              
+            bin <store_byte,offset_2>                      18          1          -    Covered              
+            bin <store_half,offset_2>                      14          1          -    Covered              
+            bin <store_word,offset_2>                       8          1          -    Covered              
+            bin <store_byte,offset_1>                      10          1          -    Covered              
+            bin <store_half,offset_1>                      12          1          -    Covered              
+            bin <store_word,offset_1>                      14          1          -    Covered              
+            bin <store_byte,offset_0>                      10          1          -    Covered              
+            bin <store_half,offset_0>                      12          1          -    Covered              
+            bin <store_word,offset_0>                      16          1          -    Covered              
+ TYPE /riscv_tb_pkg/riscv_coverage/cg_branch          100.00%        100          -    Covered              
+    covered/total bins:                                    24         24          -                      
+    missing/total bins:                                     0         24          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_branch_type                         100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin beq                                            36          1          -    Covered              
+        bin bne                                            22          1          -    Covered              
+        bin blt                                            18          1          -    Covered              
+        bin bge                                            18          1          -    Covered              
+        bin bltu                                           22          1          -    Covered              
+        bin bgeu                                           18          1          -    Covered              
+        bin jal                                            22          1          -    Covered              
+        bin jalr                                            2          1          -    Covered              
+    Coverpoint cp_taken                               100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin taken                                          98          1          -    Covered              
+        bin not_taken                                      60          1          -    Covered              
+    Cross cx_branch_taken                             100.00%        100          -    Covered              
+        covered/total bins:                                14         14          -                      
+        missing/total bins:                                 0         14          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <jalr,taken>                                2          1          -    Covered              
+            bin <bgeu,not_taken>                            8          1          -    Covered              
+            bin <bltu,not_taken>                           12          1          -    Covered              
+            bin <bge,not_taken>                             4          1          -    Covered              
+            bin <bne,not_taken>                             4          1          -    Covered              
+            bin <blt,not_taken>                             8          1          -    Covered              
+            bin <beq,not_taken>                            24          1          -    Covered              
+            bin <bge,taken>                                14          1          -    Covered              
+            bin <bgeu,taken>                               10          1          -    Covered              
+            bin <bne,taken>                                18          1          -    Covered              
+            bin <blt,taken>                                10          1          -    Covered              
+            bin <bltu,taken>                               10          1          -    Covered              
+            bin <beq,taken>                                12          1          -    Covered              
+            bin <jal,taken>                                22          1          -    Covered              
+        Illegal and Ignore Bins:
+            ignore_bin jalr_not_taken                       0                     -    ZERO                 
+            ignore_bin jal_not_taken                        0                     -    ZERO                 
+ TYPE /riscv_tb_pkg/riscv_coverage/cg_pipeline_flow 
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                     6          6          -                      
+    missing/total bins:                                     0          6          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_stall                               100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin yes                                          1814          1          -    Covered              
+        bin no                                          10908          1          -    Covered              
+    Coverpoint cp_result_range                        100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin zero                                          504          1          -    Covered              
+        bin all_ones                                       72          1          -    Covered              
+        bin msb_set                                       214          1          -    Covered              
+        bin msb_clear                                    2248          1          -    Covered              
+ TYPE /riscv_tb_pkg/riscv_coverage/cg_regfile         100.00%        100          -    Covered              
+    covered/total bins:                                    99         99          -                      
+    missing/total bins:                                     0         99          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_rd                                  100.00%        100          -    Covered              
+        covered/total bins:                                31         31          -                      
+        missing/total bins:                                 0         31          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin gpr[1]                                        422          1          -    Covered              
+        bin gpr[2]                                        428          1          -    Covered              
+        bin gpr[3]                                         30          1          -    Covered              
+        bin gpr[4]                                         26          1          -    Covered              
+        bin gpr[5]                                        368          1          -    Covered              
+        bin gpr[6]                                         26          1          -    Covered              
+        bin gpr[7]                                        356          1          -    Covered              
+        bin gpr[8]                                         18          1          -    Covered              
+        bin gpr[9]                                        350          1          -    Covered              
+        bin gpr[10]                                       388          1          -    Covered              
+        bin gpr[11]                                        60          1          -    Covered              
+        bin gpr[12]                                        52          1          -    Covered              
+        bin gpr[13]                                        56          1          -    Covered              
+        bin gpr[14]                                        22          1          -    Covered              
+        bin gpr[15]                                        26          1          -    Covered              
+        bin gpr[16]                                        18          1          -    Covered              
+        bin gpr[17]                                        22          1          -    Covered              
+        bin gpr[18]                                        18          1          -    Covered              
+        bin gpr[19]                                        14          1          -    Covered              
+        bin gpr[20]                                        56          1          -    Covered              
+        bin gpr[21]                                        52          1          -    Covered              
+        bin gpr[22]                                        14          1          -    Covered              
+        bin gpr[23]                                        18          1          -    Covered              
+        bin gpr[24]                                        14          1          -    Covered              
+        bin gpr[25]                                        18          1          -    Covered              
+        bin gpr[26]                                        18          1          -    Covered              
+        bin gpr[27]                                        14          1          -    Covered              
+        bin gpr[28]                                        14          1          -    Covered              
+        bin gpr[29]                                        14          1          -    Covered              
+        bin gpr[30]                                        14          1          -    Covered              
+        bin gpr[31]                                        20          1          -    Covered              
+    Coverpoint cp_rs1                                 100.00%        100          -    Covered              
+        covered/total bins:                                32         32          -                      
+        missing/total bins:                                 0         32          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin x0_src                                       2558          1          -    Covered              
+        bin gpr[1]                                        116          1          -    Covered              
+        bin gpr[2]                                         28          1          -    Covered              
+        bin gpr[3]                                         36          1          -    Covered              
+        bin gpr[4]                                         12          1          -    Covered              
+        bin gpr[5]                                         12          1          -    Covered              
+        bin gpr[6]                                          6          1          -    Covered              
+        bin gpr[7]                                          8          1          -    Covered              
+        bin gpr[8]                                         12          1          -    Covered              
+        bin gpr[9]                                          4          1          -    Covered              
+        bin gpr[10]                                        34          1          -    Covered              
+        bin gpr[11]                                         8          1          -    Covered              
+        bin gpr[12]                                         8          1          -    Covered              
+        bin gpr[13]                                         8          1          -    Covered              
+        bin gpr[14]                                         8          1          -    Covered              
+        bin gpr[15]                                        10          1          -    Covered              
+        bin gpr[16]                                         6          1          -    Covered              
+        bin gpr[17]                                         4          1          -    Covered              
+        bin gpr[18]                                         8          1          -    Covered              
+        bin gpr[19]                                        12          1          -    Covered              
+        bin gpr[20]                                        12          1          -    Covered              
+        bin gpr[21]                                         4          1          -    Covered              
+        bin gpr[22]                                         4          1          -    Covered              
+        bin gpr[23]                                         4          1          -    Covered              
+        bin gpr[24]                                        14          1          -    Covered              
+        bin gpr[25]                                         6          1          -    Covered              
+        bin gpr[26]                                         4          1          -    Covered              
+        bin gpr[27]                                         4          1          -    Covered              
+        bin gpr[28]                                         4          1          -    Covered              
+        bin gpr[29]                                         4          1          -    Covered              
+        bin gpr[30]                                         4          1          -    Covered              
+        bin gpr[31]                                         4          1          -    Covered              
+    Coverpoint cp_rs2                                 100.00%        100          -    Covered              
+        covered/total bins:                                32         32          -                      
+        missing/total bins:                                 0         32          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin x0_src                                        460          1          -    Covered              
+        bin gpr[1]                                        390          1          -    Covered              
+        bin gpr[2]                                        382          1          -    Covered              
+        bin gpr[3]                                         70          1          -    Covered              
+        bin gpr[4]                                         38          1          -    Covered              
+        bin gpr[5]                                         46          1          -    Covered              
+        bin gpr[6]                                         18          1          -    Covered              
+        bin gpr[7]                                         78          1          -    Covered              
+        bin gpr[8]                                         28          1          -    Covered              
+        bin gpr[9]                                         12          1          -    Covered              
+        bin gpr[10]                                        40          1          -    Covered              
+        bin gpr[11]                                       344          1          -    Covered              
+        bin gpr[12]                                        30          1          -    Covered              
+        bin gpr[13]                                       342          1          -    Covered              
+        bin gpr[14]                                        34          1          -    Covered              
+        bin gpr[15]                                        18          1          -    Covered              
+        bin gpr[16]                                        20          1          -    Covered              
+        bin gpr[17]                                         4          1          -    Covered              
+        bin gpr[18]                                        36          1          -    Covered              
+        bin gpr[19]                                         8          1          -    Covered              
+        bin gpr[20]                                        28          1          -    Covered              
+        bin gpr[21]                                       346          1          -    Covered              
+        bin gpr[22]                                        12          1          -    Covered              
+        bin gpr[23]                                         8          1          -    Covered              
+        bin gpr[24]                                        10          1          -    Covered              
+        bin gpr[25]                                        38          1          -    Covered              
+        bin gpr[26]                                        12          1          -    Covered              
+        bin gpr[27]                                         8          1          -    Covered              
+        bin gpr[28]                                         8          1          -    Covered              
+        bin gpr[29]                                        12          1          -    Covered              
+        bin gpr[30]                                         8          1          -    Covered              
+        bin gpr[31]                                        78          1          -    Covered              
+    Coverpoint cp_raw_rs1                             100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[0]                                     12314          1          -    Covered              
+        bin auto[1]                                       410          1          -    Covered              
+    Coverpoint cp_raw_rs2                             100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[0]                                     12280          1          -    Covered              
+        bin auto[1]                                       444          1          -    Covered              
+ TYPE /riscv_tb_pkg/riscv_coverage/cg_csr             100.00%        100          -    Covered              
+    covered/total bins:                                     9          9          -                      
+    missing/total bins:                                     0          9          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_csr_instr                           100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin csrrw                                         682          1          -    Covered              
+        bin csrrs                                         676          1          -    Covered              
+        bin csrrc                                         338          1          -    Covered              
+        bin ecall                                        2136          1          -    Covered              
+    Coverpoint cp_csr_addr                            100.00%        100          -    Covered              
+        covered/total bins:                                 5          5          -                      
+        missing/total bins:                                 0          5          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin mstatus                                         4          1          -    Covered              
+        bin mtvec                                         344          1          -    Covered              
+        bin mscratch                                     1340          1          -    Covered              
+        bin mepc                                            4          1          -    Covered              
+        bin mcause                                          4          1          -    Covered              
+        default bin other                                   0                     -    ZERO                 
+ TYPE /riscv_tb_pkg/riscv_coverage/cg_axi             100.00%        100          -    Covered              
+    covered/total bins:                                     2          2          -                      
+    missing/total bins:                                     0          2          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_axi_trans                           100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin axi_reads                                      84          1          -    Covered              
+        bin axi_writes                                     28          1          -    Covered              
+ TYPE /riscv_tb_pkg/riscv_coverage/cg_issue           100.00%        100          -    Covered              
+    covered/total bins:                                     8          8          -                      
+    missing/total bins:                                     0          8          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_issue_stall                         100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin no_stall                                     9010          1          -    Covered              
+        bin stalled                                       338          1          -    Covered              
+    Coverpoint cp_issue_valid                         100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin invalid                                      1702          1          -    Covered              
+        bin valid                                        7658          1          -    Covered              
+    Coverpoint cp_execute_ready                       100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin not_ready                                     300          1          -    Covered              
+        bin ready                                        9048          1          -    Covered              
+    Coverpoint cp_load_use_hazard                     100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin no_hazard                                    9312          1          -    Covered              
+        bin hazard                                         38          1          -    Covered              
+ TYPE /riscv_tb_pkg/riscv_coverage/cg_branch_prediction 
+                                                       95.83%        100          -    Uncovered            
+    covered/total bins:                                    24         26          -                      
+    missing/total bins:                                     2         26          -                      
+    % Hit:                                             92.30%        100          -                      
+    Coverpoint cp_mispredict                          100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin correct                                        30          1          -    Covered              
+        bin mispredicted                                   49          1          -    Covered              
+    Coverpoint cp_branch_type                         100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin beq                                            18          1          -    Covered              
+        bin bne                                            11          1          -    Covered              
+        bin blt                                             9          1          -    Covered              
+        bin bge                                             9          1          -    Covered              
+        bin bltu                                           11          1          -    Covered              
+        bin bgeu                                            9          1          -    Covered              
+        bin jal                                            11          1          -    Covered              
+        bin jalr                                            1          1          -    Covered              
+    Cross cx_prediction                                87.50%        100          -    Uncovered            
+        covered/total bins:                                14         16          -                      
+        missing/total bins:                                 2         16          -                      
+        % Hit:                                         87.50%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <jalr,mispredicted>                         1          1          -    Covered              
+            bin <bgeu,mispredicted>                         5          1          -    Covered              
+            bin <bltu,mispredicted>                         5          1          -    Covered              
+            bin <bge,mispredicted>                          7          1          -    Covered              
+            bin <blt,mispredicted>                          5          1          -    Covered              
+            bin <bne,mispredicted>                          9          1          -    Covered              
+            bin <beq,mispredicted>                          6          1          -    Covered              
+            bin <bgeu,correct>                              4          1          -    Covered              
+            bin <bltu,correct>                              6          1          -    Covered              
+            bin <bge,correct>                               2          1          -    Covered              
+            bin <blt,correct>                               4          1          -    Covered              
+            bin <bne,correct>                               2          1          -    Covered              
+            bin <beq,correct>                              12          1          -    Covered              
+            bin <jal,mispredicted>                         11          1          -    Covered              
+            bin <jalr,correct>                              0          1          1    ZERO                 
+            bin <jal,correct>                               0          1          1    ZERO                 
+
+TOTAL COVERGROUP COVERAGE: 99.58%  COVERGROUP TYPES: 10
+
+ASSERTION RESULTS:
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/tb_top/riscv_if_inst/assert__pc_increment
+                     tb/uvm/riscv_if.sv(264)            2         12
+/tb_top/riscv_if_inst/assert__pc_valid_after_reset
+                     tb/uvm/riscv_if.sv(258)         4350         12
+/uvm_pkg/uvm_component_name_check_visitor/visit/immed__262
+                     /home/ngobinh/Questasim/questasim/verilog_src/uvm-1.2/src/base/uvm_traversal.svh(262)
+                                                        0         12
+
+Total Coverage By Instance (filtered view): 66.45%
+
+End time: 08:03:57 on May 31,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0

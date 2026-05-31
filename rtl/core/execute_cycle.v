@@ -5,10 +5,15 @@ module execute_cycle(
     input wire [3:0] alu_control_e,
     input wire [31:0] alu_result_m, read_data_1_e, read_data_2_e, imm_ext_e, pc_e, pc_plus_4_e, result_w,
     input wire [4:0] rd_e, 
+    input wire predict_taken_e,
+    input wire [31:0] predict_target_e,
     output  [31:0] pc_target_e, alu_result_e, write_data_e, 
     output  pc_src_e,
     output wire [31:0] src_a_out,
-    output wire [31:0] src_b_reg_out
+    output wire [31:0] src_b_reg_out,
+    output wire actual_taken_e,
+    output wire [31:0] actual_target_e,
+    output wire update_valid_e
 );
     wire [31:0] src_a_e, src_b_e, src_b_interim_e;
     wire [31:0] alu_input_a;
@@ -76,10 +81,24 @@ module execute_cycle(
         .c(branch_adder_result)
     );
 
-    //MUX for pc_target
-    assign pc_target_e = jalr_e ? (alu_result_e & 32'hFFFFFFFE) : branch_adder_result;
-    // PC source control
-    assign pc_src_e = (branch_taken_e & branch_e) | jump_e;
+    //MUX for branch/jump target (for BTB update)
+    assign actual_target_e = jalr_e ? (alu_result_e & 32'hFFFFFFFE) : branch_adder_result;
+    
+    // Actual taken status
+    assign actual_taken_e = (branch_taken_e & branch_e) | jump_e | jalr_e;
+    
+    // Predictor update valid
+    assign update_valid_e = branch_e | jump_e | jalr_e;
+
+    // Misprediction detection
+    wire mispredict_e = (predict_taken_e != actual_taken_e) || 
+                        (predict_taken_e && actual_taken_e && (predict_target_e != actual_target_e));
+
+    // Redirect PC on misprediction
+    assign pc_target_e = actual_taken_e ? actual_target_e : pc_plus_4_e;
+    
+    // PC source control (1 = redirect fetch)
+    assign pc_src_e = mispredict_e;
     
     // Write data for store instructions (use forwarded value)
     assign write_data_e = src_b_interim_e;

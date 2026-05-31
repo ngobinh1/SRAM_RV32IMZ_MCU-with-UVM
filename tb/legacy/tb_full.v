@@ -122,6 +122,10 @@ module tb_riscv_pipeline_mega();
             // 5. Writeback Stage
             $display("  [WB]  Result = %h | rd=x%0d | RegWr=%b", 
                 dut.result_w, dut.rd_w, dut.reg_write_w);
+                
+            // 6. Branch Predictor
+            $display("  [BP]  predict_taken_f=%b | predict_target_f=%h | update_valid_e=%b | actual_taken_e=%b",
+                dut.predict_taken_f, dut.predict_target_f, dut.update_valid_e, dut.actual_taken_e);
         end
     end
 

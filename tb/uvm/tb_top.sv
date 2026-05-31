@@ -66,6 +66,10 @@ module tb_top;
     assign riscv_if_inst.pc_src_e     = dut.pc_src_e;
     assign riscv_if_inst.pc_target_e  = dut.pc_target_e;
     assign riscv_if_inst.pc_e         = dut.pc_e;
+    assign riscv_if_inst.predict_taken_e  = dut.predict_taken_e;
+    assign riscv_if_inst.predict_target_e = dut.predict_target_e;
+    assign riscv_if_inst.actual_taken_e   = dut.actual_taken_e;
+    assign riscv_if_inst.actual_target_e  = dut.actual_target_e;
 
     // --- Memory stage ---
     assign riscv_if_inst.alu_result_m  = dut.alu_result_m;

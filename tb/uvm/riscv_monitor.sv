@@ -208,7 +208,16 @@ class riscv_monitor extends uvm_monitor;
                 item.trans_type    = riscv_seq_item::TRANS_BRANCH_TAKEN;
                 item.pc            = vif.monitor_cb.pc_e;         
                 item.branch_taken  = vif.monitor_cb.pc_src_e;
-                item.branch_target = vif.monitor_cb.pc_target_e;  
+                item.branch_target = vif.monitor_cb.pc_target_e;
+                
+                // Prediction capture
+                item.predict_taken  = vif.monitor_cb.predict_taken_e;
+                item.predict_target = vif.monitor_cb.predict_target_e;
+                item.actual_taken   = vif.monitor_cb.actual_taken_e;
+                item.actual_target  = vif.monitor_cb.actual_target_e;
+                item.mispredict     = (vif.monitor_cb.predict_taken_e != vif.monitor_cb.actual_taken_e) || 
+                                      (vif.monitor_cb.predict_taken_e && (vif.monitor_cb.predict_target_e != vif.monitor_cb.actual_target_e));
+                                      
                 item.stall_seen    = vif.monitor_cb.dcache_stall;
                 item.decode_instr(instr_e_reg);
                 item.timestamp     = $time;

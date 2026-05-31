@@ -86,6 +86,12 @@ module riscv_pipeline_top (
     wire [4:0] rd_w_pipe;
     wire [31:0] result_w_pipe;
 
+    wire predict_taken_f, predict_taken_d, predict_taken_i, predict_taken_e;
+    wire [31:0] predict_target_f, predict_target_d, predict_target_i, predict_target_e;
+    wire actual_taken_e;
+    wire [31:0] actual_target_e;
+    wire update_valid_e;
+
     // ==========================================
     // AXI4-LITE WIRES
     // ==========================================
@@ -130,14 +136,17 @@ module riscv_pipeline_top (
         .is_ecall(is_ecall_d), .is_mret(is_mret_d),
         .trap_vec(trap_vec), .epc(epc),
         .instr_f_in(instr_f_from_icache),
-        .instr_f(instr_f), .pc_f(pc_f), .pc_plus_4_f(pc_plus_4_f)
+        .instr_f(instr_f), .pc_f(pc_f), .pc_plus_4_f(pc_plus_4_f),
+        .predict_taken_f(predict_taken_f), .predict_target_f(predict_target_f)
     );
 
     // Pipeline Register: Fetch -> Decode
     pipeline_1_2 pipeline_fd (
         .clk(clk), .rst(rst), .clr(flush_d), .en(en_d),
         .instr_f(instr_f), .pc_f(pc_f), .pc_plus_4_f(pc_plus_4_f),
-        .instr_d(instr_d), .pc_d(pc_d), .pc_plus_4_d(pc_plus_4_d)
+        .predict_taken_f(predict_taken_f), .predict_target_f(predict_target_f),
+        .instr_d(instr_d), .pc_d(pc_d), .pc_plus_4_d(pc_plus_4_d),
+        .predict_taken_d(predict_taken_d), .predict_target_d(predict_target_d)
     );
 
     wire        actual_rf_we  = (md_req_e & md_valid) ? 1'b1          : reg_write_w_pipe;
@@ -181,7 +190,9 @@ module riscv_pipeline_top (
         .pc_i(pc_i), .pc_plus_4_i(pc_plus_4_i), .imm_ext_i(imm_ext_i),
         .rs1_i(rs1_i), .rs2_i(rs2_i), .rd_i(rd_i),
         .csr_we_i(csr_we_i), .csr_addr_i(csr_addr_i), .csr_rd_i(csr_rd_i),
-        .is_ecall_i(is_ecall_i), .is_mret_i(is_mret_i), .md_req_i(md_req_i), .is_illegal_i(is_illegal_i), .md_op_i(md_op_i)
+        .is_ecall_i(is_ecall_i), .is_mret_i(is_mret_i), .md_req_i(md_req_i), .is_illegal_i(is_illegal_i), .md_op_i(md_op_i),
+        .predict_taken_d(predict_taken_d), .predict_target_d(predict_target_d),
+        .predict_taken_i(predict_taken_i), .predict_target_i(predict_target_i)
     );
 
     wire flush_pipeline_2_3 = flush_e | ~issue_valid;
@@ -206,7 +217,9 @@ module riscv_pipeline_top (
         .rs1_e(rs1_e), .rs2_e(rs2_e), .rd_e(rd_e),
         .csr_we_e(csr_we_e), .csr_addr_e(csr_addr_e), .csr_rd_e(csr_rd_e),
         .md_req_e(md_req_e), .is_illegal_e(is_illegal_e), .is_ecall_e(is_ecall_e), .is_mret_e(is_mret_e),
-        .md_op_e(md_op_e)
+        .md_op_e(md_op_e),
+        .predict_taken_d(predict_taken_i), .predict_target_d(predict_target_i),
+        .predict_taken_e(predict_taken_e), .predict_target_e(predict_target_e)
     );
 
     wire [31:0] src_a_e_forwarded = (forward_a_e == 2'b10) ? alu_result_m : (forward_a_e == 2'b01) ? result_w : read_data_1_e;
@@ -223,7 +236,22 @@ module riscv_pipeline_top (
         .alu_result_m(alu_result_m), .read_data_1_e(read_data_1_e), .read_data_2_e(read_data_2_e),
         .imm_ext_e(imm_ext_e), .pc_e(pc_e), .pc_plus_4_e(pc_plus_4_e), .result_w(result_w),
         .rd_e(rd_e), .pc_target_e(pc_target_e), .alu_result_e(alu_result_e),
-        .write_data_e(write_data_e), .pc_src_e(pc_src_e), .src_a_out(md_src_a), .src_b_reg_out(md_src_b_reg)
+        .write_data_e(write_data_e), .pc_src_e(pc_src_e), .src_a_out(md_src_a), .src_b_reg_out(md_src_b_reg),
+        .predict_taken_e(predict_taken_e), .predict_target_e(predict_target_e),
+        .actual_taken_e(actual_taken_e), .actual_target_e(actual_target_e),
+        .update_valid_e(update_valid_e)
+    );
+
+    branch_predictor bp_inst (
+        .clk(clk),
+        .rst_n(rst),
+        .if_pc(pc_f),
+        .predict_taken(predict_taken_f),
+        .predict_target(predict_target_f),
+        .update_valid(update_valid_e),
+        .update_pc(pc_e),
+        .actual_taken(actual_taken_e),
+        .actual_target(actual_target_e)
     );
 
     wire md_ack = en_e & md_valid;

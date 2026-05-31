@@ -88,6 +88,11 @@ class riscv_seq_item extends uvm_sequence_item;
     logic         issue_valid;   // Issue dispatched
     logic         execute_ready; // EX stage was ready
     logic         load_use_hazard; // Detected load-use hazard
+    logic         predict_taken;   // Did branch predictor predict taken?
+    logic [31:0]  predict_target;  // What was the predicted target?
+    logic         actual_taken;    // Was it actually taken?
+    logic [31:0]  actual_target;   // What was the actual target?
+    logic         mispredict;      // Was it a misprediction?
     longint       timestamp;     // $time when captured
 
     // ============================================================
@@ -137,6 +142,11 @@ class riscv_seq_item extends uvm_sequence_item;
         `uvm_field_int(issue_valid,     UVM_ALL_ON)
         `uvm_field_int(execute_ready,   UVM_ALL_ON)
         `uvm_field_int(load_use_hazard, UVM_ALL_ON)
+        `uvm_field_int(predict_taken,   UVM_ALL_ON)
+        `uvm_field_int(predict_target,  UVM_ALL_ON | UVM_HEX)
+        `uvm_field_int(actual_taken,    UVM_ALL_ON)
+        `uvm_field_int(actual_target,   UVM_ALL_ON | UVM_HEX)
+        `uvm_field_int(mispredict,      UVM_ALL_ON)
         `uvm_field_int(timestamp,       UVM_ALL_ON)
     `uvm_object_utils_end
 

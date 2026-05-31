@@ -69,6 +69,7 @@ RTL_FILES :=                                          \
   $(RTL_CTRL)/alu_decoder.v                           \
   $(RTL_CTRL)/main_decoder.v                          \
   $(RTL_CTRL)/control_unit.v                          \
+  $(RTL_CORE)/branch_predictor.v                      \
   $(RTL_CORE)/pipeline.v                              \
   $(RTL_CORE)/fetch_cycle.v                           \
   $(RTL_CORE)/decode_cycle.v                          \
@@ -184,6 +185,7 @@ sim_uvm_gui: compile_uvm
 # TARGET: tổng hợp coverage report từ tất cả UCDB
 # ==============================================================
 coverage_report:
+	rm -f $(SIM_OUT)/merged.ucdb
 	vcover merge $(SIM_OUT)/merged.ucdb $(SIM_OUT)/*.ucdb
 	vcover report -html -details -output $(SIM_OUT)/coverage_html \
 	  $(SIM_OUT)/merged.ucdb
@@ -202,7 +204,7 @@ regression: compile_uvm
 	    +UVM_VERBOSITY=UVM_MEDIUM                     \
 	    +UVM_NO_RELNOTES                              \
 	    +HEX_DIR=$(HEX_DIR)/                          \
-	    -L uvm                                        \
+	    -sv_lib $(QUESTA_HOME)/questasim/uvm-1.2/linux_x86_64/uvm_dpi \
 	    -do "coverage save -onexit $(SIM_OUT)/$$TEST_NAME.ucdb; run -all; quit -f" \
 	    -l $(SIM_OUT)/$$TEST_NAME.log;                \
 	done

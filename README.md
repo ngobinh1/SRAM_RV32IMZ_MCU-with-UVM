@@ -32,7 +32,8 @@ riscv_pipeline/
 |---|---|
 | `top_module.v` | Top-level, nối tất cả các tầng và module |
 | `pipeline.v` | Các thanh ghi pipeline giữa các tầng (pipeline_1_2 → pipeline_4_5) |
-| `fetch_cycle.v` | Tầng IF: PC, nạp lệnh |
+| `fetch_cycle.v` | Tầng IF: PC, nạp lệnh, tra cứu Branch Predictor |
+| `branch_predictor.v` | Bộ dự đoán nhánh tĩnh/động (BTB + BHT) tại tầng IF |
 | `decode_cycle.v` | Tầng ID: giải mã lệnh, đọc thanh ghi |
 | `issue.v` | Tầng Issue: kiểm tra load-use hazard và điều kiện dispatch |
 | `execute_cycle.v` | Tầng EX: ALU, tính địa chỉ nhánh |

@@ -1,0 +1,2 @@
+var g_data = {"14":{"pr":"/tb_top/riscv_if_inst","ty":1,"asserts":[{"n":["assert__pc_increment"],"h":[1,6]},{"n":["assert__pc_valid_after_reset"],"h":[2175,6]}],"ad":0},"22":{"pr":"/uvm_pkg","ty":2,"dui":1,"dun":"work.uvm_pkg","asserts":[{"n":["uvm_component_name_check_visitor/visit/immed__262"],"h":[0,6]}],"ad":0},"3":{"pr":"work.riscv_if","ty":0,"asserts":[{"n":["assert__pc_increment"],"h":[1,6]},{"n":["assert__pc_valid_after_reset"],"h":[2175,6]}],"ad":0}}
+processAssertionsData(g_data);

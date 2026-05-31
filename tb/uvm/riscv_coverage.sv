@@ -8,9 +8,13 @@
 //              2. cg_hazards       – data/control hazards
 //              3. cg_mem_access    – load/store widths & alignment
 //              4. cg_branch        – branch types taken/not taken
+//              4. cg_branch        – branch types taken/not taken
 //              5. cg_pipeline_flow – stall, flush, cache miss
 //              6. cg_regfile       – register file access patterns
 //              7. cg_csr           – CSR instruction coverage
+//              8. cg_axi           – AXI Bus Transactions
+//              9. cg_issue         – Issue Stage Coverage
+//             10. cg_branch_prediction - Branch Prediction Hits/Misses
 // ============================================================
 `include "uvm_macros.svh"
 import uvm_pkg::*;
@@ -171,10 +175,40 @@ class riscv_coverage extends uvm_subscriber #(riscv_seq_item);
             bins taken     = {1'b1};
             bins not_taken = {1'b0};
         }
-        // Must see each branch type both taken AND not-taken
+    // Must see each branch type both taken AND not-taken
         cx_branch_taken: cross cp_branch_type, cp_taken {
             ignore_bins jal_not_taken  = binsof(cp_branch_type.jal)  && binsof(cp_taken.not_taken);
             ignore_bins jalr_not_taken = binsof(cp_branch_type.jalr) && binsof(cp_taken.not_taken);
+        }
+    endgroup
+
+    // ============================================================
+    // Coverage Group 10: Branch Prediction Coverage
+    // ============================================================
+    covergroup cg_branch_prediction;
+        cp_mispredict: coverpoint trans.mispredict
+            iff (trans.trans_type == riscv_seq_item::TRANS_BRANCH_TAKEN)
+        {
+            bins correct = {0};
+            bins mispredicted = {1};
+        }
+        
+        cp_branch_type: coverpoint trans.instr_type
+            iff (trans.trans_type == riscv_seq_item::TRANS_BRANCH_TAKEN)
+        {
+            bins beq  = {riscv_seq_item::INSTR_BEQ};
+            bins bne  = {riscv_seq_item::INSTR_BNE};
+            bins blt  = {riscv_seq_item::INSTR_BLT};
+            bins bge  = {riscv_seq_item::INSTR_BGE};
+            bins bltu = {riscv_seq_item::INSTR_BLTU};
+            bins bgeu = {riscv_seq_item::INSTR_BGEU};
+            bins jal  = {riscv_seq_item::INSTR_JAL};
+            bins jalr = {riscv_seq_item::INSTR_JALR};
+        }
+
+        cx_prediction: cross cp_branch_type, cp_mispredict {
+            ignore_bins jal_correct = binsof(cp_branch_type.jal) && binsof(cp_mispredict.correct);
+            ignore_bins jalr_correct = binsof(cp_branch_type.jalr) && binsof(cp_mispredict.correct);
         }
     endgroup
 
@@ -304,6 +338,7 @@ class riscv_coverage extends uvm_subscriber #(riscv_seq_item);
         cg_csr           = new();
         cg_axi           = new();
         cg_issue         = new();
+        cg_branch_prediction = new();
     endfunction
 
     // --------------------------------------------------------
@@ -327,8 +362,10 @@ class riscv_coverage extends uvm_subscriber #(riscv_seq_item);
                      riscv_seq_item::INSTR_LB, riscv_seq_item::INSTR_LBU}))
             cg_mem_access.sample();
 
-        if (t.trans_type == riscv_seq_item::TRANS_BRANCH_TAKEN)
+        if (t.trans_type == riscv_seq_item::TRANS_BRANCH_TAKEN) begin
             cg_branch.sample();
+            cg_branch_prediction.sample();
+        end
 
         if (t.instr_type inside {
             riscv_seq_item::INSTR_CSRRW,
@@ -357,7 +394,8 @@ class riscv_coverage extends uvm_subscriber #(riscv_seq_item);
         msg = {msg, $sformatf("  Register File    : %0.1f%%\n", cg_regfile.get_coverage())};
         msg = {msg, $sformatf("  CSR Instructions : %0.1f%%\n",   cg_csr.get_coverage())};
         msg = {msg, $sformatf("  AXI Transactions : %0.1f%%\n",   cg_axi.get_coverage())};
-        msg = {msg, $sformatf("  Issue Stage      : %0.1f%%",     cg_issue.get_coverage())};
+        msg = {msg, $sformatf("  Issue Stage      : %0.1f%%\n",   cg_issue.get_coverage())};
+        msg = {msg, $sformatf("  Branch Predictor : %0.1f%%",     cg_branch_prediction.get_coverage())};
 
         `uvm_info("COVERAGE", msg, UVM_NONE)
     endfunction
