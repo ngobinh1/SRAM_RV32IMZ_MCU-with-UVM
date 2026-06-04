@@ -51,6 +51,14 @@ class riscv_monitor extends uvm_monitor;
             monitor_all_instrs();
             monitor_axi();
         join_none
+
+        forever begin
+            @(vif.monitor_cb);
+            if ($time > 300 && $time < 800) begin
+                $display("DEBUG_MONITOR_START: time=%0t pc_f=%h pc_d=%h pc_e=%h instr_f=%h instr_d=%h is_ecall_d=%b is_mret_d=%b pc_src_e=%b actual_target_e=%h stall_f=%b",
+                    $time, vif.monitor_cb.pc_f, vif.monitor_cb.pc_d, vif.monitor_cb.pc_e, vif.monitor_cb.instr_f, vif.monitor_cb.instr_d, vif.monitor_cb.is_ecall_d, vif.monitor_cb.is_mret_d, vif.monitor_cb.pc_src_e, vif.monitor_cb.actual_target_e, vif.monitor_cb.stall_f);
+            end
+        end
     endtask
 
     // ========================================================

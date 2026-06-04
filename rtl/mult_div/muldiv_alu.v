@@ -4,7 +4,7 @@ module muldiv_alu (
     input  wire        clk,
     input  wire        rst,
     input  wire        req,
-    input  wire        ack,     // NEW: Tín hiệu xác nhận từ Pipeline
+    input  wire        ack,     // Tín hiệu xác nhận từ Pipeline
     input  wire [2:0]  funct3,
     input  wire [31:0] a,
     input  wire [31:0] b,
@@ -14,11 +14,16 @@ module muldiv_alu (
     output reg         valid
 );
 
-    localparam IDLE = 2'd0,
-               MUL  = 2'd1,
-               DIV  = 2'd2,
-               DONE = 2'd3;
-    reg [1:0] state;
+    localparam IDLE     = 4'd0,
+               MUL_ALBL = 4'd1,
+               MUL_ALBH = 4'd2,
+               MUL_AHBL = 4'd3,
+               MUL_AHBH = 4'd4,
+               MUL_DONE = 4'd5,
+               DIV      = 4'd6,
+               DONE     = 4'd7;
+    
+    reg [3:0] state;
 
     //------------------------------------------------------------
     // Instruction decode
@@ -27,15 +32,18 @@ module muldiv_alu (
     wire is_div_op = (funct3 == 3'b100) || (funct3 == 3'b101);
     wire is_rem_op = (funct3 == 3'b110) || (funct3 == 3'b111);
     wire is_signed_div = (funct3 == 3'b100) || (funct3 == 3'b110);
+    wire is_mulh = (funct3 == 3'b001) || (funct3 == 3'b010) || (funct3 == 3'b011);
+
+    wire is_signed_a = (funct3 == 3'b001) || (funct3 == 3'b010);
+    wire is_signed_b = (funct3 == 3'b001);
 
     //------------------------------------------------------------
-    // Multiplier
+    // Multiplier 17x17
     //------------------------------------------------------------
-    wire signed [31:0] s_a = a;
-    wire signed [31:0] s_b = b;
-    wire signed [63:0] ss_mul = s_a * s_b;
-    wire signed [63:0] su_mul = s_a * $signed({1'b0,b});
-    wire        [63:0] uu_mul = a * b;
+    reg  [16:0] mul_op_a;
+    reg  [16:0] mul_op_b;
+    wire signed [33:0] mul_res = $signed(mul_op_a) * $signed(mul_op_b);
+    reg  [63:0] mac_res;
 
     //------------------------------------------------------------
     // Divider
@@ -60,13 +68,16 @@ module muldiv_alu (
     //------------------------------------------------------------
     always @(posedge clk) begin
         if (!rst) begin
-            state  <= IDLE;
-            result <= 32'd0;
-            busy   <= 1'b0;
-            valid  <= 1'b0;
-            div_q  <= 32'd0;
-            div_r  <= 32'd0;
-            count  <= 6'd0;
+            state    <= IDLE;
+            result   <= 32'd0;
+            busy     <= 1'b0;
+            valid    <= 1'b0;
+            div_q    <= 32'd0;
+            div_r    <= 32'd0;
+            count    <= 6'd0;
+            mac_res  <= 64'd0;
+            mul_op_a <= 17'd0;
+            mul_op_b <= 17'd0;
         end
         else begin
             case (state)
@@ -74,10 +85,13 @@ module muldiv_alu (
             IDLE: begin
                 busy  <= 1'b0;
                 valid <= 1'b0;
-                if (req) begin       // Nhận lệnh chạy ngay không cần quan tâm sườn
+                if (req) begin
                     busy <= 1'b1;
                     if (is_mul) begin
-                        state <= MUL;
+                        mul_op_a <= {1'b0, a[15:0]};
+                        mul_op_b <= {1'b0, b[15:0]};
+                        mac_res  <= 64'd0;
+                        state    <= MUL_ALBL;
                     end
                     else begin
                         sign_q_reg <= out_sign_q;
@@ -103,15 +117,40 @@ module muldiv_alu (
                 end
             end
 
-            MUL: begin
-                case (funct3)
-                    3'b000: result <= ss_mul[31:0];
-                    3'b001: result <= ss_mul[63:32];
-                    3'b010: result <= su_mul[63:32];
-                    3'b011: result <= uu_mul[63:32];
-                    default: result <= 32'd0;
-                endcase
-                state <= DONE;
+            MUL_ALBL: begin
+                mac_res  <= {30'd0, mul_res};
+                mul_op_a <= {1'b0, a[15:0]};
+                mul_op_b <= {is_signed_b & b[31], b[31:16]};
+                state    <= MUL_ALBH;
+            end
+
+            MUL_ALBH: begin
+                mac_res  <= $signed(mac_res) + $signed({{14{mul_res[33]}}, mul_res, 16'd0});
+                mul_op_a <= {is_signed_a & a[31], a[31:16]};
+                mul_op_b <= {1'b0, b[15:0]};
+                state    <= MUL_AHBL;
+            end
+
+            MUL_AHBL: begin
+                mac_res  <= $signed(mac_res) + $signed({{14{mul_res[33]}}, mul_res, 16'd0});
+                if (is_mulh) begin
+                    mul_op_a <= {is_signed_a & a[31], a[31:16]};
+                    mul_op_b <= {is_signed_b & b[31], b[31:16]};
+                    state    <= MUL_AHBH;
+                end
+                else begin
+                    state    <= MUL_DONE;
+                end
+            end
+
+            MUL_AHBH: begin
+                mac_res <= $signed(mac_res) + $signed({mul_res, 32'd0});
+                state   <= MUL_DONE;
+            end
+
+            MUL_DONE: begin
+                result <= is_mulh ? mac_res[63:32] : mac_res[31:0];
+                state  <= DONE;
             end
 
             DIV: begin
@@ -139,7 +178,7 @@ module muldiv_alu (
             DONE: begin
                 busy  <= 1'b0;
                 valid <= 1'b1;
-                if (ack) begin       // Chờ Pipeline xác nhận đã lấy dữ liệu rồi mới nghỉ
+                if (ack) begin
                     state <= IDLE;
                     valid <= 1'b0;
                 end

@@ -306,7 +306,7 @@ module riscv_pipeline_top (
     csr_file csr_file_inst (
         .clk(clk), .rst(rst), .csr_we(csr_we_w),
         .csr_raddr(instr_d[31:20]), .csr_waddr(csr_addr_w), .csr_wd(csr_wd_w), .csr_rd(csr_rd_d),
-        .is_exception(is_exception_d), .pc(pc_d), .cause(exception_cause), .epc(epc), .trap_vec(trap_vec)
+        .is_exception(is_exception_d), .pc(pc_e), .cause(exception_cause), .epc(epc), .trap_vec(trap_vec)
     );
 
     // Writeback Cycle
@@ -403,4 +403,9 @@ module riscv_pipeline_top (
         .WLBI(1'b0), .WLOFF(1'b0),
         .vpwrac(1'b1), .vpwrpc(1'b1)
     );
+    always @(posedge clk) begin
+        if ($time > 714900 && $time < 715100) begin
+            $display("DEBUG_TRACE: time=%0t pc_f=%h pc_next_final=%h pc_next_normal=%h is_ecall_d=%b is_mret_d=%b epc=%h pc_src_e=%b actual_target_e=%h", $time, pc_f, fetch_stage.pc_next_final, fetch_stage.pc_next_normal, is_ecall_d, is_mret_d, epc, pc_src_e, actual_target_e);
+        end
+    end
 endmodule

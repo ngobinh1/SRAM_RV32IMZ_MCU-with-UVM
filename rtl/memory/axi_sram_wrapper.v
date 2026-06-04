@@ -33,58 +33,74 @@ module axi_sram_wrapper (
 );
 
     // Convert WSTRB (4-bit) to BEN (32-bit) for EF_SRAM
-    assign sram_ben = {{8{s_axi_wstrb[3]}}, {8{s_axi_wstrb[2]}}, {8{s_axi_wstrb[1]}}, {8{s_axi_wstrb[0]}}};
+    assign sram_ben = (sram_r_wb) ? 32'h00000000 : { {8{~s_axi_wstrb[3]}}, {8{~s_axi_wstrb[2]}}, {8{~s_axi_wstrb[1]}}, {8{~s_axi_wstrb[0]}} };
 
     // FSM
-    reg [1:0] state, next_state;
+    reg [1:0] state;
     localparam IDLE = 2'b00, WRITE = 2'b01, READ_WAIT = 2'b10;
 
     always @(posedge clk or negedge rst_n) begin
-        if (!rst_n) state <= IDLE;
-        else        state <= next_state;
+        if (!rst_n) begin
+            state <= IDLE;
+            sram_en <= 1'b0;
+            sram_r_wb <= 1'b1;
+            sram_ad <= 10'd0;
+            sram_di <= 32'd0;
+        end else begin
+            case (state)
+                IDLE: begin
+                    if (s_axi_awvalid && s_axi_wvalid) begin
+                        sram_en <= 1'b1;
+                        sram_r_wb <= 1'b0; // Write mode
+                        sram_ad <= s_axi_awaddr[11:2];
+                        sram_di <= s_axi_wdata;
+                        state <= WRITE;
+                    end else if (s_axi_arvalid) begin
+                        sram_en <= 1'b1;
+                        sram_r_wb <= 1'b1; // Read mode
+                        sram_ad <= s_axi_araddr[11:2];
+                        state <= READ_WAIT;
+                    end else begin
+                        sram_en <= 1'b0;
+                    end
+                end
+                WRITE: begin
+                    sram_en <= 1'b0;
+                    if (s_axi_bready) state <= IDLE;
+                end
+                READ_WAIT: begin
+                    sram_en <= 1'b0;
+                    if (s_axi_rready) state <= IDLE;
+                end
+            endcase
+        end
     end
 
-    always @(state or s_axi_awvalid or s_axi_wvalid or s_axi_arvalid or s_axi_awaddr or s_axi_wdata or s_axi_araddr or s_axi_bready or s_axi_rready or sram_do) begin
+    always @(*) begin
         // Default AXI
-        s_axi_awready = 1'b0; s_axi_wready  = 1'b0; s_axi_bvalid  = 1'b0;
-        s_axi_arready = 1'b0; s_axi_rvalid  = 1'b0; s_axi_bresp   = 2'b00; s_axi_rresp = 2'b00;
-        
-        // Default SRAM
-        sram_en = 1'b0; sram_r_wb = 1'b1; sram_ad = 10'd0; sram_di = 32'd0;
-        s_axi_rdata = sram_do;
-        next_state = state;
+        s_axi_awready = 1'b0; 
+        s_axi_wready  = 1'b0; 
+        s_axi_bvalid  = 1'b0;
+        s_axi_arready = 1'b0; 
+        s_axi_rvalid  = 1'b0; 
+        s_axi_bresp   = 2'b00; 
+        s_axi_rresp   = 2'b00;
+        s_axi_rdata   = sram_do;
 
         case (state)
             IDLE: begin
                 if (s_axi_awvalid && s_axi_wvalid) begin
-                    // Write Transaction
                     s_axi_awready = 1'b1;
                     s_axi_wready  = 1'b1;
-                    sram_en       = 1'b1;
-                    sram_r_wb     = 1'b0; // Write mode
-                    sram_ad       = s_axi_awaddr[11:2]; // Map to Word address
-                    sram_di       = s_axi_wdata;
-                    next_state    = WRITE;
-                end 
-                else if (s_axi_arvalid) begin
-                    // Read Transaction
+                end else if (s_axi_arvalid) begin
                     s_axi_arready = 1'b1;
-                    sram_en       = 1'b1;
-                    sram_r_wb     = 1'b1; // Read mode
-                    sram_ad       = s_axi_araddr[11:2];
-                    next_state    = READ_WAIT;
                 end
             end
-
             WRITE: begin
                 s_axi_bvalid = 1'b1;
-                if (s_axi_bready) next_state = IDLE;
             end
-
             READ_WAIT: begin
-                // SRAM delivers results in the next cycle.
                 s_axi_rvalid = 1'b1;
-                if (s_axi_rready) next_state = IDLE;
             end
         endcase
     end

@@ -264,7 +264,10 @@ interface riscv_if (input logic clk);
     endproperty
 
     assert property (pc_valid_after_reset)
-        else $error("[ASSERT] pc_f is X/Z after reset at time %0t", $time);
+        else begin 
+            $error("[ASSERT] pc_f is X/Z after reset at time %0t", $time);
+            $display("DEBUG_ASSERT_X: time=%0t pc_f=%h instr_d=%h pc_d=%h is_ecall_d=%b is_mret_d=%b pc_src_e=%b actual_target_e=%h stall_f=%b pc_plus_4_f=%h", $time, pc_f, instr_d, pc_d, is_ecall_d, is_mret_d, pc_src_e, actual_target_e, stall_f, pc_plus_4_f);
+        end
 
     // assert property (x0_never_written)
     //     else $error("[ASSERT] Attempted write to x0 (rd_w=%0d) at time %0t", rd_w, $time);
@@ -276,6 +279,7 @@ interface riscv_if (input logic clk);
         string full_path = {"sim/hex/", hex_file};
         $readmemh(full_path, tb_top.dut.sram_macro.EF_SRAM_1024x32_inst.memory_mode_inst.memory);
         $display("[VIF] Program loaded into memory from %s", hex_file);
+        $display("[VIF] memory[0] = %h", tb_top.dut.sram_macro.EF_SRAM_1024x32_inst.memory_mode_inst.memory[0]);
     endtask
 
     task automatic clear_dmem();
