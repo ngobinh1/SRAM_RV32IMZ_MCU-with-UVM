@@ -214,4 +214,43 @@ class riscv_random_test extends riscv_base_test;
 
 endclass : riscv_random_test
 
+// ============================================================
+// Test 9: S-Mode Test
+// ============================================================
+class riscv_smode_test extends riscv_base_test;
+    `uvm_component_utils(riscv_smode_test)
+
+    function new(string name = "riscv_smode_test", uvm_component parent = null);
+        super.new(name, parent);
+        hex_file       = "smode_test.hex";
+        timeout_cycles = 3_000;
+    endfunction
+
+    task run_test_body(uvm_phase phase);
+        riscv_smode_test_seq seq;
+        seq = riscv_smode_test_seq::type_id::create("seq");
+        seq.start(get_sequencer());
+        vif.wait_clks(200);
+    endtask
+
+endclass : riscv_smode_test
+
+// ============================================================
+// MMU Test
+// ============================================================
+class riscv_mmu_test extends riscv_base_test;
+    `uvm_component_utils(riscv_mmu_test)
+
+    function new(string name = "riscv_mmu_test", uvm_component parent = null);
+        super.new(name, parent);
+    endfunction
+
+    virtual task run_test_body(uvm_phase phase);
+        riscv_mmu_test_seq seq;
+        seq = riscv_mmu_test_seq::type_id::create("seq");
+        seq.start(get_sequencer());
+    endtask
+
+endclass : riscv_mmu_test
+
 `endif // RISCV_TESTS_SV

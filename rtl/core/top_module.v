@@ -15,7 +15,7 @@ module riscv_pipeline_top (
     wire [2:0] result_src_d;
     wire [3:0] alu_control_d;
     wire stall_d, flush_d;
-    wire is_ecall_d, is_mret_d, csr_we_d, md_req_d, is_illegal_d;
+    wire is_ecall_d, is_mret_d, is_sret_d, csr_we_d, md_req_d, is_illegal_d;
     wire [2:0] md_op_d;
     wire [11:0] csr_addr_d=instr_d[31:20];
     wire [31:0] csr_rd_d;
@@ -34,7 +34,7 @@ module riscv_pipeline_top (
     wire [11:0] csr_addr_e;
     wire [31:0] csr_rd_e, csr_wd_e;
     wire md_req_e;
-    wire is_ecall_e, is_mret_e, is_illegal_e;
+    wire is_ecall_e, is_mret_e, is_sret_e, is_illegal_e;
     wire [2:0] md_op_e;
 
     // Issue stage signals (output of issue, input to pipeline_2_3)
@@ -44,7 +44,7 @@ module riscv_pipeline_top (
     wire [3:0] alu_control_i;
     wire [31:0] read_data_1_i, read_data_2_i, pc_i, pc_plus_4_i, imm_ext_i;
     wire [4:0] rs1_i, rs2_i, rd_i;
-    wire csr_we_i, is_ecall_i, is_mret_i, md_req_i, is_illegal_i;
+    wire csr_we_i, is_ecall_i, is_mret_i, is_sret_i, md_req_i, is_illegal_i;
     wire [11:0] csr_addr_i;
     wire [31:0] csr_rd_i;
 
@@ -71,6 +71,11 @@ module riscv_pipeline_top (
     // Exception PC
     wire [31:0] trap_vec, epc;
 
+    wire mmu_icache_accept, mmu_dcache_accept;
+    wire pipe_icache_stall = ~mmu_icache_accept;
+    wire pipe_dcache_stall = ~mmu_dcache_accept;
+    wire [31:0] instr_f_from_mmu;
+    wire [31:0] read_data_m_from_mmu;
     wire icache_stall, dcache_stall;
     wire stall_e, stall_m, stall_w;
 
@@ -133,9 +138,9 @@ module riscv_pipeline_top (
     fetch_cycle fetch_stage (
         .clk(clk), .rst(rst), .en(en_f),
         .pc_src_e(pc_src_e), .pc_target_e(pc_target_e),
-        .is_ecall(is_ecall_d), .is_mret(is_mret_d),
+        .is_ecall(is_ecall_d), .is_mret(is_mret_d), .is_sret(is_sret_d),
         .trap_vec(trap_vec), .epc(epc),
-        .instr_f_in(instr_f_from_icache),
+        .instr_f_in(instr_f_from_mmu),
         .instr_f(instr_f), .pc_f(pc_f), .pc_plus_4_f(pc_plus_4_f),
         .predict_taken_f(predict_taken_f), .predict_target_f(predict_target_f)
     );
@@ -162,11 +167,11 @@ module riscv_pipeline_top (
         .reg_write_d(reg_write_d), .mem_write_d(mem_write_d),
         .jump_d(jump_d), .branch_d(branch_d), .jalr_d(jalr_d),
         .funct3_d(funct3_d), .alu_src_d(alu_src_d), .result_src_d(result_src_d),
-        .alu_control_d(alu_control_d), .is_ecall_d(is_ecall_d), .is_mret_d(is_mret_d), .csr_we_d(csr_we_d),
+        .alu_control_d(alu_control_d), .is_ecall_d(is_ecall_d), .is_mret_d(is_mret_d), .is_sret_d(is_sret_d), .csr_we_d(csr_we_d),
         .md_req_d(md_req_d), .is_illegal_d(is_illegal_d), .md_op_d(md_op_d)
     );
 
-    wire execute_ready = ~real_div_busy & ~dcache_stall;
+    wire execute_ready = ~real_div_busy & ~pipe_dcache_stall;
     wire clr_issue = flush_e;
 
     // Issue Queue / Scheduler
@@ -181,7 +186,7 @@ module riscv_pipeline_top (
         .pc_d(pc_d), .pc_plus_4_d(pc_plus_4_d), .imm_ext_d(imm_ext_d),
         .rs1_d(rs1_d), .rs2_d(rs2_d), .rd_d(rd_d),
         .csr_we_d(csr_we_d), .csr_addr_d(csr_addr_d), .csr_rd_d(csr_rd_d),
-        .is_ecall_d(is_ecall_d), .is_mret_d(is_mret_d), .md_req_d(md_req_d), .is_illegal_d(is_illegal_d), .md_op_d(md_op_d),
+        .is_ecall_d(is_ecall_d), .is_mret_d(is_mret_d), .is_sret_d(is_sret_d), .md_req_d(md_req_d), .is_illegal_d(is_illegal_d), .md_op_d(md_op_d),
         .issue_stall(issue_stall), .issue_valid(issue_valid),
         .reg_write_i(reg_write_i), .mem_write_i(mem_write_i), .alu_src_i(alu_src_i),
         .jump_i(jump_i), .branch_i(branch_i), .jalr_i(jalr_i),
@@ -190,12 +195,12 @@ module riscv_pipeline_top (
         .pc_i(pc_i), .pc_plus_4_i(pc_plus_4_i), .imm_ext_i(imm_ext_i),
         .rs1_i(rs1_i), .rs2_i(rs2_i), .rd_i(rd_i),
         .csr_we_i(csr_we_i), .csr_addr_i(csr_addr_i), .csr_rd_i(csr_rd_i),
-        .is_ecall_i(is_ecall_i), .is_mret_i(is_mret_i), .md_req_i(md_req_i), .is_illegal_i(is_illegal_i), .md_op_i(md_op_i),
+        .is_ecall_i(is_ecall_i), .is_mret_i(is_mret_i), .is_sret_i(is_sret_i), .md_req_i(md_req_i), .is_illegal_i(is_illegal_i), .md_op_i(md_op_i),
         .predict_taken_d(predict_taken_d), .predict_target_d(predict_target_d),
         .predict_taken_i(predict_taken_i), .predict_target_i(predict_target_i)
     );
 
-    wire flush_pipeline_2_3 = flush_e | ~issue_valid;
+    wire flush_pipeline_2_3 = flush_e | (~issue_valid & ~stall_e);
 
     // Pipeline Register: Decode/Issue -> Execute
     pipeline_2_3 pipeline_de (
@@ -216,7 +221,7 @@ module riscv_pipeline_top (
         .pc_e(pc_e), .pc_plus_4_e(pc_plus_4_e), .imm_ext_e(imm_ext_e),
         .rs1_e(rs1_e), .rs2_e(rs2_e), .rd_e(rd_e),
         .csr_we_e(csr_we_e), .csr_addr_e(csr_addr_e), .csr_rd_e(csr_rd_e),
-        .md_req_e(md_req_e), .is_illegal_e(is_illegal_e), .is_ecall_e(is_ecall_e), .is_mret_e(is_mret_e),
+        .md_req_e(md_req_e), .is_illegal_e(is_illegal_e), .is_ecall_e(is_ecall_e), .is_mret_e(is_mret_e), .is_sret_e(is_sret_e),
         .md_op_e(md_op_e),
         .predict_taken_d(predict_taken_i), .predict_target_d(predict_target_i),
         .predict_taken_e(predict_taken_e), .predict_target_e(predict_target_e)
@@ -286,7 +291,7 @@ module riscv_pipeline_top (
     memory_cycle memory_stage (
         .clk(clk), .rst(rst), .mem_write_m(mem_write_m),
         .alu_result_m(alu_result_m), .write_data_m(write_data_m), .funct3_m(funct3_m),
-        .read_data_m_in(read_data_m_from_dcache), .read_data_m(read_data_m), .write_data_m_out(write_data_m_aligned) 
+        .read_data_m_in(read_data_m_from_mmu), .read_data_m(read_data_m), .write_data_m_out(write_data_m_aligned) 
     );
 
     // Pipeline Register: Memory -> Writeback
@@ -300,13 +305,21 @@ module riscv_pipeline_top (
         .csr_we_w(csr_we_w), .csr_addr_w(csr_addr_w), .csr_rd_w(csr_rd_w), .csr_wd_w(csr_wd_w)
     );
 
-    wire is_exception_d = is_ecall_e | is_illegal_e;
-    wire [31:0] exception_cause = is_ecall_e ? 32'd11 : 32'd2;
+    wire mmu_fetch_fault, mmu_load_fault, mmu_store_fault;
+    wire is_exception_d = is_ecall_e | is_illegal_e | mmu_fetch_fault | mmu_load_fault | mmu_store_fault;
+    wire [31:0] exception_cause = is_ecall_e ? 32'd11 : 
+                                  is_illegal_e ? 32'd2 : 
+                                  mmu_fetch_fault ? 32'd1 : 
+                                  mmu_load_fault ? 32'd5 : 
+                                  mmu_store_fault ? 32'd7 : 32'd0;
 
+    wire [1:0] current_prv;
+    wire [31:0] satp_out, mstatus_out;
     csr_file csr_file_inst (
         .clk(clk), .rst(rst), .csr_we(csr_we_w),
         .csr_raddr(instr_d[31:20]), .csr_waddr(csr_addr_w), .csr_wd(csr_wd_w), .csr_rd(csr_rd_d),
-        .is_exception(is_exception_d), .pc(pc_e), .cause(exception_cause), .epc(epc), .trap_vec(trap_vec)
+        .is_exception(is_exception_d), .pc(pc_e), .cause(exception_cause), .epc(epc), .trap_vec(trap_vec), .is_mret(is_mret_e), .is_sret(is_sret_e),
+        .current_prv(current_prv), .satp_out(satp_out), .mstatus_out(mstatus_out)
     );
 
     // Writeback Cycle
@@ -326,17 +339,77 @@ module riscv_pipeline_top (
         .pc_src_e(pc_src_e), .rd_m(rd_m), .rd_w(rd_w),
         .rs1_e(rs1_e), .rs2_e(rs2_e), .rd_e(rd_e), .rs1_d(rs1_d), .rs2_d(rs2_d),
         .result_src_e(result_src_e), .forward_a_e(forward_a_e), .forward_b_e(forward_b_e),
-        .stall_f(stall_f), .stall_d(stall_d), .icache_stall(icache_stall), .dcache_stall(dcache_stall),
+        .stall_f(stall_f), .stall_d(stall_d), .icache_stall(pipe_icache_stall), .dcache_stall(pipe_dcache_stall),
         .div_busy(real_div_busy), .issue_stall(issue_stall),
         .stall_e(stall_e), .stall_m(stall_m), .stall_w(stall_w),
         .flush_e(flush_e), .flush_d(flush_d)
     );
 
+
+    // ==========================================
+    // MMU Integration
+    // ==========================================
+    
+    wire fetch_out_rd_mmu;
+    wire [31:0] fetch_out_pc_mmu;
+    
+    wire lsu_out_rd_mmu;
+    wire [3:0] lsu_out_wr_mmu;
+    wire [31:0] lsu_out_addr_mmu;
+    wire [31:0] lsu_out_data_wr_mmu;
+    wire [10:0] lsu_out_req_tag_mmu;
+    
+    
+    wire real_icache_stall, real_dcache_stall;
+    
+    riscv_mmu #(.SUPPORT_MMU(1)) mmu_inst (
+        .clk_i(clk),
+        .rst_i(~rst), 
+        .priv_d_i(current_prv),
+        .sum_i(mstatus_out[18]),
+        .mxr_i(mstatus_out[19]),
+        .flush_i(1'b0), // TODO: sfence.vma
+        .satp_i(satp_out),
+        
+        .fetch_in_rd_i(~pipe_icache_stall), // request fetch if not stalled
+        .fetch_in_pc_i(pc_f),
+        .fetch_in_priv_i(current_prv),
+        .fetch_in_accept_o(mmu_icache_accept),
+        .fetch_in_fault_o(mmu_fetch_fault),
+        .fetch_in_inst_o(instr_f_from_mmu),
+        
+        .fetch_out_accept_i(~real_icache_stall),
+        .fetch_out_inst_i(instr_f_from_icache),
+        .fetch_out_rd_o(fetch_out_rd_mmu),
+        .fetch_out_pc_o(fetch_out_pc_mmu),
+        
+        .lsu_in_addr_i(alu_result_m),
+        .lsu_in_data_wr_i(write_data_m_aligned),
+        .lsu_in_rd_i(mem_read_m),
+        .lsu_in_wr_i({4{mem_write_m}}),
+        .lsu_in_accept_o(mmu_dcache_accept),
+        .lsu_in_data_rd_o(read_data_m_from_mmu),
+        .lsu_in_load_fault_o(mmu_load_fault),
+        .lsu_in_store_fault_o(mmu_store_fault),
+        
+        .lsu_out_accept_i(~real_dcache_stall),
+        .lsu_out_ack_i((lsu_out_rd_mmu | (|lsu_out_wr_mmu)) & ~real_dcache_stall),
+        .lsu_out_resp_tag_i(lsu_out_req_tag_mmu),
+        .lsu_out_data_rd_i(read_data_m_from_dcache),
+        .lsu_out_addr_o(lsu_out_addr_mmu),
+        .lsu_out_data_wr_o(lsu_out_data_wr_mmu),
+        .lsu_out_rd_o(lsu_out_rd_mmu),
+        .lsu_out_wr_o(lsu_out_wr_mmu),
+        .lsu_out_req_tag_o(lsu_out_req_tag_mmu),
+    );
+
+    wire [2:0] dcache_funct3 = (lsu_out_req_tag_mmu[9:7] == 3'b111) ? 3'b010 : funct3_m;
+
     // ==========================================
     // L1 I-CACHE (AXI4-Lite Master)
     // ==========================================
     l1_icache icache_inst (
-        .clk(clk), .rst_n(rst), .cpu_addr(pc_f), .cpu_rdata(instr_f_from_icache), .icache_stall(icache_stall),
+        .clk(clk), .rst_n(rst), .cpu_addr(fetch_out_pc_mmu), .cpu_rdata(instr_f_from_icache), .icache_stall(real_icache_stall),
         .m_axi_araddr(i_araddr), .m_axi_arvalid(i_arvalid), .m_axi_arready(i_arready),
         .m_axi_rdata(i_rdata), .m_axi_rresp(i_rresp), .m_axi_rvalid(i_rvalid), .m_axi_rready(i_rready)
     );
@@ -345,9 +418,9 @@ module riscv_pipeline_top (
     // L1 D-CACHE (AXI4-Lite Master)
     // ==========================================
     l1_dcache dcache_inst (
-        .clk(clk), .rst_n(rst), .cpu_addr(alu_result_m), .cpu_wdata(write_data_m_aligned),
-        .cpu_we(mem_write_m), .cpu_re(mem_read_m), .cpu_funct3(funct3_m),
-        .cpu_rdata(read_data_m_from_dcache), .dcache_stall(dcache_stall),
+        .clk(clk), .rst_n(rst), .cpu_addr(lsu_out_addr_mmu), .cpu_wdata(lsu_out_data_wr_mmu),
+        .cpu_we(|lsu_out_wr_mmu), .cpu_re(lsu_out_rd_mmu), .cpu_funct3(dcache_funct3),
+        .cpu_rdata(read_data_m_from_dcache), .dcache_stall(real_dcache_stall),
         
         .m_axi_awaddr(d_awaddr), .m_axi_awvalid(d_awvalid), .m_axi_awready(d_awready),
         .m_axi_wdata(d_wdata), .m_axi_wstrb(d_wstrb), .m_axi_wvalid(d_wvalid), .m_axi_wready(d_wready),

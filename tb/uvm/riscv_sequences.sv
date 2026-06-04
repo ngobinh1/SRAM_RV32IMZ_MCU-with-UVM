@@ -419,7 +419,9 @@ class riscv_random_seq extends riscv_base_seq;
         "csr_test.hex",
         "full_test.hex",
         "extra_coverage.hex",
-        "muldiv_test.hex"
+        "muldiv_test.hex",
+        "smode_test.hex",
+        "mmu_test.hex"
     };
 
     constraint c_iters  { iterations inside {[1:5]}; }
@@ -456,5 +458,63 @@ class riscv_random_seq extends riscv_base_seq;
     endtask
 
 endclass : riscv_random_seq
+
+// ============================================================
+// 11. S-Mode Test Sequence
+// ============================================================
+class riscv_smode_test_seq extends riscv_base_seq;
+    `uvm_object_utils(riscv_smode_test_seq)
+
+    function new(string name = "riscv_smode_test_seq");
+        super.new(name);
+    endfunction
+
+    task body();
+        riscv_load_program_seq load_seq;
+        riscv_run_seq          run_seq;
+
+        `uvm_info("SMODE_TEST", "Starting S-Mode test", UVM_MEDIUM)
+
+        load_seq = riscv_load_program_seq::type_id::create("load_seq");
+        load_seq.hex_file = "smode_test.hex";
+        load_seq.start(m_sequencer);
+
+        run_seq = riscv_run_seq::type_id::create("run_seq");
+        run_seq.run_cycles = 1000;
+        run_seq.start(m_sequencer);
+
+        `uvm_info("SMODE_TEST", "S-Mode test complete", UVM_MEDIUM)
+    endtask
+
+endclass : riscv_smode_test_seq
+
+// ============================================================
+// 12. MMU Test Sequence
+// ============================================================
+class riscv_mmu_test_seq extends riscv_base_seq;
+    `uvm_object_utils(riscv_mmu_test_seq)
+
+    function new(string name = "riscv_mmu_test_seq");
+        super.new(name);
+    endfunction
+
+    task body();
+        riscv_load_program_seq load_seq;
+        riscv_run_seq          run_seq;
+
+        `uvm_info("MMU_TEST", "Starting MMU Page Table Walker test", UVM_MEDIUM)
+
+        load_seq = riscv_load_program_seq::type_id::create("load_seq");
+        load_seq.hex_file = "mmu_deep_test.hex";
+        load_seq.start(m_sequencer);
+
+        run_seq = riscv_run_seq::type_id::create("run_seq");
+        run_seq.run_cycles = 1000;
+        run_seq.start(m_sequencer);
+
+        `uvm_info("MMU_TEST", "MMU test complete", UVM_MEDIUM)
+    endtask
+
+endclass : riscv_mmu_test_seq
 
 `endif // RISCV_SEQUENCES_SV

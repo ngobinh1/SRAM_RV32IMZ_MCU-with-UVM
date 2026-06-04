@@ -86,6 +86,7 @@ module tb_top;
 
     // --- Hazard / stall ---
     assign riscv_if_inst.stall_f      = dut.stall_f;
+    assign riscv_if_inst.stall_d      = dut.stall_d;
     assign riscv_if_inst.flush_d      = dut.flush_d;
     assign riscv_if_inst.icache_stall = dut.icache_stall;
     assign riscv_if_inst.dcache_stall = dut.dcache_stall;
@@ -93,6 +94,7 @@ module tb_top;
     // --- CSR / exception ---
     assign riscv_if_inst.is_ecall_d = dut.is_ecall_d;
     assign riscv_if_inst.is_mret_d  = dut.is_mret_d;
+    assign riscv_if_inst.is_sret_d  = dut.is_sret_d;
     assign riscv_if_inst.trap_vec   = dut.trap_vec;
     assign riscv_if_inst.epc        = dut.epc;
 
@@ -203,6 +205,60 @@ module tb_top;
         $display("[TB_TOP] SIMULATION TIMEOUT at %0t", $time);
         $finish;
     end
+
+    // --------------------------------------------------------
+    // RVFI Tracer — simulation-only instruction trace logger
+    // --------------------------------------------------------
+    rvfi_tracer u_rvfi_tracer (
+        .clk           (clk),
+        .rst_n         (riscv_if_inst.rst),
+
+        // Decode stage
+        .instr_d       (dut.instr_d),
+        .pc_d          (dut.pc_d),
+        .reg_write_d   (dut.reg_write_d),
+        .mem_write_d   (dut.mem_write_d),
+        .rd_d          (dut.rd_d),
+        .funct3_d      (dut.funct3_d),
+
+        // Pipeline flow control
+        .stall_f       (dut.stall_f),
+        .flush_d       (dut.flush_d),
+        .flush_e       (dut.flush_e),
+        .stall_e       (dut.stall_e),
+        .stall_m       (dut.stall_m),
+        .stall_w       (dut.stall_w),
+        .issue_valid   (dut.issue_valid),
+
+        // Writeback stage (actual committed values)
+        .reg_write_w   (dut.reg_write_w),
+        .rd_w          (dut.rd_w),
+        .result_w      (dut.result_w),
+
+        // Memory stage
+        .mem_write_m   (dut.mem_write_m),
+        .alu_result_m  (dut.alu_result_m),
+        .write_data_m  (dut.write_data_m),
+        .funct3_m      (dut.funct3_m),
+        .result_src_m  (dut.result_src_m),
+        .read_data_m   (dut.read_data_m),
+
+        // CSR
+        .csr_we_w      (dut.csr_we_w),
+        .csr_addr_w    (dut.csr_addr_w),
+        .csr_wd_w      (dut.csr_wd_w)
+    );
+
+    // Expose RVFI outputs to interface for UVM monitor
+    assign riscv_if_inst.rvfi_valid    = u_rvfi_tracer.rvfi_valid;
+    assign riscv_if_inst.rvfi_insn     = u_rvfi_tracer.rvfi_insn;
+    assign riscv_if_inst.rvfi_pc       = u_rvfi_tracer.rvfi_pc_rdata;
+    assign riscv_if_inst.rvfi_rd_addr  = u_rvfi_tracer.rvfi_rd_addr;
+    assign riscv_if_inst.rvfi_rd_wdata = u_rvfi_tracer.rvfi_rd_wdata;
+    assign riscv_if_inst.rvfi_mem_wmask_nz = u_rvfi_tracer.rvfi_mem_wmask_nz;
+    assign riscv_if_inst.rvfi_mem_addr  = u_rvfi_tracer.rvfi_mem_addr;
+    assign riscv_if_inst.rvfi_mem_wdata = u_rvfi_tracer.rvfi_mem_wdata;
+    assign riscv_if_inst.rvfi_mem_rdata = u_rvfi_tracer.rvfi_mem_rdata;
 
     // --------------------------------------------------------
     // Start UVM test

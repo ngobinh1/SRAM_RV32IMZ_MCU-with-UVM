@@ -3,7 +3,7 @@ module fetch_cycle(
     input wire pc_src_e,
     input wire [31:0] pc_target_e,
 
-    input wire is_ecall, is_mret,
+    input wire is_ecall, is_mret, is_sret,
     input wire [31:0] trap_vec, epc,
 
     input wire [31:0] instr_f_in,
@@ -28,6 +28,8 @@ module fetch_cycle(
 
     assign pc_next_final = (is_ecall === 1'b1) ? trap_vec :
                           (is_mret === 1'b1)  ? epc      :
+                          (is_sret === 1'b1)  ? epc      :
+                          (is_sret === 1'b1)  ? epc      :
                                                pc_next_normal;
 
     pc fetch_counter(

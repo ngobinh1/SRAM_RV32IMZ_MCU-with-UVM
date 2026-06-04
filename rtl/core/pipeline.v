@@ -66,7 +66,7 @@ module pipeline_2_3 (
     input wire csr_we_d,
     input wire [11:0] csr_addr_d,
     input wire [31:0] csr_rd_d,
-    input wire is_ecall_d, is_mret_d, md_req_d, is_illegal_d,
+    input wire is_ecall_d, is_mret_d, is_sret_d, md_req_d, is_illegal_d,
     input wire [2:0] md_op_d,
     input wire predict_taken_d,
     input wire [31:0] predict_target_d,
@@ -79,7 +79,7 @@ module pipeline_2_3 (
     output  csr_we_e,
     output  [11:0] csr_addr_e,
     output  [31:0] csr_rd_e,
-    output  is_ecall_e, is_mret_e, md_req_e, is_illegal_e,
+    output  is_ecall_e, is_mret_e, is_sret_e, md_req_e, is_illegal_e,
     output  [2:0] md_op_e,
     output  predict_taken_e,
     output  [31:0] predict_target_e
@@ -93,7 +93,7 @@ module pipeline_2_3 (
     reg csr_we_reg;
     reg [11:0] csr_addr_reg;
     reg [31:0] csr_rd_reg;
-    reg is_ecall_reg, is_mret_reg, md_req_reg, is_illegal_reg;
+    reg is_ecall_reg, is_mret_reg, is_sret_reg, md_req_reg, is_illegal_reg;
     reg [2:0] md_op_reg;
     reg predict_taken_reg;
     reg [31:0] predict_target_reg;
@@ -122,6 +122,7 @@ module pipeline_2_3 (
         csr_rd_reg = 32'h00000000;
         is_ecall_reg = 1'b0;
         is_mret_reg = 1'b0;
+        is_sret_reg = 1'b0;
         md_req_reg = 1'b0;
         is_illegal_reg = 1'b0;
         md_op_reg = 3'b000;
@@ -153,6 +154,7 @@ module pipeline_2_3 (
             csr_rd_reg <= 32'h00000000;
             is_ecall_reg <= 1'b0;
             is_mret_reg <= 1'b0;
+            is_sret_reg <= 1'b0;
             md_req_reg <= 1'b0;
             is_illegal_reg <= 1'b0;
             md_op_reg <= 3'b000;
@@ -182,6 +184,7 @@ module pipeline_2_3 (
             csr_rd_reg <= csr_rd_d;
             is_ecall_reg <= is_ecall_d;
             is_mret_reg <= is_mret_d;
+            is_sret_reg <= is_sret_d;
             md_req_reg <= md_req_d;
             is_illegal_reg <= is_illegal_d;
             md_op_reg <= md_op_d;
@@ -212,6 +215,7 @@ module pipeline_2_3 (
     assign csr_rd_e = csr_rd_reg;
     assign is_ecall_e = is_ecall_reg;
     assign is_mret_e = is_mret_reg;
+    assign is_sret_e = is_sret_reg;
     assign md_req_e = md_req_reg;
     assign is_illegal_e = is_illegal_reg;
     assign md_op_e = md_op_reg;

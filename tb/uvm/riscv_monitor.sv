@@ -78,8 +78,8 @@ class riscv_monitor extends uvm_monitor;
             end 
             else begin
                 // PUSH: Save valid instructions at Decode stage
-                if (!vif.monitor_cb.stall_f && 
-                    !vif.monitor_cb.flush_d && 
+                if (vif.monitor_cb.stall_d !== 1'b1 && 
+                    vif.monitor_cb.flush_d !== 1'b1 && 
                     vif.monitor_cb.reg_write_d === 1'b1 && 
                     vif.monitor_cb.rd_d !== 5'h0 && 
                     !$isunknown(vif.monitor_cb.instr_d)) 
@@ -238,7 +238,7 @@ class riscv_monitor extends uvm_monitor;
             if (!vif.monitor_cb.dcache_stall) begin
                 // If Decode stage stalls (due to load-use), flush, or garbage signal
                 // -> Execute stage will receive a bubble, not a branch
-                if (vif.monitor_cb.stall_f || vif.monitor_cb.flush_d || $isunknown(vif.monitor_cb.instr_d)) begin
+                if (vif.monitor_cb.stall_d === 1'b1 || vif.monitor_cb.flush_d === 1'b1 || $isunknown(vif.monitor_cb.instr_d)) begin
                     is_branch_e_reg = 1'b0;
                     is_jump_e_reg   = 1'b0;
                 end else begin

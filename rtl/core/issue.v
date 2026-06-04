@@ -16,7 +16,7 @@ module issue (
     input wire csr_we_d,
     input wire [11:0] csr_addr_d,
     input wire [31:0] csr_rd_d,
-    input wire is_ecall_d, is_mret_d, md_req_d, is_illegal_d,
+    input wire is_ecall_d, is_mret_d, is_sret_d, md_req_d, is_illegal_d,
     input wire [2:0] md_op_d,
     input wire predict_taken_d,
     input wire [31:0] predict_target_d,
@@ -34,7 +34,7 @@ module issue (
     output wire csr_we_i,
     output wire [11:0] csr_addr_i,
     output wire [31:0] csr_rd_i,
-    output wire is_ecall_i, is_mret_i, md_req_i, is_illegal_i,
+    output wire is_ecall_i, is_mret_i, is_sret_i, md_req_i, is_illegal_i,
     output wire [2:0] md_op_i,
     output wire predict_taken_i,
     output wire [31:0] predict_target_i
@@ -77,6 +77,8 @@ module issue (
     assign csr_rd_i      = csr_rd_d;
     assign is_ecall_i    = is_ecall_d;
     assign is_mret_i     = is_mret_d;
+    assign is_sret_i     = is_sret_d;
+    assign is_sret_i     = is_sret_d;
     assign md_req_i      = md_req_d;
     assign is_illegal_i  = is_illegal_d;
     assign md_op_i       = md_op_d;

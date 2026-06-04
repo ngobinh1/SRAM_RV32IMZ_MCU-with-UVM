@@ -58,6 +58,8 @@ module hazard_unit (
         else if (icache_stall) begin
             // I-Cache is busy -> Stall PC and Decode
             stall_f = 1; stall_d = 1;
+            // If a branch is taken, stall Execute so we don't lose the branch target
+            if (pc_src_e) stall_e = 1;
         end 
         else if (issue_stall) begin
             // Issue queue full or blocking due to RAW hazard/execute busy
@@ -66,10 +68,10 @@ module hazard_unit (
     end
 
     // Solving control hazards 
-    // Flush decode when branch/jump is taken
-    assign flush_d = pc_src_e & ~dcache_stall;
+    // Flush decode when branch/jump is taken, but don't flush if we are stalling for icache
+    assign flush_d = pc_src_e & ~dcache_stall & ~icache_stall;
     
-    // Flush execute when branch/jump taken
-    assign flush_e = pc_src_e & ~dcache_stall;  
+    // Flush execute when branch/jump taken, but don't flush if we are stalling for icache
+    assign flush_e = pc_src_e & ~dcache_stall & ~icache_stall;  
 
 endmodule

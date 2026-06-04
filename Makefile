@@ -77,6 +77,8 @@ RTL_FILES :=                                          \
   $(RTL_CORE)/execute_cycle.v                         \
   $(RTL_CORE)/memory_cycle.v                          \
   $(RTL_CORE)/writeback_cycle.v                       \
+  $(RTL_CORE)/riscv_defs.v                            \
+  $(RTL_CORE)/riscv_mmu.v                             \
   $(RTL_CORE)/top_module.v
 
 # --------------------------------------------------------------
@@ -146,6 +148,7 @@ compile_uvm: compile_rtl
 	  +incdir+$(UVM_SRC)                              \
 	  +incdir+$(TB_UVM)                               \
 	  $(UVM_SRC)/uvm_pkg.sv                           \
+	  $(RTL_CORE)/rvfi_tracer.sv                      \
 	  $(TB_UVM)/riscv_if.sv                           \
 	  $(TB_UVM)/riscv_tb_pkg.sv                       \
 	  $(TB_UVM)/tb_top.sv                             \

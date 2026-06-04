@@ -6,7 +6,7 @@ module control_unit(
     output  [2:0] result_src, 
     output  [2:0] imm_src, 
     output  [3:0] alu_control,
-    output csr_we, is_ecall, is_mret,
+    output csr_we, is_ecall, is_mret, is_sret,
     output wire md_req,
     output wire is_illegal
 );
@@ -26,12 +26,13 @@ module control_unit(
     // mret: opcode=1110011, funct3=000, imm12=0x302
     assign is_ecall = is_system && (funct3 == 3'b000) && (imm12 == 12'b000000000000);
     assign is_mret  = is_system && (funct3 == 3'b000) && (imm12 == 12'b001100000010);
+    assign is_sret  = is_system && (funct3 == 3'b000) && (imm12 == 12'b000100000010);
 
-    // CSR write enable: only for system instructions that are not ecall or mret
+    // CSR write enable: only for system instructions that are not ecall, mret, or sret
     assign csr_we = is_system && (funct3 != 3'b000);
 
-    // ecall, ebreak, and mret should not write to registers or memory
-    assign reg_write = reg_write_raw && !(is_ecall | is_mret);
+    // ecall, ebreak, mret, and sret should not write to registers or memory
+    assign reg_write = reg_write_raw && !(is_ecall | is_mret | is_sret);
     
     // For LUI (0110111), use funct3=001
     // For AUIPC (0010111), use funct3=000
