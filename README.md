@@ -1,6 +1,6 @@
 # Project Structure & File Organization
 
-## Cây thư mục đề xuất
+## Cây thư mục
 
 ```
 riscv_pipeline/
@@ -39,6 +39,9 @@ riscv_pipeline/
 | `execute_cycle.v` | Tầng EX: ALU, tính địa chỉ nhánh |
 | `memory_cycle.v` | Tầng MEM: căn chỉnh dữ liệu load/store |
 | `writeback_cycle.v` | Tầng WB: ghi kết quả về thanh ghi |
+| `riscv_mmu.v` | Đơn vị quản lý bộ nhớ (MMU) và phiên dịch địa chỉ ảo (Sv32) |
+| `rvfi_tracer.sv` | Interface kết nối chuẩn RVFI (RISC-V Formal Interface) để gỡ lỗi |
+| `riscv_defs.v` | Định nghĩa các hằng số, macros dùng trong core |
 
 ---
 
@@ -69,7 +72,7 @@ riscv_pipeline/
 
 | File | Mô tả |
 |---|---|
-| `csr_file.v` | Lưu trữ CSR (mstatus, mtvec, mscratch, mepc, mcause); xử lý trap |
+| `csr_file.v` | Lưu trữ CSR (mstatus, mtvec, mscratch, mepc, mcause, satp, v.v.); xử lý trap/exceptions |
 | `csr_alu.v` | Logic ghi CSR: CSRRW (ghi đè), CSRRS (set bit), CSRRC (clear bit) |
 
 ---
@@ -86,8 +89,8 @@ riscv_pipeline/
 
 | File | Mô tả |
 |---|---|
-| `l1_icache.v` | L1 I-Cache 16 line direct-mapped, AXI4-Lite master (read-only) |
-| `l1_dcache.v` | L1 D-Cache 16 line direct-mapped write-back, AXI4-Lite master (read/write) |
+| `l1_icache.v` | L1 I-Cache nâng cao: 2-Way Set Associative, AXI4-Lite master (read-only) |
+| `l1_dcache.v` | L1 D-Cache nâng cao: 2-Way Set Associative write-back, AXI4-Lite master (read/write) |
 
 ---
 
@@ -98,7 +101,8 @@ riscv_pipeline/
 | `axi_interconnect.v` | AXI4-Lite crossbar: 2 master (I-cache, D-cache) → 1 slave (SRAM) |
 | `axi_sram_wrapper.v` | Chuyển đổi AXI4-Lite ↔ giao diện native của EF_SRAM |
 | `EF_SRAM_1024x32.v` | Wrapper macro SRAM 1024×32 (Efabless) |
-| `EF_SRAM_1024x32_tt_180V_25C.v` | Mô hình timing behavioral của EF_SRAM (tt corner) |
+| `EF_SRAM_1024x32.tt_180V_25C.v` | Mô hình timing behavioral của EF_SRAM (tt corner) |
+| `axi4_full_master.v` | Module AXI4 Full Master hỗ trợ giao dịch burst tốc độ cao |
 
 ---
 
@@ -115,6 +119,7 @@ riscv_pipeline/
 | File | Mô tả |
 |---|---|
 | `tb_full.v` | Testbench Verilog thuần: nạp hex, theo dõi pipeline cycle-by-cycle |
+| `tb_muldiv.v` | Testbench riêng lẻ cho khối nhân chia `muldiv_alu` |
 
 ---
 
@@ -126,13 +131,25 @@ riscv_pipeline/
 | `riscv_if.sv` | SystemVerilog Interface: clocking blocks, assertions, tasks load/clear |
 | `riscv_tb_pkg.sv` | Package: import tất cả UVM components theo đúng thứ tự |
 | `riscv_seq_item.sv` | Transaction class: stimulus + observed fields, `decode_instr()` |
-| `riscv_driver.sv` | UVM Driver + Sequencer: điều khiển reset, load hex, chờ cycles |
-| `riscv_monitor.sv` | UVM Monitor: theo dõi reg-write, mem-access, branch, all-instr |
+| `riscv_driver.sv` | UVM Driver: điều khiển reset, load hex, chờ cycles |
+| `riscv_monitor.sv` | UVM Monitor: theo dõi reg-write, mem-access, branch, all-instr, AXI |
 | `riscv_scoreboard.sv` | UVM Scoreboard: ISS reference model, so sánh kết quả DUT |
-| `riscv_coverage.sv` | UVM Coverage: 7 covergroup (instr, hazard, mem, branch, CSR, …) |
+| `riscv_coverage.sv` | UVM Coverage: 11 covergroup (instr, hazard, mem, branch, CSR, Cache, AXI, Issue...) |
 | `riscv_sequences.sv` | Thư viện sequences: reset, load, run, alu/mem/branch/hazard/csr/full/random |
-| `riscv_agent_env_test.sv` | Agent + Env + Base Test class |
-| `riscv_tests.sv` | Các test cụ thể: alu, mem, branch, hazard, csr, full, random, smode, mmu, smode_mmu_random |
+| `riscv_agent_env_test.sv` | RiscV Agent + Env + Base Test class |
+| `riscv_tests.sv` | Các bài test UVM (alu, mem, branch, hazard, csr, full, random, smode, mmu...) |
+| `axi_slave_agent/` | Sub-directory chứa Agent của AXI Slave dùng để test AXI Burst |
+
+**Chi tiết thư mục con `axi_slave_agent/`**:
+
+| File | Mô tả |
+|---|---|
+| `axi_slave_agent.sv` | Đóng gói Monitor, Driver, Sequencer cho AXI Slave |
+| `axi_slave_if.sv` | Interface tín hiệu AXI-Lite & AXI-Full cho AXI Slave |
+| `axi_slave_item.sv` | Định nghĩa transaction của AXI (read/write, addr, data, burst...) |
+| `axi_slave_monitor.sv` | Monitor giám sát các transaction trên bus AXI |
+| `axi_slave_driver.sv` | Driver điều khiển các phản hồi AXI (ready, valid, data, resp...) |
+| `axi_slave_sequencer.sv` | Sequencer điều phối các transaction AXI Slave |
 
 ---
 
@@ -154,14 +171,14 @@ riscv_pipeline/
 
 ---
 
-### `sim/out/` — Output mô phỏng
+### Các tệp cấu hình khác
 
-```
-sim/out/
-├── dump_uvm.vcd      # Waveform từ UVM sim
-├── uvm_sim.log       # Log UVM
-└── legacy_sim.log    # Log legacy sim
-```
+| File | Mô tả |
+|---|---|
+| `Makefile` | Cấu hình quy trình mô phỏng (make sim_legacy, make sim_uvm, make clean) |
+| `docs/spec.md` | Tài liệu đặc tả kỹ thuật chi tiết các khối trong hệ thống |
+| `how_to_run.md` | Hướng dẫn chạy các lệnh make để test project |
+| `.gitignore` | Bỏ qua các file sinh ra trong quá trình mô phỏng |
 
 ---
 
@@ -180,29 +197,9 @@ make sim_legacy_gui
 # Chạy một UVM test cụ thể
 make sim_uvm TEST=riscv_alu_test
 
-# Chạy với seed cố định và verbosity cao
-make sim_uvm TEST=riscv_branch_test SEED=42 VERBOSITY=UVM_HIGH
-
-# Mở GUI cho UVM test
-make sim_uvm_gui TEST=riscv_mem_test
-
-# Chạy toàn bộ regression + xuất coverage HTML
+# Chạy toàn bộ regression
 make regression
 
 # Dọn dẹp
 make clean
 ```
-
----
-
-## Lưu ý khi dùng QuestaSim
-
-| Vấn đề | Giải pháp |
-|---|---|
-| `UVM_HOME` không đúng | Chạy `echo $QUESTA_HOME` và kiểm tra đường dẫn `verilog_src/uvm-*/src` |
-| Lỗi `uvm_pkg not found` | Thêm `-L questa_uvm_pkg` vào lệnh `vsim` thay cho `-L uvm` |
-| SRAM macro báo X | Thêm `+define+functional` vào `VLOG_COMMON_FLAGS` để bỏ timing check |
-| Waveform không thấy nội bộ | Thêm `-voptargs="+acc"` vào lệnh `vsim` khi dùng GUI |
-| `$readmemh` không tìm thấy .hex | Đảm bảo truyền đúng tham số `+HEX_DIR=sim/hex/` cho vsim |
-
-

@@ -10,9 +10,15 @@ package riscv_tb_pkg;
     `include "uvm_macros.svh"
 
     // Include all testbench files in dependency order
+    `include "axi_slave_item.sv"
+    `include "axi_slave_sequencer.sv"
+    `include "axi_slave_driver.sv"
+    `include "axi_slave_monitor.sv"
+    `include "axi_slave_agent.sv"
     `include "riscv_seq_item.sv"
     `include "riscv_driver.sv"      // includes riscv_sequencer
     `include "riscv_monitor.sv"
+    `include "riscv_agent.sv"
     `include "riscv_scoreboard.sv"
     `include "riscv_coverage.sv"
     `include "riscv_agent_env_test.sv"  // agent + env + base_test

@@ -26,6 +26,9 @@ module tb_top;
     initial clk = 1'b0;
     always #5 clk = ~clk;
 
+    always @(posedge clk) begin
+    end
+
     // --------------------------------------------------------
     // Interface instantiation
     // --------------------------------------------------------
@@ -169,12 +172,58 @@ module tb_top;
     // --------------------------------------------------------
     // UVM config_db: push virtual interface to all components
     // --------------------------------------------------------
+    axi_slave_if axi_if_inst(.clk(clk), .rst_n(riscv_if_inst.rst));
+
+    initial begin
+        force dut.s_awready = axi_if_inst.awready;
+        force dut.s_wready  = axi_if_inst.wready;
+        force dut.s_bresp   = axi_if_inst.bresp;
+        force dut.s_bvalid  = axi_if_inst.bvalid;
+        force dut.s_arready = axi_if_inst.arready;
+        force dut.s_rdata   = axi_if_inst.rdata;
+        force dut.s_rresp   = axi_if_inst.rresp;
+        force dut.s_rvalid  = axi_if_inst.rvalid;
+    end
+
+    // Debug removed
+
+    always_comb begin
+        axi_if_inst.awid    = 0;
+        axi_if_inst.awaddr  = dut.s_awaddr;
+        axi_if_inst.awlen   = 0; // Assuming AXI-Lite maps to length 0 (1 beat)
+        axi_if_inst.awsize  = 3'b010; // 4 bytes
+        axi_if_inst.awburst = 2'b01; // INCR
+        axi_if_inst.awvalid = dut.s_awvalid;
+
+        axi_if_inst.wdata   = dut.s_wdata;
+        axi_if_inst.wstrb   = dut.s_wstrb;
+        axi_if_inst.wlast   = 1'b1;
+        axi_if_inst.wvalid  = dut.s_wvalid;
+
+        axi_if_inst.bready  = dut.s_bready;
+
+        axi_if_inst.arid    = 0;
+        axi_if_inst.araddr  = dut.s_araddr;
+        axi_if_inst.arlen   = 0;
+        axi_if_inst.arsize  = 3'b010;
+        axi_if_inst.arburst = 2'b01;
+        axi_if_inst.arvalid = dut.s_arvalid;
+
+        axi_if_inst.rready  = dut.s_rready;
+    end
+
     initial begin
         uvm_config_db #(virtual riscv_if)::set(
             null,           // from top (null = root)
             "uvm_test_top*", // to all children
             "vif",
             riscv_if_inst
+        );
+        uvm_config_db #(virtual axi_slave_if)::set(
+            null,
+            "uvm_test_top*",
+            "vif",
+            axi_if_inst
         );
     end
 

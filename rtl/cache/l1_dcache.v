@@ -30,22 +30,30 @@ module l1_dcache (
     input  wire        m_axi_rvalid,
     output reg         m_axi_rready
 );
-    // 16-line Direct Mapped Write-Back Cache
-    reg [31:0] cache_data  [0:15];
-    reg [25:0] cache_tag   [0:15];
-    reg        cache_valid [0:15];
-    reg        cache_dirty [0:15];
+    // 8-Set, 2-Way Set Associative Write-Back Cache (16 lines total)
+    reg [31:0] cache_data  [0:7][0:1];
+    reg [26:0] cache_tag   [0:7][0:1];
+    reg        cache_valid [0:7][0:1];
+    reg        cache_dirty [0:7][0:1];
+    reg        lru_bit     [0:7];
 
-    wire [3:0]  index  = cpu_addr[5:2];
-    wire [25:0] tag    = cpu_addr[31:6];
+    wire [2:0]  index  = cpu_addr[4:2];
+    wire [26:0] tag    = cpu_addr[31:5];
     wire [1:0]  offset = cpu_addr[1:0];
 
-    wire hit = cache_valid[index] && (cache_tag[index] == tag);
-    assign cpu_rdata = hit ? cache_data[index] : 32'h0;
+    wire hit_w0 = cache_valid[index][0] && (cache_tag[index][0] == tag);
+    wire hit_w1 = cache_valid[index][1] && (cache_tag[index][1] == tag);
+    wire hit    = hit_w0 || hit_w1;
+    
+    wire current_way = hit_w0 ? 1'b0 : 
+                       hit_w1 ? 1'b1 : lru_bit[index];
+
+    assign cpu_rdata = hit_w0 ? cache_data[index][0] :
+                       hit_w1 ? cache_data[index][1] : 32'h0;
 
     // Decode CPU funct3 and offset into a 32-bit Write Mask
     reg [31:0] write_mask;
-    always @(cpu_funct3 or offset) begin
+    always @(*) begin
         write_mask = 32'h00000000;
         if (cpu_funct3 == 3'b000) begin // SB
             if (offset == 2'b00) write_mask = 32'h000000FF;
@@ -73,11 +81,11 @@ module l1_dcache (
 
     wire valid_request = cpu_we || cpu_re;
     wire cache_miss = valid_request && !hit;
-    wire line_dirty = cache_dirty[index];
+    wire line_dirty = cache_dirty[index][lru_bit[index]];
 
     assign dcache_stall = (state == IDLE && cache_miss) || (state != IDLE);
 
-    always @(state or cache_miss or line_dirty or cache_valid or cache_tag or cache_data or index or m_axi_awready or m_axi_wready or m_axi_bvalid or tag or m_axi_arready or m_axi_rvalid) begin
+    always @(*) begin
         next_state = state;
         m_axi_awvalid = 1'b0; m_axi_awaddr = 32'h0;
         m_axi_wvalid  = 1'b0; m_axi_wdata  = 32'h0; m_axi_wstrb = 4'h0;
@@ -87,8 +95,8 @@ module l1_dcache (
 
         case (state)
             IDLE: begin
-                if (cache_miss) begin
-                    if (line_dirty && cache_valid[index]) 
+                if (cache_miss && rst_n) begin
+                    if (line_dirty && cache_valid[index][lru_bit[index]]) 
                         next_state = AW_WAIT; // Evict line
                     else 
                         next_state = AR_WAIT; // Fetch new line
@@ -96,60 +104,94 @@ module l1_dcache (
             end
             
             AW_WAIT: begin
-                m_axi_awvalid = 1'b1;
-                m_axi_awaddr  = {cache_tag[index], index, 2'b00};
-                m_axi_wvalid = 1'b1;
-                m_axi_wdata  = cache_data[index];
-                m_axi_wstrb  = 4'b1111;
-                if (m_axi_awready && m_axi_wready) 
-                    next_state = B_WAIT;
-                else if (m_axi_awready) 
-                    next_state = W_WAIT;
+                if (rst_n) begin
+                    m_axi_awvalid = 1'b1;
+                    m_axi_awaddr  = {cache_tag[index][lru_bit[index]], index, 2'b00};
+                    m_axi_wvalid = 1'b1;
+                    m_axi_wdata  = cache_data[index][lru_bit[index]];
+                    m_axi_wstrb  = 4'b1111;
+                    if (m_axi_awready && m_axi_wready) 
+                        next_state = B_WAIT;
+                    else if (m_axi_awready) 
+                        next_state = W_WAIT;
+                end else begin
+                    next_state = IDLE;
+                end
             end
             
             W_WAIT: begin
-                m_axi_wvalid = 1'b1;
-                m_axi_wdata  = cache_data[index];
-                m_axi_wstrb  = 4'b1111; // Evict entire word (4 bytes)
-                if (m_axi_wready) next_state = B_WAIT;
+                if (rst_n) begin
+                    m_axi_wvalid = 1'b1;
+                    m_axi_wdata  = cache_data[index][lru_bit[index]];
+                    m_axi_wstrb  = 4'b1111; // Evict entire word
+                    if (m_axi_wready) next_state = B_WAIT;
+                end else begin
+                    next_state = IDLE;
+                end
             end
             
             B_WAIT: begin
-                m_axi_bready = 1'b1;
-                if (m_axi_bvalid) next_state = AR_WAIT;
+                if (rst_n) begin
+                    m_axi_bready = 1'b1;
+                    if (m_axi_bvalid) next_state = AR_WAIT;
+                end else begin
+                    next_state = IDLE;
+                end
             end
             
             AR_WAIT: begin
-                m_axi_arvalid = 1'b1;
-                m_axi_araddr  = {tag, index, 2'b00};
-                if (m_axi_arready) next_state = R_WAIT;
+                if (rst_n) begin
+                    m_axi_arvalid = 1'b1;
+                    m_axi_araddr  = {tag, index, 2'b00};
+                    if (m_axi_arready) next_state = R_WAIT;
+                end else begin
+                    next_state = IDLE;
+                end
             end
             
             R_WAIT: begin
-                m_axi_rready = 1'b1;
-                if (m_axi_rvalid) next_state = IDLE;
+                if (rst_n) begin
+                    m_axi_rready = 1'b1;
+                    if (m_axi_rvalid) next_state = IDLE;
+                end else begin
+                    next_state = IDLE;
+                end
             end
         endcase
     end
-    
+
     // Update Cache Memory
     integer i;
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
-            for (i = 0; i < 16; i = i + 1) begin
-                cache_valid[i] <= 1'b0;
-                cache_dirty[i] <= 1'b0;
+            for (i = 0; i < 8; i = i + 1) begin
+                cache_valid[i][0] <= 1'b0;
+                cache_valid[i][1] <= 1'b0;
+                cache_dirty[i][0] <= 1'b0;
+                cache_dirty[i][1] <= 1'b0;
+                lru_bit[i]        <= 1'b0;
             end
         end else begin
             if (state == R_WAIT && m_axi_rvalid) begin
-                cache_valid[index] <= 1'b1;
-                cache_dirty[index] <= 1'b0;
-                cache_tag[index]   <= tag;
-                cache_data[index]  <= m_axi_rdata;
-            end 
-            else if (state == IDLE && hit && cpu_we) begin
-                cache_dirty[index] <= 1'b1;
-                cache_data[index]  <= (cache_data[index] & ~write_mask) | (cpu_wdata & write_mask);
+                cache_valid[index][lru_bit[index]] <= 1'b1;
+                cache_tag[index][lru_bit[index]]   <= tag;
+                cache_dirty[index][lru_bit[index]] <= 1'b0; // Just fetched, not dirty
+                // Replace data
+                cache_data[index][lru_bit[index]]  <= m_axi_rdata;
+            end
+            
+            // Handle CPU Write (Write-Hit)
+            if (state == IDLE && hit && cpu_we) begin
+                cache_dirty[index][current_way] <= 1'b1;
+                cache_data[index][current_way] <= (cache_data[index][current_way] & ~write_mask) | (cpu_wdata & write_mask);
+            end
+
+            // Update LRU on hit or miss completion
+            if (state == IDLE && hit && valid_request) begin
+                if (hit_w0) lru_bit[index] <= 1'b1;
+                if (hit_w1) lru_bit[index] <= 1'b0;
+            end else if (state == R_WAIT && m_axi_rvalid) begin
+                lru_bit[index] <= ~lru_bit[index];
             end
         end
     end

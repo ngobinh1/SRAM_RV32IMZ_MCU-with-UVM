@@ -15,18 +15,22 @@ module l1_icache (
     input  wire        m_axi_rvalid,
     output reg         m_axi_rready
 );
-    // 16-line Direct Mapped Cache
-    reg [31:0] cache_data  [0:15];
-    reg [25:0] cache_tag   [0:15];
-    reg        cache_valid [0:15];
+    // 8-Set, 2-Way Set Associative Cache (Total 16 lines)
+    reg [31:0] cache_data  [0:7][0:1];
+    reg [26:0] cache_tag   [0:7][0:1];
+    reg        cache_valid [0:7][0:1];
+    reg        lru_bit     [0:7]; // 0: way 0 is LRU, 1: way 1 is LRU
 
     // Address Breakdown (Word Aligned)
-    wire [3:0]  index = cpu_addr[5:2];
-    wire [25:0] tag   = cpu_addr[31:6];
+    wire [2:0]  index = cpu_addr[4:2];
+    wire [26:0] tag   = cpu_addr[31:5];
 
     // Hit Logic
-    wire hit = cache_valid[index] && (cache_tag[index] == tag);
-    assign cpu_rdata = hit ? cache_data[index] : 32'h00000000;
+    wire hit_w0 = cache_valid[index][0] && (cache_tag[index][0] == tag);
+    wire hit_w1 = cache_valid[index][1] && (cache_tag[index][1] == tag);
+    wire hit    = hit_w0 || hit_w1;
+    assign cpu_rdata = hit_w0 ? cache_data[index][0] : 
+                       hit_w1 ? cache_data[index][1] : 32'h00000000;
     
     // FSM States
     localparam IDLE = 2'b00, AR_WAIT = 2'b01, R_WAIT = 2'b10;
@@ -40,7 +44,7 @@ module l1_icache (
     // Stall CPU when Cache miss or fetching
     assign icache_stall = (state == IDLE && !hit) || (state != IDLE);
 
-    always @(state or hit or tag or index or m_axi_arready or m_axi_rvalid) begin
+    always @(*) begin
         next_state = state;
         m_axi_arvalid = 1'b0;
         m_axi_araddr  = 32'h0;
@@ -48,7 +52,7 @@ module l1_icache (
 
         case (state)
             IDLE: begin
-                if (!hit) begin
+                if (!hit && rst_n) begin
                     m_axi_arvalid = 1'b1;
                     m_axi_araddr  = {tag, index, 2'b00};
                     if (m_axi_arready)
@@ -58,13 +62,21 @@ module l1_icache (
                 end
             end
             AR_WAIT: begin
-                m_axi_arvalid = 1'b1;
-                m_axi_araddr  = {tag, index, 2'b00};
-                if (m_axi_arready) next_state = R_WAIT;
+                if (rst_n) begin
+                    m_axi_arvalid = 1'b1;
+                    m_axi_araddr  = {tag, index, 2'b00};
+                    if (m_axi_arready) next_state = R_WAIT;
+                end else begin
+                    next_state = IDLE;
+                end
             end
             R_WAIT: begin
-                m_axi_rready = 1'b1;
-                if (m_axi_rvalid) next_state = IDLE;
+                if (rst_n) begin
+                    m_axi_rready = 1'b1;
+                    if (m_axi_rvalid) next_state = IDLE;
+                end else begin
+                    next_state = IDLE;
+                end
             end
         endcase
     end
@@ -73,13 +85,19 @@ module l1_icache (
     integer i;
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
-            for (i = 0; i < 16; i = i + 1) begin
-                cache_valid[i] <= 1'b0;
+            for (i = 0; i < 8; i = i + 1) begin
+                cache_valid[i][0] <= 1'b0;
+                cache_valid[i][1] <= 1'b0;
+                lru_bit[i] <= 1'b0;
             end
         end else if (state == R_WAIT && m_axi_rvalid) begin
-            cache_valid[index] <= 1'b1;
-            cache_tag[index]   <= tag;
-            cache_data[index]  <= m_axi_rdata;
+            cache_valid[index][lru_bit[index]] <= 1'b1;
+            cache_tag[index][lru_bit[index]]   <= tag;
+            cache_data[index][lru_bit[index]]  <= m_axi_rdata;
+            lru_bit[index] <= ~lru_bit[index];
+        end else if (hit) begin
+            if (hit_w0) lru_bit[index] <= 1'b1;
+            if (hit_w1) lru_bit[index] <= 1'b0;
         end
     end
 endmodule

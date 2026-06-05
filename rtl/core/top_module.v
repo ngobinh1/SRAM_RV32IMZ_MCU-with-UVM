@@ -446,6 +446,7 @@ module riscv_pipeline_top (
     // ==========================================
     // AXI SRAM WRAPPER (Slave)
     // ==========================================
+`ifndef UVM_MEM
     axi_sram_wrapper sram_wrap_inst (
         .clk(clk), .rst_n(rst),
         .s_axi_awaddr(s_awaddr), .s_axi_awvalid(s_awvalid), .s_axi_awready(s_awready),
@@ -476,6 +477,8 @@ module riscv_pipeline_top (
         .WLBI(1'b0), .WLOFF(1'b0),
         .vpwrac(1'b1), .vpwrpc(1'b1)
     );
+`endif
+
     always @(posedge clk) begin
         if ($time > 714900 && $time < 715100) begin
             $display("DEBUG_TRACE: time=%0t pc_f=%h pc_next_final=%h pc_next_normal=%h is_ecall_d=%b is_mret_d=%b epc=%h pc_src_e=%b actual_target_e=%h", $time, pc_f, fetch_stage.pc_next_final, fetch_stage.pc_next_normal, is_ecall_d, is_mret_d, epc, pc_src_e, actual_target_e);

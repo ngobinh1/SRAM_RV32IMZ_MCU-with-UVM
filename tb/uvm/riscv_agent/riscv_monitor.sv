@@ -52,13 +52,7 @@ class riscv_monitor extends uvm_monitor;
             monitor_axi();
         join_none
 
-        forever begin
-            @(vif.monitor_cb);
-            if ($time > 300 && $time < 800) begin
-                $display("DEBUG_MONITOR_START: time=%0t pc_f=%h pc_d=%h pc_e=%h instr_f=%h instr_d=%h is_ecall_d=%b is_mret_d=%b pc_src_e=%b actual_target_e=%h stall_f=%b",
-                    $time, vif.monitor_cb.pc_f, vif.monitor_cb.pc_d, vif.monitor_cb.pc_e, vif.monitor_cb.instr_f, vif.monitor_cb.instr_d, vif.monitor_cb.is_ecall_d, vif.monitor_cb.is_mret_d, vif.monitor_cb.pc_src_e, vif.monitor_cb.actual_target_e, vif.monitor_cb.stall_f);
-            end
-        end
+
     endtask
 
     // ========================================================
@@ -68,6 +62,7 @@ class riscv_monitor extends uvm_monitor;
         riscv_seq_item item;
         logic [31:0] instr_queue[$];
         logic [31:0] pc_queue[$];
+        
 
         forever begin
             @(vif.monitor_cb);
@@ -87,12 +82,11 @@ class riscv_monitor extends uvm_monitor;
                     instr_queue.push_back(vif.monitor_cb.instr_d);
                     pc_queue.push_back(vif.monitor_cb.pc_d);
                 end
-
+                
                 // POP: WB stage only frozen when D-Cache Stall (SRAM busy)
-                if (!vif.monitor_cb.dcache_stall && 
+                if (vif.monitor_cb.dcache_stall !== 1'b1 && 
                     vif.monitor_cb.reg_write_w === 1'b1 &&
-                    vif.monitor_cb.rd_w !== 5'h0 &&
-                    !$isunknown(vif.monitor_cb.result_w)) 
+                    vif.monitor_cb.rd_w !== 5'h0) 
                 begin
                     
                     // SELF-HEALING: Automatically remove instructions swallowed by flush_e
@@ -273,6 +267,8 @@ class riscv_monitor extends uvm_monitor;
             item.stall_seen = vif.monitor_cb.stall_f |
                               vif.monitor_cb.icache_stall |
                               vif.monitor_cb.dcache_stall;
+            item.icache_stall = vif.monitor_cb.icache_stall;
+            item.dcache_stall = vif.monitor_cb.dcache_stall;
             item.issue_stall     = vif.monitor_cb.issue_stall;
             item.issue_valid     = vif.monitor_cb.issue_valid;
             item.execute_ready   = vif.monitor_cb.execute_ready;

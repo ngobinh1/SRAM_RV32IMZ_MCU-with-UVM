@@ -74,7 +74,10 @@ class riscv_coverage extends uvm_subscriber #(riscv_seq_item);
             bins system[]    = {riscv_seq_item::INSTR_ECALL,
                                 riscv_seq_item::INSTR_CSRRW,
                                 riscv_seq_item::INSTR_CSRRS,
-                                riscv_seq_item::INSTR_CSRRC};
+                                riscv_seq_item::INSTR_CSRRC,
+                                riscv_seq_item::INSTR_MRET,
+                                riscv_seq_item::INSTR_SRET,
+                                riscv_seq_item::INSTR_SFENCE_VMA};
             bins muldiv[]    = {riscv_seq_item::INSTR_MUL,
                                 riscv_seq_item::INSTR_MULH,
                                 riscv_seq_item::INSTR_MULHSU,
@@ -269,14 +272,18 @@ class riscv_coverage extends uvm_subscriber #(riscv_seq_item);
                  riscv_seq_item::INSTR_CSRRW,
                  riscv_seq_item::INSTR_CSRRS,
                  riscv_seq_item::INSTR_CSRRC,
-                 riscv_seq_item::INSTR_ECALL})
+                 riscv_seq_item::INSTR_ECALL,
+                 riscv_seq_item::INSTR_MRET,
+                 riscv_seq_item::INSTR_SRET})
         {
             bins csrrw  = {riscv_seq_item::INSTR_CSRRW};
             bins csrrs  = {riscv_seq_item::INSTR_CSRRS};
             bins csrrc  = {riscv_seq_item::INSTR_CSRRC};
             bins ecall  = {riscv_seq_item::INSTR_ECALL};
+            bins mret   = {riscv_seq_item::INSTR_MRET};
+            bins sret   = {riscv_seq_item::INSTR_SRET};
         }
-        // CSR address bins (machine-mode CSRs)
+        // CSR address bins (machine-mode and supervisor-mode CSRs)
         cp_csr_addr: coverpoint trans.instr[31:20]
             iff (trans.instr_type inside {
                  riscv_seq_item::INSTR_CSRRW,
@@ -288,6 +295,12 @@ class riscv_coverage extends uvm_subscriber #(riscv_seq_item);
             bins mscratch = {12'h340};
             bins mepc     = {12'h341};
             bins mcause   = {12'h342};
+            bins sstatus  = {12'h100};
+            bins stvec    = {12'h105};
+            bins sscratch = {12'h140};
+            bins sepc     = {12'h141};
+            bins scause   = {12'h142};
+            bins satp     = {12'h180};
             bins other    = default;
         }
     endgroup
@@ -324,6 +337,20 @@ class riscv_coverage extends uvm_subscriber #(riscv_seq_item);
         }
     endgroup
 
+    // ============================================================
+    // Coverage Group 11: Cache Events
+    // ============================================================
+    covergroup cg_cache;
+        cp_icache_stall: coverpoint trans.icache_stall {
+            bins hit_or_idle = {0};
+            bins miss_stall  = {1};
+        }
+        cp_dcache_stall: coverpoint trans.dcache_stall {
+            bins hit_or_idle = {0};
+            bins miss_stall  = {1};
+        }
+    endgroup
+
     // --------------------------------------------------------
     // Constructor: instantiate all coverage groups
     // --------------------------------------------------------
@@ -339,6 +366,7 @@ class riscv_coverage extends uvm_subscriber #(riscv_seq_item);
         cg_axi           = new();
         cg_issue         = new();
         cg_branch_prediction = new();
+        cg_cache         = new();
     endfunction
 
     // --------------------------------------------------------
@@ -352,6 +380,7 @@ class riscv_coverage extends uvm_subscriber #(riscv_seq_item);
         cg_pipeline_flow.sample();
         cg_regfile.sample();
         cg_issue.sample();
+        cg_cache.sample();
 
         if (trans.trans_type == riscv_seq_item::TRANS_MEM_WRITE ||
             trans.trans_type == riscv_seq_item::TRANS_MEM_READ  ||
@@ -371,7 +400,9 @@ class riscv_coverage extends uvm_subscriber #(riscv_seq_item);
             riscv_seq_item::INSTR_CSRRW,
             riscv_seq_item::INSTR_CSRRS,
             riscv_seq_item::INSTR_CSRRC,
-            riscv_seq_item::INSTR_ECALL})
+            riscv_seq_item::INSTR_ECALL,
+            riscv_seq_item::INSTR_MRET,
+            riscv_seq_item::INSTR_SRET})
             cg_csr.sample();
 
         if (t.trans_type inside {
@@ -392,10 +423,11 @@ class riscv_coverage extends uvm_subscriber #(riscv_seq_item);
         msg = {msg, $sformatf("  Branch/Jump      : %0.1f%%\n", cg_branch.get_coverage())}; 
         msg = {msg, $sformatf("  Pipeline Flow    : %0.1f%%\n", cg_pipeline_flow.get_coverage())};
         msg = {msg, $sformatf("  Register File    : %0.1f%%\n", cg_regfile.get_coverage())};
-        msg = {msg, $sformatf("  CSR Instructions : %0.1f%%\n",   cg_csr.get_coverage())};
+        msg = {msg, $sformatf("  CSR/Exceptions   : %0.1f%%\n",   cg_csr.get_coverage())};
         msg = {msg, $sformatf("  AXI Transactions : %0.1f%%\n",   cg_axi.get_coverage())};
         msg = {msg, $sformatf("  Issue Stage      : %0.1f%%\n",   cg_issue.get_coverage())};
-        msg = {msg, $sformatf("  Branch Predictor : %0.1f%%",     cg_branch_prediction.get_coverage())};
+        msg = {msg, $sformatf("  Branch Predictor : %0.1f%%\n",   cg_branch_prediction.get_coverage())};
+        msg = {msg, $sformatf("  Cache Stalls     : %0.1f%%",     cg_cache.get_coverage())};
 
         `uvm_info("COVERAGE", msg, UVM_NONE)
     endfunction

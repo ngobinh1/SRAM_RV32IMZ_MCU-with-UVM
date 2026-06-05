@@ -11,10 +11,14 @@
 //  5. riscv_csr_test      – CSR instructions + ecall/mret
 //  6. riscv_full_test     – full regression (all programs)
 //  7. riscv_random_test   – randomised stress test
+//  7. riscv_smode_test    - Supervisor mode test
+//  8. riscv_mmu_test      - MMU address translation test
+//  9. riscv_random_test   – randomised stress test
 //
 //  Run with:
 //   +UVM_TESTNAME=riscv_alu_test
 //   +UVM_TESTNAME=riscv_full_test
+//   +UVM_TESTNAME=riscv_smode_test
 //   etc.
 // ============================================================
 `include "uvm_macros.svh"
@@ -183,7 +187,49 @@ endclass : riscv_full_test
 
 
 // ============================================================
-// Test 8: Randomised Stress Test
+// Test 7: Supervisor Mode Test
+// ============================================================
+class riscv_smode_test extends riscv_base_test;
+    `uvm_component_utils(riscv_smode_test)
+
+    function new(string name = "riscv_smode_test", uvm_component parent = null);
+        super.new(name, parent);
+        hex_file       = "smode_test.hex";
+        timeout_cycles = 10_000;
+    endfunction
+
+    task run_test_body(uvm_phase phase);
+        riscv_smode_test_seq seq;
+        seq = riscv_smode_test_seq::type_id::create("seq");
+        seq.start(get_sequencer());
+        vif.wait_clks(500);
+    endtask
+
+endclass : riscv_smode_test
+
+// ============================================================
+// Test 8: MMU Translation Test
+// ============================================================
+class riscv_mmu_test extends riscv_base_test;
+    `uvm_component_utils(riscv_mmu_test)
+
+    function new(string name = "riscv_mmu_test", uvm_component parent = null);
+        super.new(name, parent);
+        hex_file       = "mmu_test.hex";
+        timeout_cycles = 10_000;
+    endfunction
+
+    task run_test_body(uvm_phase phase);
+        riscv_mmu_test_seq seq;
+        seq = riscv_mmu_test_seq::type_id::create("seq");
+        seq.start(get_sequencer());
+        vif.wait_clks(500);
+    endtask
+
+endclass : riscv_mmu_test
+
+// ============================================================
+// Test 9: Randomised Stress Test
 // ============================================================
 class riscv_random_test extends riscv_base_test;
     `uvm_component_utils(riscv_random_test)
@@ -214,44 +260,6 @@ class riscv_random_test extends riscv_base_test;
 
 endclass : riscv_random_test
 
-// ============================================================
-// Test 9: S-Mode Test
-// ============================================================
-class riscv_smode_test extends riscv_base_test;
-    `uvm_component_utils(riscv_smode_test)
-
-    function new(string name = "riscv_smode_test", uvm_component parent = null);
-        super.new(name, parent);
-        hex_file       = "smode_test.hex";
-        timeout_cycles = 3_000;
-    endfunction
-
-    task run_test_body(uvm_phase phase);
-        riscv_smode_test_seq seq;
-        seq = riscv_smode_test_seq::type_id::create("seq");
-        seq.start(get_sequencer());
-        vif.wait_clks(200);
-    endtask
-
-endclass : riscv_smode_test
-
-// ============================================================
-// MMU Test
-// ============================================================
-class riscv_mmu_test extends riscv_base_test;
-    `uvm_component_utils(riscv_mmu_test)
-
-    function new(string name = "riscv_mmu_test", uvm_component parent = null);
-        super.new(name, parent);
-    endfunction
-
-    virtual task run_test_body(uvm_phase phase);
-        riscv_mmu_test_seq seq;
-        seq = riscv_mmu_test_seq::type_id::create("seq");
-        seq.start(get_sequencer());
-    endtask
-
-endclass : riscv_mmu_test
 
 // ============================================================
 // S-Mode and MMU Random Test

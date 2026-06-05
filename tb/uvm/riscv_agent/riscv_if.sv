@@ -304,15 +304,21 @@ interface riscv_if (input logic clk);
 
     task automatic load_imem(string hex_file);
         string full_path = {"sim/hex/", hex_file};
+`ifndef UVM_MEM
         $readmemh(full_path, tb_top.dut.sram_macro.EF_SRAM_1024x32_inst.memory_mode_inst.memory);
-        $display("[VIF] Program loaded into memory from %s", hex_file);
-        $display("[VIF] memory[0] = %h", tb_top.dut.sram_macro.EF_SRAM_1024x32_inst.memory_mode_inst.memory[0]);
+`else
+        tb_top.axi_if_inst.load_mem(full_path);
+`endif
     endtask
 
     task automatic clear_dmem();
-        for (int i = 0; i < 1024; i++) begin
+`ifndef UVM_MEM
+        int i;
+        for (i = 0; i < 1024; i++) begin
             tb_top.dut.sram_macro.EF_SRAM_1024x32_inst.memory_mode_inst.memory[i] = 32'h0;
         end
-        $display("[VIF] Memory cleared.");
+`else
+        tb_top.axi_if_inst.memory.delete();
+`endif
     endtask
 endinterface : riscv_if

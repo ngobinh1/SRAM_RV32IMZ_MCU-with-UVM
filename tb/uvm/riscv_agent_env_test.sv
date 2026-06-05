@@ -1,65 +1,3 @@
-// ============================================================
-// File: riscv_agent.sv
-// Description: UVM Agent – bundles sequencer, driver, and
-//              monitor into a reusable verification component.
-//              Analysis ports are forwarded upward to the env.
-// ============================================================
-`include "uvm_macros.svh"
-import uvm_pkg::*;
-`include "riscv_seq_item.sv"
-`include "riscv_driver.sv"      
-`include "riscv_monitor.sv"
-`include "riscv_scoreboard.sv"
-`include "riscv_coverage.sv"
-`ifndef RISCV_AGENT_SV
-`define RISCV_AGENT_SV
-
-class riscv_agent extends uvm_agent;
-    `uvm_component_utils(riscv_agent)
-
-    // Sub-components
-    riscv_sequencer sequencer;
-    riscv_driver    driver;
-    riscv_monitor   monitor;
-
-    // Analysis ports forwarded from monitor
-    uvm_analysis_port #(riscv_seq_item) ap_regwrite;
-    uvm_analysis_port #(riscv_seq_item) ap_memaccess;
-    uvm_analysis_port #(riscv_seq_item) ap_branch;
-    uvm_analysis_port #(riscv_seq_item) ap_instr;
-
-    function new(string name = "riscv_agent", uvm_component parent = null);
-        super.new(name, parent);
-    endfunction
-
-    function void build_phase(uvm_phase phase);
-        super.build_phase(phase);
-        sequencer = riscv_sequencer::type_id::create("sequencer", this);
-        driver    = riscv_driver::type_id::create("driver",       this);
-        monitor   = riscv_monitor::type_id::create("monitor",     this);
-
-        // Create forwarding ports
-        ap_regwrite  = new("ap_regwrite",  this);
-        ap_memaccess = new("ap_memaccess", this);
-        ap_branch    = new("ap_branch",    this);
-        ap_instr     = new("ap_instr",     this);
-    endfunction
-
-    function void connect_phase(uvm_phase phase);
-        // Connect driver to sequencer
-        driver.seq_item_port.connect(sequencer.seq_item_export);
-
-        // Forward monitor analysis ports up to agent level
-        monitor.ap_regwrite.connect(ap_regwrite);
-        monitor.ap_memaccess.connect(ap_memaccess);
-        monitor.ap_branch.connect(ap_branch);
-        monitor.ap_instr.connect(ap_instr);
-    endfunction
-
-endclass : riscv_agent
-
-`endif // RISCV_AGENT_SV
-
 
 // ============================================================
 // File: riscv_env.sv
@@ -78,6 +16,7 @@ class riscv_env extends uvm_env;
     riscv_agent       agent;
     riscv_scoreboard  scoreboard;
     riscv_coverage    coverage;
+    axi_slave_agent   axi_agent;
 
     function new(string name = "riscv_env", uvm_component parent = null);
         super.new(name, parent);
@@ -88,6 +27,7 @@ class riscv_env extends uvm_env;
         agent      = riscv_agent::type_id::create("agent",      this);
         scoreboard = riscv_scoreboard::type_id::create("scoreboard", this);
         coverage   = riscv_coverage::type_id::create("coverage", this);
+        axi_agent  = axi_slave_agent::type_id::create("axi_agent", this);
     endfunction
 
     function void connect_phase(uvm_phase phase);
@@ -130,6 +70,7 @@ class riscv_base_test extends uvm_test;
     // Configuration parameters
     int unsigned timeout_cycles = 10_000; // Max sim cycles
     string       hex_file       = "full_test.hex";
+    virtual axi_slave_if vif_axi;
 
     function new(string name = "riscv_base_test", uvm_component parent = null);
         super.new(name, parent);
@@ -148,6 +89,8 @@ class riscv_base_test extends uvm_test;
             void'($value$plusargs("HEX=%s", hex_file));
         if (!uvm_config_db#(virtual riscv_if)::get(this, "", "vif", vif))
             `uvm_fatal("TEST", "Can't take vif from config_db")
+        if (!uvm_config_db#(virtual axi_slave_if)::get(this, "", "vif", vif_axi))
+            `uvm_fatal("TEST", "Can't take vif_axi from config_db")
 
         env = riscv_env::type_id::create("env", this);
 
@@ -155,6 +98,8 @@ class riscv_base_test extends uvm_test;
             $sformatf("Build complete. hex=%0s timeout=%0d cycles",
                       hex_file, timeout_cycles), UVM_MEDIUM)
     endfunction
+
+
 
     // --------------------------------------------------------
     // run_phase: apply timeout watchdog

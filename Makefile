@@ -143,13 +143,16 @@ sim_legacy_gui: compile_legacy
 # ==============================================================
 
 ## Bước 1: biên dịch UVM package và TB (SystemVerilog)
-compile_uvm: compile_rtl
-	$(VLOG) -sv $(VLOG_COMMON_FLAGS)                  \
+compile_uvm: work $(SIM_OUT)
+	$(VLOG) $(VLOG_COMMON_FLAGS) +define+UVM_MEM $(RTL_FILES) \
+	  2>&1 | tee $(SIM_OUT)/compile_rtl_uvm.log
+	$(VLOG) -sv $(VLOG_COMMON_FLAGS) +define+UVM_MEM  \
 	  +incdir+$(UVM_SRC)                              \
-	  +incdir+$(TB_UVM)                               \
+	  +incdir+$(TB_UVM) +incdir+$(TB_UVM)/axi_slave_agent +incdir+$(TB_UVM)/riscv_agent \
 	  $(UVM_SRC)/uvm_pkg.sv                           \
 	  $(RTL_CORE)/rvfi_tracer.sv                      \
-	  $(TB_UVM)/riscv_if.sv                           \
+	  $(TB_UVM)/riscv_agent/riscv_if.sv                           \
+	  $(TB_UVM)/axi_slave_agent/axi_slave_if.sv       \
 	  $(TB_UVM)/riscv_tb_pkg.sv                       \
 	  $(TB_UVM)/tb_top.sv                             \
 	  2>&1 | tee $(SIM_OUT)/compile_uvm.log

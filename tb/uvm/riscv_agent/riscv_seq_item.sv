@@ -56,7 +56,9 @@ class riscv_seq_item extends uvm_sequence_item;
         INSTR_MUL    = 6'h29, INSTR_MULH  = 6'h2A, 
         INSTR_MULHSU = 6'h2B, INSTR_MULHU = 6'h2C,
         INSTR_DIV    = 6'h2D, INSTR_DIVU  = 6'h2E, 
-        INSTR_REM    = 6'h2F, INSTR_REMU  = 6'h30
+        INSTR_REM    = 6'h2F, INSTR_REMU  = 6'h30,
+        INSTR_MRET   = 6'h31, INSTR_SRET  = 6'h32,
+        INSTR_SFENCE_VMA = 6'h33
     } instr_type_e;
 
     // ============================================================
@@ -84,6 +86,8 @@ class riscv_seq_item extends uvm_sequence_item;
     logic         branch_taken;  // Was branch actually taken?
     logic [31:0]  branch_target; // Target PC for branch/jump
     logic         stall_seen;    // Pipeline was stalled this cycle
+    logic         icache_stall;  // I-Cache stall seen
+    logic         dcache_stall;  // D-Cache stall seen
     logic         issue_stall;   // Issue stage was stalled
     logic         issue_valid;   // Issue dispatched
     logic         execute_ready; // EX stage was ready
