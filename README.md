@@ -132,7 +132,7 @@ riscv_pipeline/
 | `riscv_coverage.sv` | UVM Coverage: 7 covergroup (instr, hazard, mem, branch, CSR, …) |
 | `riscv_sequences.sv` | Thư viện sequences: reset, load, run, alu/mem/branch/hazard/csr/full/random |
 | `riscv_agent_env_test.sv` | Agent + Env + Base Test class |
-| `riscv_tests.sv` | Các test cụ thể: alu_test, mem_test, branch_test, hazard_test, csr_test, full_test, random_test |
+| `riscv_tests.sv` | Các test cụ thể: alu, mem, branch, hazard, csr, full, random, smode, mmu, smode_mmu_random |
 
 ---
 
@@ -147,6 +147,9 @@ riscv_pipeline/
 | `hazard_test.hex` | Test load-use stall |
 | `csr_test.hex` | Test CSR instructions và ECALL/MRET |
 | `muldiv_test.hex` | Test các lệnh nhân chia (M-Extension) |
+| `smode_test.hex` | Test Supervisor Mode |
+| `mmu_test.hex` | Test Memory Management Unit |
+| `mmu_deep_test.hex` | Test Memory Management Unit mở rộng |
 | `extra_coverage.hex` | Bổ sung coverage còn thiếu |
 
 ---

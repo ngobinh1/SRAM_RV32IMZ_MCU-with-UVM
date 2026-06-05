@@ -56,8 +56,13 @@ graph TD
         BP[branch_predictor<br>BTB+BHT] -.-> IF
     end
     
-    IF --> IC[l1_icache<br>M0: read]
-    MEM <--> DC[l1_dcache<br>M1: rd+wr]
+    MMU[riscv_mmu<br>Memory Mgmt]
+    
+    IF --> MMU
+    MEM <--> MMU
+    
+    MMU --> IC[l1_icache<br>M0: read]
+    MMU <--> DC[l1_dcache<br>M1: rd+wr]
     
     IC --> AXI[axi_interconn<br>2M to 1S]
     DC --> AXI

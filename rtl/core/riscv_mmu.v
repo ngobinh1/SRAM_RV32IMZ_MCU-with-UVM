@@ -44,7 +44,8 @@ module riscv_mmu
 // Params
 //-----------------------------------------------------------------
 #(
-     parameter MEM_CACHE_ADDR_MIN = 32'h80000000
+     parameter SUPPORT_MMU = 1
+    ,parameter MEM_CACHE_ADDR_MIN = 32'h80000000
     ,parameter MEM_CACHE_ADDR_MAX = 32'h8fffffff
 )
 //-----------------------------------------------------------------
@@ -110,7 +111,7 @@ localparam  STATE_UPDATE       = 3;
 // Basic MMU support
 //-----------------------------------------------------------------
 generate
-begin
+if (SUPPORT_MMU) begin
 
     //-----------------------------------------------------------------
     // Registers
@@ -122,6 +123,7 @@ begin
     wire        resp_mmu_w   = (lsu_out_resp_tag_i[9:7] == 3'b111);
     wire        resp_valid_w = resp_mmu_w & lsu_out_ack_i;
     wire [31:0] resp_data_w  = lsu_out_data_rd_i;
+    wire        resp_error_w = 1'b0;
 
     wire        cpu_accept_w;
 
@@ -427,13 +429,7 @@ begin
     reg         lsu_out_cacheable_r;
     always @ *
     begin
-/* verilator lint_off UNSIGNED */
-/* verilator lint_off CMPCONST */
-            lsu_out_cacheable_r = 1'b1;
-        else
-            lsu_out_cacheable_r = (lsu_out_addr_w >= MEM_CACHE_ADDR_MIN && lsu_out_addr_w <= MEM_CACHE_ADDR_MAX);
-/* verilator lint_on CMPCONST */
-/* verilator lint_on UNSIGNED */
+        lsu_out_cacheable_r = (lsu_out_addr_w >= MEM_CACHE_ADDR_MIN && lsu_out_addr_w <= MEM_CACHE_ADDR_MAX);
     end
 
 
@@ -488,14 +484,14 @@ begin
     assign lsu_out_addr_o       = src_mmu_w ? pte_addr_q : lsu_out_addr_w;
     assign lsu_out_data_wr_o    = lsu_out_data_wr_w;
 
+    wire [10:0] lsu_out_req_tag_w = 11'b0;
     assign lsu_out_req_tag_o    = src_mmu_w ? {1'b0, 3'b111, 7'b0} : lsu_out_req_tag_w;
 
 end
 //-----------------------------------------------------------------
 // No MMU support
 //-----------------------------------------------------------------
-else
-begin
+else begin
     assign fetch_out_rd_o         = fetch_in_rd_i;
     assign fetch_out_pc_o         = fetch_in_pc_i;
     assign fetch_in_accept_o      = fetch_out_accept_i;

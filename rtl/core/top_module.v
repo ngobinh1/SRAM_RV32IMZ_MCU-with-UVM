@@ -400,7 +400,7 @@ module riscv_pipeline_top (
         .lsu_out_data_wr_o(lsu_out_data_wr_mmu),
         .lsu_out_rd_o(lsu_out_rd_mmu),
         .lsu_out_wr_o(lsu_out_wr_mmu),
-        .lsu_out_req_tag_o(lsu_out_req_tag_mmu),
+        .lsu_out_req_tag_o(lsu_out_req_tag_mmu)
     );
 
     wire [2:0] dcache_funct3 = (lsu_out_req_tag_mmu[9:7] == 3'b111) ? 3'b010 : funct3_m;

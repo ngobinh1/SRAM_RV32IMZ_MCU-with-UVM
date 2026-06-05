@@ -517,4 +517,54 @@ class riscv_mmu_test_seq extends riscv_base_seq;
 
 endclass : riscv_mmu_test_seq
 
+
+// ============================================================
+// 13. S-Mode and MMU Random Test Sequence
+// ============================================================
+class riscv_smode_mmu_random_seq extends riscv_base_seq;
+    `uvm_object_utils(riscv_smode_mmu_random_seq)
+
+    rand int unsigned iterations;
+    rand int unsigned run_cycles_per_iter;
+
+    string hex_programs[] = '{
+        "smode_test.hex",
+        "mmu_test.hex",
+        "mmu_deep_test.hex"
+    };
+
+    constraint c_iters  { iterations inside {[2:5]}; }
+    constraint c_cycles { run_cycles_per_iter inside {[500:2000]}; }
+
+    function new(string name = "riscv_smode_mmu_random_seq");
+        super.new(name);
+    endfunction
+
+    task body();
+        riscv_load_program_seq load_seq;
+        riscv_run_seq          run_seq;
+        int unsigned           prog_idx;
+
+        `uvm_info("SMODE_MMU_RAND_SEQ",
+            $sformatf("Random test: %0d iterations, %0d cycles each",
+                      iterations, run_cycles_per_iter), UVM_MEDIUM)
+
+        for (int i = 0; i < int'(iterations); i++) begin
+            prog_idx = $urandom_range(0, hex_programs.size()-1);
+
+            `uvm_info("SMODE_MMU_RAND_SEQ",
+                $sformatf("Iter %0d: program=%0s", i, hex_programs[prog_idx]),
+                UVM_MEDIUM)
+
+            load_seq = riscv_load_program_seq::type_id::create("load_seq");
+            load_seq.hex_file = hex_programs[prog_idx];
+            load_seq.start(m_sequencer);
+
+            run_seq = riscv_run_seq::type_id::create("run_seq");
+            run_seq.run_cycles = run_cycles_per_iter;
+            run_seq.start(m_sequencer);
+        end
+    endtask
+endclass : riscv_smode_mmu_random_seq
+
 `endif // RISCV_SEQUENCES_SV

@@ -253,4 +253,23 @@ class riscv_mmu_test extends riscv_base_test;
 
 endclass : riscv_mmu_test
 
+// ============================================================
+// S-Mode and MMU Random Test
+// ============================================================
+class riscv_smode_mmu_random_test extends riscv_base_test;
+    `uvm_component_utils(riscv_smode_mmu_random_test)
+
+    function new(string name = "riscv_smode_mmu_random_test", uvm_component parent = null);
+        super.new(name, parent);
+    endfunction
+
+    virtual task run_test_body(uvm_phase phase);
+        riscv_smode_mmu_random_seq seq;
+        seq = riscv_smode_mmu_random_seq::type_id::create("seq");
+        if (!seq.randomize()) `uvm_fatal("RANDOM_TEST", "Randomization failed")
+        seq.start(get_sequencer());
+    endtask
+
+endclass : riscv_smode_mmu_random_test
+
 `endif // RISCV_TESTS_SV
