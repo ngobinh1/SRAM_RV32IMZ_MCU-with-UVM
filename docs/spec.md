@@ -137,3 +137,82 @@ Tài liệu này được trình bày theo trình tự từ các khối chức n
 ---
 
 ## 30. Top Module — `riscv_pipeline_top`
+
+---
+
+## 31. Load Store Unit — `lsu`
+
+### 31.1. Chức năng (Purpose)
+- Đóng vai trò là khối trung gian quản lý toàn bộ Memory Access nằm ở đầu Memory Stage.
+- Tính toán địa chỉ bộ nhớ (`effective_addr`), dóng hàng dữ liệu ghi (`store_data_aligned`), sinh byte mask (`byte_enable`), và trích xuất dữ liệu đọc (`load_data_extracted`).
+- Kiểm tra tính hợp lệ của địa chỉ và phát ra các cờ ngoại lệ (`load_misaligned`, `store_misaligned`).
+
+### 31.2. Bảng tín hiệu (I/O Interface)
+
+| Tên tín hiệu | Hướng | Độ rộng | Chức năng |
+|---|---|---|---|
+| `rs1_data` | Input | 32-bit | Giá trị thanh ghi cơ sở từ EX stage (dùng tạo địa chỉ) |
+| `imm_data` | Input | 32-bit | Giá trị immediate mở rộng (dùng tạo địa chỉ) |
+| `mem_read` | Input | 1-bit | Cờ báo hiệu lệnh Load |
+| `mem_write` | Input | 1-bit | Cờ báo hiệu lệnh Store |
+| `funct3` | Input | 3-bit | Mã định nghĩa kích thước thao tác (B/H/W) và kiểu mở rộng (có/không dấu) |
+| `store_data_in` | Input | 32-bit | Dữ liệu gốc cần ghi (đọc từ `rs2`) |
+| `rdata_from_cache`| Input | 32-bit | Dữ liệu word (32-bit) trả về từ Cache/MMU |
+| `effective_addr` | Output| 32-bit | Địa chỉ bộ nhớ ảo truyền tới MMU (`rs1_data + imm_data`) |
+| `byte_enable` | Output| 4-bit | Write mask tương ứng với vị trí byte cần ghi (gửi tới MMU/Cache) |
+| `store_data_aligned`| Output| 32-bit | Dữ liệu ghi đã được nhân bản (`{byte, byte, byte, byte}`) để Cache ghi theo mask |
+| `load_data_extracted`| Output| 32-bit | Dữ liệu đã trích xuất đúng offset và được mở rộng (Sign/Zero Extend) |
+| `load_misaligned` | Output| 1-bit | Cờ ngoại lệ báo địa chỉ Load không hợp lệ (lệch biên) |
+| `store_misaligned`| Output| 1-bit | Cờ ngoại lệ báo địa chỉ Store không hợp lệ (lệch biên) |
+
+### 31.3. Nguyên lý hoạt động (Operation)
+- **Address Generation (Tạo địa chỉ)**: Bộ cộng nội bộ tính toán `effective_addr = rs1_data + imm_data`.
+- **Alignment Check (Kiểm tra biên)**: Trích xuất 2 bit cuối của `effective_addr` (`offset`). Phép truy cập Word (`funct3 = 010`) yêu cầu `offset == 00`. Phép truy cập Halfword (`funct3 = 001/101`) yêu cầu `offset[0] == 0`. Nếu vi phạm và có cờ `mem_read`/`mem_write`, LSU xuất ngoại lệ tương ứng và ngắt mask `byte_enable = 0`.
+- **Store Flow (Luồng ghi)**:
+  - Sinh `byte_enable` dựa trên `funct3` (độ dài) và `offset` (vị trí lệch).
+  - Khối Data Alignment nhân bản byte (`{store_data_in[7:0], store_data_in[7:0], ...}`) hoặc halfword để lấp đầy 32-bit. Cache sẽ áp dụng mask `byte_enable` để chỉ ghi vào đúng vị trí cần thiết.
+- **Load Flow (Luồng đọc)**:
+  - LSU nhận `rdata_from_cache` nguyên word 32-bit.
+  - Khối Data Extraction dựa vào `offset` để trích xuất ra byte hoặc halfword cụ thể.
+  - Khối Extension dựa vào `funct3` để giữ nguyên (LW), Sign-Extend (LB, LH) hoặc Zero-Extend (LBU, LHU).
+
+### 31.4. Sơ đồ logic (Logic Diagram)
+
+```mermaid
+graph TD
+    %% Inputs
+    RS1(rs1_data) --> AddrGen((+))
+    IMM(imm_data) --> AddrGen
+    AddrGen --> EFF_ADDR[effective_addr]
+    EFF_ADDR --> OFFSET[offset 2-bit]
+    EFF_ADDR -.-> MMU_Addr(To MMU: lsu_in_addr)
+    
+    %% Alignment Check
+    F3(funct3) --> ALIGN_CHK{Alignment<br/>Check}
+    OFFSET --> ALIGN_CHK
+    MEM_R(mem_read) --> ALIGN_CHK
+    MEM_W(mem_write) --> ALIGN_CHK
+    ALIGN_CHK --> EXC_L[load_misaligned]
+    ALIGN_CHK --> EXC_S[store_misaligned]
+    
+    %% Byte Enable Logic
+    F3 --> BE_DEC[Byte Enable<br/>Decoder]
+    OFFSET --> BE_DEC
+    MEM_W --> BE_DEC
+    EXC_S -- "Disable if 1" --> BE_DEC
+    BE_DEC --> BE[byte_enable]
+    BE -.-> MMU_We(To MMU: lsu_in_wr)
+    
+    %% Store Alignment
+    F3 --> ST_ALN[Store Data<br/>Aligner]
+    ST_IN(store_data_in) --> ST_ALN
+    ST_ALN --> ST_OUT[store_data_aligned]
+    ST_OUT -.-> MMU_Wdata(To MMU: lsu_in_data_wr)
+    
+    %% Load Extraction
+    F3 --> LD_EXT[Load Data<br/>Extractor & Extender]
+    OFFSET --> LD_EXT
+    RDATA(rdata_from_cache) --> LD_EXT
+    LD_EXT --> LD_OUT[load_data_extracted]
+    LD_OUT -.-> WB_Data(To Writeback Stage)
+```

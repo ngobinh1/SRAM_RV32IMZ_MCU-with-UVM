@@ -37,9 +37,10 @@ riscv_pipeline/
 | `decode_cycle.v` | Tầng ID: giải mã lệnh, đọc thanh ghi |
 | `issue.v` | Tầng Issue: kiểm tra load-use hazard và điều kiện dispatch |
 | `execute_cycle.v` | Tầng EX: ALU, tính địa chỉ nhánh |
-| `memory_cycle.v` | Tầng MEM: căn chỉnh dữ liệu load/store |
+| `memory_cycle.v` | Tầng MEM: chuyển tiếp dữ liệu load/store |
 | `writeback_cycle.v` | Tầng WB: ghi kết quả về thanh ghi |
 | `riscv_mmu.v` | Đơn vị quản lý bộ nhớ (MMU) và phiên dịch địa chỉ ảo (Sv32) |
+| `lsu.v` | Load Store Unit: tính địa chỉ, căn chỉnh data, sinh mask và ngoại lệ |
 | `rvfi_tracer.sv` | Interface kết nối chuẩn RVFI (RISC-V Formal Interface) để gỡ lỗi |
 | `riscv_defs.v` | Định nghĩa các hằng số, macros dùng trong core |
 

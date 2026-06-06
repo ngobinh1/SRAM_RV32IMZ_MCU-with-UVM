@@ -274,6 +274,8 @@ module riscv_pipeline_top (
         .valid(md_valid)
     );
 
+    wire [31:0] src_a_m, imm_ext_m;
+
     // Pipeline Register: Execute -> Memory
     pipeline_3_4 pipeline_em (
         .clk(clk), .rst(rst), .en(en_m),
@@ -281,17 +283,42 @@ module riscv_pipeline_top (
         .funct3_e(funct3_e), .alu_result_e(alu_result_e), .write_data_e(write_data_e),
         .pc_plus_4_e(pc_plus_4_e), .rd_e(rd_e),
         .csr_we_e(csr_we_e), .csr_addr_e(csr_addr_e), .csr_rd_e(csr_rd_e), .csr_wd_e(csr_wd_e),
+        .src_a_e(md_src_a), .imm_ext_e(imm_ext_e),
         .reg_write_m(reg_write_m), .mem_write_m(mem_write_m), .funct3_m(funct3_m),
         .result_src_m(result_src_m), .alu_result_m(alu_result_m), .write_data_m(write_data_m),
         .pc_plus_4_m(pc_plus_4_m), .rd_m(rd_m),
-        .csr_we_m(csr_we_m), .csr_addr_m(csr_addr_m), .csr_rd_m(csr_rd_m), .csr_wd_m(csr_wd_m)
+        .csr_we_m(csr_we_m), .csr_addr_m(csr_addr_m), .csr_rd_m(csr_rd_m), .csr_wd_m(csr_wd_m),
+        .src_a_m(src_a_m), .imm_ext_m(imm_ext_m)
         );
     
+    wire [31:0] lsu_addr;
+    wire [3:0] lsu_be;
+    wire [31:0] lsu_wdata;
+    wire [31:0] lsu_rdata;
+    wire lsu_load_misaligned;
+    wire lsu_store_misaligned;
+
+    lsu lsu_inst (
+        .rs1_data(src_a_m),
+        .imm_data(imm_ext_m),
+        .mem_read(mem_read_m),
+        .mem_write(mem_write_m),
+        .funct3(funct3_m),
+        .store_data_in(write_data_m),
+        .rdata_from_cache(read_data_m_from_mmu),
+        .effective_addr(lsu_addr),
+        .byte_enable(lsu_be),
+        .store_data_aligned(lsu_wdata),
+        .load_data_extracted(lsu_rdata),
+        .load_misaligned(lsu_load_misaligned),
+        .store_misaligned(lsu_store_misaligned)
+    );
+
     // Memory Cycle
     memory_cycle memory_stage (
         .clk(clk), .rst(rst), .mem_write_m(mem_write_m),
-        .alu_result_m(alu_result_m), .write_data_m(write_data_m), .funct3_m(funct3_m),
-        .read_data_m_in(read_data_m_from_mmu), .read_data_m(read_data_m), .write_data_m_out(write_data_m_aligned) 
+        .alu_result_m(alu_result_m), .write_data_m(lsu_wdata), .funct3_m(funct3_m),
+        .read_data_m_in(lsu_rdata), .read_data_m(read_data_m), .write_data_m_out(write_data_m_aligned) 
     );
 
     // Pipeline Register: Memory -> Writeback
@@ -306,11 +333,13 @@ module riscv_pipeline_top (
     );
 
     wire mmu_fetch_fault, mmu_load_fault, mmu_store_fault;
-    wire is_exception_d = is_ecall_e | is_illegal_e | mmu_fetch_fault | mmu_load_fault | mmu_store_fault;
+    wire is_exception_d = is_ecall_e | is_illegal_e | mmu_fetch_fault | mmu_load_fault | mmu_store_fault | lsu_load_misaligned | lsu_store_misaligned;
     wire [31:0] exception_cause = is_ecall_e ? 32'd11 : 
                                   is_illegal_e ? 32'd2 : 
                                   mmu_fetch_fault ? 32'd1 : 
+                                  lsu_load_misaligned ? 32'd4 :
                                   mmu_load_fault ? 32'd5 : 
+                                  lsu_store_misaligned ? 32'd6 :
                                   mmu_store_fault ? 32'd7 : 32'd0;
 
     wire [1:0] current_prv;
@@ -383,10 +412,10 @@ module riscv_pipeline_top (
         .fetch_out_rd_o(fetch_out_rd_mmu),
         .fetch_out_pc_o(fetch_out_pc_mmu),
         
-        .lsu_in_addr_i(alu_result_m),
-        .lsu_in_data_wr_i(write_data_m_aligned),
-        .lsu_in_rd_i(mem_read_m),
-        .lsu_in_wr_i({4{mem_write_m}}),
+        .lsu_in_addr_i(lsu_addr),
+        .lsu_in_data_wr_i(lsu_wdata),
+        .lsu_in_rd_i(mem_read_m & ~lsu_load_misaligned),
+        .lsu_in_wr_i(lsu_be),
         .lsu_in_accept_o(mmu_dcache_accept),
         .lsu_in_data_rd_o(read_data_m_from_mmu),
         .lsu_in_load_fault_o(mmu_load_fault),

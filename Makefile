@@ -78,6 +78,7 @@ RTL_FILES :=                                          \
   $(RTL_CORE)/memory_cycle.v                          \
   $(RTL_CORE)/writeback_cycle.v                       \
   $(RTL_CORE)/riscv_defs.v                            \
+  $(RTL_CORE)/lsu.v                                   \
   $(RTL_CORE)/riscv_mmu.v                             \
   $(RTL_CORE)/top_module.v
 

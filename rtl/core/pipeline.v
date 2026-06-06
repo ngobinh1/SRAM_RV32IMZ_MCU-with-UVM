@@ -228,7 +228,7 @@ module pipeline_3_4 (
     input wire clk, rst, en,
     input wire reg_write_e, mem_write_e,
     input wire [2:0] result_src_e, 
-    input wire [31:0] alu_result_e, write_data_e, pc_plus_4_e,
+    input wire [31:0] alu_result_e, write_data_e, pc_plus_4_e, src_a_e, imm_ext_e,
     input wire [2:0] funct3_e,
     input wire [4:0] rd_e, 
     input wire csr_we_e,
@@ -236,7 +236,7 @@ module pipeline_3_4 (
     input wire [31:0] csr_rd_e, csr_wd_e,
     output  reg_write_m, mem_write_m,
     output  [2:0] result_src_m,
-    output  [31:0] alu_result_m, write_data_m, pc_plus_4_m,
+    output  [31:0] alu_result_m, write_data_m, pc_plus_4_m, src_a_m, imm_ext_m,
     output  [4:0] rd_m,
     output  [2:0] funct3_m,
     output  csr_we_m,
@@ -246,7 +246,7 @@ module pipeline_3_4 (
 
     reg reg_write_reg, mem_write_reg;
     reg [2:0] result_src_reg;
-    reg [31:0] alu_result_reg, write_data_reg, pc_plus_4_reg;
+    reg [31:0] alu_result_reg, write_data_reg, pc_plus_4_reg, src_a_reg, imm_ext_reg;
     reg [4:0] rd_reg;
     reg [2:0] funct3_reg;
     reg csr_we_reg;
@@ -262,6 +262,8 @@ module pipeline_3_4 (
         alu_result_reg = 32'h00000000;
         write_data_reg = 32'h00000000;
         pc_plus_4_reg = 32'h00000000;
+        src_a_reg = 32'h00000000;
+        imm_ext_reg = 32'h00000000;
         rd_reg = 5'h00;
         csr_we_reg = 1'b0;
         csr_addr_reg = 12'h000;
@@ -278,6 +280,8 @@ module pipeline_3_4 (
             alu_result_reg <= 32'h00000000;
             write_data_reg <= 32'h00000000;
             pc_plus_4_reg <= 32'h00000000;
+            src_a_reg <= 32'h00000000;
+            imm_ext_reg <= 32'h00000000;
             rd_reg <= 5'h00;
             csr_we_reg <= 1'b0;
             csr_addr_reg <= 12'h000;
@@ -292,6 +296,8 @@ module pipeline_3_4 (
             alu_result_reg <= alu_result_e;
             write_data_reg <= write_data_e;
             pc_plus_4_reg <= pc_plus_4_e;
+            src_a_reg <= src_a_e;
+            imm_ext_reg <= imm_ext_e;
             rd_reg <= rd_e;
             csr_we_reg <= csr_we_e;
             csr_addr_reg <= csr_addr_e;
@@ -307,6 +313,8 @@ module pipeline_3_4 (
     assign alu_result_m = alu_result_reg;
     assign write_data_m = write_data_reg;
     assign pc_plus_4_m = pc_plus_4_reg;
+    assign src_a_m = src_a_reg;
+    assign imm_ext_m = imm_ext_reg;
     assign rd_m = rd_reg;   
     assign csr_we_m = csr_we_reg;
     assign csr_addr_m = csr_addr_reg;
