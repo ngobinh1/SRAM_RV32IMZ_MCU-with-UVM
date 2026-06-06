@@ -3,6 +3,7 @@
 module muldiv_alu (
     input  wire        clk,
     input  wire        rst,
+    input  wire        flush,
     input  wire        req,
     input  wire        ack,     // Tín hiệu xác nhận từ Pipeline
     input  wire [2:0]  funct3,
@@ -78,6 +79,11 @@ module muldiv_alu (
             mac_res  <= 64'd0;
             mul_op_a <= 17'd0;
             mul_op_b <= 17'd0;
+        end
+        else if (flush) begin
+            state    <= IDLE;
+            busy     <= 1'b0;
+            valid    <= 1'b0;
         end
         else begin
             case (state)

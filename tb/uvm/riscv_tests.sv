@@ -280,4 +280,34 @@ class riscv_smode_mmu_random_test extends riscv_base_test;
 
 endclass : riscv_smode_mmu_random_test
 
+// ============================================================
+// Custom Hex Test
+// ============================================================
+class riscv_custom_hex_test extends riscv_base_test;
+    `uvm_component_utils(riscv_custom_hex_test)
+
+    int unsigned test_timeout;
+
+    function new(string name = "riscv_custom_hex_test", uvm_component parent = null);
+        super.new(name, parent);
+    endfunction
+
+    virtual function void build_phase(uvm_phase phase);
+        super.build_phase(phase);
+        test_timeout = timeout_cycles;
+        // Increase the watchdog timer to give test_timeout cycles enough time to run
+        timeout_cycles = test_timeout + 1000;
+    endfunction
+
+    virtual task run_test_body(uvm_phase phase);
+        riscv_load_program_seq load_seq;
+        `uvm_info("CUSTOM_HEX_TEST", $sformatf("Starting custom hex test with file: %0s, timeout: %0d", hex_file, test_timeout), UVM_LOW)
+        load_seq = riscv_load_program_seq::type_id::create("load_seq");
+        load_seq.hex_file = hex_file;
+        load_seq.start(get_sequencer());
+        vif.wait_clks(test_timeout);
+    endtask
+
+endclass : riscv_custom_hex_test
+
 `endif // RISCV_TESTS_SV

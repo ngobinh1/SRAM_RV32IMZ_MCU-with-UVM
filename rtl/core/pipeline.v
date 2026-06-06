@@ -1,47 +1,74 @@
 // pipeline for fetch and decode
-module pipeline_1_2 (
-    input wire clk, rst, clr, en,
+module if_id_reg (
+    input wire clk, rst, flush, stall,
+    input wire valid_in, 
+    input wire [4:0] exc_tag_in, 
+    input wire irq_tag_in,
+    input wire [31:0] badaddr_in,
     input wire [31:0] instr_f, pc_f, pc_plus_4_f,
     input wire predict_taken_f,
     input wire [31:0] predict_target_f,
     output [31:0] instr_d, pc_d, pc_plus_4_d,
     output predict_taken_d,
     output [31:0] predict_target_d
+,
+    output valid_out,
+    output [4:0] exc_tag_out,
+    output irq_tag_out,
+    output [31:0] badaddr_out
 );
     reg [31:0] instr_reg, pc_reg, pc_plus_4_reg, predict_target_reg;
     reg predict_taken_reg;
 
-    // Initialize registers to prevent 'x' values
+        reg valid_reg;
+    reg [4:0] exc_tag_reg;
+    reg irq_tag_reg;
+    reg [31:0] badaddr_reg;
+
+// Initialize registers to prevent 'x' values
     initial begin
         instr_reg = 32'h00000000;
         pc_reg = 32'h00000000;
         pc_plus_4_reg = 32'h00000000;
         predict_taken_reg = 1'b0;
         predict_target_reg = 32'h00000000;
-    end
+            valid_reg = 1'b0;
+        exc_tag_reg = 5'b0;
+        irq_tag_reg = 1'b0;
+        badaddr_reg = 32'h00000000;
+end
 
     always @(posedge clk ) begin
-        if((rst == 1'b0)||(clr == 1'b1)) begin
+        if((rst == 1'b0)||(flush == 1'b1)) begin
             instr_reg <= 32'h00000000;
             pc_reg <= 32'h00000000;
             pc_plus_4_reg <= 32'h00000000;
             predict_taken_reg <= 1'b0;
             predict_target_reg <= 32'h00000000;
-        end
+                    valid_reg <= 1'b0;
+            exc_tag_reg <= 5'b0;
+            irq_tag_reg <= 1'b0;
+            badaddr_reg <= 32'h00000000;
+end
         else begin
-            if(en) begin
+            if(!stall) begin
                 instr_reg <= instr_f;
                 pc_reg <= pc_f;
                 pc_plus_4_reg <= pc_plus_4_f;
                 predict_taken_reg <= predict_taken_f;
                 predict_target_reg <= predict_target_f;
-            end
+                        valid_reg <= valid_in;
+            exc_tag_reg <= exc_tag_in;
+            irq_tag_reg <= irq_tag_in;
+            badaddr_reg <= badaddr_in;
+end
             else begin
                 instr_reg <= instr_reg;
                 pc_reg <= pc_reg;
                 pc_plus_4_reg <= pc_plus_4_reg;
                 predict_taken_reg <= predict_taken_reg;
                 predict_target_reg <= predict_target_reg;
+                badaddr_reg <= badaddr_reg;
             end
         end
     end
@@ -52,11 +79,20 @@ module pipeline_1_2 (
     assign predict_taken_d = predict_taken_reg;
     assign predict_target_d = predict_target_reg;
 
+    assign valid_out = valid_reg;
+    assign exc_tag_out = exc_tag_reg;
+    assign irq_tag_out = irq_tag_reg;
+    assign badaddr_out = badaddr_reg;
+
 endmodule 
 
 //pipeline for decode and execute
-module pipeline_2_3 (
-    input wire clk, rst, clr, en,
+module id_ex_reg (
+    input wire clk, rst, flush, stall,
+    input wire valid_in, 
+    input wire [4:0] exc_tag_in, 
+    input wire irq_tag_in,
+    input wire [31:0] badaddr_in,
     input wire reg_write_d, mem_write_d, alu_src_d, jump_d, branch_d, jalr_d, 
     input wire [2:0] funct3_d,
     input wire [2:0] result_src_d,
@@ -83,6 +119,11 @@ module pipeline_2_3 (
     output  [2:0] md_op_e,
     output  predict_taken_e,
     output  [31:0] predict_target_e
+,
+    output valid_out,
+    output [4:0] exc_tag_out,
+    output irq_tag_out,
+    output [31:0] badaddr_out
 );  
     reg reg_write_reg, mem_write_reg, alu_src_reg, jump_reg, branch_reg, jalr_reg;
     reg [2:0] result_src_reg;
@@ -98,7 +139,12 @@ module pipeline_2_3 (
     reg predict_taken_reg;
     reg [31:0] predict_target_reg;
     
-    // Initialize all registers to prevent 'x' values
+        reg valid_reg;
+    reg [4:0] exc_tag_reg;
+    reg irq_tag_reg;
+    reg [31:0] badaddr_reg;
+
+// Initialize all registers to prevent 'x' values
     initial begin
         reg_write_reg = 1'b0;
         mem_write_reg = 1'b0;
@@ -128,10 +174,14 @@ module pipeline_2_3 (
         md_op_reg = 3'b000;
         predict_taken_reg = 1'b0;
         predict_target_reg = 32'h00000000;
-    end
+            valid_reg = 1'b0;
+        exc_tag_reg = 5'b0;
+        irq_tag_reg = 1'b0;
+        badaddr_reg = 32'h00000000;
+end
     
     always @(posedge clk ) begin
-        if((rst == 1'b0)||(clr == 1'b1)) begin
+        if((rst == 1'b0)||(flush == 1'b1)) begin
             reg_write_reg <= 1'b0;
             mem_write_reg <= 1'b0;
             alu_src_reg <= 1'b0;
@@ -160,8 +210,12 @@ module pipeline_2_3 (
             md_op_reg <= 3'b000;
             predict_taken_reg <= 1'b0;
             predict_target_reg <= 32'h00000000;
-        end
-        else if(en) begin
+                    valid_reg <= 1'b0;
+            exc_tag_reg <= 5'b0;
+            irq_tag_reg <= 1'b0;
+            badaddr_reg <= 32'h00000000;
+end
+        else if(!stall) begin
             reg_write_reg <= reg_write_d;
             mem_write_reg <= mem_write_d;
             alu_src_reg <= alu_src_d;
@@ -190,7 +244,11 @@ module pipeline_2_3 (
             md_op_reg <= md_op_d;
             predict_taken_reg <= predict_taken_d;
             predict_target_reg <= predict_target_d;
-        end
+                    valid_reg <= valid_in;
+            exc_tag_reg <= exc_tag_in;
+            irq_tag_reg <= irq_tag_in;
+            badaddr_reg <= badaddr_in;
+end
     end
 
     assign reg_write_e = reg_write_reg;
@@ -221,11 +279,20 @@ module pipeline_2_3 (
     assign md_op_e = md_op_reg;
     assign predict_taken_e = predict_taken_reg;
     assign predict_target_e = predict_target_reg;
+    assign valid_out = valid_reg;
+    assign exc_tag_out = exc_tag_reg;
+    assign irq_tag_out = irq_tag_reg;
+    assign badaddr_out = badaddr_reg;
+
 endmodule
 
 //pipeline for execute and memory
-module pipeline_3_4 (
-    input wire clk, rst, en,
+module ex_mem_reg (
+    input wire clk, rst, flush, stall,
+    input wire valid_in, 
+    input wire [4:0] exc_tag_in, 
+    input wire irq_tag_in,
+    input wire [31:0] badaddr_in,
     input wire reg_write_e, mem_write_e,
     input wire [2:0] result_src_e, 
     input wire [31:0] alu_result_e, write_data_e, pc_plus_4_e, src_a_e, imm_ext_e,
@@ -242,6 +309,11 @@ module pipeline_3_4 (
     output  csr_we_m,
     output  [11:0] csr_addr_m,
     output  [31:0] csr_rd_m, csr_wd_m
+,
+    output valid_out,
+    output [4:0] exc_tag_out,
+    output irq_tag_out,
+    output [31:0] badaddr_out
 );
 
     reg reg_write_reg, mem_write_reg;
@@ -253,7 +325,12 @@ module pipeline_3_4 (
     reg [11:0] csr_addr_reg;
     reg [31:0] csr_rd_reg, csr_wd_reg;
 
-    // Initialize all registers to prevent 'x' values
+        reg valid_reg;
+    reg [4:0] exc_tag_reg;
+    reg irq_tag_reg;
+    reg [31:0] badaddr_reg;
+
+// Initialize all registers to prevent 'x' values
     initial begin
         reg_write_reg = 1'b0;
         mem_write_reg = 1'b0;
@@ -269,10 +346,14 @@ module pipeline_3_4 (
         csr_addr_reg = 12'h000;
         csr_rd_reg = 32'h00000000;
         csr_wd_reg = 32'h00000000;
-    end
+            valid_reg = 1'b0;
+        exc_tag_reg = 5'b0;
+        irq_tag_reg = 1'b0;
+        badaddr_reg = 32'h00000000;
+end
 
     always @(posedge clk ) begin
-        if(rst == 1'b0) begin
+        if((rst == 1'b0)||(flush == 1'b1)) begin
             reg_write_reg <= 1'b0;
             mem_write_reg <= 1'b0;
             result_src_reg <= 2'b00;
@@ -287,8 +368,12 @@ module pipeline_3_4 (
             csr_addr_reg <= 12'h000;
             csr_rd_reg <= 32'h00000000;
             csr_wd_reg <= 32'h00000000;
-        end
-        else if(en) begin 
+                    valid_reg <= 1'b0;
+            exc_tag_reg <= 5'b0;
+            irq_tag_reg <= 1'b0;
+            badaddr_reg <= 32'h00000000;
+end
+        else if(!stall) begin 
             reg_write_reg <= reg_write_e;
             mem_write_reg <= mem_write_e;
             result_src_reg <= result_src_e;
@@ -303,7 +388,11 @@ module pipeline_3_4 (
             csr_addr_reg <= csr_addr_e;
             csr_rd_reg <= csr_rd_e;
             csr_wd_reg <= csr_wd_e;
-        end
+                    valid_reg <= valid_in;
+            exc_tag_reg <= exc_tag_in;
+            irq_tag_reg <= irq_tag_in;
+            badaddr_reg <= badaddr_in;
+end
     end
 
     assign reg_write_m = reg_write_reg;
@@ -320,12 +409,21 @@ module pipeline_3_4 (
     assign csr_addr_m = csr_addr_reg;
     assign csr_rd_m = csr_rd_reg;
     assign csr_wd_m = csr_wd_reg;
+    assign valid_out = valid_reg;
+    assign exc_tag_out = exc_tag_reg;
+    assign irq_tag_out = irq_tag_reg;
+    assign badaddr_out = badaddr_reg;
+
 endmodule 
 
 
 //pipeline for memory and writeback
-module pipeline_4_5 (
-    input wire clk, rst, en,
+module mem_wb_reg (
+    input wire clk, rst, flush, stall,
+    input wire valid_in, 
+    input wire [4:0] exc_tag_in, 
+    input wire irq_tag_in,
+    input wire [31:0] badaddr_in,
     input wire reg_write_m, 
     input wire [2:0] result_src_m,
     input wire [31:0] alu_result_m, read_data_m, pc_plus_4_m,
@@ -340,6 +438,11 @@ module pipeline_4_5 (
     output  csr_we_w,
     output  [11:0] csr_addr_w,
     output  [31:0] csr_rd_w, csr_wd_w  
+,
+    output valid_out,
+    output [4:0] exc_tag_out,
+    output irq_tag_out,
+    output [31:0] badaddr_out
 );
 
     reg reg_write_reg; 
@@ -350,7 +453,12 @@ module pipeline_4_5 (
     reg [11:0] csr_addr_reg;
     reg [31:0] csr_rd_reg, csr_wd_reg;
 
-    // Initialize all registers to prevent 'x' values
+        reg valid_reg;
+    reg [4:0] exc_tag_reg;
+    reg irq_tag_reg;
+    reg [31:0] badaddr_reg;
+
+// Initialize all registers to prevent 'x' values
     initial begin
         reg_write_reg = 1'b0;
         result_src_reg = 2'b00;
@@ -362,10 +470,14 @@ module pipeline_4_5 (
         csr_addr_reg = 12'h000;
         csr_rd_reg = 32'h00000000;
         csr_wd_reg = 32'h00000000;
-    end
+            valid_reg = 1'b0;
+        exc_tag_reg = 5'b0;
+        irq_tag_reg = 1'b0;
+        badaddr_reg = 32'h00000000;
+end
 
     always @(posedge clk ) begin
-        if(rst == 1'b0) begin
+        if((rst == 1'b0)||(flush == 1'b1)) begin
             reg_write_reg <= 1'b0;
             result_src_reg <= 2'b00;
             alu_result_reg <= 32'h00000000;
@@ -376,8 +488,12 @@ module pipeline_4_5 (
             csr_addr_reg <= 12'h000;
             csr_rd_reg <= 32'h00000000;
             csr_wd_reg <= 32'h00000000;
-        end
-        else if(en) begin 
+                    valid_reg <= 1'b0;
+            exc_tag_reg <= 5'b0;
+            irq_tag_reg <= 1'b0;
+            badaddr_reg <= 32'h00000000;
+end
+        else if(!stall) begin 
             reg_write_reg <= reg_write_m;
             result_src_reg <= result_src_m;
             alu_result_reg <= alu_result_m;
@@ -388,7 +504,11 @@ module pipeline_4_5 (
             csr_addr_reg <= csr_addr_m;
             csr_rd_reg <= csr_rd_m;
             csr_wd_reg <= csr_wd_m;
-        end
+                    valid_reg <= valid_in;
+            exc_tag_reg <= exc_tag_in;
+            irq_tag_reg <= irq_tag_in;
+            badaddr_reg <= badaddr_in;
+end
     end
 
     assign reg_write_w = reg_write_reg;
@@ -401,5 +521,10 @@ module pipeline_4_5 (
     assign csr_addr_w = csr_addr_reg;
     assign csr_rd_w = csr_rd_reg;
     assign csr_wd_w = csr_wd_reg;
+
+    assign valid_out = valid_reg;
+    assign exc_tag_out = exc_tag_reg;
+    assign irq_tag_out = irq_tag_reg;
+    assign badaddr_out = badaddr_reg;
 
 endmodule

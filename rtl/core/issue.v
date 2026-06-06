@@ -20,6 +20,8 @@ module issue (
     input wire [2:0] md_op_d,
     input wire predict_taken_d,
     input wire [31:0] predict_target_d,
+    input wire [4:0] exc_tag_d,
+    input wire [31:0] badaddr_d,
     
     // Stall to Decode/Fetch
     output wire issue_stall,
@@ -37,7 +39,9 @@ module issue (
     output wire is_ecall_i, is_mret_i, is_sret_i, md_req_i, is_illegal_i,
     output wire [2:0] md_op_i,
     output wire predict_taken_i,
-    output wire [31:0] predict_target_i
+    output wire [31:0] predict_target_i,
+    output wire [4:0] exc_tag_i,
+    output wire [31:0] badaddr_i
 );
 
     // Load-Use Hazard check on the instruction ready to issue
@@ -78,11 +82,12 @@ module issue (
     assign is_ecall_i    = is_ecall_d;
     assign is_mret_i     = is_mret_d;
     assign is_sret_i     = is_sret_d;
-    assign is_sret_i     = is_sret_d;
     assign md_req_i      = md_req_d;
     assign is_illegal_i  = is_illegal_d;
     assign md_op_i       = md_op_d;
     assign predict_taken_i = predict_taken_d;
     assign predict_target_i = predict_target_d;
+    assign exc_tag_i     = exc_tag_d;
+    assign badaddr_i     = badaddr_d;
 
 endmodule

@@ -44,9 +44,9 @@ module lsu (
     // 2. Byte Lane Decode (byte_enable)
     reg [3:0] be;
     always @(*) begin
-        if (mem_write && !store_misaligned) begin
-            case (funct3)
-                3'b000: begin // SB
+        if ((mem_write && !store_misaligned) || (mem_read && !load_misaligned)) begin
+            case (funct3[1:0])
+                2'b00: begin // Byte
                     case (offset)
                         2'b00: be = 4'b0001;
                         2'b01: be = 4'b0010;
@@ -54,14 +54,13 @@ module lsu (
                         2'b11: be = 4'b1000;
                     endcase
                 end
-                3'b001: begin // SH
-                    case (offset)
-                        2'b00: be = 4'b0011;
-                        2'b10: be = 4'b1100;
-                        default: be = 4'b0000;
+                2'b01: begin // Halfword
+                    case (offset[1])
+                        1'b0: be = 4'b0011;
+                        1'b1: be = 4'b1100;
                     endcase
                 end
-                3'b010: begin // SW
+                2'b10: begin // Word
                     be = 4'b1111;
                 end
                 default: be = 4'b0000;

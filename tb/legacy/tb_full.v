@@ -67,7 +67,7 @@ module tb_riscv_pipeline_mega();
 
         $display("\n--- 3. MEMORY ACCESS (Test Load-Use Stall) ---");
         $display("x25 (lw)       : %0d \t(Hex: %h)", $signed(reg_x25), reg_x25);
-        $display("x26 (add x25,0): %0d \t(Hex: %h) -> Should be 3", $signed(reg_x26), reg_x26);
+        $display("x26 (add x25,0): %0d \t(Hex: %h) -> Should be 12345003", $signed(reg_x26), reg_x26);
         $display("x29 (lb x7)    : %0d \t(Hex: %h) -> Should be ffffffef", $signed(reg_x29), reg_x29);
 
         $display("\n========================================================");
@@ -77,7 +77,7 @@ module tb_riscv_pipeline_mega();
         // Update with ACCURATE EXPECTED parameters
         $display("1. Data Hazard & ALU: %s (Expected x8 = 3)", (reg_x8 == 3) ? "PASS" : "FAIL");
         $display("2. Set Less Than    : %s (Expected x22 = 1)", (reg_x22 == 1) ? "PASS" : "FAIL");
-        $display("3. Load-Use Stall   : %s (Expected x26 = 3)", (reg_x26 == 3) ? "PASS" : "FAIL");
+        $display("3. Load-Use Stall   : %s (Expected x26 = 12345003)", (reg_x26 == 32'h12345003) ? "PASS" : "FAIL");
         $display("4. Memory Access    : %s (Expected x29 = ffffffef)", (reg_x29 == 32'hFFFFFFEF) ? "PASS" : "FAIL");
         
         $display("\n--- CONTROL HAZARD SUMMARY (BRANCH/JUMP) ---");

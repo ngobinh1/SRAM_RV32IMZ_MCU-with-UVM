@@ -15,12 +15,19 @@ module csr_file (
     input wire [31:0] cause,      // Exception cause code
     input wire is_mret,           // mret instruction
     input wire is_sret,           // sret instruction
+    input wire [31:0] tval,
     
     output wire [31:0] epc,       // Send mepc/sepc to PC multiplexer
     output wire [31:0] trap_vec,  // Send mtvec/stvec to PC multiplexer
     output wire [1:0] current_prv, // Current privilege level
     output wire [31:0] satp_out,   // SATP for MMU
-    output wire [31:0] mstatus_out // MSTATUS for MMU (contains SUM, MXR)
+    output wire [31:0] mstatus_out, // MSTATUS for MMU (contains SUM, MXR)
+
+    // --- Interrupt pins ---
+    input wire meip,
+    input wire mtip,
+    output wire irq_pending,
+    output wire [31:0] irq_cause
 );
 
     // Privilege modes
@@ -32,12 +39,20 @@ module csr_file (
 
     // Machine Mode CSRs
     reg [31:0] mstatus;
+    reg [31:0] mtval;
     reg [31:0] mtvec; 
     reg [31:0] mscratch;
     reg [31:0] mepc;  
     reg [31:0] mcause;
     reg [31:0] medeleg;
     reg [31:0] mideleg;
+    reg [31:0] mie;
+    reg [31:0] mip_reg;
+    wire [31:0] mip = {mip_reg[31:12], meip, mip_reg[10:8], mtip, mip_reg[6:0]};
+
+    wire global_interrupt_enable = (prv < PRV_M) || (prv == PRV_M && mstatus[3]);
+    assign irq_pending = global_interrupt_enable && ((mie[11] && meip) || (mie[7] && mtip));
+    assign irq_cause = (mie[11] && meip) ? 32'h8000000B : 32'h80000007;
 
     // Supervisor Mode CSRs
     reg [31:0] stvec;
@@ -64,17 +79,24 @@ module csr_file (
     // Read Logic
     always @(*) begin
         if (csr_we && (csr_raddr == csr_waddr)) begin
-            csr_rd = csr_wd;
+            if (csr_raddr == 12'h344) begin
+                csr_rd = {csr_wd[31:12], meip, csr_wd[10:8], mtip, csr_wd[6:0]};
+            end else begin
+                csr_rd = csr_wd;
+            end
         end else begin
             case (csr_raddr)
                 // Machine Mode
                 12'h300: csr_rd = mstatus;
                 12'h302: csr_rd = medeleg;
                 12'h303: csr_rd = mideleg;
+                12'h304: csr_rd = mie;
                 12'h305: csr_rd = mtvec;
                 12'h340: csr_rd = mscratch;
                 12'h341: csr_rd = mepc;
                 12'h342: csr_rd = mcause;
+                12'h343: csr_rd = mtval;
+                12'h344: csr_rd = mip;
                 // Supervisor Mode
                 12'h100: csr_rd = sstatus;
                 12'h105: csr_rd = stvec;
@@ -93,9 +115,12 @@ module csr_file (
             mstatus  <= 32'd0;
             medeleg  <= 32'd0;
             mideleg  <= 32'd0;
+            mie      <= 32'd0;
+            mip_reg  <= 32'd0;
             mtvec    <= 32'd0; 
             mscratch <= 32'd0;
             mepc     <= 32'd0;
+            mtval    <= 32'd0;
             mcause   <= 32'd0;
             stvec    <= 32'd0;
             sscratch <= 32'd0;
@@ -117,6 +142,7 @@ module csr_file (
                 end else begin
                     mepc   <= pc;
                     mcause <= cause;
+                    mtval  <= tval;
                     // Update mstatus (MPP, MPIE, MIE)
                     mstatus[12:11] <= prv; // MPP = prv
                     mstatus[7] <= mstatus[3]; // MPIE = MIE
@@ -140,10 +166,13 @@ module csr_file (
                     12'h300: mstatus  <= csr_wd;
                     12'h302: medeleg  <= csr_wd;
                     12'h303: mideleg  <= csr_wd;
+                    12'h304: mie      <= csr_wd;
                     12'h305: mtvec    <= csr_wd;
                     12'h340: mscratch <= csr_wd;
                     12'h341: mepc     <= csr_wd;
                     12'h342: mcause   <= csr_wd;
+                    12'h343: mtval    <= csr_wd;
+                    12'h344: mip_reg  <= (csr_wd & ~32'h00000880) | (mip_reg & 32'h00000880);
                     12'h100: mstatus  <= (mstatus & ~32'h000DE122) | (csr_wd & 32'h000DE122);
                     12'h105: stvec    <= csr_wd;
                     12'h140: sscratch <= csr_wd;

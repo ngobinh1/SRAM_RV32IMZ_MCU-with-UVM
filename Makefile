@@ -78,6 +78,7 @@ RTL_FILES :=                                          \
   $(RTL_CORE)/memory_cycle.v                          \
   $(RTL_CORE)/writeback_cycle.v                       \
   $(RTL_CORE)/riscv_defs.v                            \
+  $(RTL_CORE)/store_buffer.v                          \
   $(RTL_CORE)/lsu.v                                   \
   $(RTL_CORE)/riscv_mmu.v                             \
   $(RTL_CORE)/top_module.v
@@ -219,6 +220,17 @@ regression: compile_uvm
 	@echo ">>> Regression complete."
 
 # ==============================================================
+# TARGET: Biên dịch file assembly (.S) sang file HEX (.hex)
+# Dùng: make compile_asm ASM=sim/custom_tests/test_simple.S HEX=sim/hex/test_simple.hex
+# ==============================================================
+compile_asm:
+	@if [ -z "$(ASM)" ] || [ -z "$(HEX)" ]; then \
+		echo "Usage: make compile_asm ASM=<path_to_assembly.S> HEX=<path_to_output.hex>"; \
+		exit 1; \
+	fi
+	./sim/compile_hex.py $(ASM) $(HEX)
+
+# ==============================================================
 # TARGET: dọn dẹp
 # ==============================================================
 clean:
@@ -227,4 +239,4 @@ clean:
 	@echo ">>> Cleaned."
 
 .PHONY: work compile_rtl compile_legacy sim_legacy sim_legacy_gui \
-        compile_uvm sim_uvm sim_uvm_gui coverage_report regression clean
+        compile_uvm sim_uvm sim_uvm_gui coverage_report regression clean compile_asm

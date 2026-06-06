@@ -38,6 +38,7 @@ class axi_slave_driver extends uvm_driver #(axi_slave_item);
         forever begin
             @(posedge vif.clk);
             if (vif.awvalid) begin
+                repeat($urandom_range(0, 3)) @(posedge vif.clk);
                 vif.awready <= 1;
                 waddr = vif.awaddr;
                 wlen = vif.awlen;
@@ -47,6 +48,7 @@ class axi_slave_driver extends uvm_driver #(axi_slave_item);
                 
                 count = 0;
                 while (count <= wlen) begin
+                    repeat($urandom_range(0, 3)) @(posedge vif.clk);
                     vif.wready <= 1;
                     @(posedge vif.clk);
                     if (vif.wvalid) begin
@@ -56,9 +58,14 @@ class axi_slave_driver extends uvm_driver #(axi_slave_item);
                             break;
                         end
                         count++;
+                    end else begin
+                        vif.wready <= 0;
+                        @(posedge vif.clk iff vif.wvalid);
+                        continue;
                     end
                 end
                 
+                repeat($urandom_range(0, 3)) @(posedge vif.clk);
                 vif.bvalid <= 1;
                 vif.bid <= wid;
                 vif.bresp <= 2'b00;
@@ -76,6 +83,7 @@ class axi_slave_driver extends uvm_driver #(axi_slave_item);
         forever begin
             @(posedge vif.clk);
             if (vif.arvalid) begin
+                repeat($urandom_range(0, 3)) @(posedge vif.clk);
                 vif.arready <= 1;
                 raddr = vif.araddr;
                 rlen = vif.arlen;
@@ -85,6 +93,7 @@ class axi_slave_driver extends uvm_driver #(axi_slave_item);
                 
                 count = 0;
                 while (count <= rlen) begin
+                    repeat($urandom_range(0, 3)) @(posedge vif.clk);
                     vif.rvalid <= 1;
                     vif.rid <= rid;
                     if (vif.memory.exists(raddr + count*4))
