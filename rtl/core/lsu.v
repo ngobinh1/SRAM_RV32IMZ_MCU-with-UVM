@@ -1,7 +1,6 @@
 module lsu (
     // Inputs for Address Generation
-    input  wire [31:0] rs1_data,
-    input  wire [31:0] imm_data,
+    input  wire [31:0] addr_in,
     
     // Inputs for Control
     input  wire        mem_read,
@@ -28,7 +27,7 @@ module lsu (
 );
 
     // 1. Address Generation
-    assign effective_addr = rs1_data + imm_data;
+    assign effective_addr = addr_in;
     
     wire [1:0] offset = effective_addr[1:0];
     

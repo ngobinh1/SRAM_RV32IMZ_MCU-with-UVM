@@ -154,9 +154,21 @@ module riscv_pipeline_top (
         .predict_taken_d(predict_taken_d), .predict_target_d(predict_target_d)
     );
 
-    wire        actual_rf_we  = (md_req_e & md_valid) ? 1'b1          : reg_write_w_pipe;
-    wire [4:0]  actual_rf_rd  = (md_req_e & md_valid) ? rd_e          : rd_w_pipe; 
-    wire [31:0] actual_rf_din = (md_req_e & md_valid) ? muldiv_result : result_w_pipe;
+    wire actual_rf_we;
+    wire [4:0] actual_rf_rd;
+    wire [31:0] actual_rf_din;
+
+    writeback_arbiter wb_arbiter (
+        .pipe_we(reg_write_w_pipe),
+        .pipe_rd(rd_w_pipe),
+        .pipe_data(result_w_pipe),
+        .md_we(md_req_e & md_valid),
+        .md_rd(rd_e),
+        .md_data(muldiv_result),
+        .rf_we(actual_rf_we),
+        .rf_waddr(actual_rf_rd),
+        .rf_wdata(actual_rf_din)
+    );
 
     // Decode Cycle
     decode_cycle decode_stage (
@@ -299,8 +311,7 @@ module riscv_pipeline_top (
     wire lsu_store_misaligned;
 
     lsu lsu_inst (
-        .rs1_data(src_a_m),
-        .imm_data(imm_ext_m),
+        .addr_in(alu_result_m),
         .mem_read(mem_read_m),
         .mem_write(mem_write_m),
         .funct3(funct3_m),

@@ -16,5 +16,25 @@ module writeback_cycle (
         .s(result_src_w),
         .y(result_w)
     );
+endmodule
+
+module writeback_arbiter (
+    // ALU/MEM/CSR pipeline
+    input wire pipe_we,
+    input wire [4:0] pipe_rd,
+    input wire [31:0] pipe_data,
     
+    // MULDIV
+    input wire md_we,
+    input wire [4:0] md_rd,
+    input wire [31:0] md_data,
+    
+    // Output to RF
+    output wire rf_we,
+    output wire [4:0] rf_waddr,
+    output wire [31:0] rf_wdata
+);
+    assign rf_we    = md_we | pipe_we;
+    assign rf_waddr = md_we ? md_rd   : pipe_rd;
+    assign rf_wdata = md_we ? md_data : pipe_data;
 endmodule

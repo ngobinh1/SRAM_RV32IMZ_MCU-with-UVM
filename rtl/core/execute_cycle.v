@@ -64,25 +64,34 @@ module execute_cycle(
         .neg(neg_e)
     );
 
+    // Dedicated Branch Comparator (Decoupled from main ALU)
+    wire [31:0] cmp_a = src_a_e;
+    wire [31:0] cmp_b = src_b_interim_e;
+    wire cmp_eq = (cmp_a == cmp_b);
+    wire cmp_lt = ($signed(cmp_a) < $signed(cmp_b));
+    wire cmp_ltu = (cmp_a < cmp_b);
+
     // Branch Condition Evaluation based on funct3
     assign branch_taken_e = 
-        (funct3_e == 3'b000) ? zero_e :                  // BEQ
-        (funct3_e == 3'b001) ? ~zero_e :                 // BNE
-        (funct3_e == 3'b100) ? (neg_e != overflow_e) :   // BLT
-        (funct3_e == 3'b101) ? (neg_e == overflow_e) :   // BGE
-        (funct3_e == 3'b110) ? (~carry_e) :              // BLTU
-        (funct3_e == 3'b111) ? carry_e :                 // BGEU
+        (funct3_e == 3'b000) ? cmp_eq :                  // BEQ
+        (funct3_e == 3'b001) ? !cmp_eq :                 // BNE
+        (funct3_e == 3'b100) ? cmp_lt :                  // BLT
+        (funct3_e == 3'b101) ? !cmp_lt :                 // BGE
+        (funct3_e == 3'b110) ? cmp_ltu :                 // BLTU
+        (funct3_e == 3'b111) ? !cmp_ltu :                // BGEU
         1'b0;
     
-    // Branch adder
+    // Dedicated Branch Adder
+    wire [31:0] branch_adder_a = jalr_e ? src_a_e : pc_e;
+    
     adder branch_adder (
-        .a(pc_e),
+        .a(branch_adder_a),
         .b(imm_ext_e),
         .c(branch_adder_result)
     );
 
-    //MUX for branch/jump target (for BTB update)
-    assign actual_target_e = jalr_e ? (alu_result_e & 32'hFFFFFFFE) : branch_adder_result;
+    // MUX for branch/jump target (for BTB update)
+    assign actual_target_e = jalr_e ? (branch_adder_result & 32'hFFFFFFFE) : branch_adder_result;
     
     // Actual taken status
     assign actual_taken_e = (branch_taken_e & branch_e) | jump_e | jalr_e;
