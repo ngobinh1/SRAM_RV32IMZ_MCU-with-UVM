@@ -5,6 +5,8 @@ sim/out/
 *.wlf
 *.vcd
 *.ucdb
+*.mpf
+*.mti
 
 # OS generated files
 .DS_Store

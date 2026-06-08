@@ -1,6 +1,8 @@
 module riscv_pipeline_top (
     input wire clk,
-    input wire rst
+    input wire rst,
+    input wire meip,
+    input wire mtip
 );
     // --- Added for Pipeline Registers ---
     wire valid_d, valid_e, valid_m, valid_w;
@@ -17,6 +19,8 @@ module riscv_pipeline_top (
     wire wb_mret;
     wire wb_sret;
     wire wb_trap_redirect;
+    wire irq_pending;
+    wire [31:0] irq_cause;
 
     wire [31:0] pc_w;
     wire [31:0] pc_m;
@@ -166,8 +170,6 @@ module riscv_pipeline_top (
     wire div_busy, md_valid;
     wire real_div_busy = div_busy | (md_req_e & ~md_valid);
 
-
-
     // Fetch Cycle
     fetch_cycle fetch_stage (
         .clk(clk), .rst(rst), .en(en_f),
@@ -182,12 +184,13 @@ module riscv_pipeline_top (
     // Pipeline Register: Fetch -> Decode
     if_id_reg pipeline_fd (
         .clk(clk), .rst(rst), .flush(flush_d), .stall(~en_d), .valid_in(1'b1), .valid_out(valid_d), 
-        .exc_tag_in(mmu_fetch_fault ? 5'd17 : 5'd0), .exc_tag_out(exc_tag_d), .irq_tag_in(1'b0), .irq_tag_out(irq_tag_d),
+        .exc_tag_in(mmu_fetch_fault ? 5'd17 : 5'd0), .exc_tag_out(exc_tag_d),
         .badaddr_in(badaddr_f), .badaddr_out(badaddr_d),
         .instr_f(instr_f), .pc_f(pc_f), .pc_plus_4_f(pc_plus_4_f),
         .predict_taken_f(predict_taken_f), .predict_target_f(predict_target_f),
         .instr_d(instr_d), .pc_d(pc_d), .pc_plus_4_d(pc_plus_4_d),
-        .predict_taken_d(predict_taken_d), .predict_target_d(predict_target_d)
+        .predict_taken_d(predict_taken_d), .predict_target_d(predict_target_d),
+        .irq_tag_in(irq_pending), .irq_tag_out(irq_tag_d)
     );
 
     wire actual_rf_we;
@@ -347,8 +350,6 @@ module riscv_pipeline_top (
         .src_a_m(src_a_m), .imm_ext_m(imm_ext_m)
         );
 
-
-    
     wire [31:0] lsu_addr;
     wire [3:0] lsu_be;
     wire [31:0] lsu_wdata;
@@ -391,12 +392,20 @@ module riscv_pipeline_top (
         .csr_we_w(csr_we_w), .csr_addr_w(csr_addr_w), .csr_rd_w(csr_rd_w), .csr_wd_w(csr_wd_w)
     );
 
+    assign actual_mem_write_m = mem_write_m & ~exc_tag_m_resolved[4] & ~irq_tag_m;
+    assign actual_csr_we_w    = csr_we_w & ~wb_exception & ~irq_tag_w;
+    assign actual_reg_write_w_pipe = reg_write_w_pipe & ~wb_exception & ~irq_tag_w;
+    wire wb_interrupt = irq_tag_w & valid_w;
+    assign wb_trap_redirect = wb_exception | wb_mret | wb_sret | wb_interrupt;
     wire [31:0] satp_out, mstatus_out;
     csr_file csr_file_inst (
         .clk(clk), .rst(rst), .csr_we(actual_csr_we_w),
         .csr_raddr(instr_d[31:20]), .csr_waddr(csr_addr_w), .csr_wd(csr_wd_w), .csr_rd(csr_rd_d),
-        .is_exception(wb_exception), .pc(pc_w), .cause(mcause_w), .tval(badaddr_w), .epc(epc), .trap_vec(trap_vec), .is_mret(wb_mret), .is_sret(wb_sret),
-        .current_prv(current_prv), .satp_out(satp_out), .mstatus_out(mstatus_out)
+        .is_exception(wb_exception | wb_interrupt), .pc(pc_w), 
+        .cause(wb_interrupt ? irq_cause : mcause_w),
+        .tval(badaddr_w), .epc(epc), .trap_vec(trap_vec), .is_mret(wb_mret), .is_sret(wb_sret),
+        .current_prv(current_prv), .satp_out(satp_out), .mstatus_out(mstatus_out),
+        .meip(meip), .mtip(mtip), .irq_pending(irq_pending), .irq_cause(irq_cause)
     );
 
     // Writeback Cycle
@@ -422,7 +431,8 @@ module riscv_pipeline_top (
         .flush_e(flush_e), .flush_d(flush_d),
         .flush_m(flush_m), .flush_w(flush_w),
         .wb_trap_redirect(wb_trap_redirect),
-        .exc_tag_m(exc_tag_m_resolved), .exc_tag_w(exc_tag_w)
+        .exc_tag_m(exc_tag_m_resolved), .exc_tag_w(exc_tag_w),
+        .irq_tag_m(irq_tag_m), .irq_tag_w(irq_tag_w)
     );
 
 
@@ -466,7 +476,7 @@ module riscv_pipeline_top (
         .lsu_in_addr_i(lsu_addr),
         .lsu_in_data_wr_i(lsu_wdata),
         .lsu_in_rd_i(mem_read_m & ~lsu_load_misaligned),
-        .lsu_in_wr_i(exc_tag_m_resolved[4] ? 4'b0 : lsu_be),
+        .lsu_in_wr_i(actual_mem_write_m ? lsu_be : 4'b0), 
         .lsu_in_accept_o(mmu_dcache_accept),
         .lsu_in_data_rd_o(read_data_m_from_mmu),
         .lsu_in_load_fault_o(mmu_load_fault),
@@ -483,7 +493,7 @@ module riscv_pipeline_top (
         .lsu_out_req_tag_o(lsu_out_req_tag_mmu)
     );
 
-    wire [2:0] dcache_funct3 = (lsu_out_req_tag_mmu[9:7] == 3'b111) ? 3'b010 : funct3_m;
+    wire [2:0] dcache_funct3 = mem_read_m ? 3'b010 : ((lsu_out_req_tag_mmu[9:7] == 3'b111) ? 3'b010 : funct3_m);
 
     // ==========================================
     // L1 I-CACHE (AXI4-Lite Master)
@@ -564,12 +574,9 @@ module riscv_pipeline_top (
     assign wb_exception = exc_tag_w[4];
     assign wb_mret = (exc_tag_w == 5'd1);
     assign wb_sret = (exc_tag_w == 5'd2);
-    assign wb_trap_redirect = wb_exception | wb_mret | wb_sret;
     assign pc_w = pc_plus_4_w - 32'd4;
     assign pc_m = pc_plus_4_m - 32'd4;
     assign mcause_w = {28'd0, exc_tag_w[3:0]};
-    assign actual_reg_write_w_pipe = reg_write_w_pipe & ~wb_exception;
-    assign actual_csr_we_w = csr_we_w & ~wb_exception;
 
     assign mem_exception_active = (exc_tag_m_prop == 5'd0) && (lsu_load_misaligned | mmu_load_fault | lsu_store_misaligned | mmu_store_fault);
     assign exc_tag_m_resolved = (exc_tag_m_prop != 5'd0) ? exc_tag_m_prop :
@@ -579,7 +586,6 @@ module riscv_pipeline_top (
                                  (valid_m & mmu_store_fault)         ? 5'd23 : 5'd0;
     assign badaddr_m_resolved = (exc_tag_m_prop != 5'd0) ? badaddr_m_prop :
                                  mem_exception_active    ? alu_result_m : 32'd0;
-    assign actual_mem_write_m = mem_write_m & ~exc_tag_m_resolved[4];
     assign exc_tag_m = exc_tag_m_resolved;
 
     assign pc_src_e_gated = pc_src_e & valid_e;

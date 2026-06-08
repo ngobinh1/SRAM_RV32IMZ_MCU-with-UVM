@@ -204,7 +204,10 @@ coverage_report:
 # ==============================================================
 regression: compile_uvm
 	@for TEST_NAME in riscv_alu_test riscv_mem_test riscv_branch_test \
-	                  riscv_hazard_test riscv_csr_test riscv_full_test; do \
+	                  riscv_hazard_test riscv_csr_test riscv_muldiv_test \
+	                  riscv_smode_test riscv_mmu_test riscv_interrupt_test \
+	                  riscv_full_test riscv_random_test riscv_smode_mmu_random_test \
+	                  riscv_custom_hex_test; do \
 	  echo ">>> Running: $$TEST_NAME"; \
 	  $(VSIM) -c work.tb_top                          \
 	    -sv_seed random                               \

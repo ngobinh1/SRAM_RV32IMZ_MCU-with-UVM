@@ -14,7 +14,9 @@ interface riscv_if (input logic clk);
     // Primary control signals
     // ------------------------------------------------------------
     logic        rst;          // Active-low reset (matches DUT)
-
+    logic meip = 0; // Thêm biến tạo ngắt ngoài
+    logic mtip = 0; // Thêm biến tạo ngắt timer
+    
     // ------------------------------------------------------------
     // Fetch stage probes
     // ------------------------------------------------------------

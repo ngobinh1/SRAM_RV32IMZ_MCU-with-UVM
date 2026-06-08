@@ -12,8 +12,11 @@
 //  6.  riscv_branch_test_seq    – load branch/jump test program
 //  7.  riscv_hazard_test_seq    – load load-use hazard test
 //  8.  riscv_csr_test_seq       – load CSR/ecall test program
-//  9.  riscv_full_test_seq      – composite: runs all sub-tests
-//  10. riscv_random_seq         – randomised program selection
+//  9.
+//  10.
+//  11.
+//  12.  riscv_full_test_seq      – composite: runs all sub-tests
+//  13. riscv_random_seq         – randomised program selection
 // ============================================================
 `include "uvm_macros.svh"
 import uvm_pkg::*;
@@ -292,6 +295,9 @@ class riscv_csr_test_seq extends riscv_base_seq;
 
 endclass : riscv_csr_test_seq
 
+// ============================================================
+// 9. Extra coverage Test Sequence
+// ============================================================
 class riscv_extra_coverage_seq extends riscv_base_seq;
     `uvm_object_utils(riscv_extra_coverage_seq)
     function new(string name = "riscv_extra_coverage_seq");
@@ -311,7 +317,7 @@ class riscv_extra_coverage_seq extends riscv_base_seq;
 endclass : riscv_extra_coverage_seq
 
 // ============================================================
-// 8b. Mul/Div Test Sequence
+// 10. Mul/Div Test Sequence
 // ============================================================
 class riscv_muldiv_test_seq extends riscv_base_seq;
     `uvm_object_utils(riscv_muldiv_test_seq)
@@ -339,9 +345,37 @@ class riscv_muldiv_test_seq extends riscv_base_seq;
 
 endclass : riscv_muldiv_test_seq
 
+// ============================================================
+// 11. Interrupt Test Sequence
+// ============================================================
+class riscv_interrupt_test_seq extends riscv_base_seq;
+    `uvm_object_utils(riscv_interrupt_test_seq)
+
+    function new(string name = "riscv_interrupt_test_seq");
+        super.new(name);
+    endfunction
+
+    task body();
+        riscv_load_program_seq load_seq;
+        riscv_run_seq          run_seq;
+
+        `uvm_info("INTERRUPT_TEST", "Starting interrupt test sequence", UVM_MEDIUM)
+
+        load_seq = riscv_load_program_seq::type_id::create("load_seq");
+        load_seq.hex_file = "int_exc_test.hex";
+        load_seq.start(m_sequencer);
+
+        run_seq = riscv_run_seq::type_id::create("run_seq");
+        run_seq.run_cycles = 2000;
+        run_seq.start(m_sequencer);
+
+        `uvm_info("INTERRUPT_TEST", "Interrupt test sequence complete", UVM_MEDIUM)
+    endtask
+
+endclass : riscv_interrupt_test_seq
 
 // ============================================================
-// 9. Full Test Sequence
+// 12. Full Test Sequence
 //    Composite: runs ALL sub-test sequences back-to-back.
 //    Each sub-test applies its own reset + load.
 // ============================================================
@@ -366,6 +400,7 @@ class riscv_full_test_seq extends riscv_base_seq;
         riscv_csr_test_seq       csr_seq;
         riscv_extra_coverage_seq extra_seq;
         riscv_muldiv_test_seq    muldiv_seq;
+        riscv_interrupt_test_seq int_exc_seq;
 
         `uvm_info("FULL_TEST", "=== Starting full regression ===", UVM_NONE)
 
@@ -376,6 +411,7 @@ class riscv_full_test_seq extends riscv_base_seq;
         csr_seq       = riscv_csr_test_seq::type_id::create("csr_seq");
         extra_seq     = riscv_extra_coverage_seq::type_id::create("extra_seq");
         muldiv_seq    = riscv_muldiv_test_seq::type_id::create("muldiv_seq");
+        int_exc_seq   = riscv_interrupt_test_seq::type_id::create("int_exc_seq");
         full_load_seq = riscv_load_program_seq::type_id::create("full_load_seq");
         run_seq       = riscv_run_seq::type_id::create("run_seq");
 
@@ -392,6 +428,7 @@ class riscv_full_test_seq extends riscv_base_seq;
         csr_seq.start(m_sequencer);
         extra_seq.start(m_sequencer);
         muldiv_seq.start(m_sequencer);
+        int_exc_seq.start(m_sequencer);
 
         `uvm_info("FULL_TEST", "=== Full regression complete ===", UVM_NONE)
     endtask
@@ -400,7 +437,7 @@ endclass : riscv_full_test_seq
 
 
 // ============================================================
-// 10. Randomised Sequence
+// 13. Randomised Sequence
 //     Randomly selects one of the available test programs
 //     and a random run duration – useful for stress testing
 // ============================================================

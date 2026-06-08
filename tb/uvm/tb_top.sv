@@ -23,6 +23,7 @@ module tb_top;
     // Clock generation: 100 MHz → 10 ns period
     // --------------------------------------------------------
     logic clk;
+    
     initial clk = 1'b0;
     always #5 clk = ~clk;
 
@@ -39,7 +40,9 @@ module tb_top;
     // --------------------------------------------------------
     riscv_pipeline_top dut (
         .clk(clk),
-        .rst(riscv_if_inst.rst)
+        .rst(riscv_if_inst.rst),
+        .meip(riscv_if_inst.meip),
+        .mtip(riscv_if_inst.mtip)
     );
 
     // --------------------------------------------------------

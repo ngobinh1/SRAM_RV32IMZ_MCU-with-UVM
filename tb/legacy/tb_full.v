@@ -6,7 +6,9 @@ module tb_riscv_pipeline_mega();
 
     riscv_pipeline_top dut (
         .clk(clk),
-        .rst(rst)
+        .rst(rst),
+        .meip(1'b0), 
+        .mtip(1'b0)
     );
 
     always #5 clk = ~clk;

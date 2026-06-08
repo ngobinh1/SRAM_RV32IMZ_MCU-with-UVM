@@ -14,6 +14,9 @@
 //  7. riscv_smode_test    - Supervisor mode test
 //  8. riscv_mmu_test      - MMU address translation test
 //  9. riscv_random_test   – randomised stress test
+//  10. riscv_smode_mmu_random_test – randomised S-Mode + MMU test
+//  11. riscv_custom_hex_test – run any custom hex file with plusarg overrides
+//  12. riscv_interrupt_test – test external and timer interrupts
 //
 //  Run with:
 //   +UVM_TESTNAME=riscv_alu_test
@@ -309,5 +312,36 @@ class riscv_custom_hex_test extends riscv_base_test;
     endtask
 
 endclass : riscv_custom_hex_test
+
+class riscv_interrupt_test extends riscv_base_test;
+    `uvm_component_utils(riscv_interrupt_test)
+
+    function new(string name = "riscv_interrupt_test", uvm_component parent = null);
+        super.new(name, parent);
+        hex_file = "int_exc_test.hex";
+        timeout_cycles = 15_000;
+    endfunction
+
+    task run_test_body(uvm_phase phase);
+        riscv_load_program_seq load_seq;
+        load_seq = riscv_load_program_seq::type_id::create("load_seq");
+        load_seq.hex_file = hex_file;
+        load_seq.start(get_sequencer());
+        
+        vif.wait_clks(2000);
+
+        `uvm_info("INT_TEST", "Asserting Machine Timer Interrupt (MTIP)", UVM_NONE)
+        vif.mtip = 1'b1;
+        vif.wait_clks(20);
+        vif.mtip = 1'b0; 
+        vif.wait_clks(500);
+
+        `uvm_info("INT_TEST", "Asserting Machine External Interrupt (MEIP)", UVM_NONE)
+        vif.meip = 1'b1;
+        vif.wait_clks(20);
+        vif.meip = 1'b0;
+        vif.wait_clks(500);
+    endtask
+endclass
 
 `endif // RISCV_TESTS_SV
