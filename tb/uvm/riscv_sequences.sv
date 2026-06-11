@@ -604,4 +604,33 @@ class riscv_smode_mmu_random_seq extends riscv_base_seq;
     endtask
 endclass : riscv_smode_mmu_random_seq
 
+// ============================================================
+// 14. Store Buffer Forwarding Test Sequence
+// ============================================================
+class riscv_sb_fwd_test_seq extends riscv_base_seq;
+    `uvm_object_utils(riscv_sb_fwd_test_seq)
+
+    function new(string name = "riscv_sb_fwd_test_seq");
+        super.new(name);
+    endfunction
+
+    task body();
+        riscv_load_program_seq load_seq;
+        riscv_run_seq          run_seq;
+
+        `uvm_info("SB_FWD_TEST", "Starting Store Buffer Forwarding test", UVM_MEDIUM)
+
+        load_seq = riscv_load_program_seq::type_id::create("load_seq");
+        load_seq.hex_file = "sb_fwd_test.hex";
+        load_seq.start(m_sequencer);
+
+        run_seq = riscv_run_seq::type_id::create("run_seq");
+        run_seq.run_cycles = 1000;
+        run_seq.start(m_sequencer);
+
+        `uvm_info("SB_FWD_TEST", "Store Buffer Forwarding test complete", UVM_MEDIUM)
+    endtask
+
+endclass : riscv_sb_fwd_test_seq
+
 `endif // RISCV_SEQUENCES_SV

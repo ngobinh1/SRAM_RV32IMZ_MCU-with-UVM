@@ -451,6 +451,8 @@ module riscv_pipeline_top (
     
     
     wire real_icache_stall, real_dcache_stall;
+    wire mmu_lsu_stall;
+    wire [31:0] final_read_data_m;
     
     riscv_mmu #(.SUPPORT_MMU(1)) mmu_inst (
         .clk_i(clk),
@@ -482,10 +484,10 @@ module riscv_pipeline_top (
         .lsu_in_load_fault_o(mmu_load_fault),
         .lsu_in_store_fault_o(mmu_store_fault),
         
-        .lsu_out_accept_i(~real_dcache_stall),
-        .lsu_out_ack_i((lsu_out_rd_mmu | (|lsu_out_wr_mmu)) & ~real_dcache_stall),
+        .lsu_out_accept_i(~mmu_lsu_stall),
+        .lsu_out_ack_i((lsu_out_rd_mmu | (|lsu_out_wr_mmu)) & ~mmu_lsu_stall),
         .lsu_out_resp_tag_i(lsu_out_req_tag_mmu),
-        .lsu_out_data_rd_i(read_data_m_from_dcache),
+        .lsu_out_data_rd_i(final_read_data_m),
         .lsu_out_addr_o(lsu_out_addr_mmu),
         .lsu_out_data_wr_o(lsu_out_data_wr_mmu),
         .lsu_out_rd_o(lsu_out_rd_mmu),
@@ -493,44 +495,124 @@ module riscv_pipeline_top (
         .lsu_out_req_tag_o(lsu_out_req_tag_mmu)
     );
 
-    wire [2:0] dcache_funct3 = mem_read_m ? 3'b010 : ((lsu_out_req_tag_mmu[9:7] == 3'b111) ? 3'b010 : funct3_m);
+    wire [2:0] dcache_funct3_original = mem_read_m ? 3'b010 : ((lsu_out_req_tag_mmu[9:7] == 3'b111) ? 3'b010 : funct3_m);
 
     // ==========================================
-    // L1 I-CACHE (AXI4-Lite Master)
+    // STORE BUFFER INTEGRATION
+    // ==========================================
+    wire sb_full, sb_empty, fwd_valid;
+    wire [31:0] fwd_data;
+    wire sb_mem_req;
+    wire [31:0] sb_mem_addr, sb_mem_data;
+    wire [3:0] sb_mem_be;
+    
+    // Approximate load_be from lsu address and funct3
+    reg [3:0] sb_load_be;
+    always @(*) begin
+        if (lsu_out_rd_mmu) begin
+            case (dcache_funct3_original[1:0])
+                2'b00: sb_load_be = 4'b0001 << lsu_out_addr_mmu[1:0];
+                2'b01: sb_load_be = 4'b0011 << lsu_out_addr_mmu[1:0];
+                2'b10: sb_load_be = 4'b1111;
+                default: sb_load_be = 4'b0000;
+            endcase
+        end else begin
+            sb_load_be = 4'b0000;
+        end
+    end
+
+    assign mmu_lsu_stall = (lsu_out_rd_mmu & ~fwd_valid & real_dcache_stall) | (|lsu_out_wr_mmu & sb_full);
+    wire dcache_re = lsu_out_rd_mmu & ~fwd_valid;
+    wire dcache_we = sb_mem_req & ~dcache_re;
+
+    store_buffer #(
+        .DEPTH(4)
+    ) sb_inst (
+        .clk(clk),
+        .rst_n(rst),
+        .sb_push_req(|lsu_out_wr_mmu),
+        .sb_push_addr(lsu_out_addr_mmu),
+        .sb_push_data(lsu_out_data_wr_mmu),
+        .sb_push_be(lsu_out_wr_mmu),
+        .sb_full(sb_full),
+        .sb_empty(sb_empty),
+        .load_req(lsu_out_rd_mmu),
+        .load_addr(lsu_out_addr_mmu),
+        .load_be(sb_load_be),
+        .fwd_valid(fwd_valid),
+        .fwd_data(fwd_data),
+        .mem_req(sb_mem_req),
+        .mem_addr(sb_mem_addr),
+        .mem_data(sb_mem_data),
+        .mem_be(sb_mem_be),
+        .mem_ack(dcache_we & ~real_dcache_stall)
+    );
+
+    assign final_read_data_m = fwd_valid ? fwd_data : read_data_m_from_dcache;
+
+    reg [2:0] sb_funct3;
+    always @(*) begin
+        case (sb_mem_be)
+            4'b1111: sb_funct3 = 3'b010; // Word
+            4'b0011, 4'b1100: sb_funct3 = 3'b001; // Half
+            default: sb_funct3 = 3'b000; // Byte
+        endcase
+    end
+
+    wire [2:0] final_dcache_funct3 = dcache_re ? dcache_funct3_original : sb_funct3;
+    wire [31:0] final_dcache_addr = dcache_re ? lsu_out_addr_mmu : sb_mem_addr;
+
+    wire [7:0] i_arlen; wire [2:0] i_arsize; wire [1:0] i_arburst; wire i_rlast;
+    wire [7:0] d_awlen; wire [2:0] d_awsize; wire [1:0] d_awburst; wire d_wlast;
+    wire [7:0] d_arlen; wire [2:0] d_arsize; wire [1:0] d_arburst; wire d_rlast;
+
+    // ==========================================
+    // L1 I-CACHE (AXI4-Full Master)
     // ==========================================
     l1_icache icache_inst (
         .clk(clk), .rst_n(rst), .cpu_addr(fetch_out_pc_mmu), .cpu_rdata(instr_f_from_icache), .icache_stall(real_icache_stall),
-        .m_axi_araddr(i_araddr), .m_axi_arvalid(i_arvalid), .m_axi_arready(i_arready),
-        .m_axi_rdata(i_rdata), .m_axi_rresp(i_rresp), .m_axi_rvalid(i_rvalid), .m_axi_rready(i_rready)
+        .m_axi_araddr(i_araddr), .m_axi_arlen(i_arlen), .m_axi_arsize(i_arsize), .m_axi_arburst(i_arburst), .m_axi_arvalid(i_arvalid), .m_axi_arready(i_arready),
+        .m_axi_rdata(i_rdata), .m_axi_rresp(i_rresp), .m_axi_rlast(i_rlast), .m_axi_rvalid(i_rvalid), .m_axi_rready(i_rready)
     );
 
     // ==========================================
-    // L1 D-CACHE (AXI4-Lite Master)
+    // L1 D-CACHE (AXI4-Full Master)
     // ==========================================
     l1_dcache dcache_inst (
-        .clk(clk), .rst_n(rst), .cpu_addr(lsu_out_addr_mmu), .cpu_wdata(lsu_out_data_wr_mmu),
-        .cpu_we(|lsu_out_wr_mmu), .cpu_re(lsu_out_rd_mmu), .cpu_funct3(dcache_funct3),
+        .clk(clk), .rst_n(rst), .cpu_addr(final_dcache_addr), .cpu_wdata(sb_mem_data),
+        .cpu_we(dcache_we), .cpu_re(dcache_re), .cpu_funct3(final_dcache_funct3),
         .cpu_rdata(read_data_m_from_dcache), .dcache_stall(real_dcache_stall),
         
-        .m_axi_awaddr(d_awaddr), .m_axi_awvalid(d_awvalid), .m_axi_awready(d_awready),
-        .m_axi_wdata(d_wdata), .m_axi_wstrb(d_wstrb), .m_axi_wvalid(d_wvalid), .m_axi_wready(d_wready),
+        .m_axi_awaddr(d_awaddr), .m_axi_awlen(d_awlen), .m_axi_awsize(d_awsize), .m_axi_awburst(d_awburst), .m_axi_awvalid(d_awvalid), .m_axi_awready(d_awready),
+        .m_axi_wdata(d_wdata), .m_axi_wstrb(d_wstrb), .m_axi_wlast(d_wlast), .m_axi_wvalid(d_wvalid), .m_axi_wready(d_wready),
         .m_axi_bresp(d_bresp), .m_axi_bvalid(d_bvalid), .m_axi_bready(d_bready),
-        .m_axi_araddr(d_araddr), .m_axi_arvalid(d_arvalid), .m_axi_arready(d_arready),
-        .m_axi_rdata(d_rdata), .m_axi_rresp(d_rresp), .m_axi_rvalid(d_rvalid), .m_axi_rready(d_rready)
+        .m_axi_araddr(d_araddr), .m_axi_arlen(d_arlen), .m_axi_arsize(d_arsize), .m_axi_arburst(d_arburst), .m_axi_arvalid(d_arvalid), .m_axi_arready(d_arready),
+        .m_axi_rdata(d_rdata), .m_axi_rresp(d_rresp), .m_axi_rlast(d_rlast), .m_axi_rvalid(d_rvalid), .m_axi_rready(d_rready)
     );
 
     // ==========================================
     // AXI INTERCONNECT
     // ==========================================
+
+    wire [7:0] s_awlen, s_arlen;
+    wire [2:0] s_awsize, s_arsize;
+    wire [1:0] s_awburst, s_arburst;
+    wire s_wlast, s_rlast;
+
     axi_interconnect axi_ic_inst (
         .clk(clk), .rst_n(rst),
         .m0_araddr(i_araddr), .m0_arvalid(i_arvalid), .m0_arready(i_arready), .m0_rdata(i_rdata), .m0_rresp(i_rresp), .m0_rvalid(i_rvalid), .m0_rready(i_rready),
+        .m0_arlen(i_arlen), .m0_arsize(i_arsize), .m0_arburst(i_arburst), .m0_rlast(i_rlast),
         
         .m1_awaddr(d_awaddr), .m1_awvalid(d_awvalid), .m1_awready(d_awready), .m1_wdata(d_wdata), .m1_wstrb(d_wstrb), .m1_wvalid(d_wvalid), .m1_wready(d_wready), .m1_bresp(d_bresp), .m1_bvalid(d_bvalid), .m1_bready(d_bready),
+        .m1_awlen(d_awlen), .m1_awsize(d_awsize), .m1_awburst(d_awburst), .m1_wlast(d_wlast),
         .m1_araddr(d_araddr), .m1_arvalid(d_arvalid), .m1_arready(d_arready), .m1_rdata(d_rdata), .m1_rresp(d_rresp), .m1_rvalid(d_rvalid), .m1_rready(d_rready),
+        .m1_arlen(d_arlen), .m1_arsize(d_arsize), .m1_arburst(d_arburst), .m1_rlast(d_rlast),
         
         .s0_awaddr(s_awaddr), .s0_awvalid(s_awvalid), .s0_awready(s_awready), .s0_wdata(s_wdata), .s0_wstrb(s_wstrb), .s0_wvalid(s_wvalid), .s0_wready(s_wready), .s0_bresp(s_bresp), .s0_bvalid(s_bvalid), .s0_bready(s_bready),
-        .s0_araddr(s_araddr), .s0_arvalid(s_arvalid), .s0_arready(s_arready), .s0_rdata(s_rdata), .s0_rresp(s_rresp), .s0_rvalid(s_rvalid), .s0_rready(s_rready)
+        .s0_awlen(s_awlen), .s0_awsize(s_awsize), .s0_awburst(s_awburst), .s0_wlast(s_wlast),
+        .s0_araddr(s_araddr), .s0_arvalid(s_arvalid), .s0_arready(s_arready), .s0_rdata(s_rdata), .s0_rresp(s_rresp), .s0_rvalid(s_rvalid), .s0_rready(s_rready),
+        .s0_arlen(s_arlen), .s0_arsize(s_arsize), .s0_arburst(s_arburst), .s0_rlast(s_rlast)
     );
 
     // ==========================================
@@ -540,10 +622,12 @@ module riscv_pipeline_top (
     axi_sram_wrapper sram_wrap_inst (
         .clk(clk), .rst_n(rst),
         .s_axi_awaddr(s_awaddr), .s_axi_awvalid(s_awvalid), .s_axi_awready(s_awready),
-        .s_axi_wdata(s_wdata), .s_axi_wstrb(s_wstrb), .s_axi_wvalid(s_wvalid), .s_axi_wready(s_wready),
+        .s_axi_awlen(s_awlen), .s_axi_awsize(s_awsize), .s_axi_awburst(s_awburst),
+        .s_axi_wdata(s_wdata), .s_axi_wstrb(s_wstrb), .s_axi_wvalid(s_wvalid), .s_axi_wready(s_wready), .s_axi_wlast(s_wlast),
         .s_axi_bresp(s_bresp), .s_axi_bvalid(s_bvalid), .s_axi_bready(s_bready),
         .s_axi_araddr(s_araddr), .s_axi_arvalid(s_arvalid), .s_axi_arready(s_arready),
-        .s_axi_rdata(s_rdata), .s_axi_rresp(s_rresp), .s_axi_rvalid(s_rvalid), .s_axi_rready(s_rready),
+        .s_axi_arlen(s_arlen), .s_axi_arsize(s_arsize), .s_axi_arburst(s_arburst),
+        .s_axi_rdata(s_rdata), .s_axi_rresp(s_rresp), .s_axi_rvalid(s_rvalid), .s_axi_rready(s_rready), .s_axi_rlast(s_rlast),
         
         .sram_ad(sram_ad), .sram_di(sram_di), .sram_ben(sram_ben), 
         .sram_en(sram_en), .sram_r_wb(sram_r_wb), .sram_do(sram_do)

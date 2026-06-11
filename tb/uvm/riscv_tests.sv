@@ -344,4 +344,25 @@ class riscv_interrupt_test extends riscv_base_test;
     endtask
 endclass
 
+// ============================================================
+// Store Buffer Forwarding Test
+// ============================================================
+class riscv_sb_fwd_test extends riscv_base_test;
+    `uvm_component_utils(riscv_sb_fwd_test)
+
+    function new(string name = "riscv_sb_fwd_test", uvm_component parent = null);
+        super.new(name, parent);
+        hex_file       = "sb_fwd_test.hex";
+        timeout_cycles = 3_000;
+    endfunction
+
+    task run_test_body(uvm_phase phase);
+        riscv_sb_fwd_test_seq seq;
+        seq = riscv_sb_fwd_test_seq::type_id::create("seq");
+        seq.start(get_sequencer());
+        vif.wait_clks(200);
+    endtask
+
+endclass : riscv_sb_fwd_test
+
 `endif // RISCV_TESTS_SV

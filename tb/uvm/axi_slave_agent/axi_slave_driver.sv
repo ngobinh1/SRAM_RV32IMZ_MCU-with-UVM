@@ -48,6 +48,7 @@ class axi_slave_driver extends uvm_driver #(axi_slave_item);
                 
                 count = 0;
                 while (count <= wlen) begin
+                    vif.wready <= 0;
                     repeat($urandom_range(0, 3)) @(posedge vif.clk);
                     vif.wready <= 1;
                     @(posedge vif.clk);
@@ -64,6 +65,7 @@ class axi_slave_driver extends uvm_driver #(axi_slave_item);
                         continue;
                     end
                 end
+                vif.wready <= 0;
                 
                 repeat($urandom_range(0, 3)) @(posedge vif.clk);
                 vif.bvalid <= 1;
@@ -93,6 +95,8 @@ class axi_slave_driver extends uvm_driver #(axi_slave_item);
                 
                 count = 0;
                 while (count <= rlen) begin
+                    vif.rvalid <= 0;
+                    vif.rlast <= 0;
                     repeat($urandom_range(0, 3)) @(posedge vif.clk);
                     vif.rvalid <= 1;
                     vif.rid <= rid;
@@ -106,6 +110,7 @@ class axi_slave_driver extends uvm_driver #(axi_slave_item);
                     count++;
                 end
                 vif.rvalid <= 0;
+                vif.rlast <= 0;
                 vif.rlast <= 0;
             end
         end

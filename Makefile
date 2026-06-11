@@ -54,6 +54,7 @@ RTL_FILES :=                                          \
   $(RTL_MEM)/EF_SRAM_1024x32.v                        \
   $(RTL_MEM)/axi_sram_wrapper.v                       \
   $(RTL_MEM)/axi_interconnect.v                       \
+  $(RTL_MEM)/axi4_full_master.v                       \
   $(RTL_CACHE)/l1_icache.v                            \
   $(RTL_CACHE)/l1_dcache.v                            \
   $(RTL_HAZARD)/hazard_unit.v                         \
@@ -88,6 +89,7 @@ RTL_FILES :=                                          \
 # --------------------------------------------------------------
 VLOG_COMMON_FLAGS :=                                  \
   -timescale 1ns/1ps                                  \
+  -sv                                                 \
   +define+functional                                  \
   +incdir+$(RTL_CORE)                                 \
   +incdir+$(RTL_CTRL)                                 \
@@ -207,7 +209,7 @@ regression: compile_uvm
 	                  riscv_hazard_test riscv_csr_test riscv_muldiv_test \
 	                  riscv_smode_test riscv_mmu_test riscv_interrupt_test \
 	                  riscv_full_test riscv_random_test riscv_smode_mmu_random_test \
-	                  riscv_custom_hex_test; do \
+	                  riscv_custom_hex_test riscv_sb_fwd_test; do \
 	  echo ">>> Running: $$TEST_NAME"; \
 	  $(VSIM) -c work.tb_top                          \
 	    -sv_seed random                               \

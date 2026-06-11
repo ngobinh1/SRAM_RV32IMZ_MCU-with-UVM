@@ -12,7 +12,8 @@
 // ============================================================
 
 `timescale 1ns / 1ps
-`include "riscv_tb_pkg.sv" // includes all UVM components
+`include "axi_slave_if.sv"
+`include "riscv_tb_pkg.sv"
 module tb_top;
 
     import uvm_pkg::*;
@@ -185,6 +186,7 @@ module tb_top;
         force dut.s_arready = axi_if_inst.arready;
         force dut.s_rdata   = axi_if_inst.rdata;
         force dut.s_rresp   = axi_if_inst.rresp;
+        force dut.s_rlast   = axi_if_inst.rlast;
         force dut.s_rvalid  = axi_if_inst.rvalid;
     end
 
@@ -193,23 +195,23 @@ module tb_top;
     always_comb begin
         axi_if_inst.awid    = 0;
         axi_if_inst.awaddr  = dut.s_awaddr;
-        axi_if_inst.awlen   = 0; // Assuming AXI-Lite maps to length 0 (1 beat)
-        axi_if_inst.awsize  = 3'b010; // 4 bytes
-        axi_if_inst.awburst = 2'b01; // INCR
+        axi_if_inst.awlen   = dut.s_awlen;
+        axi_if_inst.awsize  = dut.s_awsize;
+        axi_if_inst.awburst = dut.s_awburst;
         axi_if_inst.awvalid = dut.s_awvalid;
 
         axi_if_inst.wdata   = dut.s_wdata;
         axi_if_inst.wstrb   = dut.s_wstrb;
-        axi_if_inst.wlast   = 1'b1;
+        axi_if_inst.wlast   = dut.s_wlast;
         axi_if_inst.wvalid  = dut.s_wvalid;
 
         axi_if_inst.bready  = dut.s_bready;
 
         axi_if_inst.arid    = 0;
         axi_if_inst.araddr  = dut.s_araddr;
-        axi_if_inst.arlen   = 0;
-        axi_if_inst.arsize  = 3'b010;
-        axi_if_inst.arburst = 2'b01;
+        axi_if_inst.arlen   = dut.s_arlen;
+        axi_if_inst.arsize  = dut.s_arsize;
+        axi_if_inst.arburst = dut.s_arburst;
         axi_if_inst.arvalid = dut.s_arvalid;
 
         axi_if_inst.rready  = dut.s_rready;

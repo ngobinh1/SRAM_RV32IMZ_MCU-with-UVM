@@ -1,3 +1,4 @@
+
 module store_buffer #(
     parameter DEPTH = 4
 )(
